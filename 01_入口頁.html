@@ -283,11 +283,11 @@
   text-decoration:none;
   white-space:nowrap;
   flex:0 0 auto;
-}.entry-guide a:last-child{
+}.entry-guide a.guide-highlight{
   background:var(--sage-soft);
   border-color:rgba(87,103,85,.14);
   color:#576755;
-}#free-overview,#buy,#demo{
+}#free-overview,#buy,#demo,#complete-manual{
   scroll-margin-top:125px;
 }@media(max-width:760px){.wrap{padding:0 14px 110px}.topbar-in{padding:12px 14px}.profile,.concept-grid,.content-grid,.summary-row,.compat-grid,.origin-grid{grid-template-columns:1fr}.demo-grid{grid-template-columns:1fr}.hero{min-height:auto;padding:58px 0 42px}.hero h1{font-size:25px;line-height:1.34}.single-row-title{font-size:23px!important}.pull-title{font-size:18px!important}.feedback-title{font-size:22px!important}.origin-card h3.small{font-size:18px!important;line-height:1.55}.demo-grid{grid-template-columns:1fr}.date-selects{grid-template-columns:1.3fr .85fr .85fr}.feedback-card{flex-basis:calc(100vw - 48px)}.mini-outline-list{font-size:14px;line-height:1.9}.entry-guide{justify-content:flex-start;padding:7px 14px 9px}.entry-guide a{padding:7px 13px;font-size:10px}
 }.moon-phases{
@@ -397,6 +397,527 @@
       }
     
 </style>
+
+<style>
+.commercial-bridge{margin-top:26px;display:grid;gap:12px}
+.commercial-card{padding:22px 20px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.56)}
+.commercial-card .num{font-family:Georgia,"Noto Serif TC",serif;color:var(--rose-deep);font-size:13px;letter-spacing:.12em;margin-bottom:8px}
+.commercial-card h3{margin:0 0 8px;font-size:18px}
+.commercial-card p{margin:0;color:#756b64;line-height:1.85;font-size:14px}
+.trust-strip{margin-top:22px;padding:18px 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;gap:10px}
+.trust-row{display:flex;gap:10px;align-items:flex-start;color:#655d57;font-size:13px;line-height:1.7}
+.trust-dot{color:var(--sage);font-weight:800}
+.purchase-note{margin-top:22px;padding:22px 20px;border:1px solid rgba(166,111,104,.22);border-radius:22px;background:rgba(247,231,227,.58);text-align:left}
+.purchase-note .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-deep);font-weight:800;margin-bottom:10px}
+.purchase-note h3{margin:0 0 12px;font-size:20px}
+.purchase-note p{margin:0 0 10px;color:#6e625b;font-size:13px;line-height:1.85}
+.purchase-note p:last-child{margin-bottom:0}
+.purchase-note strong{color:#453d38}
+.scope-mini{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.scope-mini div{padding:14px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.6);font-size:12px;line-height:1.65;color:#6d635c}
+.scope-mini b{display:block;color:#443c37;margin-bottom:4px;font-size:13px}
+@media(max-width:360px){.scope-mini{grid-template-columns:1fr}}
+</style>
+
+
+<style>
+/* v2 readability refinements */
+.trust-strip{margin-top:22px;padding:0;border:none;display:grid;gap:12px}
+.trust-row{display:flex;gap:12px;align-items:flex-start;color:#655d57;font-size:14px;line-height:1.85;padding:16px 16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.62)}
+.trust-row strong{display:block;color:#443c37;font-size:15px;margin-bottom:4px}
+.trust-dot{color:var(--sage);font-weight:800;font-size:18px;line-height:1.2;margin-top:2px}
+.purchase-note{margin-top:22px;padding:0;border:none;background:transparent;text-align:left}
+.purchase-panel{padding:24px 20px;border:1px solid rgba(166,111,104,.22);border-radius:22px;background:rgba(247,231,227,.58)}
+.purchase-note .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-deep);font-weight:800;margin-bottom:10px}
+.purchase-note h3{margin:0 0 12px;font-size:20px;line-height:1.45}
+.purchase-lead{margin:0 0 16px;color:#6e625b;font-size:14px;line-height:1.85}
+.note-grid{display:grid;gap:10px;margin-top:10px}
+.note-block{padding:14px 15px;border:1px solid rgba(220,205,196,.9);border-radius:16px;background:rgba(255,255,255,.58)}
+.note-block b{display:block;font-size:14px;color:#443c37;margin-bottom:6px}
+.note-block p{margin:0;color:#6e625b;font-size:13px;line-height:1.8}
+.scope-mini{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.scope-mini div{padding:14px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.72);font-size:13px;line-height:1.75;color:#6d635c}
+.scope-mini b{display:block;color:#443c37;margin-bottom:6px;font-size:14px}
+@media(max-width:360px){.scope-mini{grid-template-columns:1fr}}
+</style>
+
+
+<style>
+.xiaofei-demo{margin-top:30px;padding:26px 20px;border:1px solid var(--line);border-radius:26px;background:rgba(255,255,255,.58)}
+.xiaofei-head{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.xiaofei-avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sage-soft);border:1px solid var(--line);font-size:20px;flex:0 0 auto}
+.xiaofei-head h3{margin:0;font-size:20px}
+.xiaofei-head p{margin:3px 0 0;color:#7a7069;font-size:12px}
+.chat-line{display:flex;margin-top:12px}
+.chat-line.you{justify-content:flex-end}
+.chat-bubble{max-width:88%;padding:14px 15px;border-radius:18px;font-size:14px;line-height:1.8}
+.chat-line.you .chat-bubble{background:#302b28;color:#fff;border-bottom-right-radius:6px}
+.chat-line.xf .chat-bubble{background:var(--rose-soft);color:#504743;border-bottom-left-radius:6px}
+.chat-bubble strong{color:inherit}
+.chat-follow{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.chat-follow .mini-title{font-size:12px;letter-spacing:.08em;color:var(--rose-deep);font-weight:800;margin-bottom:8px}
+.chat-follow p{margin:0;color:#6d625b;font-size:13px;line-height:1.75}
+</style>
+
+
+<style>
+.compare-wrap{margin-top:30px}
+.compare-kicker{font-size:12px;letter-spacing:.14em;color:var(--rose-deep);font-weight:800;margin-bottom:10px}
+.compare-title{margin:0 0 10px;font-size:27px;line-height:1.45}
+.compare-intro{margin:0;color:#746a63;font-size:14px;line-height:1.85}
+.compare-grid{margin-top:20px;display:grid;gap:14px}
+.compare-card{padding:22px 20px;border:1px solid var(--line);border-radius:24px}
+.compare-card.familiar{background:rgba(247,231,227,.55)}
+.compare-card.recipe{background:rgba(229,239,230,.62)}
+.compare-card .tag{font-size:12px;font-weight:800;letter-spacing:.08em;margin-bottom:12px}
+.compare-card.familiar .tag{color:var(--rose-deep)}
+.compare-card.recipe .tag{color:#5f7b67}
+.compare-card h3{margin:0 0 12px;font-size:20px}
+.compare-list{display:grid;gap:0}
+.compare-item{padding:12px 0;border-top:1px solid rgba(130,115,104,.14);font-size:14px;line-height:1.75;color:#584f49}
+.compare-item:first-child{border-top:0;padding-top:0}
+.compare-closing{margin-top:18px;padding:20px 18px;border-radius:20px;background:#fff;border:1px solid var(--line);font-family:Georgia,"Noto Serif TC",serif;font-size:18px;line-height:1.7;text-align:center;color:#3e3834}
+.compare-closing b{color:var(--rose-deep)}
+</style>
+
+
+<style>
+.delivery-head{margin-top:18px;text-align:center}
+.delivery-head .tiny{font-size:12px;letter-spacing:.12em;color:var(--rose-deep);font-weight:800}
+.delivery-head h3{margin:8px 0 6px;font-size:25px}
+.delivery-head p{margin:0;color:#746a63;font-size:14px;line-height:1.8}
+.delivery-core{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.delivery-card{padding:20px 18px;border:1px solid var(--line);border-radius:22px;background:#fff}
+.delivery-card.report{background:rgba(247,231,227,.48)}
+.delivery-card.assistant{background:rgba(229,239,230,.62)}
+.delivery-card .ico{font-size:22px;margin-bottom:8px}
+.delivery-card h4{margin:0 0 8px;font-size:18px}
+.delivery-card p{margin:0;color:#655c56;font-size:13px;line-height:1.75}
+.report-map{margin-top:16px;padding:20px 18px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.72)}
+.report-map h4{margin:0 0 12px;font-size:18px}
+.report-map-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.report-map-item{padding:11px 0;border-top:1px solid rgba(130,115,104,.13);font-size:13px;line-height:1.7;color:#554c47}
+.report-map-item:nth-child(-n+2){border-top:0}
+.report-map-note{margin-top:12px;padding-top:12px;border-top:1px solid rgba(130,115,104,.13);font-size:12px;line-height:1.7;color:#7a7069}
+@media(max-width:620px){
+  .delivery-core,.report-map-grid{grid-template-columns:1fr}
+  .report-map-item:nth-child(2){border-top:1px solid rgba(130,115,104,.13)}
+}
+</style>
+
+
+<style>
+.full-reading-intro-note{
+  margin-top:18px;
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:14px;
+  background:rgba(243,227,223,.95);
+  border:1px solid rgba(166,111,104,.16);
+  color:var(--rose-deep);
+  font-size:14px;
+  line-height:1.75;
+  font-weight:700;
+}
+.xf-section{
+  margin-top:38px;
+  padding:30px 22px;
+  border-radius:28px;
+  background:rgba(247,231,227,.48);
+  border:1px solid rgba(166,111,104,.18);
+}
+.xf-kicker{
+  font-size:12px;
+  letter-spacing:.14em;
+  color:var(--rose-deep);
+  font-weight:800;
+  margin-bottom:10px;
+}
+.xf-title{
+  margin:0 0 12px;
+  font-size:28px;
+  line-height:1.42;
+}
+.xf-lead{
+  margin:0;
+  color:#6f655f;
+  font-size:14px;
+  line-height:1.85;
+}
+.xf-chat{
+  margin-top:22px;
+  padding:18px;
+  background:rgba(255,255,255,.78);
+  border:1px solid var(--line);
+  border-radius:22px;
+}
+.xf-row{
+  display:flex;
+  margin-top:12px;
+}
+.xf-row:first-child{margin-top:0}
+.xf-row.user{justify-content:flex-end}
+.xf-bubble{
+  max-width:88%;
+  padding:14px 15px;
+  border-radius:18px;
+  font-size:14px;
+  line-height:1.8;
+}
+.xf-row.user .xf-bubble{
+  background:#302b28;
+  color:#fff;
+  border-bottom-right-radius:6px;
+}
+.xf-row.bot .xf-bubble{
+  background:#f4e3df;
+  color:#4f4742;
+  border-bottom-left-radius:6px;
+}
+.xf-suggestions{
+  margin-top:18px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.xf-pill{
+  padding:8px 11px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:#655b55;
+  font-size:12px;
+}
+</style>
+
+
+<style>
+.xiaofei-before-compat{
+  margin-top:34px;
+  margin-bottom:34px;
+}
+.xiaofei-before-compat .xf-section{
+  margin-top:0;
+}
+</style>
+
+
+<style>
+.xf-row{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-top:14px;
+}
+.xf-row:first-child{margin-top:0}
+.xf-row.user{
+  justify-content:flex-start;
+  flex-direction:row-reverse;
+}
+.xf-row.bot{
+  justify-content:flex-start;
+}
+.xf-row .xf-bubble{
+  max-width:calc(100% - 46px);
+  width:auto;
+  flex:0 1 auto;
+}
+.xf-avatar{
+  width:36px;
+  height:36px;
+  flex:0 0 36px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:800;
+  line-height:1;
+  margin-top:2px;
+}
+.avatar-user{
+  background:#302b28;
+  color:#fff;
+}
+.avatar-fei{
+  background:#cb9188;
+  color:#fff;
+}
+</style>
+
+
+<style>
+/* v15 小菲對話框：品牌化、手機優先 */
+.xf-section-v15{
+  margin-top:34px;
+  padding:28px 20px 24px;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 88% 8%, rgba(255,255,255,.9), transparent 30%),
+    rgba(247,231,227,.56);
+  border:1px solid rgba(166,111,104,.18);
+}
+.xf-title-v15{
+  margin:0 0 14px;
+  font-size:30px;
+  line-height:1.34;
+  letter-spacing:-.02em;
+}
+.xf-lead-v15{
+  margin:0;
+  color:#6f655f;
+  font-size:14px;
+  line-height:1.9;
+}
+.xf-chat-v15{
+  margin-top:22px;
+  padding:20px 16px 16px;
+  border-radius:24px;
+  border:1px solid rgba(220,205,196,.95);
+  background:rgba(255,255,255,.84);
+  box-shadow:0 12px 32px rgba(92,74,63,.045);
+}
+.xf-message{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-top:18px;
+}
+.xf-message:first-child{margin-top:0}
+.xf-message-user{
+  flex-direction:row-reverse;
+}
+.xf-avatar-wrap{
+  width:52px;
+  flex:0 0 52px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.xf-avatar-v15{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+}
+.xf-avatar-user-v15{
+  background:#f2eee9;
+  border:1px solid #e5dcd4;
+  color:#5c524c;
+}
+.xf-user-mark{
+  font-size:8px;
+  letter-spacing:.10em;
+  font-weight:800;
+}
+.xf-avatar-fei-v15{
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 28% 28%, rgba(255,255,255,.95) 0 5%, transparent 6%),
+    linear-gradient(145deg,#f2d5cf 0%,#e7efe7 100%);
+  border:1px solid rgba(166,111,104,.18);
+  color:#9a665f;
+}
+.xf-brand-star{
+  position:absolute;
+  top:8px;
+  left:10px;
+  font-size:12px;
+  line-height:1;
+}
+.xf-brand-moon{
+  transform:rotate(-20deg);
+  font-family:Georgia,serif;
+  font-size:31px;
+  line-height:1;
+  margin-left:8px;
+  margin-top:3px;
+  color:#a86f68;
+}
+.xf-avatar-label{
+  margin-top:5px;
+  font-size:10px;
+  line-height:1.25;
+  color:#776c65;
+  text-align:center;
+  white-space:nowrap;
+}
+.xf-avatar-label-fei strong{
+  display:block;
+  font-size:11px;
+  color:#4b433e;
+}
+.xf-avatar-label-fei span{
+  display:block;
+  margin-top:2px;
+  font-size:8px;
+  color:#9a8f87;
+}
+.xf-bubble-v15{
+  max-width:calc(100% - 62px);
+  padding:14px 15px;
+  border-radius:19px;
+  font-size:14px;
+  line-height:1.78;
+  box-sizing:border-box;
+}
+.xf-bubble-user-v15{
+  background:#302b28;
+  color:#fff;
+  border-bottom-right-radius:7px;
+}
+.xf-bubble-fei-v15{
+  background:#f5e5e1;
+  color:#4f4742;
+  border-bottom-left-radius:7px;
+}
+.xf-chat-footer{
+  margin-top:22px;
+  padding-top:14px;
+  border-top:1px solid rgba(130,115,104,.13);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:#9a7770;
+  font-size:11px;
+  line-height:1.5;
+  text-align:center;
+}
+.xf-chat-dots{
+  color:#c9c1bb;
+  letter-spacing:.15em;
+  font-size:8px;
+}
+@media(max-width:390px){
+  .xf-section-v15{padding:26px 17px 22px}
+  .xf-title-v15{font-size:28px}
+  .xf-chat-v15{padding:17px 12px 14px}
+  .xf-avatar-wrap{width:46px;flex-basis:46px}
+  .xf-avatar-v15{width:40px;height:40px}
+  .xf-bubble-v15{
+    max-width:calc(100% - 54px);
+    padding:13px 14px;
+    font-size:13.5px;
+  }
+  .xf-brand-moon{font-size:28px}
+}
+</style>
+
+
+<style>
+/* v16 調整：完整使用手冊導覽＋小菲情境＋完整版強化 */
+.xf-usage-block{
+  margin-top:18px;
+  padding:18px 16px;
+  border-radius:20px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(166,111,104,.14);
+}
+.xf-usage-kicker{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  color:var(--rose-deep);
+  margin-bottom:8px;
+}
+.xf-usage-block p{
+  margin:0;
+  color:#675e58;
+  font-size:13px;
+  line-height:1.9;
+}
+.xf-usage-examples{
+  margin-top:12px;
+  display:grid;
+  gap:8px;
+}
+.xf-usage-example{
+  padding:11px 12px;
+  border-radius:14px;
+  background:rgba(243,227,223,.72);
+  color:#6d5f58;
+  font-size:12.5px;
+  line-height:1.8;
+}
+.xf-usage-caption{
+  margin-top:10px;
+  font-size:12px;
+  line-height:1.8;
+  color:#8a7d75;
+}
+.xf-chat-note{
+  margin-top:14px;
+  font-size:12px;
+  line-height:1.8;
+  color:#8a7d75;
+}
+.edition-side.full{
+  background:linear-gradient(180deg, rgba(234,240,232,.96) 0%, rgba(244,248,243,.98) 100%);
+  border-left:1px solid rgba(111,91,82,.11);
+  box-shadow:inset 0 0 0 1px rgba(111,91,82,.06);
+}
+.edition-side.full h3{
+  font-weight:900;
+  color:#2f2a26;
+}
+.edition-side.full .edition-list{
+  font-weight:600;
+}
+.edition-side.full .edition-list div{
+  color:#33423b;
+}
+.edition-side.full .edition-kicker span{
+  font-weight:900;
+}
+.edition-side.full .edition-access{
+  font-weight:900;
+  color:#465d4e;
+  background:#fff;
+  border:1px solid rgba(87,103,85,.18);
+}
+@media(max-width:760px){
+  .xf-usage-block{padding:16px 14px}
+}
+</style>
+
+
+<style>
+/* v18：完整版僅微幅加強，維持原排版 */
+.edition-side.full .edition-kicker{
+  font-size:1.03em;
+  font-weight:850;
+}
+.edition-side.full h3{
+  font-size:1.055em;
+  line-height:1.28;
+  font-weight:850;
+}
+.edition-side.full .edition-access{
+  font-weight:850;
+  color:#43564a;
+}
+.edition-side.full .edition-list{
+  font-weight:580;
+}
+</style>
+
+
+<style>
+/* v23：完整版尺寸定案，沿用 v18 的微幅強調 */
+/* 888 區塊跳轉定位保留 */
+#price-888{
+  scroll-margin-top:145px;
+}
+html{
+  scroll-behavior:smooth;
+}
+</style>
+
 </head>
 <body id="page01">
 
@@ -415,7 +936,8 @@
   <nav class="entry-guide" aria-label="頁面快速導覽">
     <a href="#free-overview">看見你的生命輪廓</a>
     <a href="#buy">免費版與完整版</a>
-    <a href="#demo">翻開我的第一頁</a>
+    <a href="#demo" class="guide-highlight">翻開我的第一頁</a>
+    <a href="#complete-manual">完整使用手冊</a>
   </nav>
 </div>
 
@@ -724,9 +1246,10 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="complete-manual">
     <div class="eyebrow">Full reading</div>
     <h2 class="balanced-title">完整版不是「更多牌義」，<br>而是把你從一堆特質，讀回一個完整的人。</h2>
+      <p class="full-reading-intro-note">購買完整版，你會獲得以下內容：</p>
 
     <div class="content-grid">
       <div class="content-card">
@@ -761,9 +1284,107 @@
       </div>
     </div>
 
+    <div id="xiaofei-demo" class="xiaofei-before-compat">
+      <div class="xf-section xf-section-v15">
+        <div class="xf-kicker">KEEP THE CONVERSATION GOING</div>
+        <h2 class="xf-title xf-title-v15">還有想問的問題？<br>沒問題。</h2>
+
+        <p class="xf-lead xf-lead-v15">
+          你還會帶走 <strong>小菲｜靈魂配方助理</strong>。看完完整報告之後，
+          你可以繼續把感情、親子、關係、工作，或正在經歷的事情拿來聊。
+          她不是再丟一堆牌義給你，而是沿著你已經看過的命盤邏輯，陪你把它用進生活裡。
+        </p>
+
+        <div class="xf-usage-block">
+          <div class="xf-usage-kicker">你還可以這樣使用小菲｜靈魂助理</div>
+          <p>不是只有再問一次「我的牌是什麼意思」。當你已經看過完整報告，之後遇到親子、關係、工作，或心裡卡住的事情，都可以把真實情境直接帶進來。</p>
+          <div class="xf-usage-examples">
+            <div class="xf-usage-example">「我知道自己的模式，可是每次遇到他還是會被勾住，這時候我要怎麼調整？」</div>
+            <div class="xf-usage-example">「我最近工作一直卡住，不知道是該硬撐下去，還是換一種用力方式？」</div>
+            <div class="xf-usage-example">「我大概懂孩子的特質了，但怎麼跟她說，她才比較聽得進去？」</div>
+          </div>
+          <div class="xf-usage-caption">你帶進來的是生活裡正在發生的事，小菲幫你做的是把已經看見的命盤邏輯，翻成更能落地的理解與下一步。</div>
+        </div>
+
+        <div class="xf-chat xf-chat-v15">
+
+          <div class="xf-message xf-message-user">
+            <div class="xf-avatar-wrap xf-avatar-wrap-user">
+              <div class="xf-avatar-v15 xf-avatar-user-v15">
+                <span class="xf-user-mark">YOU</span>
+              </div>
+              <div class="xf-avatar-label">你</div>
+            </div>
+            <div class="xf-bubble-v15 xf-bubble-user-v15">
+              我想知道我女兒的天賦跟生命模式。<br>
+              我也想知道，要怎麼跟她相處、用她比較能接受的方式溝通，
+              讓她把自己的潛能發揮出來。
+            </div>
+          </div>
+
+          <div class="xf-message xf-message-fei">
+            <div class="xf-avatar-wrap">
+              <div class="xf-avatar-v15 xf-avatar-fei-v15">
+                <span class="xf-brand-star">✦</span>
+                <span class="xf-brand-moon">◜</span>
+              </div>
+              <div class="xf-avatar-label xf-avatar-label-fei">
+                <strong>小菲</strong>
+                <span>靈魂配方助理</span>
+              </div>
+            </div>
+            <div class="xf-bubble-v15 xf-bubble-fei-v15">
+              以她的牌型來看，她不是越催越快的孩子。她比較需要先知道自己現在要做什麼，再進入自己的節奏。<br><br>
+              所以跟她溝通時，比起一直提醒「快一點、專心一點」，更適合把事情拆成清楚的一小步。<br><br>
+              你可以改成：<br>
+              「我們現在先把這一個做完就好。」<br>
+              或是「你想先從哪一個開始？」<br><br>
+              這會比催促更容易讓她把注意力收回來，也比較不會把你的焦慮變成她的壓力。🤍
+            </div>
+          </div>
+
+          <div class="xf-message xf-message-user">
+            <div class="xf-avatar-wrap xf-avatar-wrap-user">
+              <div class="xf-avatar-v15 xf-avatar-user-v15">
+                <span class="xf-user-mark">YOU</span>
+              </div>
+              <div class="xf-avatar-label">你</div>
+            </div>
+            <div class="xf-bubble-v15 xf-bubble-user-v15">
+              那如果她真的很慢、很容易分心，我還是可以推她一下嗎？
+            </div>
+          </div>
+
+          <div class="xf-message xf-message-fei">
+            <div class="xf-avatar-wrap">
+              <div class="xf-avatar-v15 xf-avatar-fei-v15">
+                <span class="xf-brand-star">✦</span>
+                <span class="xf-brand-moon">◜</span>
+              </div>
+              <div class="xf-avatar-label xf-avatar-label-fei">
+                <strong>小菲</strong>
+                <span>靈魂配方助理</span>
+              </div>
+            </div>
+            <div class="xf-bubble-v15 xf-bubble-fei-v15">
+              可以推，但不要用一直催的方式推。<br><br>
+              對她來說，比較有效的是幫她把下一步變清楚，然後讓她自己走進去。
+              你是在幫她找到入口，不是替她把路走完。🌙
+            </div>
+          </div>
+
+          <div class="xf-chat-footer">
+            <span class="xf-chat-dots">● ● ●</span>
+            <span>把想問的問題，繼續帶來跟小菲聊。</span>
+          </div>
+          <div class="xf-chat-note">以上是對話情境示意，讓你先感受小菲會怎麼陪你把問題聊深、聊清楚。</div>
+        </div>
+      </div>
+    </div>
+
     <div class="compatibility">
-      <h3>完整版也包含兩人關係的完整合盤。</h3>
-      <p>合盤不是替一段關係下「合不合」的判決，而是看兩組材料進入同一段關係後，會彼此勾出什麼、放大什麼、互補什麼，又最容易在哪裡失衡。</p>
+      <h3>你也可以把兩個人的命盤放在一起看。</h3>
+      <p>當你想理解一段關係，可以把兩個人的命盤放在一起看。不是替關係下「合不合」的判決，而是看彼此會勾出什麼、放大什麼、互補什麼，又最容易在哪裡失衡。</p>
       <div class="compat-grid">
         <div class="compat"><strong>感情｜自己 × 伴侶</strong><br>看吸引、互補、摩擦，以及彼此最容易勾出的隱藏力量。</div>
         <div class="compat"><strong>親子｜孩子 × 主要照顧者</strong><br>看孩子在什麼環境容易被打開，以及照顧者如何參與他的成長。</div>
@@ -857,28 +1478,48 @@
           <div class="edition-list"><div>看見你的本命牌、隱藏牌與重複牌</div><div>讀懂每張牌的核心模式、成熟狀態與失衡提醒</div><div>看見不同模式如何彼此影響</div><div>看懂此刻流年與未來五年的生命節奏</div><div>完成一次屬於你的個人命盤解讀</div></div>
         </article>
         <article class="edition-side full">
-          <div class="edition-kicker"><span>完整使用手冊</span><small>Complete manual</small><b class="edition-access">付費完整版・早鳥開放中</b></div><h3>把理解帶進<br>真實生活</h3>
+          <div class="edition-kicker"><span>完整使用手冊</span><small>Complete manual</small><b class="edition-access">付費完整版・888早鳥開放中</b></div><h3>把理解帶進<br>真實生活</h3>
           <div class="edition-list"><div>深度整合你的整張命盤</div><div>把命盤帶進感情、事業與人際關係</div><div>獲得更具體的生活調整方向</div><div>感情、親子、原生家庭與事業合盤</div><div>不限次數輸入不同生日反覆查看</div></div>
         </article>
       </div>
       <div class="edition-close">免費版讓你看見自己如何運作；完整版陪你把這份理解，帶進每一段真實的人生關係裡。</div>
     </div>
 
-    <div class="pricebox">
+    <div class="pricebox" id="price-888">
       <div class="muted">付費完整版・早鳥開放中</div>
       <div class="price" style="font-size:42px">NT$888</div>
-      <div class="subline">你想更了解的，不只是牌，是你自己——單人深度解讀＋完整合盤系統＋小菲｜靈魂配方助理，一次買下、陪你反覆回來看</div>
 
-      <div class="buy-points">
-        <div class="buy-point">✦ 不用再靠猜的——看見自己不同模式怎麼互相支持、放大、拉扯</div>
-        <div class="buy-point">✦ 把命盤帶進感情、事業、人際，變成你看得懂、用得上的具體方向</div>
-        <div class="buy-point">✦ 想搞懂的那段關係，也能一起合盤看清楚（感情 / 親子 / 原生家庭 / 事業）</div>
-        <div class="buy-point">✦ 不限次數輸入不同生日，自己看、也陪身邊在意的人一起看</div>
-        <div class="buy-point">✦ 小菲｜靈魂配方助理——想聊的時候隨時都在，無限次問、無限次聊</div>
+      <div class="delivery-head">
+        <div class="tiny">WHAT YOU GET</div>
+        <h3>付款後，你會拿到兩樣核心內容</h3>
+        <p>先把「買到什麼」說清楚，再決定這是不是你想帶回去的東西。</p>
       </div>
 
-      <div class="note-box" style="background:var(--sage-soft)">
-        <p style="color:#576755"><strong>一次買下，不是拿到一張報告。</strong><br>而是拿到一套可以反覆打開、陪你理解自己與關係的使用手冊。</p>
+      <div class="delivery-core">
+        <div class="delivery-card report">
+          <div class="ico">📖</div>
+          <h4>01｜一份完整個人報告</h4>
+          <p>不是只有牌名與關鍵字，而是把你的本命、隱藏、重複、交互作用與流年，整合成一份可以反覆回看的完整閱讀。</p>
+        </div>
+
+        <div class="delivery-card assistant">
+          <div class="ico">🌙</div>
+          <h4>02｜小菲｜靈魂配方助理</h4>
+          <p>看完報告之後，可以繼續把感情、親子、工作、人際或正在經歷的問題拿來聊，讓命盤真正回到生活裡。</p>
+        </div>
+      </div>
+
+      <div class="report-map">
+        <h4>完整報告裡，會讀到這些</h4>
+        <div class="report-map-grid">
+          <div class="report-map-item"><strong>你的生命材料</strong><br>本命牌、重複牌與整張盤最明顯的核心力量</div>
+          <div class="report-map-item"><strong>隱藏材料</strong><br>那些不一定總在表面，卻可能在重要階段浮現的潛在力量</div>
+          <div class="report-map-item"><strong>完整深度解讀</strong><br>核心主軸、行動節奏、關係模式、事業發揮與失衡提醒</div>
+          <div class="report-map-item"><strong>你的牌，如何成為現在的你</strong><br>把單張牌放回整體，看它們如何彼此牽動、共同形成你的運作方式</div>
+          <div class="report-map-item"><strong>今年與五年流年旅程</strong><br>年度流年、生日流年、雙軌整合，以及前後五年的生命節奏</div>
+          <div class="report-map-item"><strong>重新使用自己的方向</strong><br>把看見的模式整理成可以真正帶回生活裡的平衡方向</div>
+        </div>
+        <div class="report-map-note">這份報告不是一次看完就結束。之後遇到不同階段、不同關係或新的選擇，你都可以重新回來對照。</div>
       </div>
 
       <div class="note-box" style="background:var(--rose-soft);border-color:rgba(166,111,104,.16)">
@@ -886,7 +1527,7 @@
       </div>
 
       <div class="note-box">
-        <p style="color:#877C73">往後隨著內容與功能持續增加，價格可能會調整，但只會往上——現在加入的你，之後不會因為調價被多收費，你買到的版本一直都是你的。</p>
+        <p style="color:#877C73">往後隨著內容與功能持續增加，價格可能會調整；現在加入的你，不會因為之後調價被另外加收。</p>
       </div>
 
       <div class="ctas">
@@ -914,7 +1555,7 @@
       <div class="sticky-title">🌙 靈魂配方使用手冊</div>
       <div class="sticky-sub">單人全盤＋完整合盤＋無限次使用</div>
     </div>
-    <a class="btn btn-primary" href="#buy" style="display:inline-block;text-align:center">NT$888 解鎖完整版</a>
+    <a class="btn btn-primary" href="#price-888" style="display:inline-block;text-align:center">NT$888 解鎖完整版</a>
   </div>
 </div>
 
@@ -1062,5 +1703,19 @@ if(document.readyState==='loading'){
 }
 
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const sticky = document.querySelector('.sticky-buy a.btn');
+  const target = document.getElementById('price-888');
+  if(sticky && target){
+    sticky.addEventListener('click', function(e){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  }
+});
+</script>
+
 </body>
 </html>
