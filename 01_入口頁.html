@@ -107,7 +107,7 @@
   background:var(--paper);border-radius:22px;padding:22px;box-shadow:var(--shadow)
 }.concept-card .n{
   font-family:'Noto Serif TC';font-size:36px;color:var(--rose-deep);margin-bottom:14px
-}.concept-card h3{font-family:'Noto Serif TC';font-size:22px;line-height:1.5;margin:0 0 10px}.concept-card p{font-size:12px;line-height:1.95;color:var(--muted);margin:0}.demo{
+}.concept-card h3{font-family:inherit;font-size:12px;line-height:1.8;font-weight:500;color:var(--muted);margin:0}.concept-card p{font-size:12px;line-height:1.95;color:var(--muted);margin:0}.demo{
   background:linear-gradient(145deg,#2D2925,#413832);color:#F7F0E8;
   border-radius:30px;padding:28px;margin-top:22px
 }.demo h3{font-family:'Noto Serif TC';font-size:27px;margin:0 0 8px}.demo p{color:#DDD4CB;margin:0 0 18px;font-size:13px;line-height:1.95}.demo-grid{display:grid;grid-template-columns:1fr auto;gap:10px}.demo input{
@@ -287,7 +287,7 @@
   background:var(--sage-soft);
   border-color:rgba(87,103,85,.14);
   color:#576755;
-}#free-overview,#buy,#demo,#complete-manual,#xiaofei-demo,#compatibility,#about{
+}#free-overview,#buy,#demo,#complete-manual{
   scroll-margin-top:125px;
 }@media(max-width:760px){.wrap{padding:0 14px 110px}.topbar-in{padding:12px 14px}.profile,.concept-grid,.content-grid,.summary-row,.compat-grid,.origin-grid{grid-template-columns:1fr}.demo-grid{grid-template-columns:1fr}.hero{min-height:auto;padding:58px 0 42px}.hero h1{font-size:25px;line-height:1.34}.single-row-title{font-size:23px!important}.pull-title{font-size:18px!important}.feedback-title{font-size:22px!important}.origin-card h3.small{font-size:18px!important;line-height:1.55}.demo-grid{grid-template-columns:1fr}.date-selects{grid-template-columns:1.3fr .85fr .85fr}.feedback-card{flex-basis:calc(100vw - 48px)}.mini-outline-list{font-size:14px;line-height:1.9}.entry-guide{justify-content:flex-start;padding:7px 14px 9px}.entry-guide a{padding:7px 13px;font-size:10px}
 }.moon-phases{
@@ -396,6 +396,14 @@
 .edition-intro{max-width:720px;margin:0 auto 26px;text-align:center}.edition-intro p{max-width:620px;margin:14px auto 0;color:var(--muted);font-size:14px;line-height:2}.edition-compare{max-width:780px;margin:26px auto 34px;border:1px solid rgba(111,91,82,.13);border-radius:28px;overflow:hidden;background:rgba(255,255,255,.72);box-shadow:0 18px 46px rgba(49,39,33,.055)}.edition-columns{display:grid;grid-template-columns:1fr 1fr;text-align:left}.edition-side{padding:28px 26px 26px}.edition-side.full{background:var(--sage-soft);border-left:1px solid rgba(111,91,82,.11)}.edition-kicker{display:flex;flex-direction:column;gap:3px;color:var(--rose-deep);font-weight:900}.edition-kicker span{font-size:13px;letter-spacing:.08em}.edition-kicker small{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.edition-access{display:inline-flex;align-items:center;width:max-content;max-width:100%;margin-top:8px;padding:5px 9px;border-radius:999px;background:var(--rose-soft);color:var(--rose-deep);font-size:10px;font-weight:900;letter-spacing:.03em;line-height:1.45}.edition-side.full .edition-access{background:rgba(255,253,249,.72);color:#576755;border:1px solid rgba(87,103,85,.12)}.edition-side h3{font-family:'Noto Serif TC';font-size:21px;line-height:1.55;margin:10px 0 18px}.edition-list{display:grid;gap:0;font-size:13px;line-height:1.7;color:var(--ink)}.edition-list div{min-height:58px;padding:13px 0;border-top:1px solid rgba(111,91,82,.10);display:flex;align-items:center}.edition-close{padding:18px 24px;text-align:center;border-top:1px solid rgba(111,91,82,.11);font-family:'Noto Serif TC';font-size:14px;line-height:1.9;color:#625950;background:rgba(255,253,249,.7)}.line-connect{max-width:640px;margin:22px auto 0;padding:20px;border-radius:22px;background:var(--sage-soft);color:#576755;text-align:center}.line-connect p{margin:0 0 14px;color:#576755;font-size:12px;line-height:1.9}.line-btn{display:block;width:100%;padding:14px 18px;border-radius:999px;background:#06C755;color:#fff;text-decoration:none;font-size:13px;font-weight:900;letter-spacing:.02em;box-shadow:0 9px 22px rgba(6,199,85,.18)}@media(max-width:560px){.edition-side{padding:21px 14px 18px}.edition-side h3{font-size:17px;line-height:1.5;min-height:52px;margin:8px 0 10px}.edition-kicker span{font-size:12px;letter-spacing:.04em}.edition-kicker small{font-size:8px;letter-spacing:.08em}.edition-access{font-size:8px;padding:4px 7px;margin-top:6px;line-height:1.4}.edition-list{font-size:11px;line-height:1.6}.edition-list div{min-height:68px;padding:11px 0;align-items:flex-start}.edition-close{padding:15px 14px;font-size:12px}
       }
     
+
+.concept-label{font-family:'Noto Serif TC';font-size:22px;line-height:1.45;font-weight:800;color:var(--ink);margin:0 0 7px}
+.full-reading-title span{white-space:nowrap}
+@media(max-width:560px){
+  .concept-label{font-size:22px;margin-bottom:6px}
+  .concept-card h3{font-size:12px;line-height:1.8;margin-bottom:0}
+  .full-reading-title{font-size:clamp(28px,8.1vw,34px);line-height:1.35}
+}
 </style>
 
 <style>
@@ -508,17 +516,16 @@
 
 <style>
 .full-reading-intro-note{
-  margin-top:18px;
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:14px;
-  background:rgba(243,227,223,.95);
-  border:1px solid rgba(166,111,104,.16);
-  color:var(--rose-deep);
-  font-size:14px;
-  line-height:1.75;
-  font-weight:700;
+  margin:12px 0 0;
+  padding:0;
+  background:transparent;
+  border:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  font-weight:400;
 }
+.full-reading-intro-note strong{font-weight:500;color:var(--muted)}
 .xf-section{
   margin-top:38px;
   padding:30px 22px;
@@ -831,6 +838,13 @@
   font-size:13px;
   line-height:1.9;
 }
+
+.relationship-more-title{
+  margin-bottom:18px;
+}
+.relationship-question-examples{
+  margin:0 0 24px;
+}
 .xf-usage-examples{
   margin-top:12px;
   display:grid;
@@ -856,6 +870,99 @@
   line-height:1.8;
   color:#8a7d75;
 }
+
+/* v17 關係提問：示意頭像左右交錯，增加對話帶入感 */
+.relationship-question-examples{
+  gap:12px;
+}
+.relationship-question-row{
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+}
+.relationship-question-row.avatar-right{
+  flex-direction:row;
+}
+.relationship-question-row.avatar-left{
+  flex-direction:row;
+}
+.relationship-question-row.avatar-right .relationship-avatar{
+  order:2;
+}
+.relationship-question-row.avatar-right .xf-usage-example{
+  order:1;
+}
+.relationship-question-row.avatar-left .relationship-avatar{
+  order:1;
+}
+.relationship-question-row.avatar-left .xf-usage-example{
+  order:2;
+}
+.relationship-question-row .xf-usage-example{
+  flex:1;
+  margin:0;
+  padding:13px 15px;
+  border-radius:18px;
+}
+.relationship-avatar{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  position:relative;
+  border-radius:50%;
+  border:1px solid rgba(88,103,114,.14);
+  box-shadow:0 4px 12px rgba(61,69,75,.07);
+  overflow:hidden;
+  background:#f7f4f0;
+}
+.relationship-avatar::before{
+  content:"";
+  position:absolute;
+  width:13px;
+  height:13px;
+  left:50%;
+  top:8px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:var(--avatar-ink,#71818c);
+}
+.relationship-avatar::after{
+  content:"";
+  position:absolute;
+  width:25px;
+  height:16px;
+  left:50%;
+  bottom:5px;
+  transform:translateX(-50%);
+  border-radius:14px 14px 7px 7px;
+  background:var(--avatar-ink,#71818c);
+}
+.relationship-avatar.business{
+  background:#e8eef1;
+  --avatar-ink:#6f8490;
+}
+.relationship-avatar.parent{
+  background:#f3e8e3;
+  --avatar-ink:#a98079;
+}
+.relationship-avatar.love{
+  background:#ece8f0;
+  --avatar-ink:#80768b;
+}
+@media (max-width:560px){
+  .relationship-question-row{gap:8px}
+  .relationship-avatar{
+    width:36px;
+    height:36px;
+    flex-basis:36px;
+  }
+  .relationship-avatar::before{top:7px;width:12px;height:12px}
+  .relationship-avatar::after{width:23px;height:15px;bottom:4px}
+  .relationship-question-row .xf-usage-example{
+    padding:12px 13px;
+  }
+}
+
 .edition-side.full{
   background:linear-gradient(180deg, rgba(234,240,232,.96) 0%, rgba(244,248,243,.98) 100%);
   border-left:1px solid rgba(111,91,82,.11);
@@ -918,6 +1025,109 @@ html{
 }
 </style>
 
+
+<style>
+/* 2026-09-09 精簡版排版修正：避免重點句在手機上過度放大 */
+.mirror-big{
+  font-family:inherit;
+  font-size:clamp(21px,3.2vw,28px);
+  line-height:1.62;
+  font-weight:800;
+  letter-spacing:.01em;
+  margin-bottom:16px;
+}
+.mirror-kicker{
+  font-size:13px;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+}
+#about .story p{
+  font-size:15px;
+  line-height:1.95;
+}
+#demo,#buy,#complete-manual,#xiaofei-demo,#relationship,#about-feifei{
+  scroll-margin-top:145px;
+}
+@media(max-width:760px){
+  .mirror-statement{padding:24px 22px;border-radius:24px}
+  .mirror-big{font-size:22px;line-height:1.65;margin-bottom:14px}
+  .mirror-kicker{font-size:12px}
+  #about .story p{font-size:14px;line-height:1.9}
+}
+</style>
+
+<style>
+/* latest mobile refinement: compact full-reading cards */
+#complete-manual .content-grid{gap:10px;margin-top:16px}
+#complete-manual .content-card{padding:17px 18px 18px;border-radius:20px}
+#complete-manual .content-card .card-title-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+#complete-manual .content-card .no{width:28px;height:28px;flex:0 0 28px;font-size:11px}
+#complete-manual .content-card h3{font-size:19px;line-height:1.4;margin:0}
+#complete-manual .content-card p{font-size:12px;line-height:1.8;margin:0}
+/* purchase contents: remove nested boxes */
+#price-888 .delivery-core{display:grid;grid-template-columns:1fr;gap:0;margin-top:16px;text-align:left}
+#price-888 .delivery-card{padding:18px 0;border:0;border-radius:0;background:transparent;box-shadow:none}
+#price-888 .delivery-card + .delivery-card{border-top:1px solid rgba(130,115,104,.13)}
+#price-888 .delivery-card .ico{margin-bottom:8px}
+#price-888 .delivery-card h4{margin:0 0 8px}
+#price-888 .delivery-card p{margin:0}
+@media(max-width:620px){
+  #complete-manual .content-grid{grid-template-columns:1fr}
+  #complete-manual .content-card{padding:15px 16px 16px}
+  #complete-manual .content-card .card-title-row{gap:9px;margin-bottom:6px}
+  #complete-manual .content-card .no{width:26px;height:26px;flex-basis:26px}
+  #complete-manual .content-card h3{font-size:18px}
+}
+</style>
+
+<style>
+/* Latest checkout refinements */
+#price-888 .delivery-head p{display:none}
+#price-888 .delivery-core{display:grid;grid-template-columns:1fr;gap:14px;margin-top:20px;text-align:left}
+#price-888 .delivery-card{padding:20px 20px 19px;border:1px solid rgba(130,115,104,.16);border-radius:22px;box-shadow:none}
+#price-888 .delivery-card.report{background:rgba(247,231,227,.48)}
+#price-888 .delivery-card.assistant{background:rgba(229,239,230,.62)}
+#price-888 .delivery-card + .delivery-card{border-top:1px solid rgba(130,115,104,.16)}
+#price-888 .delivery-card .ico{margin-bottom:8px;font-size:22px}
+#price-888 .delivery-card h4{margin:0 0 8px;font-size:18px;line-height:1.5}
+#price-888 .delivery-card p{margin:0;font-size:13px;line-height:1.8;color:#655c56}
+@media(max-width:560px){
+  #price-888 .delivery-card{padding:18px 16px 17px;border-radius:20px}
+  #price-888 .delivery-card h4{font-size:17px}
+  #price-888 .delivery-card p{font-size:12px;line-height:1.75}
+}
+</style>
+
+<style>
+/* latest purchase section refinements */
+.delivery-card{
+  text-align:center;
+}
+.delivery-card .ico{
+  text-align:center;
+}
+.delivery-card h4,
+.delivery-card p{
+  text-align:center;
+}
+.report-map h4{
+  text-align:center;
+  font-size:20px;
+  margin-bottom:14px;
+}
+.report-map-item strong{
+  display:inline-block;
+  margin-bottom:3px;
+}
+@media(max-width:620px){
+  .report-map-grid{grid-template-columns:1fr;}
+  .report-map-item{
+    text-align:center;
+    padding:14px 0;
+  }
+  .report-map-item:nth-child(2){border-top:1px solid rgba(130,115,104,.13)}
+}
+</style>
 </head>
 <body id="page01">
 
@@ -934,12 +1144,11 @@ html{
     <a class="navbtn" href="#page01" aria-label="回到頁首">↑ 回到頁首</a>
   </div>
   <nav class="entry-guide" aria-label="頁面快速導覽">
-    <a href="#demo" class="guide-highlight">開始體驗</a>
-    <a href="#buy">免費版 vs 完整版</a>
-    <a href="#complete-manual">完整版</a>
+    <a href="#demo" class="guide-highlight">立刻開始體驗</a>
+    <a href="#complete-manual">完整版內容</a>
     <a href="#xiaofei-demo">小菲助理</a>
-    <a href="#compatibility">關係合盤</a>
-    <a href="#about">關於菲菲</a>
+    <a href="#relationship">關係合盤</a>
+    <a href="#about-feifei">關於菲菲</a>
   </nav>
 </div>
 
@@ -958,51 +1167,41 @@ html{
     <div class="eyebrow">Soul Recipe Manual</div>
     <h1 class="hero-title"><span class="line">你不是需要更多答案，</span><span class="line">而是需要看懂自己正在怎麼運作。</span></h1>
     <p class="lead">如果人生像做菜，在查食譜之前，你可能要先知道，你有哪些材料。</p>
-    <p class="sub">你也許已經聽過很多關於「你是誰」的說法。這套系統想做的不是再替你貼上一個新標籤，而是陪你往下一層看：你的天賦、慣性、情緒、課題與潛在模式，在你身上究竟如何彼此作用。</p>
+    <p class="sub">你也許已經聽過很多關於「你是誰」的說法。《靈魂配方》想陪你往下一層看：<strong>你的天賦、慣性與潛在模式，究竟如何一起成為現在的你。</strong></p>
     <div class="ctas">
-      <a class="btn btn-primary" href="#demo" style="display:inline-block;text-align:center">先翻開我的第一頁</a>
-      <a class="btn btn-soft" href="#about" style="display:inline-block;text-align:center">先理解這套系統</a>
+      <a class="btn btn-primary" href="#demo" style="display:inline-block;text-align:center">立刻開始體驗</a>
     </div>
-    <p class="muted" style="margin-top:14px;font-size:13px">免費翻閱第一頁・不需要懂塔羅</p>
   </section>
 
   <section class="section">
     <div class="eyebrow">Before we begin</div>
-    <h2>你可能已經很了解自己。<br>但那不代表，你真的知道怎麼使用自己。</h2>
+    <h2>你可能已經很了解自己。<br>但那不代表，你真的看懂自己的模式。</h2>
 
     <div class="story">
-      <p>星盤、人類圖、八字、紫微、生命靈數、塔羅……我們擁有前所未有的工具，可以從各種角度理解自己。</p>
-      <p>很多時候，看到某一段解讀，我們會立刻點頭：<span class="highlight">「對，這就是我。」</span></p>
-      <p>可是知道得越多，並不一定代表內心就越平靜。</p>
-      <p>你可能把事業處理好了，開始焦慮感情；感情穩了，又覺得人生失去方向；甚至當外在看起來都沒有問題，心裡仍然會冒出一種說不清的卡住。</p>
-      <p><strong>因為認識自己的特質，和理解這些特質正在如何運作，是兩個完全不同的層次。</strong></p>
+      <p>星盤、人類圖、八字、紫微、生命靈數、塔羅……我們有很多方法理解自己。</p>
+      <p>看到某些解讀時，我們也常常會想：<span class="highlight">「對，這就是我。」</span></p>
+      <p>但知道自己有什麼特質，和看懂這些特質<strong>如何影響你的感受、選擇與關係</strong>，是兩個不同的層次。</p>
     </div>
 
     <div class="pullquote">
-      <strong>真正困住人的，很多時候不是不知道自己有什麼，而是不知道自己一直怎麼使用它。</strong>
-      <span>同一種敏感，可以成為洞察，也可以變成內耗；同一種付出，可以成為愛，也可以變成消耗；同一份聰明，可以創造，也可以讓人困在自己的腦裡。</span>
+      <strong>同一種特質，可以有完全不同的活法。</strong>
+      <span>敏感可以成為洞察，也可以變成內耗；付出可以成為愛，也可以變成消耗；聰明可以創造，也可以讓人困在自己的腦裡。</span>
     </div>
   </section>
 
-  
   <section class="section" id="about">
     <div class="eyebrow">What tarot means to me</div>
     <h2>對我來說，塔羅從來不是用來預測人生。</h2>
 
     <div class="mirror-statement">
       <div class="mirror-kicker">它更像一面鏡子。</div>
-      <div class="mirror-big">只是映照出，<br>此刻這個狀態的你。</div>
-      <p>它不是要替你決定未來，而是讓你更清楚地看見：現在的你正在用什麼方式理解事情、做選擇，又有哪些模式正在影響你的感受與行動。</p>
+      <div class="mirror-big">映照出，<br>此刻的你正在怎麼運作。</div>
+      <p>它不是替你決定未來，而是讓你看見：<strong>哪些模式正在支持你，哪些又讓你反覆卡住。</strong></p>
     </div>
 
-    <div class="story">
-      <p>你也許已經聽過很多關於「你是誰」的說法。</p>
-      <p>但我真正關心的，不只是<span class="highlight">「你有什麼特質」</span>，而是：這些特質此刻正在怎麼被你使用？哪些模式正在支持你，哪些又正在讓你反覆卡住？</p>
-      <p><strong>看懂自己，不是為了再多一個標籤，而是為了在遇到問題時，知道自己可以怎麼重新思考、重新選擇。</strong></p>
-    </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="about-feifei">
     <div class="eyebrow">About me</div>
     <h2>我是菲菲。<br>我把靈性帶回現實，也陪人重新看懂自己。</h2>
 
@@ -1020,25 +1219,25 @@ html{
         <div class="timeline">
           <div class="timeline-item">
             <strong>從實作中走進工作與商業現場</strong>
-            <span>十四歲開始工作，陸續走過銷售、商品、品牌與創業，也在一次次實作裡學會面對問題與承擔選擇。</span>
+            <span>很早開始工作，也走過銷售、品牌與創業。</span>
           </div>
           <div class="timeline-item">
-            <strong>長期做一對一塔羅個案</strong>
-            <span>看過不同人生階段、關係、選擇與重複出現的困局。</span>
+            <strong>長期一對一個案</strong>
+            <span>陪伴不同人生階段的人，看見關係、選擇與反覆出現的生命模式。</span>
           </div>
           <div class="timeline-item">
-            <strong>走進更深的靈性成長</strong>
-            <span>開始重新理解「努力」、「答案」、「命運」與真正的自由。</span>
+            <strong>走進更深的靈性探索</strong>
+            <span>從追求答案，慢慢走向理解自己，也重新思考什麼才是真正的自由。</span>
           </div>
         </div>
       </div>
 
       <div class="profile-copy">
-        <p class="bio-intro">小芙出生之後，靈性不再只是一套我理解的思想，而是真正回到了每一天的生活裡：睡眠不足的夜晚、照顧一個生命的責任、愛裡的控制與放手，以及一次次重新選擇平靜。</p>
-        <p>今天的我擁有十年的塔羅經驗，也走過創業、品牌、商業學習、靈性探索與長期的一對一個案工作。</p>
-        <p>我把十年前接觸的命卡系統，放進多年塔羅個案、一對一工作與自己的人生經驗裡反覆理解、驗證，最後慢慢整理成一套屬於自己的解讀方式——讓牌不只被算出來，也能真正幫助一個人看懂自己。</p>
-        <p>它不是要讓你更依賴命理，也不是要替你預測或決定人生。</p>
-        <p>我更願意做一面鏡子，陪你看見此刻的自己；在你暫時忘記的時候，提醒你：答案與力量，從來沒有真正離開過你。</p>
+        <p>我在十年前接觸命卡系統。後來經過一對一個案、創業與靈性探索，才慢慢把它讀出更深的層次。</p>
+        <p>我越來越確定一件事：</p>
+        <p><strong>知道答案，和真正把理解活進生活裡，是兩件不同的事。</strong></p>
+        <p>《靈魂配方使用手冊》陪你看懂：</p>
+        <p><strong>你身上的模式正在怎麼運作，又可以怎麼調整，讓自己活得更自由。</strong></p>
 
         <details class="feifei-story">
           <summary>
@@ -1046,52 +1245,33 @@ html{
             <span class="when-open">收起完整故事 ↑</span>
           </summary>
           <div class="full-story">
-            <p>十四歲開始工作後，我很早就進入了成人的世界，也很早開始接觸金錢、人際關係，以及一個人如何在現實裡生存。</p>
-            <p>十五歲時，爸爸要求我閱讀《奇蹟課程》，每個星期還要向他報告自己讀懂了什麼。那時的我其實很怕爸爸，也帶著很大的壓力閱讀，書裡的內容幾乎都看不懂。</p>
-            <p>很多年後我才明白，有些話不是讀過就會理解，而是要等生命真的把你帶到那裡。</p>
-            <p>後來的我做過網拍與展場模特兒，也進入過業務、銷售、品牌與創業的世界。我曾經擁有在別人眼中很風光的生活：昂貴的物質、令人羨慕的關係，以及一份看起來非常成功的事業。</p>
-            <p>品牌最好的時候，一個月四百萬元的營業額是常態，一年甚至接近五千萬元。</p>
-            <p>從外面看，我好像什麼都有了。</p>
-            <p>但那些數字沒有讓我更知道自己是誰。外在擁有得越多，我的心裡反而越空。我依然不快樂，也依然覺得，沒有人真正理解我。</p>
-            <div class="story-pull">外在擁有得越多，<br>我的心裡反而越空。</div>
-            <p>我接觸塔羅，最初也不是因為想成為一位塔羅師。</p>
-            <p>那時的我和許多人一樣，不斷向外尋找答案。我想知道對方究竟愛不愛我、我們的關係會走向哪裡，以及我還能怎麼做，才能讓事情變成自己期待的樣子。</p>
-            <p>算得多了，我索性跟著老師學習，也在十年前正式走進塔羅與命卡的世界。</p>
-            <p>只是做得越久，我越清楚地看見：一個人真正需要的，往往不只是一句「他愛不愛你」、「要不要換工作」或「什麼時候會變好」。</p>
-            <div class="story-question">你為什麼總是在這裡？<br>你怎麼一路走到了這裡？<br>你手上的那些能力，現在究竟被你用成了什麼？</div>
-            <p>很長一段時間，我相信只要自己夠努力，事情就會變好。所以我很會往前，遇到問題就處理，遇到不會的就學，遇到卡點就再多做一點。</p>
-            <p>我也花了大量的時間與金錢學習商業、成長與靈性，希望自己可以再進步一點、再完整一點。</p>
-            <p>只是後來我慢慢發現，有些問題不是靠更努力就會消失。</p>
-            <p>你可以很會做事、很會分析，也很會解決問題，卻仍然不知道：為什麼自己總在某些地方重複卡住？</p>
-            <p>在那些負面的念頭、內耗與反覆的小劇場裡，我曾經兩次走到生命的邊緣。</p>
-            <p>人生最低谷的那段時間，我也經歷過一次非常強烈、像是原有自我突然瓦解的狀態。</p>
-            <p>那個過程並不浪漫。我非常害怕，說不清楚自己正在經歷什麼，也找不到真正理解或接住我的人。</p>
-            <p>當時的我最需要的，不是一個人急著告訴我「你應該怎麼辦」，而是有人願意聽懂我的語言，讓我知道自己不必孤單地留在那裡。</p>
-            <div class="story-pull sage compact">我需要的不是別人替我決定，<br>而是有人願意先聽懂我的語言。</div>
-            <p>也正是在那段經驗裡，我深刻感受到，自己就像一面鏡子。</p>
-            <p>當我靠近一個人，我很自然地感受到他的恐懼、快樂、痛苦與智慧；面對不同的人，我也會映照出完全不同的語言。</p>
-            <p>有時對方因為我說出的話而稱讚我，我卻很清楚，那份智慧不只來自我。</p>
-            <p>是因為遇見了他，我才映照出原本也存在於他心裡的東西。</p>
-            <p>那段經歷讓我重新回到十五歲時讀不懂的《奇蹟課程》，一課一課完成 365 天的練習，也開始把自己一直交給外界的答案，慢慢收回心裡。</p>
-            <p>我逐漸明白，真正的靈性不是離開生活，也不是讓自己永遠不再害怕。</p>
-            <p>而是當恐懼、關係、工作與選擇再次出現時，我們能不能換一種方式看待它，重新選擇自己想帶進世界的東西。</p>
-            <div class="story-pull">真正的靈性不是離開生活，<br>而是在生活裡重新選擇。</div>
-            <p>如果人與人真的會彼此映照，那麼我願意先練習成為光、成為愛，也成為一個比較平靜的人。</p>
-            <p>不是因為我比誰更有智慧，而是希望當一個人來到我面前時，他能透過我，重新看見自己原本也有光、有愛，也有重新選擇的能力。</p>
-            <p>正因為我曾經在最需要被理解的時候，找不到一個能接住我的人，我捨不得再看見另一個人，像當年的我一樣，在自己的世界裡孤單地承受。</p>
-            <p>我不一定能替誰解決人生，也不想替任何人決定方向。</p>
-            <p>但我願意成為那個先接住他的人，試著聽懂他的語言，陪他慢慢看見自己正在經歷什麼。</p>
-            <p>因為每一次接住一個人，都像是在接住當年那個沒有人理解的自己。</p>
-            <div class="story-pull sage">每一次接住一個人，<br>都像是在接住當年那個沒有人理解的自己。</div>
-            <p>後來，我從原本的不婚不生，走進婚姻，也成為一位母親。</p>
-            <p>小芙出生之後，靈性不再只是一套我理解的思想，而是真正回到了每一天的生活裡：睡眠不足的夜晚、照顧一個生命的責任、愛裡的控制與放手，以及一次次重新選擇平靜。</p>
-            <p>今天的我擁有十年的塔羅經驗，也走過創業、品牌、商業學習、靈性探索與長期的一對一個案工作。</p>
-            <p>我把十年前接觸的命卡系統，放進多年塔羅個案、一對一工作與自己的人生經驗裡反覆理解、驗證，最後慢慢整理成一套屬於自己的解讀方式——讓牌不只被算出來，也能真正幫助一個人看懂自己。</p>
-            <p>它不是要讓你更依賴命理，也不是要替你預測或決定人生。</p>
-            <p>我更願意做一面鏡子，陪你看見此刻的自己；在你暫時忘記的時候，提醒你，答案與力量從來沒有真正離開過你。</p>
-            <div class="story-pull">答案與力量，<br>從來沒有真正離開過你。</div>
-            <p>這是我理解的「奇蹟志工」：不替別人選擇，而是在有緣相遇的時候，陪他重新看見自己。</p>
-            <p>而在這一切之外，我依然是一個喜歡漂亮、喜歡生活、不大正經、會開玩笑、充滿好奇，也很有趣的人。</p>
+            <p>十四歲開始工作，後來走進銷售、品牌與創業，也曾經把品牌做到一年近五千萬營業額。</p>
+            <p>外在一路往前，卻沒有讓我更知道自己是誰。</p>
+            <div class="story-pull">有些問題，不會因為你變得更厲害，<br>就自動消失。</div>
+
+            <h3>我走進塔羅，一開始也是因為自己有問題</h3>
+            <p>我也曾經想知道答案。</p>
+            <div class="story-question">這件事會不會成功？<br>這個人怎麼想？<br>這段關係會走到哪裡？</div>
+            <p>但做了一段時間的一對一個案之後，我開始發現，比答案更重要的是：</p>
+            <p><strong>為什麼一個人總會在不同人生階段，反覆遇見相似的模式？</strong></p>
+            <p>從那時開始，塔羅對我來說，不再只是預測。</p>
+            <p>它變成一種理解人的方式。</p>
+
+            <h3>靈性，讓我重新理解「看懂自己」</h3>
+            <p>十五歲第一次接觸《奇蹟課程》，真正走進它，卻是很多年以後。</p>
+            <p>後來真的走過一些人生轉折，我才慢慢明白：</p>
+            <div class="story-pull sage compact">理解一個道理，和真正活出它，<br>中間有很長的一段路。</div>
+            <p>真正的自由，不是人生從此沒有問題。</p>
+            <p>而是事情發生時，你越來越知道自己正在怎麼運作，也開始有另一種選擇。</p>
+
+            <h3>然後，我重新回頭看十年前接觸的命卡系統</h3>
+            <p>我把這些年的個案經驗、人生觀察、靈性理解，以及自己真正看牌時會注意的脈絡，一層一層重新整理。</p>
+            <p>它慢慢不再只是「算出你有哪些牌」。</p>
+            <p>而是變成：</p>
+            <div class="story-pull">怎麼理解自己，<br>也怎麼把自己用得更好的使用手冊。</div>
+            <p>這就是《靈魂配方》。</p>
+
+            <div class="story-pull sage">看懂自己，不是為了被定義。<br>而是為了更自由地使用自己。</div>
           </div>
         </details>
       </div>
@@ -1106,28 +1286,23 @@ html{
       <article class="origin-card">
         <div class="origin-no">01</div>
         <h3>在真正抽牌以前，卡點已經開始鬆動。</h3>
-        <p>在過去的首次塔羅諮詢裡，我反覆遇到一個情況：很多人原本帶著疑惑而來，但當我們先把出生日期裡的本命牌、隱藏牌與彼此之間的關係攤開來看，原本糾結的地方就已經慢慢清楚。</p>
-        <p>有些個案甚至會告訴我：<strong>「我好像已經知道答案了。」</strong>於是後面根本不需要再抽更多牌。</p>
+        <p>在過去的一對一諮詢裡，我反覆遇到一件事：當我攤開命卡，原本的糾結已經開始鬆動。</p>
+        <p>有些個案甚至會告訴我：<strong>「我已經不需要抽牌了。」</strong></p>
       </article>
 
       <article class="origin-card">
         <div class="origin-no">02</div>
-        <h3>小芙出生後，我開始重新思考：「理解自己」一定要等一場預約嗎？</h3>
-        <p>小芙出生之後，我能安排一對一個案的時間變少了。為了在每一次諮詢裡保持完整專注，我仍會另外安排場地與時段，也因此讓每次預約需要更多時間與成本。</p>
-        <p>這讓我開始思考：如果真正有用的部分可以被整理得更完整，是不是有些人不需要等到預約那一天，才能先看懂自己正在發生什麼？</p>
+        <h3>沒有抽牌，方向一樣打開了。</h3>
+        <p>後來有幾次，我只透過 LINE，用命卡與合盤陪個案整理問題，沒有抽牌。</p>
+        <p><strong>「我好像已經知道答案了。」</strong><br><strong>「我知道現在該怎麼想，接下來可以怎麼做。」</strong></p>
       </article>
 
       <article class="origin-card">
         <div class="origin-no">03</div>
-        <h3>幾次只透過 LINE，沒有抽牌，方向一樣打開了。</h3>
-        <p>後來有幾次，我直接透過 LINE 和個案整理問題，只使用靈數、命卡與合盤，完全沒有抽牌。</p>
-        <p>但當一個人開始看見自己的運作方式，原本眼前的問題依然可以被重新理解，並且慢慢知道：<strong>「現在該怎麼想，接下來可以怎麼做。」</strong></p>
+        <h3>我開始重新思考：「理解自己」一定要等一場預約嗎？</h3>
+        <p><strong>我不是想做一個新的算命工具。</strong></p>
+        <p>我想將我的經驗，變成一個可以隨時陪伴你，在需要的時刻即時回應你的工具。</p>
       </article>
-    </div>
-
-    <div class="pullquote origin-quote">
-      <strong class="single-row-title pull-title">我不是想做一個新的算命工具。</strong>
-      <span>我只是想把十年前學到的命卡方法，和這些年陪人重新看見自己的經驗放在一起，整理成一份你可以自己打開、反覆閱讀的使用手冊。</span>
     </div>
   </section>
 
@@ -1155,7 +1330,7 @@ html{
     </div>
 
     <div class="feedback-note">
-      這些回饋來自過去的一對一個案與諮詢經驗。每個人的感受與收穫都不同，這套系統也不是為了保證某一種結果，而是提供一個重新理解自己的視角。
+      這些回饋來自過去的一對一個案與諮詢。每個人的感受與收穫不同，《靈魂配方》提供的是一個重新理解自己的視角，而不是保證某一種結果。
     </div>
   </section>
 
@@ -1167,26 +1342,22 @@ html{
     <div class="concept-grid four-cards">
       <div class="concept-card">
         <div class="n">01</div>
-        <h3>本命牌<br>你出生時就帶著的生命材料</h3>
-        <p>它們不是「你一定會活成什麼樣子」，而是你出生時就帶著的基本材料。這些模式會一直存在，只是隨著環境、經驗與成熟程度，展現成完全不同的版本。</p>
+        <div class="concept-label">本命牌</div><h3>你出生時就帶著的生命材料</h3>
       </div>
 
       <div class="concept-card">
         <div class="n">02</div>
-        <h3>隱藏牌<br>那些原本存在，卻不一定一開始就被你認出的部分</h3>
-        <p>有些特質會安靜地存在很多年，直到你遇見某些人、進入某段關係、經歷某些事件，才逐漸被勾出。它不是另一個你，更像人生裡還沒有完全打開的房間。</p>
+        <div class="concept-label">隱藏牌</div><h3>那些原本存在，卻不一定一開始就被你認出的部分</h3>
       </div>
 
       <div class="concept-card">
         <div class="n">03</div>
-        <h3>交互作用<br>真正值得讀的，是力量與力量之間的關係</h3>
-        <p>真正的解讀，不是把牌義相加，而是看這些模式放在一起之後，最後共同形成了什麼：它們怎麼彼此支持、拉扯、放大，又怎麼變成你習慣的感受、選擇與回應。</p>
+        <div class="concept-label">交互作用</div><h3>真正值得讀的，是模式與模式之間的關係</h3>
       </div>
 
       <div class="concept-card">
         <div class="n">04</div>
-        <h3>流年<br>不是只看那一年是什麼牌，而是它如何和你整體互動</h3>
-        <p>流年真正看的，不只是「今年是哪一張牌」，而是那一年的力量如何與你的本命牌、隱藏牌和整體配置交互作用。重點不是替年份貼標籤，而是看它把你帶進哪個生命主題裡。</p>
+        <div class="concept-label">流年</div><h3>不是只看那一年是什麼牌，而是它如何和你整體互動</h3>
       </div>
     </div>
   </section>
@@ -1242,46 +1413,36 @@ html{
       </div>
     </div>
 
-    <div class="mini-outline">
-      <div class="mini-outline-title">這份檔案會從這些線索開始展開</div>
-      <div class="mini-outline-list">本命牌・隱藏牌・流年・交互作用・整合解讀</div>
-    </div>
   </section>
 
   <section class="section" id="complete-manual">
     <div class="eyebrow">Full reading</div>
-    <h2 class="balanced-title">完整版不是「更多牌義」，<br>而是把你從一堆特質，讀回一個完整的人。</h2>
-      <p class="full-reading-intro-note">購買完整版，你會獲得以下內容：</p>
+    <h2 class="balanced-title full-reading-title">購買完整版，<br><span>你會獲得以下內容：</span></h2>
+      <p class="full-reading-intro-note"><strong>完整版不只是更多牌義，</strong><br>而是把一堆特質，帶回真正用進生活裡的行動。</p>
 
     <div class="content-grid">
       <div class="content-card">
-        <div class="no">1</div>
-        <h3>你的核心結構</h3>
+        <div class="card-title-row"><div class="no">1</div><h3>你的核心結構</h3></div>
         <p>哪些模式在你身上最明顯？它們彼此怎麼支持、拉扯、放大？先看整體，而不是把你拆成很多零碎標籤。</p>
       </div>
       <div class="content-card">
-        <div class="no">2</div>
-        <h3>天賦真正的使用方式</h3>
+        <div class="card-title-row"><div class="no">2</div><h3>天賦真正的使用方式</h3></div>
         <p>不是只告訴你「你很聰明、你很有貴人運」，而是看這份能力在哪些情境真正會被打開，以及怎麼用才不會反過來消耗你。</p>
       </div>
       <div class="content-card">
-        <div class="no">3</div>
-        <h3>你容易失衡的地方</h3>
+        <div class="card-title-row"><div class="no">3</div><h3>你容易失衡的地方</h3></div>
         <p>一體兩面從來不是一句漂亮話。每一份天賦都可能有自己的陰影，理解它，才知道自己為什麼老是在某些地方用力過頭。</p>
       </div>
       <div class="content-card">
-        <div class="no">4</div>
-        <h3>關係裡的你</h3>
+        <div class="card-title-row"><div class="no">4</div><h3>關係裡的你</h3></div>
         <p>你怎麼感受、怎麼愛、怎麼付出、怎麼保護自己，哪些人又最容易勾出你的隱藏材料。</p>
       </div>
       <div class="content-card">
-        <div class="no">5</div>
-        <h3>事業與發展路徑</h3>
+        <div class="card-title-row"><div class="no">5</div><h3>事業與發展路徑</h3></div>
         <p>真正適合你的未必是一個職稱，而是一種工作方式。你的能力在哪種節奏、環境與角色裡最容易發揮？</p>
       </div>
       <div class="content-card">
-        <div class="no">6</div>
-        <h3>重新使用自己的建議</h3>
+        <div class="card-title-row"><div class="no">6</div><h3>重新使用自己的建議</h3></div>
         <p>不是修掉自己，也不是變成另一個人，而是把原本的力量放回更適合的位置，讓同一組材料煮出完全不同的人生。</p>
       </div>
     </div>
@@ -1292,21 +1453,8 @@ html{
         <h2 class="xf-title xf-title-v15">還有想問的問題？<br>沒問題。</h2>
 
         <p class="xf-lead xf-lead-v15">
-          你還會帶走 <strong>小菲｜靈魂配方助理</strong>。看完完整報告之後，
-          你可以繼續把感情、親子、關係、工作，或正在經歷的事情拿來聊。
-          她不是再丟一堆牌義給你，而是沿著你已經看過的命盤邏輯，陪你把它用進生活裡。
+          你還會帶走 <strong>小菲｜靈魂配方助理</strong>。遇到親子、關係、工作，或當下的重要選擇，都可以繼續問她。
         </p>
-
-        <div class="xf-usage-block">
-          <div class="xf-usage-kicker">你還可以這樣使用小菲｜靈魂助理</div>
-          <p>不是只有再問一次「我的牌是什麼意思」。當你已經看過完整報告，之後遇到親子、關係、工作，或心裡卡住的事情，都可以把真實情境直接帶進來。</p>
-          <div class="xf-usage-examples">
-            <div class="xf-usage-example">「我知道自己的模式，可是每次遇到他還是會被勾住，這時候我要怎麼調整？」</div>
-            <div class="xf-usage-example">「我最近工作一直卡住，不知道是該硬撐下去，還是換一種用力方式？」</div>
-            <div class="xf-usage-example">「我大概懂孩子的特質了，但怎麼跟她說，她才比較聽得進去？」</div>
-          </div>
-          <div class="xf-usage-caption">你帶進來的是生活裡正在發生的事，小菲幫你做的是把已經看見的命盤邏輯，翻成更能落地的理解與下一步。</div>
-        </div>
 
         <div class="xf-chat xf-chat-v15">
 
@@ -1384,9 +1532,22 @@ html{
       </div>
     </div>
 
-    <div class="compatibility" id="compatibility">
-      <h3>你也可以把兩個人的命盤放在一起看。</h3>
-      <p>當你想理解一段關係，可以把兩個人的命盤放在一起看。不是替關係下「合不合」的判決，而是看彼此會勾出什麼、放大什麼、互補什麼，又最容易在哪裡失衡。</p>
+    <div class="compatibility" id="relationship">
+      <h3 class="relationship-more-title">還想知道更多？<br>也可以！</h3>
+      <div class="xf-usage-examples relationship-question-examples">
+        <div class="relationship-question-row avatar-right">
+          <div class="xf-usage-example">「我跟合夥人常常意見不合，我知道我們都想把事情做好，但為什麼每次溝通到最後，都快吵起來？」</div>
+          <span class="relationship-avatar business" aria-hidden="true"></span>
+        </div>
+        <div class="relationship-question-row avatar-left">
+          <span class="relationship-avatar parent" aria-hidden="true"></span>
+          <div class="xf-usage-example">「我知道爸媽是愛我的，可是為什麼每次跟他們相處，我還是很容易受傷？」</div>
+        </div>
+        <div class="relationship-question-row avatar-right">
+          <div class="xf-usage-example">「我明明知道這段關係讓我很累，為什麼每次分手後，我都好後悔？」</div>
+          <span class="relationship-avatar love" aria-hidden="true"></span>
+        </div>
+      </div>
       <div class="compat-grid">
         <div class="compat"><strong>感情｜自己 × 伴侶</strong><br>看吸引、互補、摩擦，以及彼此最容易勾出的隱藏力量。</div>
         <div class="compat"><strong>親子｜孩子 × 主要照顧者</strong><br>看孩子在什麼環境容易被打開，以及照顧者如何參與他的成長。</div>
@@ -1466,27 +1627,6 @@ html{
   </section>
 
   <section class="section" id="buy">
-    <div class="eyebrow">Full version</div>
-    <h2>一次買下，不只看懂自己，<br>也開始看懂你生命裡重要的人。</h2>
-
-    
-    <div class="edition-intro">
-      <p>免費版讓你看見自己的整體輪廓；完整版陪你把這份理解帶進真實生活，成為一套可以反覆打開、長期使用的生命手冊。</p>
-    </div>
-    <div class="edition-compare">
-      <div class="edition-columns">
-        <article class="edition-side">
-          <div class="edition-kicker"><span>免費版</span><small>Free reading</small><b class="edition-access">免費開放</b></div><h3>看見自己<br>如何運作</h3>
-          <div class="edition-list"><div>看見你的本命牌、隱藏牌與重複牌</div><div>讀懂每張牌的核心模式、成熟狀態與失衡提醒</div><div>看見不同模式如何彼此影響</div><div>看懂此刻流年與未來五年的生命節奏</div><div>完成一次屬於你的個人命盤解讀</div></div>
-        </article>
-        <article class="edition-side full">
-          <div class="edition-kicker"><span>完整使用手冊</span><small>Complete manual</small><b class="edition-access">付費完整版・888早鳥開放中</b></div><h3>把理解帶進<br>真實生活</h3>
-          <div class="edition-list"><div>深度整合你的整張命盤</div><div>把命盤帶進感情、事業與人際關係</div><div>獲得更具體的生活調整方向</div><div>感情、親子、原生家庭與事業合盤</div><div>不限次數輸入不同生日反覆查看</div></div>
-        </article>
-      </div>
-      <div class="edition-close">免費版讓你看見自己如何運作；完整版陪你把這份理解，帶進每一段真實的人生關係裡。</div>
-    </div>
-
     <div class="pricebox" id="price-888">
       <div class="muted">付費完整版・早鳥開放中</div>
       <div class="price" style="font-size:42px">NT$888</div>
@@ -1494,38 +1634,35 @@ html{
       <div class="delivery-head">
         <div class="tiny">WHAT YOU GET</div>
         <h3>付款後，你會拿到兩樣核心內容</h3>
-        <p>先把「買到什麼」說清楚，再決定這是不是你想帶回去的東西。</p>
       </div>
 
       <div class="delivery-core">
         <div class="delivery-card report">
           <div class="ico">📖</div>
-          <h4>01｜一份完整個人報告</h4>
-          <p>不是只有牌名與關鍵字，而是把你的本命、隱藏、重複、交互作用與流年，整合成一份可以反覆回看的完整閱讀。</p>
+          <h4>01｜你的完整靈魂配方</h4>
+          <p>一份精美的完整報告，深度解析五大區塊。<br>收藏起來，隨時都能反覆回看。</p>
         </div>
 
         <div class="delivery-card assistant">
           <div class="ico">🌙</div>
           <h4>02｜小菲｜靈魂配方助理</h4>
-          <p>看完報告之後，你可以繼續把感情、親子、工作、人際與當下的重要選擇帶進對話裡，讓已經看見的命盤，真正成為你理解生活與思考方向的參考。</p>
+          <p>不管白天或黑夜，小菲助理隨時在線。<br>24 小時陪你解牌，接住每一個需要答案的時刻。</p>
         </div>
       </div>
 
       <div class="report-map">
-        <h4>完整報告裡，會讀到這些</h4>
+        <h4>深度解析五大區塊</h4>
         <div class="report-map-grid">
-          <div class="report-map-item"><strong>你的生命材料</strong><br>本命牌、重複牌與整張盤最明顯的核心力量</div>
-          <div class="report-map-item"><strong>隱藏材料</strong><br>那些不一定總在表面，卻可能在重要階段浮現的潛在力量</div>
-          <div class="report-map-item"><strong>完整深度解讀</strong><br>核心主軸、行動節奏、關係模式、事業發揮與失衡提醒</div>
-          <div class="report-map-item"><strong>你的牌，如何成為現在的你</strong><br>把單張牌放回整體，看它們如何彼此牽動、共同形成你的運作方式</div>
-          <div class="report-map-item"><strong>今年與五年流年旅程</strong><br>年度流年、生日流年、雙軌整合，以及前後五年的生命節奏</div>
-          <div class="report-map-item"><strong>重新使用自己的方向</strong><br>把看見的模式整理成可以真正帶回生活裡的平衡方向</div>
+          <div class="report-map-item"><strong>01｜你的生命材料</strong><br>本命牌、重複牌與整張盤最明顯的核心力量</div>
+          <div class="report-map-item"><strong>02｜隱藏材料</strong><br>那些不一定總在表面，卻可能在重要階段浮現的潛在力量</div>
+          <div class="report-map-item"><strong>03｜完整深度解讀</strong><br>核心主軸、行動節奏、關係模式、事業發揮與失衡提醒</div>
+          <div class="report-map-item"><strong>04｜你的牌，如何成為現在的你</strong><br>把單張牌放回整體，看它們如何彼此牽動、共同運作</div>
+          <div class="report-map-item"><strong>05｜今年與五年流年旅程</strong><br>看現在走到哪裡，以及接下來幾年的時間脈絡</div>
         </div>
-        <div class="report-map-note">這份報告不是一次看完就結束。之後遇到不同階段、不同關係或新的選擇，你都可以重新回來對照。</div>
       </div>
 
       <div class="note-box" style="background:var(--rose-soft);border-color:rgba(166,111,104,.16)">
-        <p style="color:var(--rose-deep)"><strong>目前限定 50 位，額滿後將暫停開放。</strong><br>額滿後將以正式價 NT$1,980 重新上架。</p>
+        <p style="color:var(--rose-deep)"><strong>目前限定 30 位，額滿後將暫停開放。</strong><br>額滿後將以正式價 NT$1,980 重新上架。</p>
       </div>
 
       <div class="note-box">
