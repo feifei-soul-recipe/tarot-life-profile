@@ -121,18 +121,25 @@ h1{
     return res.json();
   })
   .then(data => {
-    if(data && data.valid === true){
+    /* check_access_token 目前的正式定義是 RETURNS boolean，PostgREST 呼叫 RPC 回傳
+       純布林值（data 直接是 true/false），不是物件。同時保留判斷 {valid, display_name}
+       物件格式的相容性，未來如果把函式改成回傳 JSON 物件（例如加上 display_name），
+       這裡不需要再改。 */
+    const isValid = (typeof data === 'boolean') ? data : !!(data && data.valid === true);
+    const displayName = (data && typeof data === 'object' && data.display_name) ? data.display_name : null;
+
+    if(isValid){
       try{
         sessionStorage.setItem('soulRecipeFullVersion', 'true');
         sessionStorage.setItem('soulRecipeAccessToken', token);
-        if(data.display_name){
-          sessionStorage.setItem('soulRecipeDisplayName', data.display_name);
+        if(displayName){
+          sessionStorage.setItem('soulRecipeDisplayName', displayName);
         }
       }catch(err){
         // sessionStorage 無法使用時，仍放行到建立命卡頁，只是不會記得「完整版」狀態
       }
-      if(data.display_name){
-        document.getElementById('welcomeHeading').textContent = `歡迎回家，${data.display_name}`;
+      if(displayName){
+        document.getElementById('welcomeHeading').textContent = `歡迎回家，${displayName}`;
       }
       checkingEl.style.display = 'none';
       validEl.style.display = 'block';
