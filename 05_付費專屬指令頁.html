@@ -56,6 +56,7 @@ h1{
   font-weight:900;box-shadow:0 9px 24px rgba(95,78,72,.11);border:none;cursor:pointer
 }
 .copy-btn.copied{background:#7C9885}
+.copy-btn.locked{background:#D9D0C6;color:#A69B8F;box-shadow:none;cursor:not-allowed}
 .hint{
   margin:18px 2px 4px;padding:14px 16px;border-radius:16px;
   background:rgba(233,240,243,.62);font-size:11px;line-height:1.9;color:#6B7A82;
@@ -81,6 +82,84 @@ h1{
   .intro{font-size:12.5px}
   .summary-card .lab{flex:0 0 92px}
 }
+
+/* ===== 複製前教學區：ChatGPT／Claude 建立乾淨專案的教學 ===== */
+.setup-guide{
+  margin:26px 0 4px;padding:22px 18px;border-radius:24px;
+  background:rgba(233,240,243,.4);border:1px solid rgba(140,162,176,.16)
+}
+.setup-guide-head h2{
+  font-family:'Noto Serif TC';font-size:19px;line-height:1.5;margin:0 0 8px;text-align:center
+}
+.setup-guide-head p{
+  font-size:12.5px;line-height:1.95;color:#5B6970;margin:0 auto;text-align:center;max-width:480px
+}
+.platform-switch{
+  display:flex;gap:8px;margin:18px auto 0;max-width:340px;
+  background:rgba(255,255,255,.6);border:1px solid rgba(140,162,176,.18);border-radius:999px;padding:4px
+}
+.platform-tab{
+  flex:1;border:none;background:transparent;border-radius:999px;padding:9px 10px;
+  font-size:12px;font-weight:900;color:#6B7A82;cursor:pointer;font-family:inherit
+}
+.platform-tab.active{background:#5F4E48;color:#fff}
+.platform-panel{margin-top:18px}
+.guide-carousel{position:relative;max-width:300px;margin:0 auto}
+.guide-track{
+  display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  border-radius:20px;scrollbar-width:none
+}
+.guide-track::-webkit-scrollbar{display:none}
+.guide-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;justify-content:center}
+.guide-slide img{width:100%;height:auto;display:block;border-radius:20px;box-shadow:0 10px 28px rgba(53,42,35,.12)}
+.guide-nav{
+  position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;
+  border:none;background:rgba(255,255,255,.88);color:#5F4E48;font-size:18px;font-weight:900;
+  cursor:pointer;box-shadow:0 6px 16px rgba(53,42,35,.16);display:grid;place-items:center;line-height:1
+}
+.guide-nav.prev{left:-6px}
+.guide-nav.next{right:-6px}
+.guide-nav:disabled{opacity:.32;cursor:default}
+.guide-counter{
+  text-align:center;margin-top:10px;font-size:11px;font-weight:900;letter-spacing:.06em;color:var(--rose-deep)
+}
+.guide-caption{
+  margin:10px auto 0;max-width:400px;text-align:center;font-size:10.5px;line-height:1.8;color:#9A8F86
+}
+.guide-steps{margin:20px 2px 0;padding-left:0;list-style:none;font-size:12px;color:#4E463F;line-height:2.1}
+.guide-steps li{padding-left:26px;position:relative;margin-bottom:6px}
+.guide-steps li:before{content:attr(data-n);position:absolute;left:0;top:1px;width:18px;height:18px;border-radius:50%;background:var(--rose-soft);color:var(--rose-deep);font-size:10px;font-weight:900;display:grid;place-items:center}
+.guide-note{
+  margin:14px 2px 0;padding:13px 15px;border-radius:14px;
+  background:rgba(255,253,249,.85);font-size:11.5px;line-height:1.85;color:#6B5F58;
+  border:1px solid rgba(166,111,104,.14)
+}
+.claude-note{
+  margin:2px 2px 0;padding:14px 15px;border-radius:14px;
+  background:rgba(255,253,249,.85);font-size:12px;line-height:1.95;color:#4E463F;
+  border:1px solid rgba(140,162,176,.16)
+}
+.guide-confirm{
+  display:flex;align-items:flex-start;gap:10px;margin:18px 2px 0;padding:14px 15px;
+  border-radius:14px;background:rgba(255,255,255,.6);border:1px solid rgba(140,162,176,.18);
+  font-size:12px;line-height:1.8;color:#3F4B50;cursor:pointer
+}
+.guide-confirm input{margin-top:2px;flex:0 0 auto;width:16px;height:16px;accent-color:#5F4E48;cursor:pointer}
+.guide-remind{
+  margin:14px 2px 0;padding:13px 15px;border-radius:14px;text-align:center;
+  background:var(--rose-soft);color:var(--rose-deep);font-size:12.5px;line-height:1.85;font-weight:700
+}
+.copy-success{
+  margin:16px 2px 0;padding:16px 17px;border-radius:16px;
+  background:rgba(124,152,133,.14);border:1px solid rgba(124,152,133,.28);
+  font-size:12.5px;line-height:1.95;color:#3F4B45
+}
+.copy-success strong{display:block;font-size:13.5px;color:#3A473F;margin-bottom:6px}
+@media(max-width:480px){
+  .setup-guide{padding:20px 14px}
+  .setup-guide-head h2{font-size:17.5px}
+  .guide-carousel{max-width:250px}
+}
 </style>
 </head>
 <body>
@@ -101,14 +180,80 @@ h1{
 
     <div class="summary-card" id="summaryCard"></div>
 
+    <div class="setup-guide" id="setupGuide">
+      <div class="setup-guide-head">
+        <h2>複製前，先為小菲準備一個乾淨的家</h2>
+        <p>為了避免其他聊天中的人物、八字或既有記憶影響這次解讀，建議先建立一個獨立專案。這項設定只需要完成一次，以後都可以回到同一個專案繼續和小菲聊天。🤍</p>
+      </div>
+
+      <div class="platform-switch" role="tablist" aria-label="選擇平台">
+        <button type="button" class="platform-tab active" id="tabChatGPT" data-platform="chatgpt" role="tab" aria-selected="true">ChatGPT（建議）</button>
+        <button type="button" class="platform-tab" id="tabClaude" data-platform="claude" role="tab" aria-selected="false">Claude</button>
+      </div>
+
+      <div class="platform-panel" id="panelChatGPT" role="tabpanel">
+        <div class="guide-carousel">
+          <div class="guide-track" id="guideTrack">
+            <div class="guide-slide"><img src="assets/chatgpt-setup-guide/01-open-project.png" alt="STEP 1 打開「專案」：從 ChatGPT 首頁進入專案列表，點右上角＋建立新專案" loading="lazy"></div>
+            <div class="guide-slide"><img src="assets/chatgpt-setup-guide/02-name-project.png" alt="STEP 2 幫專案命名：輸入「小菲｜靈魂配方助理」" loading="lazy"></div>
+            <div class="guide-slide"><img src="assets/chatgpt-setup-guide/03-project-only-memory.png" alt="STEP 3 選對記憶設定：選擇「僅限專案的記憶」，按下儲存" loading="lazy"></div>
+            <div class="guide-slide"><img src="assets/chatgpt-setup-guide/04-paste-in-chat.png" alt="STEP 4 把整段指令貼到聊天畫面最下方的訊息輸入框並送出" loading="lazy"></div>
+          </div>
+          <button type="button" class="guide-nav prev" id="guidePrev" aria-label="上一步">‹</button>
+          <button type="button" class="guide-nav next" id="guideNext" aria-label="下一步">›</button>
+        </div>
+        <div class="guide-counter" id="guideCounter">1／4</div>
+        <div class="guide-caption">不同手機或 ChatGPT App 版本的按鈕位置可能略有不同，請以「專案」與「僅限專案的記憶」兩個名稱為準。</div>
+
+        <ol class="guide-steps">
+          <li data-n="1">打開 ChatGPT 的「專案」，點右上角＋。</li>
+          <li data-n="2">專案名稱輸入「小菲｜靈魂配方助理」。</li>
+          <li data-n="3">記憶選擇「僅限專案的記憶」，按下儲存。</li>
+          <li data-n="4">進入剛建立的專案，開啟新的聊天。</li>
+          <li data-n="5">回到網站，複製完整專屬小菲助理指令。</li>
+          <li data-n="6">把整段內容貼到聊天畫面最下方的訊息輸入框並送出。</li>
+        </ol>
+        <div class="guide-note">不需要填寫專案的「指令」，也不需要把任何內容放進「資料來源」；這兩個區域保持空白即可。</div>
+
+        <label class="guide-confirm">
+          <input type="checkbox" id="confirmChatGPT">
+          <span>我已建立「小菲｜靈魂配方助理」專案，並選擇「僅限專案的記憶」。</span>
+        </label>
+      </div>
+
+      <div class="platform-panel" id="panelClaude" role="tabpanel" style="display:none">
+        <div class="guide-carousel">
+          <div class="guide-track" id="claudeGuideTrack">
+            <div class="guide-slide"><img src="assets/claude-setup-guide/01-open-project.png" alt="STEP 1 打開「Projects」：從 Claude 側邊選單進入專案列表" loading="lazy"></div>
+            <div class="guide-slide"><img src="assets/claude-setup-guide/02-name-project.png" alt="STEP 2 建立並命名小菲專案：輸入「小菲｜靈魂配方助理」" loading="lazy"></div>
+            <div class="guide-slide"><img src="assets/claude-setup-guide/03-paste-in-chat.png" alt="STEP 3 貼進聊天框：進入專案，直接貼上並送出" loading="lazy"></div>
+          </div>
+          <button type="button" class="guide-nav prev" id="claudeGuidePrev" aria-label="上一步">‹</button>
+          <button type="button" class="guide-nav next" id="claudeGuideNext" aria-label="下一步">›</button>
+        </div>
+        <div class="guide-counter" id="claudeGuideCounter">1／3</div>
+        <div class="guide-caption">不同手機或 Claude App 版本的按鈕位置可能略有不同，請以「Projects」與「新專案」為準。</div>
+
+        <ol class="guide-steps">
+          <li data-n="1">打開 Claude 的「Projects」。</li>
+          <li data-n="2">點右上角＋，建立新專案。</li>
+          <li data-n="3">在「What are you working on?」輸入「小菲｜靈魂配方助理」，按下確認。</li>
+          <li data-n="4">進入剛建立的專案，開始新的對話。</li>
+          <li data-n="5">回到網站，複製完整專屬小菲助理指令。</li>
+          <li data-n="6">把整段內容貼到聊天畫面最下方的訊息輸入框並送出。</li>
+        </ol>
+        <label class="guide-confirm">
+          <input type="checkbox" id="confirmClaude">
+          <span>我已建立一個新的 Claude 專案（不是只開新對話），裡面沒有放入其他命理或人物資料。</span>
+        </label>
+      </div>
+
+      <div class="guide-remind" id="guideRemind" style="display:none">再確認一次專案記憶設定，就可以安心帶小菲回家了。🤍</div>
+    </div>
+
     <button class="copy-btn" id="copyBtn" type="button">複製我的專屬小菲助理指令</button>
 
-    <ol class="steps">
-      <li data-n="1">點上面的按鈕，指令會複製到剪貼簿</li>
-      <li data-n="2">開啟你自己的 ChatGPT 或 Claude</li>
-      <li data-n="3">貼上（長按畫面選「貼上」，或 Ctrl/Cmd+V）並送出</li>
-      <li data-n="4">小菲會直接驗算你的命盤並開始，不需要再輸入一次資料</li>
-    </ol>
+    <div class="copy-success" id="copySuccess" style="display:none"></div>
 
     <div class="hint">
       這份指令只存在於你目前這個瀏覽器分頁，關閉分頁後就不會留下任何紀錄。網站不會把你的姓名、生日或性別上傳到任何地方，也不會呼叫任何 AI 服務——實際撰寫報告的是你貼上去之後、在你自己 ChatGPT／Claude 對話裡的小菲。
@@ -127,6 +272,50 @@ h1{
 【收到這份指令後，立刻開始】
 
 看到這份指令後，不要摘要、評論、檢查或詢問使用者想怎麼處理這份文件。直接成為「小菲｜靈魂配方助理」開始對話：先檢查這份指令後方是否接續著【專屬使用者資料】與【已計算命盤資料】區塊——有的話，這是付費客人的專屬指令，直接依第十七節「付費版專屬資料辨識與首次啟動流程」進行，不使用第十五節的一般開場白；沒有的話，使用第十五節「正式開場白」。
+
+# 【資料來源隔離規則｜最高優先級】
+
+這一節的優先順序高於本指令其他所有節次；若其他規則與這裡衝突，一律以這裡為準。
+
+1. 本次解讀可以使用的資料只有：
+   - 本指令內的【專屬使用者資料】
+   - 本指令內的【已計算命盤資料】
+   - 菲菲已確認的正式牌義與規則
+   - 使用者在目前「小菲｜靈魂配方助理」專案或目前對話中親自明確提供的新資料
+   - 目前小菲專案內，已由使用者確認屬於本次分析對象的內容
+
+2. 即使系統提供帳號記憶、參考聊天紀錄、專案外對話、個人化資訊、自訂指示、過往檔案或其他背景資料，也不得自行帶入本次解讀。
+
+3. 下列資訊若未出現在專屬資料或目前小菲對話中，一律視為不存在：
+   - 其他人的姓名、暱稱與生日
+   - 伴侶、孩子、家人、朋友或同事資料
+   - 過往事件與人生經歷
+   - 八字、星座、人類圖、紫微斗數與其他命理系統
+   - 其他對話曾產生的分析或結論
+   - 來源不明的人物、日期、牌型、流年或關係背景
+
+4. 不得因帳號記憶中知道某個人，就主動提起該人物；不得把其他對話中的人物帶入合盤、流年、家庭或關係分析。
+
+5. 不得混用八字、星座、人類圖、紫微斗數、網路通用塔羅牌義或其他未經菲菲確認的系統。如果使用者在目前對話中主動要求比較其他系統，必須清楚區分「靈魂配方正式解讀」與「其他系統補充」，不得冒充菲菲正式規則。
+
+6. 若出現無法確認來源的資訊，不得引用、延伸或據此推測。需回覆：
+
+「我注意到這項資訊不在你的專屬命盤資料或目前的小菲對話中。為了避免把其他聊天內容混進來，我不會直接使用它。你可以重新告訴我這是誰、與你是什麼關係，以及你希望一起看什麼，我再依目前已確認的資料陪你整理。🤍」
+
+7. 若使用者要分析新的對象，必須在目前小菲對話中重新提供必要資料，不得從帳號過往記憶自動取得。
+
+8. 資料隔離不代表忘記目前小菲專案中的陪伴歷程。可以延續目前專案內由使用者親自提供、且已確認屬於本次分析的資訊，但不得跨出此專案自行補充。
+
+9. 如果外部記憶與本指令中的資料衝突，一律以本指令內的【專屬使用者資料】與【已計算命盤資料】為準，不得混合或自行折衷。
+
+10. 每次產生完整報告、合盤、流年或具體問題解讀前，需先在內部檢查：
+    - 使用的人名是否存在於目前資料中
+    - 使用的生日是否由目前指令或對話提供
+    - 使用的牌型是否來自正式算法
+    - 是否混入其他命理系統
+    - 是否出現來源不明的事件或人物
+
+    資料一致時不必對使用者反覆聲明；只有發現衝突或來源不明時，才需要溫和提醒。
 
 # 一｜你是誰
 
@@ -1462,13 +1651,104 @@ function renderSummaryCard(intake, dataBlock){
   const promptSource = document.getElementById('assistantPromptSource').textContent;
   const fullInstruction = promptSource + '\n\n' + dataBlock;
 
+  /* ===== 圖片教學：圖卡的滑動／上一步／下一步／張數顯示（ChatGPT／Claude 共用同一套邏輯） ===== */
+  function initGuideCarousel(trackId, counterId, prevId, nextId){
+    const track = document.getElementById(trackId);
+    const counter = document.getElementById(counterId);
+    const prevBtn = document.getElementById(prevId);
+    const nextBtn = document.getElementById(nextId);
+    if(!track) return;
+    const total = track.children.length;
+    function currentIndex(){
+      return track.clientWidth ? Math.round(track.scrollLeft / track.clientWidth) : 0;
+    }
+    function refresh(){
+      const idx = currentIndex();
+      counter.textContent = `${Math.min(idx+1, total)}／${total}`;
+      prevBtn.disabled = idx <= 0;
+      nextBtn.disabled = idx >= total - 1;
+    }
+    function goTo(idx){
+      idx = Math.max(0, Math.min(total - 1, idx));
+      track.scrollTo({ left: idx * track.clientWidth, behavior: 'smooth' });
+    }
+    prevBtn.addEventListener('click', () => goTo(currentIndex() - 1));
+    nextBtn.addEventListener('click', () => goTo(currentIndex() + 1));
+    let scrollTimer = null;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(refresh, 80);
+    }, { passive: true });
+    refresh();
+  }
+  initGuideCarousel('guideTrack', 'guideCounter', 'guidePrev', 'guideNext');
+  initGuideCarousel('claudeGuideTrack', 'claudeGuideCounter', 'claudeGuidePrev', 'claudeGuideNext');
+
+  /* ===== 平台切換：ChatGPT（預設）／Claude ===== */
+  const tabChatGPT = document.getElementById('tabChatGPT');
+  const tabClaude = document.getElementById('tabClaude');
+  const panelChatGPT = document.getElementById('panelChatGPT');
+  const panelClaude = document.getElementById('panelClaude');
+  const guideRemind = document.getElementById('guideRemind');
+  let activePlatform = 'chatgpt';
+  function setPlatform(platform){
+    activePlatform = platform;
+    const isGPT = platform === 'chatgpt';
+    tabChatGPT.classList.toggle('active', isGPT);
+    tabClaude.classList.toggle('active', !isGPT);
+    tabChatGPT.setAttribute('aria-selected', String(isGPT));
+    tabClaude.setAttribute('aria-selected', String(!isGPT));
+    panelChatGPT.style.display = isGPT ? 'block' : 'none';
+    panelClaude.style.display = isGPT ? 'none' : 'block';
+    guideRemind.style.display = 'none';
+    updateCopyLockState();
+  }
+  tabChatGPT.addEventListener('click', () => setPlatform('chatgpt'));
+  tabClaude.addEventListener('click', () => setPlatform('claude'));
+
+  /* ===== 複製前確認：未勾選就把按鈕鎖住（變灰、不可用），勾選後才恢復正常可按 ===== */
+  const confirmChatGPT = document.getElementById('confirmChatGPT');
+  const confirmClaude = document.getElementById('confirmClaude');
+  const setupGuide = document.getElementById('setupGuide');
+  const copySuccess = document.getElementById('copySuccess');
+
   const btn = document.getElementById('copyBtn');
+  const btnBaseText = btn.textContent;
+  function isCurrentlyConfirmed(){
+    return activePlatform === 'chatgpt' ? confirmChatGPT.checked : confirmClaude.checked;
+  }
+  function updateCopyLockState(){
+    if(btn.classList.contains('copied')) return;
+    const locked = !isCurrentlyConfirmed();
+    btn.classList.toggle('locked', locked);
+    btn.textContent = locked ? '請先完成上方確認' : btnBaseText;
+  }
+  confirmChatGPT.addEventListener('change', updateCopyLockState);
+  confirmClaude.addEventListener('change', updateCopyLockState);
+  updateCopyLockState();
+
   btn.addEventListener('click', function(){
-    const originalText = btn.textContent;
+    const isConfirmed = isCurrentlyConfirmed();
+    if(!isConfirmed){
+      copySuccess.style.display = 'none';
+      guideRemind.style.display = 'block';
+      setupGuide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
     const showCopied = () => {
-      btn.textContent = '已複製 ✓ 貼到你的 ChatGPT／Claude 就可以開始';
+      btn.textContent = '已複製 ✓';
+      btn.classList.remove('locked');
       btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = originalText; btn.classList.remove('copied'); }, 2600);
+      setTimeout(() => { btn.classList.remove('copied'); updateCopyLockState(); }, 2600);
+
+      guideRemind.style.display = 'none';
+      if(activePlatform === 'chatgpt'){
+        copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的「小菲｜靈魂配方助理」專案，開啟新聊天，將整段內容貼到最下方的訊息輸入框並送出。不需要填寫「指令」或「資料來源」。小菲會先核對你的命盤，再為你準備完整報告。';
+      }else{
+        copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的 Claude 專案，開啟新對話，將整段內容貼進聊天輸入框並送出。小菲會先核對你的命盤，再為你準備完整報告。';
+      }
+      copySuccess.style.display = 'block';
     };
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(fullInstruction).then(showCopied).catch(() => {
