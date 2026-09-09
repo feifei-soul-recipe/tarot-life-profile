@@ -1744,9 +1744,9 @@ function renderSummaryCard(intake, dataBlock){
 
       guideRemind.style.display = 'none';
       if(activePlatform === 'chatgpt'){
-        copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的「小菲｜靈魂配方助理」專案，開啟新聊天，將整段內容貼到最下方的訊息輸入框並送出。不需要填寫「指令」或「資料來源」。小菲會先核對你的命盤，再為你準備完整報告。';
+        copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的「小菲｜靈魂配方助理」專案，開啟新聊天，將整段內容貼到最下方的訊息輸入框並送出。小菲會為你準備完整版命卡。';
       }else{
-        copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的 Claude 專案，開啟新對話，將整段內容貼進聊天輸入框並送出。小菲會先核對你的命盤，再為你準備完整報告。';
+        copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的 Claude 專案，開啟新對話，將整段內容貼進聊天輸入框並送出。小菲會為你準備完整版命卡。';
       }
       copySuccess.style.display = 'block';
     };
