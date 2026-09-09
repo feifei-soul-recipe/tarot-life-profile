@@ -61,6 +61,22 @@ input:focus{
   border-color:rgba(166,111,104,.4);
   box-shadow:0 0 0 3px rgba(201,143,134,.07)
 }
+.date-selects{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:10px}
+.date-field{display:block}
+.date-field span{display:block;font-size:10px;letter-spacing:.14em;color:var(--muted);font-weight:900;margin-bottom:9px}
+.date-field select{
+  width:100%;border:1px solid var(--line);border-radius:16px;padding:13px 14px;
+  background-color:#FBF7F2;color:var(--ink);font-size:15px;outline:none;
+  appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg, transparent 50%, #86786f 50%),linear-gradient(135deg, #86786f 50%, transparent 50%);
+  background-position:calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
+  background-size:6px 6px, 6px 6px;
+  background-repeat:no-repeat
+}
+.date-field select:focus{
+  border-color:rgba(166,111,104,.4);
+  box-shadow:0 0 0 3px rgba(201,143,134,.07)
+}
 .gender-options{
   display:grid;grid-template-columns:repeat(3,1fr);
   border:1px solid var(--line);border-radius:999px;
@@ -108,6 +124,7 @@ input:focus{
   .sheet{border-radius:28px;padding:28px 18px 26px}
   h1{font-size:clamp(20px,7.2vw,30px);letter-spacing:0;white-space:nowrap}
   .intro{font-size:12.5px}
+  .date-selects{grid-template-columns:1.3fr .85fr .85fr}
 }
 </style>
 </head>
@@ -132,8 +149,21 @@ input:focus{
 
       <div class="field">
         <label>出生日期</label>
-        <input type="text" id="birthInput" inputmode="numeric" value="" placeholder="例如 1991.01.28" aria-label="出生日期">
-        <div id="dateError" style="display:none;margin-top:8px;font-size:11px;color:var(--rose-deep);line-height:1.7">請輸入正確的出生日期（例如 1991.01.28），並確認月份與日期存在。</div>
+        <div class="date-selects" aria-label="選擇出生日期">
+          <label class="date-field">
+            <span>年份</span>
+            <select id="birthYear"></select>
+          </label>
+          <label class="date-field">
+            <span>月份</span>
+            <select id="birthMonth"></select>
+          </label>
+          <label class="date-field">
+            <span>日期</span>
+            <select id="birthDay"></select>
+          </label>
+        </div>
+        <div id="dateError" style="display:none;margin-top:8px;font-size:11px;color:var(--rose-deep);line-height:1.7">請選擇完整的出生年、月、日。</div>
       </div>
 
       <div class="field">
@@ -163,6 +193,7 @@ input:focus{
     <strong>靈魂配方使用手冊 · Soul Recipe Manual</strong>
     <div class="tagline">看懂自己，不是為了被定義，而是為了更自由地使用自己。</div>
     <div class="creator">✦ 菲菲　<a href="https://www.instagram.com/babybabyfeifei/" target="_blank" rel="noopener noreferrer">@babybabyfeifei</a></div>
+    <div class="tagline" style="margin-top:8px"><a href="mailto:soulrecipe.tw@gmail.com" style="color:inherit;text-decoration:none">soulrecipe.tw@gmail.com</a></div>
   </footer>
 </div>
 <script>
@@ -201,14 +232,57 @@ function repeatedFromRaw(raw){
     .filter(n=>c[n]>=2).map(n=>({cardNumber:n,count:c[n]}));
 }
 
-/* ===== 日期解析與驗證 ===== */
-function parseDateInput(str){
-  const m = String(str||'').trim().match(/^(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2})$/);
-  if(!m) return null;
-  const y=Number(m[1]), mo=Number(m[2]), d=Number(m[3]);
-  if(mo<1||mo>12) return null;
-  if(d<1||d>dim(y,mo)) return null;
-  return {y,m:mo,d};
+/* ===== 出生日期改用年／月／日下拉選單：手機數字鍵盤沒有句點鍵，
+   自由輸入文字日期在手機上難以正確打出「1991.01.28」這種格式，也容易打出不存在的日期；
+   下拉選單從結構上就不可能選到無效日期，不需要另外做格式驗證。===== */
+function setupDateSelectors(){
+  const ySel=document.getElementById('birthYear');
+  const mSel=document.getElementById('birthMonth');
+  const dSel=document.getElementById('birthDay');
+
+  const yPlaceholder=document.createElement('option'); yPlaceholder.value=''; yPlaceholder.textContent='出生年';
+  ySel.appendChild(yPlaceholder);
+  const currentYear = new Date().getFullYear();
+  for(let y=currentYear; y>=1940; y--){
+    const opt=document.createElement('option'); opt.value=y; opt.textContent=`${y} 年`; ySel.appendChild(opt);
+  }
+  const mPlaceholder=document.createElement('option'); mPlaceholder.value=''; mPlaceholder.textContent='出生月';
+  mSel.appendChild(mPlaceholder);
+  for(let m=1;m<=12;m++){
+    const opt=document.createElement('option'); opt.value=m; opt.textContent=`${String(m).padStart(2,'0')} 月`; mSel.appendChild(opt);
+  }
+  updateDays();
+
+  ySel.addEventListener('change', updateDays);
+  mSel.addEventListener('change', updateDays);
+}
+function updateDays(){
+  const yVal=document.getElementById('birthYear').value;
+  const mVal=document.getElementById('birthMonth').value;
+  const dSel=document.getElementById('birthDay');
+  const prevValue = dSel.value;
+  dSel.innerHTML='';
+  const dPlaceholder=document.createElement('option'); dPlaceholder.value=''; dPlaceholder.textContent='出生日';
+  dSel.appendChild(dPlaceholder);
+  if(yVal===''||mVal===''){
+    dSel.value='';
+    return;
+  }
+  const y=Number(yVal), m=Number(mVal);
+  const max=dim(y,m);
+  for(let d=1;d<=max;d++){
+    const opt=document.createElement('option'); opt.value=d; opt.textContent=`${String(d).padStart(2,'0')} 日`; dSel.appendChild(opt);
+  }
+  dSel.value = (prevValue && Number(prevValue) <= max) ? prevValue : '';
+}
+setupDateSelectors();
+
+function getSelectedDate(){
+  const yVal=document.getElementById('birthYear').value;
+  const mVal=document.getElementById('birthMonth').value;
+  const dVal=document.getElementById('birthDay').value;
+  if(yVal===''||mVal===''||dVal==='') return null;
+  return { y:Number(yVal), m:Number(mVal), d:Number(dVal) };
 }
 
 /* ===== 若從入口頁帶入生日參數，預先帶入日期欄位 ===== */
@@ -218,7 +292,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
   if(birth){
     const m=birth.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
     if(m){
-      document.getElementById('birthInput').value = `${m[1]}.${String(Number(m[2])).padStart(2,'0')}.${String(Number(m[3])).padStart(2,'0')}`;
+      document.getElementById('birthYear').value = m[1];
+      document.getElementById('birthMonth').value = String(Number(m[2]));
+      updateDays();
+      document.getElementById('birthDay').value = String(Number(m[3]));
     }
   }
 });
@@ -244,8 +321,7 @@ document.getElementById('startLink').addEventListener('click', function(e){
   genderErrorEl.style.display='none';
 
   const name=(document.getElementById('ownerName').value||'').trim();
-  const dateStr=document.getElementById('birthInput').value;
-  const parsed=parseDateInput(dateStr);
+  const parsed=getSelectedDate();
   const genderInput=document.querySelector('input[name="gender"]:checked');
   const gender=genderInput?genderInput.value:null;
 
