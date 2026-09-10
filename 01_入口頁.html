@@ -1128,6 +1128,48 @@ html{
   .report-map-item:nth-child(2){border-top:1px solid rgba(130,115,104,.13)}
 }
 </style>
+
+<style>
+/* compact layout for THE SYSTEM (#free-overview) concept cards */
+#free-overview .concept-card{
+  padding:16px 14px;
+  text-align:center;
+}
+#free-overview .concept-card .n{
+  font-size:22px;
+  margin-bottom:6px;
+}
+#free-overview .concept-label{
+  font-size:18px;
+  line-height:1.35;
+  margin:0 0 4px;
+}
+#free-overview .concept-card h3{
+  font-size:11px;
+  line-height:1.6;
+}
+@media(max-width:760px){
+  #free-overview .concept-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  #free-overview .concept-card{
+    padding:14px 12px;
+  }
+  #free-overview .concept-card .n{
+    font-size:19px;
+    margin-bottom:5px;
+  }
+  #free-overview .concept-label{
+    font-size:16px;
+    margin-bottom:3px;
+  }
+  #free-overview .concept-card h3{
+    font-size:10.5px;
+    line-height:1.55;
+  }
+}
+</style>
 </head>
 <body id="page01">
 
@@ -1357,7 +1399,7 @@ html{
 
       <div class="concept-card">
         <div class="n">04</div>
-        <div class="concept-label">流年</div><h3>不是只看那一年是什麼牌，而是它如何和你整體互動</h3>
+        <div class="concept-label">流年</div><h3>時間是一場輪迴，每一年都有不同的樣貌。</h3>
       </div>
     </div>
   </section>
