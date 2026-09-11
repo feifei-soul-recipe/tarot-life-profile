@@ -57,6 +57,32 @@ h1{
 }
 .copy-btn.copied{background:#7C9885}
 .copy-btn.locked{background:#D9D0C6;color:#A69B8F;box-shadow:none;cursor:not-allowed}
+.copy-btn.secondary{
+  background:transparent;color:#6B7A82;border:1px solid rgba(140,162,176,.35);
+  box-shadow:none;font-size:12.5px;padding:12px 18px;margin-top:12px
+}
+.copy-btn.secondary.copied{background:rgba(124,152,133,.12);color:#3F4B45;border-color:rgba(124,152,133,.32)}
+.copy-btn.secondary:disabled{opacity:.6;cursor:default}
+.copy-btn.small{padding:10px 16px;font-size:11.5px;margin:10px 0 0;width:100%}
+.download-hint{
+  margin:8px 2px 0;font-size:10.5px;line-height:1.75;color:#9A8F86;text-align:center
+}
+.length-warning{
+  margin:14px 2px 0;padding:12px 14px;border-radius:14px;text-align:center;
+  background:rgba(255,253,249,.6);font-size:10.5px;line-height:1.8;color:#9A8F86;
+  border:1px dashed rgba(166,111,104,.2)
+}
+.download-success{
+  margin:16px 2px 0;padding:18px 17px;border-radius:16px;
+  background:rgba(124,152,133,.10);border:1px solid rgba(124,152,133,.22);
+  font-size:12.5px;line-height:1.9;color:#3F4B45
+}
+.download-success .guide-steps{margin:2px 2px 0}
+.starter-box{
+  margin-top:16px;padding:14px 15px;border-radius:14px;
+  background:rgba(255,255,255,.7);border:1px solid rgba(140,162,176,.18)
+}
+.starter-box p{margin:0;font-size:12px;line-height:1.85;color:#3F4B50}
 .hint{
   margin:18px 2px 4px;padding:14px 16px;border-radius:16px;
   background:rgba(233,240,243,.62);font-size:11px;line-height:1.9;color:#6B7A82;
@@ -83,7 +109,7 @@ h1{
   .summary-card .lab{flex:0 0 92px}
 }
 
-/* ===== 複製前教學區：ChatGPT／Claude 建立乾淨專案的教學 ===== */
+/* ===== 複製前教學區：ChatGPT 建立乾淨專案的教學 ===== */
 .setup-guide{
   margin:26px 0 4px;padding:22px 18px;border-radius:24px;
   background:rgba(233,240,243,.4);border:1px solid rgba(140,162,176,.16)
@@ -94,15 +120,6 @@ h1{
 .setup-guide-head p{
   font-size:12.5px;line-height:1.95;color:#5B6970;margin:0 auto;text-align:center;max-width:480px
 }
-.platform-switch{
-  display:flex;gap:8px;margin:18px auto 0;max-width:340px;
-  background:rgba(255,255,255,.6);border:1px solid rgba(140,162,176,.18);border-radius:999px;padding:4px
-}
-.platform-tab{
-  flex:1;border:none;background:transparent;border-radius:999px;padding:9px 10px;
-  font-size:12px;font-weight:900;color:#6B7A82;cursor:pointer;font-family:inherit
-}
-.platform-tab.active{background:#5F4E48;color:#fff}
 .platform-panel{margin-top:18px}
 .guide-carousel{position:relative;max-width:300px;margin:0 auto}
 .guide-track{
@@ -134,12 +151,7 @@ h1{
   background:rgba(255,253,249,.85);font-size:12px;line-height:1.85;color:#6B5F58;
   border:1px solid rgba(166,111,104,.14)
 }
-.claude-note{
-  margin:14px 2px 0;padding:13px 15px;border-radius:14px;text-align:center;
-  background:rgba(255,253,249,.85);font-size:12px;line-height:1.85;color:#4E463F;
-  border:1px solid rgba(140,162,176,.16)
-}
-.guide-note a,.claude-note a{color:var(--rose-deep);font-weight:900;text-decoration:underline;text-underline-offset:2px}
+.guide-note a{color:var(--rose-deep);font-weight:900;text-decoration:underline;text-underline-offset:2px}
 .guide-confirm{
   display:flex;align-items:flex-start;gap:10px;margin:18px 2px 0;padding:14px 15px;
   border-radius:14px;background:rgba(255,255,255,.6);border:1px solid rgba(140,162,176,.18);
@@ -177,7 +189,7 @@ h1{
     <div class="badge">✓ 付費專屬版</div>
     <div class="kicker">Your Soul Recipe Assistant</div>
     <h1>你的專屬小菲助理指令</h1>
-    <p class="intro">已經依正式算法算好你的完整命盤，並整理成一份專屬指令。複製後貼到你自己的 ChatGPT 或 Claude 對話框，小菲就會直接開始。</p>
+    <p class="intro">已經依正式算法算好你的完整命盤，並整理成一份專屬指令。複製後貼到你自己的 ChatGPT 對話框，小菲就會直接開始。</p>
 
     <div class="summary-card" id="summaryCard"></div>
 
@@ -187,12 +199,7 @@ h1{
         <p>為了避免其他聊天中的人物、八字或既有記憶影響這次解讀，請先建立一個獨立專案。這項設定只需完成一次，以後都可以回到此專案繼續和小菲聊天。🤍</p>
       </div>
 
-      <div class="platform-switch" role="tablist" aria-label="選擇平台">
-        <button type="button" class="platform-tab active" id="tabChatGPT" data-platform="chatgpt" role="tab" aria-selected="true">ChatGPT（建議）</button>
-        <button type="button" class="platform-tab" id="tabClaude" data-platform="claude" role="tab" aria-selected="false">Claude</button>
-      </div>
-
-      <div class="platform-panel" id="panelChatGPT" role="tabpanel">
+      <div class="platform-panel" id="panelChatGPT">
         <div class="guide-carousel">
           <div class="guide-track" id="guideTrack">
             <div class="guide-slide"><img src="assets/chatgpt-setup-guide/01-open-project.png" alt="STEP 1 打開「專案」：從 ChatGPT 首頁進入專案列表，點右上角＋建立新專案" loading="lazy"></div>
@@ -215,39 +222,11 @@ h1{
           <li data-n="6">把整段內容貼到聊天畫面最下方的訊息輸入框並送出。</li>
         </ol>
         <div class="guide-note">貼到AI解讀 <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">ChatGPT ›</a></div>
+        <div class="length-warning">如果送出時顯示「你提交的訊息太長」，代表目前的 ChatGPT 無法一次接收完整指令。請回到這個頁面，點選「無法貼上？下載專屬指令檔」，改用檔案上傳的方式啟動。</div>
 
         <label class="guide-confirm">
           <input type="checkbox" id="confirmChatGPT">
           <span>我已建立「小菲｜靈魂配方助理」專案，並選擇「僅限專案的記憶」。</span>
-        </label>
-      </div>
-
-      <div class="platform-panel" id="panelClaude" role="tabpanel" style="display:none">
-        <div class="guide-carousel">
-          <div class="guide-track" id="claudeGuideTrack">
-            <div class="guide-slide"><img src="assets/claude-setup-guide/01-open-project.png" alt="STEP 1 打開「Projects」：從 Claude 側邊選單進入專案列表" loading="lazy"></div>
-            <div class="guide-slide"><img src="assets/claude-setup-guide/02-name-project.png" alt="STEP 2 建立並命名小菲專案：輸入「小菲｜靈魂配方助理」" loading="lazy"></div>
-            <div class="guide-slide"><img src="assets/claude-setup-guide/03-paste-in-chat.png" alt="STEP 3 貼進聊天框：進入專案，直接貼上並送出" loading="lazy"></div>
-          </div>
-          <button type="button" class="guide-nav prev" id="claudeGuidePrev" aria-label="上一步">‹</button>
-          <button type="button" class="guide-nav next" id="claudeGuideNext" aria-label="下一步">›</button>
-        </div>
-        <div class="guide-counter" id="claudeGuideCounter">1／3</div>
-        <div class="guide-caption">不同手機或 Claude App 版本的按鈕位置可能略有不同，請以「Projects」與「新專案」為準。</div>
-
-        <ol class="guide-steps">
-          <li data-n="1">打開 Claude 的「Projects」。</li>
-          <li data-n="2">點右上角＋，建立新專案。</li>
-          <li data-n="3">在「What are you working on?」輸入「小菲｜靈魂配方助理」，按下確認。</li>
-          <li data-n="4">進入剛建立的專案，開始新的對話。</li>
-          <li data-n="5">回到網站，複製完整專屬小菲助理指令。</li>
-          <li data-n="6">把整段內容貼到聊天畫面最下方的訊息輸入框並送出。</li>
-        </ol>
-        <div class="claude-note">貼到AI解讀 <a href="https://claude.ai/new" target="_blank" rel="noopener noreferrer">Claude ›</a></div>
-
-        <label class="guide-confirm">
-          <input type="checkbox" id="confirmClaude">
-          <span>我已建立一個新的 Claude 專案（不是只開新對話），裡面沒有放入其他命理或人物資料。</span>
         </label>
       </div>
 
@@ -258,8 +237,25 @@ h1{
 
     <div class="copy-success" id="copySuccess" style="display:none"></div>
 
+    <button class="copy-btn secondary" id="downloadBtn" type="button">無法貼上？下載專屬指令檔</button>
+    <div class="download-hint">如果貼上後出現「訊息太長」，可以改用下載檔案的方式啟動。</div>
+
+    <div class="download-success" id="downloadSuccess" style="display:none">
+      <ol class="guide-steps">
+        <li data-n="1">打開 ChatGPT，進入「小菲｜靈魂配方助理」專案</li>
+        <li data-n="2">將剛下載的專屬指令檔上傳到專案資料中</li>
+        <li data-n="3">在專案裡開啟一個新的對話</li>
+        <li data-n="4">貼上網站提供的短版啟動訊息</li>
+        <li data-n="5">送出後，小菲會完整讀取專屬指令與命盤資料並直接開始</li>
+      </ol>
+      <div class="starter-box">
+        <p id="starterMessageText">請完整讀取這個專案中上傳的「小菲專屬指令檔」，並依照檔案內的首次啟動流程直接開始。請勿摘要、評論或重述指令內容。</p>
+        <button class="copy-btn secondary small" id="copyStarterBtn" type="button">複製啟動訊息</button>
+      </div>
+    </div>
+
     <div class="hint">
-      這份指令只存在於你目前這個瀏覽器分頁，關閉分頁後就不會留下任何紀錄。網站不會把你的姓名、生日或性別上傳到任何地方，也不會呼叫任何 AI 服務——實際撰寫報告的是你貼上去之後、在你自己 ChatGPT／Claude 對話裡的小菲。
+      這份指令只存在於你目前這個瀏覽器分頁，關閉分頁後就不會留下任何紀錄。網站不會把你的姓名、生日或性別上傳到任何地方，也不會呼叫任何 AI 服務——實際撰寫報告的是你貼上去之後、在你自己 ChatGPT 對話裡的小菲。
     </div>
   </main>
 
@@ -1577,7 +1573,7 @@ B｜生日流年：生日當日 00:00 至下一次生日之前，生日當日切
 
 **HTML escaping（安全規則）**：所有由使用者輸入並放入 HTML 的文字（稱呼、任何使用者提供的背景描述）都必須先做 HTML escaping（至少將 `&`、`<`、`>`、`"`、`'` 轉換成對應的 HTML 實體），避免輸入內容被當成程式碼執行或破壞頁面結構。
 
-**HTML 建立失敗時的處理**：小菲必須優先建立可下載 HTML。若目前環境支援檔案或 Artifact：直接建立 HTML，顯示可點開或下載的檔案，不把原始 HTML 程式碼貼滿聊天室。若目前環境確實無法建立檔案：不得假裝檔案已完成，清楚告知目前對話環境無法建立附件，保留已完成的報告內容，優先建立 HTML Artifact 或 Canvas；若連 Artifact 都無法使用，再提供完整報告於對話中；告知使用者可等待額度恢復，或換至支援檔案建立的 ChatGPT／Claude 對話重新啟動。不得因檔案工具暫時無法使用，就刪減完整報告內容。
+**HTML 建立失敗時的處理**：小菲必須優先建立可下載 HTML。若目前環境支援檔案或 Artifact：直接建立 HTML，顯示可點開或下載的檔案，不把原始 HTML 程式碼貼滿聊天室。若目前環境確實無法建立檔案：不得假裝檔案已完成，清楚告知目前對話環境無法建立附件，保留已完成的報告內容，優先建立 HTML Artifact 或 Canvas；若連 Artifact 都無法使用，再提供完整報告於對話中；告知使用者可等待額度恢復，或換一個新的 ChatGPT 對話重新啟動。不得因檔案工具暫時無法使用，就刪減完整報告內容。
 
 **報告生成完成後**：交付 HTML 後，簡短說明報告已完成、可以點開、保存、截圖，也可以繼續針對其中任何一段提問。接著依第十七節步驟 8 提供三個依此人實際命盤生成的下一步選項，並依第十一節的方式持續陪伴。
 </script>
@@ -1780,7 +1776,7 @@ function renderSummaryCard(intake, dataBlock){
   const promptSource = document.getElementById('assistantPromptSource').textContent;
   const fullInstruction = promptSource + '\n\n' + dataBlock;
 
-  /* ===== 圖片教學：圖卡的滑動／上一步／下一步／張數顯示（ChatGPT／Claude 共用同一套邏輯） ===== */
+  /* ===== 圖片教學：圖卡的滑動／上一步／下一步／張數顯示 ===== */
   function initGuideCarousel(trackId, counterId, prevId, nextId){
     const track = document.getElementById(trackId);
     const counter = document.getElementById(counterId);
@@ -1811,40 +1807,18 @@ function renderSummaryCard(intake, dataBlock){
     refresh();
   }
   initGuideCarousel('guideTrack', 'guideCounter', 'guidePrev', 'guideNext');
-  initGuideCarousel('claudeGuideTrack', 'claudeGuideCounter', 'claudeGuidePrev', 'claudeGuideNext');
 
-  /* ===== 平台切換：ChatGPT（預設）／Claude ===== */
-  const tabChatGPT = document.getElementById('tabChatGPT');
-  const tabClaude = document.getElementById('tabClaude');
-  const panelChatGPT = document.getElementById('panelChatGPT');
-  const panelClaude = document.getElementById('panelClaude');
   const guideRemind = document.getElementById('guideRemind');
-  let activePlatform = 'chatgpt';
-  function setPlatform(platform){
-    activePlatform = platform;
-    const isGPT = platform === 'chatgpt';
-    tabChatGPT.classList.toggle('active', isGPT);
-    tabClaude.classList.toggle('active', !isGPT);
-    tabChatGPT.setAttribute('aria-selected', String(isGPT));
-    tabClaude.setAttribute('aria-selected', String(!isGPT));
-    panelChatGPT.style.display = isGPT ? 'block' : 'none';
-    panelClaude.style.display = isGPT ? 'none' : 'block';
-    guideRemind.style.display = 'none';
-    updateCopyLockState();
-  }
-  tabChatGPT.addEventListener('click', () => setPlatform('chatgpt'));
-  tabClaude.addEventListener('click', () => setPlatform('claude'));
 
   /* ===== 複製前確認：未勾選就把按鈕鎖住（變灰、不可用），勾選後才恢復正常可按 ===== */
   const confirmChatGPT = document.getElementById('confirmChatGPT');
-  const confirmClaude = document.getElementById('confirmClaude');
   const setupGuide = document.getElementById('setupGuide');
   const copySuccess = document.getElementById('copySuccess');
 
   const btn = document.getElementById('copyBtn');
   const btnBaseText = btn.textContent;
   function isCurrentlyConfirmed(){
-    return activePlatform === 'chatgpt' ? confirmChatGPT.checked : confirmClaude.checked;
+    return confirmChatGPT.checked;
   }
   function updateCopyLockState(){
     if(btn.classList.contains('copied')) return;
@@ -1853,7 +1827,6 @@ function renderSummaryCard(intake, dataBlock){
     btn.textContent = locked ? '請先完成上方確認' : btnBaseText;
   }
   confirmChatGPT.addEventListener('change', updateCopyLockState);
-  confirmClaude.addEventListener('change', updateCopyLockState);
   updateCopyLockState();
 
   btn.addEventListener('click', function(){
@@ -1872,11 +1845,7 @@ function renderSummaryCard(intake, dataBlock){
       setTimeout(() => { btn.classList.remove('copied'); updateCopyLockState(); }, 2600);
 
       guideRemind.style.display = 'none';
-      if(activePlatform === 'chatgpt'){
-        copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的「小菲｜靈魂配方助理」專案，開啟新聊天，將整段內容貼到最下方的訊息輸入框並送出。小菲會為你準備完整版命卡。';
-      }else{
-        copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的 Claude 專案，開啟新對話，將整段內容貼進聊天輸入框並送出。小菲會為你準備完整版命卡。';
-      }
+      copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的「小菲｜靈魂配方助理」專案，開啟新聊天，將整段內容貼到最下方的訊息輸入框並送出。小菲會為你準備完整版命卡。';
       copySuccess.style.display = 'block';
     };
     if(navigator.clipboard && navigator.clipboard.writeText){
@@ -1885,6 +1854,76 @@ function renderSummaryCard(intake, dataBlock){
       });
     }else{
       alert('這個瀏覽器不支援自動複製，請手動選取整份指令內容後複製。');
+    }
+  });
+
+  /* ===== 備用方式：貼上出現「訊息太長」時，改成直接下載完整指令成 .txt 檔。
+     下載內容與上方複製按鈕共用同一份 fullInstruction，不建立第二套指令來源。===== */
+  function sanitizeFilenamePart(str){
+    return String(str || '').replace(/[\/\\:*?"<>|]/g, '_').trim() || '客人';
+  }
+  function formatDateForFilename(){
+    const today = new Date();
+    return `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  }
+
+  const downloadBtn = document.getElementById('downloadBtn');
+  const downloadSuccess = document.getElementById('downloadSuccess');
+  const downloadBtnBaseText = downloadBtn.textContent;
+  let downloadInProgress = false;
+  downloadBtn.addEventListener('click', function(){
+    if(downloadInProgress) return;
+    downloadInProgress = true;
+    downloadBtn.disabled = true;
+
+    try{
+      const safeName = sanitizeFilenamePart(intake.name);
+      const filename = `小菲_${safeName}_專屬靈魂配方助理指令_${formatDateForFilename()}.txt`;
+      const blob = new Blob([fullInstruction], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+      downloadBtn.textContent = '已下載 ✓';
+      downloadBtn.classList.add('copied');
+      downloadSuccess.style.display = 'block';
+      downloadSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }catch(err){
+      alert('下載失敗，請改用上方「複製我的專屬小菲助理指令」，直接貼到 ChatGPT。');
+    }
+
+    setTimeout(() => {
+      downloadBtn.textContent = downloadBtnBaseText;
+      downloadBtn.classList.remove('copied');
+      downloadBtn.disabled = false;
+      downloadInProgress = false;
+    }, 2600);
+  });
+
+  /* ===== 備用教學中的短版啟動訊息：只複製這段話，不會再次複製完整指令 ===== */
+  const copyStarterBtn = document.getElementById('copyStarterBtn');
+  const starterMessageText = document.getElementById('starterMessageText').textContent;
+  const copyStarterBtnBaseText = copyStarterBtn.textContent;
+  copyStarterBtn.addEventListener('click', function(){
+    const showCopied = () => {
+      copyStarterBtn.textContent = '已複製 ✓';
+      copyStarterBtn.classList.add('copied');
+      setTimeout(() => {
+        copyStarterBtn.textContent = copyStarterBtnBaseText;
+        copyStarterBtn.classList.remove('copied');
+      }, 2200);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(starterMessageText).then(showCopied).catch(() => {
+        alert('複製失敗，請手動選取上方啟動訊息後複製。');
+      });
+    }else{
+      alert('這個瀏覽器不支援自動複製，請手動選取上方啟動訊息後複製。');
     }
   });
 })();
