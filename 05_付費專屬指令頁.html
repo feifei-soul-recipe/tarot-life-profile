@@ -130,15 +130,16 @@ h1{
 .guide-steps li{padding-left:26px;position:relative;margin-bottom:6px}
 .guide-steps li:before{content:attr(data-n);position:absolute;left:0;top:1px;width:18px;height:18px;border-radius:50%;background:var(--rose-soft);color:var(--rose-deep);font-size:10px;font-weight:900;display:grid;place-items:center}
 .guide-note{
-  margin:14px 2px 0;padding:13px 15px;border-radius:14px;
-  background:rgba(255,253,249,.85);font-size:11.5px;line-height:1.85;color:#6B5F58;
+  margin:14px 2px 0;padding:13px 15px;border-radius:14px;text-align:center;
+  background:rgba(255,253,249,.85);font-size:12px;line-height:1.85;color:#6B5F58;
   border:1px solid rgba(166,111,104,.14)
 }
 .claude-note{
-  margin:2px 2px 0;padding:14px 15px;border-radius:14px;
-  background:rgba(255,253,249,.85);font-size:12px;line-height:1.95;color:#4E463F;
+  margin:14px 2px 0;padding:13px 15px;border-radius:14px;text-align:center;
+  background:rgba(255,253,249,.85);font-size:12px;line-height:1.85;color:#4E463F;
   border:1px solid rgba(140,162,176,.16)
 }
+.guide-note a,.claude-note a{color:var(--rose-deep);font-weight:900;text-decoration:underline;text-underline-offset:2px}
 .guide-confirm{
   display:flex;align-items:flex-start;gap:10px;margin:18px 2px 0;padding:14px 15px;
   border-radius:14px;background:rgba(255,255,255,.6);border:1px solid rgba(140,162,176,.18);
@@ -213,7 +214,7 @@ h1{
           <li data-n="5">回到網站，複製完整專屬小菲助理指令。</li>
           <li data-n="6">把整段內容貼到聊天畫面最下方的訊息輸入框並送出。</li>
         </ol>
-        <div class="guide-note">不需要填寫專案的「指令」，也不需要把任何內容放進「資料來源」；這兩個區域保持空白即可。</div>
+        <div class="guide-note">貼到AI解讀 <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">ChatGPT ›</a></div>
 
         <label class="guide-confirm">
           <input type="checkbox" id="confirmChatGPT">
@@ -242,6 +243,8 @@ h1{
           <li data-n="5">回到網站，複製完整專屬小菲助理指令。</li>
           <li data-n="6">把整段內容貼到聊天畫面最下方的訊息輸入框並送出。</li>
         </ol>
+        <div class="claude-note">貼到AI解讀 <a href="https://claude.ai/new" target="_blank" rel="noopener noreferrer">Claude ›</a></div>
+
         <label class="guide-confirm">
           <input type="checkbox" id="confirmClaude">
           <span>我已建立一個新的 Claude 專案（不是只開新對話），裡面沒有放入其他命理或人物資料。</span>
