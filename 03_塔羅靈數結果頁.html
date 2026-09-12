@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你的塔羅靈數檔案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{--bg:#F8F4EE;--paper:#FFFDF9;--ink:#2D2824;--muted:#877C73;--line:#E7DDD2;--rose:#C99991;--rose-deep:#9E6E68;--rose-soft:#F2E4E1;--blue:#8CA2B0;--blue-deep:#6D8290;--blue-soft:#E9F0F3;--gold:#B99A62;--gold-soft:#F2E8D5;--shadow:0 18px 55px rgba(49,39,33,.075)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at 8% 0%,rgba(242,228,225,.74),transparent 26%),radial-gradient(circle at 93% 10%,rgba(233,240,243,.68),transparent 25%),var(--bg);font-family:'Noto Sans TC',sans-serif}button{font:inherit;cursor:pointer}.wrap{max-width:980px;margin:0 auto;padding:0 18px 90px}.eyebrow{color:var(--rose-deep);font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.section{padding:54px 0;border-top:1px solid var(--line)}.section h2{font-family:'Noto Serif TC';font-size:clamp(28px,5vw,42px);line-height:1.35;margin:8px 0 10px}.section-sub{font-size:13px;color:var(--muted);line-height:1.9;max-width:720px}
+.hero{min-height:88vh;display:grid;align-content:center;padding:58px 0 56px}
+.archive-cover{position:relative;overflow:hidden;border-radius:36px;background:linear-gradient(150deg,rgba(255,253,249,.98),rgba(245,235,232,.88));border:1px solid rgba(255,255,255,.98);box-shadow:0 26px 66px rgba(49,39,33,.075);padding:28px}
+.archive-cover:before{content:"";position:absolute;left:-120px;bottom:-150px;width:320px;height:320px;border:1px solid rgba(185,154,98,.13);border-radius:50%}
+.archive-cover:after{content:"";position:absolute;right:-72px;top:-92px;width:240px;height:240px;border:1px solid rgba(140,162,176,.14);border-radius:50%}
+.archive-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;padding-bottom:18px;border-bottom:1px solid rgba(185,154,98,.18)}
+.archive-kicker{font-size:9px;letter-spacing:.24em;color:#9A8D84;font-weight:900;text-transform:uppercase;text-align:center}
+.archive-code{display:none}
+.archive-main{position:relative;z-index:1;padding:54px 24px 38px;text-align:center}
+.archive-index{font-family:'Noto Serif TC';font-size:11px;color:var(--rose-deep);letter-spacing:.16em;margin-bottom:18px;text-transform:uppercase;text-align:center}
+.hero h1{font-family:'Noto Serif TC';font-size:clamp(40px,6.7vw,62px);margin:0;line-height:1.14;max-width:none;letter-spacing:.01em;text-align:center}
+.owner-slip{display:flex;justify-content:center;align-items:center;gap:52px;max-width:560px;margin:32px auto 0;padding:0;border:none;text-align:center}
+.owner-field .label{font-size:9px;letter-spacing:.16em;color:var(--muted);font-weight:900;text-align:center}
+.owner-field .value{font-family:'Noto Serif TC';font-size:18px;margin-top:7px;text-align:center;min-width:120px}
+.hero-copy{max-width:640px;margin:42px auto 0;font-family:'Noto Serif TC';font-size:18px;line-height:2;color:#514841;text-align:center}
+.hero-copy .leadline{font-size:22px;line-height:1.95;color:#3E3732}
+.hero-copy .soft{display:block;margin-top:20px;color:#756B63;font-size:15px;line-height:2}
+.hero-action{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin-top:34px}
+.cta{margin:0;border:none;border-radius:999px;padding:14px 30px;background:#3A332E;color:#fff;font-size:13px;font-weight:900;box-shadow:0 9px 22px rgba(58,51,46,.12);min-width:240px}
+.hero-hint{font-size:10px;color:var(--muted);letter-spacing:.06em}
+.archive-stamp{display:none}
+.source-btn{margin-top:14px;border:none;background:none;padding:0;color:var(--blue-deep);font-size:10px;font-weight:900;letter-spacing:.04em}
+.source-box{display:none;margin-top:11px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.62);color:#6A625C;font-size:12px;line-height:1.9;border:1px solid rgba(255,255,255,.78)}
+.source-box.show{display:block}
+.six-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}.card{background:rgba(255,253,249,.95);border:1px solid rgba(255,255,255,.95);border-radius:24px;box-shadow:var(--shadow)}.tarot{position:relative;padding:20px;min-height:200px;overflow:hidden}.tarot:before{content:"";position:absolute;left:18px;right:18px;top:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.65}.tarot .seq{font-size:10px;color:var(--muted);letter-spacing:.16em;font-weight:900}.tarot .num{width:46px;height:46px;border:1px solid #4B433D;border-radius:50%;display:grid;place-items:center;font-family:'Noto Serif TC';font-size:19px;margin:18px 0 14px}.tarot h3{font-family:'Noto Serif TC';font-size:22px;margin:0 0 7px}.tarot .short{font-size:12px;color:#5E554E;line-height:1.75}.tarot button{margin-top:14px;border:none;background:none;padding:0;color:var(--rose-deep);font-size:11px;font-weight:800}.tarot-detail{max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .35s ease;opacity:0}.tarot.open .tarot-detail{max-height:260px;opacity:1}.tarot-detail p{font-size:12px;color:var(--muted);line-height:1.9;margin:14px 0 0}.keywords{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.keyword{background:var(--rose-soft);color:var(--rose-deep);padding:5px 9px;border-radius:999px;font-size:10px;font-weight:800}.close-copy{margin-top:22px;padding:18px 20px;border-radius:20px;background:rgba(255,253,249,.7);font-family:'Noto Serif TC';font-size:14px;line-height:1.9;color:#594F48}
+.tarot .repeat-badge{position:absolute;top:16px;right:16px;background:var(--rose-soft);color:var(--rose-deep);font-size:9px;font-weight:800;padding:4px 8px;border-radius:999px;white-space:nowrap;z-index:1}
+.hidden-zone{margin-top:24px;border-radius:30px;padding:28px;background:linear-gradient(145deg,rgba(233,240,243,.94),rgba(242,228,225,.78));border:1px solid rgba(255,255,255,.9)}.hidden-cards{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.hidden-pill{padding:11px 15px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(126,149,165,.16);font-family:'Noto Serif TC';font-size:15px}.hidden-reading{max-width:760px;font-size:13px;line-height:2;color:#5B5F63}.link-btn{margin-top:14px;border:none;background:none;padding:0;color:var(--blue-deep);font-weight:900;font-size:12px}.hidden-detail{display:none;margin-top:18px;gap:10px}.hidden-detail.show{display:grid;grid-template-columns:repeat(3,1fr)}.hidden-mini{padding:16px;border-radius:18px;background:rgba(255,255,255,.64)}.hidden-mini strong{font-family:'Noto Serif TC';font-size:16px}.hidden-mini p{font-size:12px;line-height:1.9;color:#657078}
+.year-hero{margin-top:24px;border-radius:32px;padding:30px;background:linear-gradient(145deg,rgba(255,253,249,.94),rgba(242,232,213,.78));box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.9);position:relative;overflow:hidden}.year-hero:after{content:"";position:absolute;right:-42px;top:-42px;width:160px;height:160px;border:1px solid rgba(185,154,98,.28);border-radius:50%}.year-number{font-family:'Noto Serif TC';font-size:68px;line-height:1;color:#6F6047}.year-card-name{font-family:'Noto Serif TC';font-size:27px;margin-top:16px}.year-line{font-family:'Noto Serif TC';font-size:18px;line-height:1.7;margin-top:8px;max-width:680px}.year-key{font-size:11px;color:var(--gold);font-weight:900;letter-spacing:.12em;margin-top:14px}.year-copy{font-size:13px;line-height:1.95;color:#655D54;max-width:720px;margin-top:14px}
+.journey{position:relative;margin-top:30px;padding:26px 8px 14px}.track{position:absolute;left:8%;right:8%;top:82px;height:1px;background:linear-gradient(90deg,transparent,rgba(185,154,98,.5),transparent)}.years{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;position:relative}.year-item{text-align:center;opacity:.58;transform:scale(.88)}.year-item.near{opacity:.78;transform:scale(.94)}.year-item.current{opacity:1;transform:scale(1.08)}.year-dot{width:10px;height:10px;border-radius:50%;background:#D9C8A8;margin:8px auto 14px;border:2px solid var(--bg)}.year-item.current .year-dot{width:14px;height:14px;background:var(--gold)}.year-item .yr-tag{display:inline-block;font-size:9px;font-weight:900;letter-spacing:.06em;color:var(--gold);background:var(--gold-soft);padding:2px 8px;border-radius:999px;margin-bottom:5px}.year-item .yr{font-size:12px;color:var(--muted);font-weight:900;letter-spacing:.08em}.year-item .name{font-family:'Noto Serif TC';font-size:15px;margin-top:7px}.year-item .mini{font-size:11px;line-height:1.55;color:#6B6058;margin-top:5px}.segment{margin-top:20px;padding:22px;border-radius:24px;background:var(--paper);box-shadow:var(--shadow)}.segment h3{font-family:'Noto Serif TC';font-size:22px;margin:0 0 9px}.segment p{font-size:13px;line-height:2;color:#5D554E;margin:0}.lifetime{display:none;margin-top:18px}.lifetime.show{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.life-cell{border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,253,249,.72)}.life-cell .yr{font-size:10px;color:var(--muted)}.life-cell .nm{font-family:'Noto Serif TC';font-size:14px;margin-top:5px}
+.integrated{margin-top:24px;background:linear-gradient(155deg,#F2E8E4,#EDF1F2);color:var(--ink);border-radius:30px;padding:30px;border:1px solid rgba(255,255,255,.95);box-shadow:var(--shadow)}.layer{padding:24px;border:1px solid rgba(99,82,73,.10);border-radius:20px;background:rgba(255,253,249,.55);margin-bottom:14px}.layer:last-child{margin-bottom:0}.layer .lab{font-size:10px;color:var(--rose-deep);letter-spacing:.15em;font-weight:900}.layer h3{font-family:'Noto Serif TC';font-size:21px;margin:0 0 8px}.layer p{font-size:13px;line-height:2;color:#5B524B;margin:0}.layer .year-meta{font-size:11px;color:#8B7A73;letter-spacing:.03em;margin-bottom:10px}.integrated-final{margin-top:22px;padding-top:20px;border-top:1px solid rgba(99,82,73,.12);font-family:'Noto Serif TC';font-size:16px;line-height:2;color:#3F3833}
+.note-final{min-height:42vh;display:grid;align-content:center;text-align:center;padding:74px 0}.note-final h2{font-family:'Noto Serif TC';font-size:32px;margin-bottom:20px}.note-final p{font-family:'Noto Serif TC';font-size:18px;line-height:2;color:#5E554E}.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:26px}.action{border:none;border-radius:999px;padding:12px 17px;font-size:12px;font-weight:900}.action.primary{background:var(--ink);color:#fff}.action.secondary{background:var(--rose-soft);color:var(--rose-deep)}.action.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}.footer-quote{text-align:center;font-family:'Noto Serif TC';font-size:13px;line-height:1.9;color:var(--muted);padding:26px 0 4px}
+
+.brand-footer{
+  margin-top:18px;
+  padding:42px 12px 18px;
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+.brand-footer .brand-line{
+  font-size:12px;
+  color:#81776F;
+  line-height:1.8;
+}
+.brand-footer .brand-line strong{
+  font-family:'Noto Serif TC';
+  font-weight:700;
+  color:#6F655D;
+}
+.brand-footer .brand-tagline{
+  margin-top:4px;
+  font-size:11px;
+  line-height:1.85;
+  color:#9A8F86;
+}
+.brand-footer .creator{
+  margin-top:22px;
+  font-size:11px;
+  color:#9A8F86;
+}
+.brand-footer .creator a{
+  color:var(--rose-deep);
+  text-decoration:none;
+  border-bottom:1px solid rgba(158,110,104,.28);
+  padding-bottom:1px;
+}
+.brand-footer .creator a:active{
+  opacity:.72;
+}
+
+
+.tarot-native{
+  margin-top:14px;
+}
+.tarot-native summary{
+  list-style:none;
+  cursor:pointer;
+  color:var(--rose-deep);
+  font-size:11px;
+  font-weight:800;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+/* html2canvas 不會正確辨識 <details> 收合狀態的原生隱藏，改用明確的規則強制隱藏，
+   避免截圖時收合的展開解讀內容全部重疊顯示 */
+details:not([open]) > *:not(summary){display:none}
+.tarot-native summary::-webkit-details-marker{display:none}
+.tarot-native summary::after{content:'›';transition:transform .2s ease}
+.tarot-native[open] summary::after{transform:rotate(90deg)}
+.tarot-native[open] summary .open-text{display:none}
+.tarot-native summary .close-text{display:none}
+.tarot-native[open] summary .close-text{display:inline}
+.tarot-native .native-detail{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid rgba(231,221,210,.75);
+}
+.tarot-native .native-detail p{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.9;
+  margin:0;
+}
+
+.detail-note{margin-top:10px;font-size:12px;line-height:1.85;color:#7B716A}.source-box strong{display:block;margin-bottom:4px;color:#544A44;font-size:12px}.source-box span{display:block}.hidden-mini .mini-key{margin-top:10px;font-size:11px;color:#8B7A73}
+
+.native-disclosure{margin-top:14px}
+.native-disclosure summary{
+  list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:4px;
+  color:var(--blue-deep);font-size:12px;font-weight:900;
+}
+.native-disclosure summary::-webkit-details-marker{display:none}
+.native-disclosure summary::after{content:'›';transition:transform .2s ease}
+.native-disclosure[open] summary::after{transform:rotate(90deg)}
+.native-disclosure[open] summary .open-label{display:none}
+.native-disclosure summary .close-label{display:none}
+.native-disclosure[open] summary .close-label{display:inline}
+
+.hidden-native-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px
+}
+.lifetime-native-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:18px
+}
+.source-native{
+  margin-top:14px
+}
+.source-native summary{
+  list-style:none;cursor:pointer;color:var(--blue-deep);
+  font-size:10px;font-weight:900;letter-spacing:.04em
+}
+.source-native summary::-webkit-details-marker{display:none}
+.source-native summary::after{content:' ›'}
+.source-native[open] summary::after{content:' ↑'}
+.source-native .source-box{
+  display:block;
+}
+
+.lifetime-intro{
+  margin-top:16px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(231,221,210,.75);
+  color:#6A625C;
+  font-size:12px;
+  line-height:1.9;
+}
+.lifetime-intro strong{
+  display:block;
+  font-family:'Noto Serif TC';
+  color:#4F4741;
+  font-size:15px;
+  margin-bottom:6px;
+}
+.life-cell{
+  min-height:150px;
+}
+.life-cell .theme{
+  margin-top:8px;
+  font-size:10px;
+  color:var(--rose-deep);
+  font-weight:900;
+  letter-spacing:.05em;
+}
+.life-cell .interaction{
+  margin-top:7px;
+  font-size:10px;
+  line-height:1.7;
+  color:#7A7069;
+}
+.life-cell.current-life{
+  background:linear-gradient(145deg,#FFF8F5,#F1E7E3);
+  border-color:rgba(201,143,134,.35);
+  transform:translateY(-2px);
+}
+.life-cell.current-life .yr{
+  color:var(--rose-deep);
+  font-weight:900;
+}
+
+@media(max-width:760px){
+  .hidden-native-grid{grid-template-columns:1fr}
+  .lifetime-native-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:760px){.wrap{padding:0 14px 72px}.hero{min-height:auto;padding:34px 0 50px}.archive-cover{border-radius:30px;padding:18px}.archive-main{padding:42px 14px 30px}.hero h1{font-size:34px;line-height:1.16}.owner-slip{flex-direction:column;gap:16px;align-items:center}.hero-copy{margin-top:34px}.hero-copy .leadline{font-size:20px}.archive-stamp{right:16px;bottom:18px;width:56px;height:56px}.six-grid{grid-template-columns:1fr 1fr}.hidden-detail.show{grid-template-columns:1fr}.years{gap:2px}.year-item .name{font-size:13px}.year-item .mini{font-size:10px}.track{top:80px}.lifetime.show{grid-template-columns:repeat(2,1fr)}}@media(max-width:460px){.six-grid{grid-template-columns:1fr}.year-number{font-size:58px}.year-item{transform:scale(.82)}.year-item.near{transform:scale(.88)}.year-item.current{transform:scale(1)}}
+</style>
+<!-- FINAL RESULT PAGE · NATIVE EXPAND -->
+</head>
+<body>
+<div class="wrap">
+<div id="shareCapture">
+<section class="hero" id="top">
+  <div class="archive-cover">
+    <div class="archive-top">
+      <div class="archive-kicker">Tarot Numerology Archive</div>
+      
+    </div>
+
+    <div class="archive-main">
+      <div class="archive-index">Personal Tarot Numerology</div>
+      <h1>你的塔羅靈數檔案</h1>
+
+      <div class="owner-slip">
+        <div class="owner-field">
+          <div class="label">檔案持有人</div>
+          <div class="value" id="ownerNameValue">—</div>
+        </div>
+        <div class="owner-field">
+          <div class="label">出生日期</div>
+          <div class="value" id="ownerBirthValue">—</div>
+        </div>
+      </div>
+
+      <div style="width:92px;height:1px;background:rgba(185,154,98,.24);margin:32px auto 0;"></div><div class="hero-copy">
+        <div class="leadline">你出生的那一天，<br>有些牌就已經安靜地寫進你的生命結構裡。</div>
+        <span class="soft">它們不替你決定人生，只是讓你更看得懂，自己一路走來的方式。</span>
+      </div>
+
+      <div class="hero-action">
+        <button class="cta" onclick="document.querySelector('#birthCards').scrollIntoView()">展開我的命卡</button>
+        <span class="hero-hint">開始閱讀這份檔案 ↓</span>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<section class="section" id="birthCards">
+  <div class="eyebrow">01 · Birth Cards</div><h2>你的六張本命牌</h2>
+  <div class="section-sub">這六張牌共同構成你的生命輪廓。它們依照原始順序展開，不替每一個位置預設固定的人生角色。</div>
+  <div class="section-sub" id="birthSummaryLine" style="margin-top:8px"></div>
+  <div class="six-grid" id="birthCardsGrid"></div>
+  <div class="close-copy">每張牌都代表你的一種生命模式，相互映照之下，才慢慢看見你與人生互動的方式。</div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">02 · Hidden Cards</div><h2>你的隱藏牌</h2>
+  <div class="section-sub">那些不一定第一眼被看見，卻深深影響你的內在模式。</div>
+  <div class="hidden-zone">
+    <div class="hidden-reading" id="hiddenIntroLine">這些模式不一定會一直出現在日常裡，卻可能在特定的環境、關係與生命階段中，被慢慢勾出來。</div>
+    <div class="hidden-cards" id="hiddenCardsPills"></div>
+    <div class="hidden-native-grid" id="hiddenCardsGrid" style="display:grid"></div>
+<div class="close-copy" style="margin-top:22px;background:rgba(255,255,255,.45)">有些模式不一定容易被察覺，卻常常在你最重要的選擇裡悄悄出現。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">03 · Your Timing</div><h2>此刻的流動</h2>
+  <div class="section-sub">流年不是一張牌的單獨預測，而是當年度模式與你的本命結構彼此相遇後，形成的階段性提醒。時間導航，不是再一次的人格解讀。</div>
+
+  <div class="integrated" style="margin-top:20px">
+    <div class="layer">
+      <h3>外在主題</h3>
+      <div class="year-meta" id="annualMeta"></div>
+      <p id="annualText"></p>
+    </div>
+    <div class="layer">
+      <h3>內在階段</h3>
+      <div class="year-meta" id="birthdayMeta"></div>
+      <p id="birthdayText"></p>
+    </div>
+  </div>
+
+  <div class="section-sub" style="margin-top:28px;font-family:'Noto Serif TC';font-size:15px;color:#6C6058">五年旅程</div>
+  <div class="journey" style="margin-top:14px">
+    <div class="track"></div>
+    <div class="years" id="journeyYears"></div>
+  </div>
+  <div class="close-copy" style="margin-top:18px">五年旅程只是同一段生命歷程裡不同階段的參照，不是固定劇本，仍須整合本命牌、隱藏牌與當年生日流年一起理解。</div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">05 · Integrated Reading</div>
+  <h2>你的牌，如何成為現在的你</h2>
+  <div class="section-sub" style="margin-top:2px">
+    <div style="font-family:'Noto Serif TC';font-size:15px;color:#6C6058;margin-bottom:10px">當所有線索開始相互映照</div>
+    單張牌說的是一種傾向；放在一起，才會看見這些模式如何彼此牽動，逐漸形成你的感受、選擇與回應。
+  </div>
+
+  <div class="integrated">
+    <div id="integratedReadingBody"></div>
+    <div id="specificComboNote"></div>
+  </div>
+</section>
+</div>
+
+<section class="note-final">
+  <div>
+    <div class="eyebrow">A note for now</div><h2>給此刻的你</h2>
+    <p>你不需要一次看懂全部。<br>先看見自己正在經歷什麼，就已經足夠。</p>
+    <div class="actions">
+      <button class="action primary" id="saveCardBtn" onclick="saveCardAsImage()">保存我的命卡</button>
+      <button class="action secondary" id="shareCardBtn" onclick="shareCardAsImage()">分享這份命卡</button>
+      <button class="action ghost" onclick="location.href='02_建立命卡頁.html'">為另一個人建立命卡</button>
+    </div>
+    <div class="actions" style="margin-top:10px">
+      <button class="action ghost" id="copyResultBtn" onclick="copyCardResultText()">📋 複製命卡結果</button>
+    </div>
+    <div style="margin-top:22px;text-align:center">
+      <div style="font-size:13px;font-weight:900;color:var(--ink)">🌙 靈魂配方使用手冊</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:2px">單人全盤＋完整合盤＋無限次使用</div>
+      <a style="display:inline-block;margin-top:14px;padding:12px 24px;border-radius:999px;background:var(--rose);color:#fff;text-decoration:none;font-size:13px;font-weight:900" href="https://line.me/R/ti/p/%40103rvgsu" target="_blank" rel="noopener noreferrer">NT$888 解鎖完整版</a>
+    </div>
+  </div>
+</section>
+<div class="footer-quote">你不是答案本身，你是那個一路看見、選擇、前行的人。</div>
+
+<div class="brand-footer">
+  <div class="brand-line"><strong>靈魂配方使用手冊</strong> · Soul Recipe Manual</div>
+  <div class="brand-tagline">看懂自己，不是為了被定義，而是為了更自由地使用自己。</div>
+  <div class="creator">✦ 菲菲　<a href="https://www.instagram.com/babybabyfeifei/" target="_blank" rel="noopener noreferrer">@babybabyfeifei</a></div>
+  <div class="brand-tagline" style="margin-top:8px"><a href="mailto:soulrecipe.tw@gmail.com" style="color:inherit;text-decoration:none">soulrecipe.tw@gmail.com</a></div>
+</div>
+</div>
+
+<!-- 分享用的精簡圖卡，離開畫面外渲染，只給 html2canvas 截圖用，使用者看不到這個版面 -->
+<div id="shareCardCompact" style="position:absolute;left:-9999px;top:0;width:750px;background:#F8F4EE;padding:56px 44px;font-family:'Noto Sans TC',sans-serif;color:#2C2824;box-sizing:border-box">
+  <div style="text-align:center;margin-bottom:34px">
+    <div style="font-size:12px;letter-spacing:.2em;color:#9E6E68;font-weight:900;text-transform:uppercase">Soul Recipe · Tarot Numerology</div>
+    <div style="font-family:'Noto Serif TC';font-size:32px;font-weight:900;margin-top:12px">我的塔羅靈數命卡</div>
+  </div>
+  <div style="text-align:center;margin-bottom:34px">
+    <div id="compactOwnerName" style="font-family:'Noto Serif TC';font-size:26px;font-weight:700">—</div>
+    <div id="compactOwnerBirth" style="font-size:14px;color:#877C73;margin-top:6px">—</div>
+  </div>
+  <div style="font-size:13px;font-weight:900;letter-spacing:.1em;color:#9E6E68;margin-bottom:14px">本命牌</div>
+  <div id="compactBirthCards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:34px"></div>
+  <div style="font-size:13px;font-weight:900;letter-spacing:.1em;color:#9E6E68;margin-bottom:14px">隱藏牌</div>
+  <div id="compactHiddenCards" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:38px"></div>
+  <div style="text-align:center;padding-top:26px;border-top:1px solid #E7DDD2;font-size:12px;color:#9A8F86;line-height:1.9">
+    看懂自己，不是為了被定義，而是為了更自由地使用自己。<br>
+    靈魂配方使用手冊 · Soul Recipe Manual
+  </div>
+</div>
+
+<div id="imagePreviewModal" style="display:none;position:fixed;inset:0;background:rgba(44,40,36,.82);z-index:999;align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this) closeImagePreview()">
+  <div style="background:#fff;border-radius:24px;padding:20px;max-width:420px;width:100%;max-height:90vh;overflow:auto;text-align:center">
+    <img id="previewImg" src="" alt="我的塔羅靈數命卡" style="width:100%;border-radius:16px;display:block;margin-bottom:14px">
+    <p style="font-size:12px;color:#81776F;line-height:1.8;margin:0 0 16px">手機請長按圖片，選擇「儲存影像」就能存到相簿；電腦請直接右鍵圖片另存新檔。</p>
+    <button onclick="closeImagePreview()" style="border:none;background:#5F4E48;color:#fff;border-radius:999px;padding:12px 28px;font-size:13px;font-weight:900;cursor:pointer">關閉</button>
+  </div>
+</div>
+
+<script>
+/* ===== 菲菲核心牌義：逐字取自 soul-recipe-rules.json 的 cards（唯一事實來源）=====
+   prototype 階段前端以 file:// 開啟，無法用 fetch 讀取本機 JSON（瀏覽器 CORS 限制），
+   故將 cards 內容原樣內嵌於此，內容與 soul-recipe-rules.json 完全一致，未新增/修改/刪減任何欄位或文字。
+   未來串接後端／建置流程時，應改為直接讀取 soul-recipe-rules.json，不應維持雙重維護。 */
+const CARDS = {"1": {"coreMeaning": "理解、轉化、從無到有。不一定代表傳統學業型的聰明，而是很懂得從一個念頭、模糊概念或靈感裡抓到方法，再把它做成現實。通常理解速度快，也常有較強的靈性感知或抽象理解能力。", "displayCopy": {"closingNote": "這張牌常和創作、企劃、表達、教學，或任何從零開始的事有關。", "keywords": ["創造", "理解", "轉化"], "readingParagraphs": ["你的天賦不只是聰明，而是很懂得怎麼從一個模糊的念頭裡抓到方法，再把它逐步變成能夠實現的東西。這是一種從無到有的能力。", "很多人有靈感，但不一定能把靈感落地；你則比較像能把抽象的直覺翻譯成具體做法的人。當你真的相信自己看見的東西，並願意開始動手，它就很容易變成一個可被使用、被看見、被交換價值的成果。"], "teaser": "把尚未存在的東西，慢慢帶進現實。"}, "imbalanceExpression": "過度相信自己的理解速度，可能出現「聰明反被聰明誤」，想得太快、方法太多，反而沒有真正落地。", "matureExpression": "能把抽象概念轉成具體方法、作品、計畫或價值。很多人還在想「這可不可能」，魔術師已經開始找「那要怎麼做」。", "name": "魔術師", "number": 1, "practicalNotes": "適合創造、企劃、表達、教學、創業，或任何需要從 0 到 1 的事情。"}, "10": {"coreMeaning": "外在結果放大、順勢、資源與機會。在外在世界裡，同樣程度的努力，常比較容易得到更好的結果；事情出現問題時，也比較容易有新的機會把局面帶回來。", "displayCopy": {"closingNote": "看見生命已經給你的，並繼續為新的可能留一扇門。", "keywords": ["運氣", "放大", "結果"], "readingParagraphs": ["在外在結果上，你常比別人更容易得到好的回應。當你願意學習、累積與行動，成果容易被放大，也比較容易在關鍵時刻遇到剛好的機會、貴人或轉折。", "不過，當機會與獲得來得比別人自然，久了也可能習慣把它們視為理所當然。你的目光容易繼續望向還缺少什麼、哪裡可以更好，甚至在已經擁有不少時，仍然覺得自己得到得不夠。感恩不是要你停止追求，而是讓你真正看見生命已經如何回應你，也讓那些來到身邊的美好，不會因為習以為常而被忽略。", "當人生正在轉動時，也不要因為一時順利，就停在舒服的位置太久。你其實很適合持續打開新的可能，讓已經得到的資源、經驗與機會繼續流動，帶你走向下一個階段。當你能一邊珍惜已經擁有的，一邊繼續向前，好的循環才會一輪接一輪地往前滾。"], "teaser": "當你願意投入，世界往往回應得比想像更多。"}, "imbalanceExpression": "因為很多事情相對順利，而停在舒服的位置太久，產生懶散或低估準備的重要性。", "matureExpression": "願意累積、行動、持續打開機會，讓好的循環產生複利。", "name": "命運之輪", "number": 10, "practicalNotes": "這比較偏「外在／物質世界的 buff」，不代表內在情緒一定沒有痛苦。也不代表沒有 10 的人就不能創業或成功。"}, "11": {"coreMeaning": "分析、衡量、敏感於差異與不一致。很自然會反覆衡量事情是否合理、值不值得、前後是否一致，因此容易想得很細。", "displayCopy": {"closingNote": "想得仔細是你的能力；知道何時已經足夠，則會讓這份能力真正幫助你。", "keywords": ["分析", "衡量", "敏感"], "readingParagraphs": ["你很自然會去衡量一件事是否合理、值不值得，以及前後是否一致。別人可能只看到事情的大概，你卻常能察覺其中細微的差異、矛盾與風險。這份敏感不只是想得多，也是一種能把問題看得更完整的分析能力。", "當這份力量成熟時，你會用細膩的思考幫助自己做出清楚的判斷，也能看見別人容易忽略的地方。但如果每一個可能都被反覆放上心裡衡量，你也可能一直停留在思考裡，遲遲無法向前。你不需要停止分析，只是要讓思考最後能帶你走向選擇，而不是把你留在原地。"], "teaser": "看清每一個選擇，也就看見它將你帶往哪裡。"}, "imbalanceExpression": "容易過度思考、內耗、反覆衡量，讓自己困在腦內。", "matureExpression": "能把敏感轉成分析能力，看到其他人忽略的細節、矛盾與風險。", "name": "正義", "number": 11, "practicalNotes": "不要只把 11 解成抽象的「公平正義」。在這套系統裡，它和思考、衡量、敏感與內耗的關係非常重要。"}, "12": {"coreMeaning": "犧牲、奉獻、責任，以及願意燃燒自己去完成承諾。對正式承諾與責任通常看得很重。一旦認定某個人、家庭、關係或目標是自己的責任，即使自己手上的資源已經不多，也可能想盡辦法把對方的需要補滿。", "displayCopy": {"closingNote": "真正能走得長久的付出，也應該為你留下一個位置。", "keywords": ["承擔", "奉獻", "界線"], "readingParagraphs": ["你對承諾與責任看得很重。一旦把某個人、家庭、關係或目標認定為自己的責任，即使對方需要的已經超出自己原本能夠輕鬆承擔的範圍，你也可能繼續想辦法補足，不願意讓自己在重要的人事物面前先退開。你的付出不只是習慣照顧，而是一種願意暫時放下個人得失，也想完成承諾的深刻力量。", "當這份力量成熟時，你能為真正重要的人事物承擔，也不會在困難來臨時輕易離開。但如果愛、責任與犧牲被綁在一起，你也可能在已經疲憊的時候，仍然要求自己繼續付出，最後只剩下委屈與說不出口的壓力。你要練習的不是少愛一點，而是看見自己的界線，讓付出不再以耗盡自己為前提。"], "teaser": "你可以繼續愛人，只是不必再用遺忘自己作為代價。"}, "imbalanceExpression": "容易把愛、責任與犧牲綁在一起，長期忽略自己的需求。可能不是有餘力才給，而是在自己已經很疲憊時，仍然要求自己繼續付出，最後形成委屈、耗損或無法說出口的壓力。", "matureExpression": "願意承擔，也有能力為真正重要的人事物付出。它的力量不只是忍耐，而是能在必要時放下眼前的個人得失，完成自己真正在意的承諾。", "name": "倒吊人", "number": 12, "practicalNotes": "吊人的重點不是單純等待或卡住，而是「我願意為了什麼付出，以及我付出的界線在哪裡」。與皇后不同，皇后通常是在自己有能力的範圍內照顧；吊人則可能連自己不夠的部分，也想設法拿出來給。"}, "13": {"coreMeaning": "衝動、結束、重生，以及快速更新自己。容易先做再說，當內在已經決定某件事情結束時，行動可能非常快。即使過程中曾經失敗、繞路或推翻原本的選擇，也常能從經驗裡迅速更新版本。", "displayCopy": {"closingNote": "你不是又回到了原點；你只是帶著上一次學會的事，重新走得更好。", "keywords": ["決斷", "更新", "重生"], "readingParagraphs": ["你身上有一股很快就會把感受化為行動的力量。當一個念頭或情緒升起時，你可能很快做出決定、說出心裡的話，或直接改變原本的方向。這讓你在需要果斷的時候，比別人更有勇氣採取行動；但在情緒強烈時，也可能還沒完全看清發生了什麼，行動就已經先一步發生。", "因此，你的人生可能比別人經歷更多次推翻與重來。有時你會忍不住懷疑，為什麼自己又搞砸了、又得從頭開始。但這不一定只是一件壞事，因為你真正特殊的能力，就是能很快從結果裡看見問題、記住教訓，再用新的方式重新開始。你看似回到了原點，其實每一次都已經帶著上一次累積的理解，變得更清楚，也做得比從前更好。", "當這份力量成熟時，你依然可以果斷，只是不必讓每一個當下的衝動立刻成為無法挽回的決定。多給自己一點時間，看清現在想結束的，究竟是已經不再適合的事，還是只是一個暫時難以承受的感受。真正應該結束的，不會因為你多看一眼就錯過；反而會讓你的下一次開始，不再只是逃離，而是真正的更新。"], "teaser": "有些結束，是生命正在替新的你騰出位置。"}, "imbalanceExpression": "容易在情緒或衝動下做出太快的決定，還沒有看清全貌就切斷、離開或重新開始。也可能反覆經歷「很快投入、很快推翻」，讓生活出現不必要的震盪。", "matureExpression": "有勇氣結束不再適合的階段，不會因為已經投入很多，就永遠困在原地。能把失敗與結束轉化成經驗，重新開始時通常比上一個版本更清楚。", "name": "死亡", "number": 13, "practicalNotes": "死神不是單純的失去，而是「結束之後能不能更新」。它的優勢是跌倒後修正得快；需要注意的則是，不要把所有的不舒服都立刻判定為必須結束。"}, "14": {"coreMeaning": "口才、表達、說服，以及透過語言建立連結。很會說、很會表達，也能根據不同對象調整傳遞方式。常有能力把自己的想法說得讓人理解、接受，甚至願意跟著行動。", "displayCopy": {"closingNote": "你的話能點石成金；越忠於真實，這份力量就越有價值。", "keywords": ["溝通", "轉化", "連結"], "readingParagraphs": ["你很懂得如何運用言語，也很容易找到對方能夠理解和接受的表達方式。原本複雜的概念、不同的立場，甚至彼此難以靠近的人，經過你的整理與轉化，常常就能重新找到溝通的入口。你的語言不只是傳遞資訊，更有一種能改變理解、連結彼此的力量。", "當這份能力被好好發揮時，你可以用言語替一個想法找到價值、替一件事打開可能，也能讓原本被忽略的東西重新被人看見。你很適合把這份天賦帶進更大的舞台，讓自己的表達不只用來維持關係，也能真正影響、教學、連結與創造。", "但如果太快進入說服，也可能還沒完全聽懂對方，就急著替事情下結論；有時為了讓關係保持和諧，也會說出對方想聽、卻不完全是自己真實感受的話。你真正厲害的，不只是讓別人接受你的話，而是讓不同的聲音經過你之後，終於能夠理解彼此。"], "teaser": "有些話經過你，就能讓不同的世界彼此理解。"}, "imbalanceExpression": "太依賴說服力，可能說得比實際做得快，或在還沒有真正理解對方前，就急著讓對方接受自己的說法。也可能為了維持氣氛與關係，說出符合當下需要、卻未必完全符合內心的話。", "matureExpression": "能把複雜的內容說清楚，把彼此不同的立場放進同一場對話裡。語言不只是展示自己的工具，也能成為溝通、協調、銷售、教學與創造價值的能力。", "name": "節制", "number": 14, "practicalNotes": "在這套系統裡，14 的核心不是抽象的平衡，而是口才與表達。適合需要說話、溝通、銷售、主持、談判、教學、顧問、內容傳遞，或透過語言獲得信任與價值的工作。"}, "15": {"coreMeaning": "自我導向、利益、慾望、吸引力，以及「自己」的範圍。很清楚自己想要什麼，也比較能感受到利益、需求與慾望的存在。這張牌的關鍵不只是自我，而是這個人如何定義「自己」。", "displayCopy": {"closingNote": "困住你的往往不是想要，而是在害怕失去時，忘了自己仍然可以選擇。", "keywords": ["欲望", "吸引", "選擇"], "readingParagraphs": ["你對自己的渴望、喜好與目標通常有很強的感受。一旦某件事真正吸引你，你便能集中注意力、資源與企圖心，把想要的東西一步步帶到自己面前。你身上有一股非常直接的生命力：你知道自己想要什麼，也有能力為它創造結果。", "當這張牌成熟時，你不需要壓抑自己的欲望，而是能誠實看見它，並清楚決定要如何使用這股力量。當你心裡的「自己」不只包含個人，也包含家庭、夥伴或想守護的事，你甚至會為整體爭取比只為自己更多的可能。", "但如果對一件事的渴望逐漸被害怕失去取代，也可能把喜歡變成佔有、把追求變成控制，或為了眼前的滿足，忽略這個選擇長期會把自己帶到哪裡。真正需要被看見的，不是你想要什麼，而是當你害怕得不到時，是否仍然記得自己擁有選擇。"], "teaser": "當你看見是什麼困住了自己，選擇才真正開始。"}, "imbalanceExpression": "如果「自己」的範圍太小，容易只看見眼前利益、控制、佔有或個人需求；也可能因為害怕失去，而過度抓緊人、資源或關係。", "matureExpression": "能誠實面對自己的需求，也懂得運用吸引力、資源感與企圖心創造結果。當「自己」的範圍包含伴侶、家庭、團隊或共同目標時，也可能非常積極地替整體爭取利益。", "name": "惡魔", "number": 15, "practicalNotes": "不要把惡魔直接解成邪惡或壞。真正要看的是：「他的自我是只包含自己，還是已經擴大到他所在乎的人與共同體？」同樣的自我導向，可能成為自私，也可能成為保護與替整體爭取資源的力量。"}, "16": {"coreMeaning": "毀滅、爆發、壓抑到臨界點後的全面釋放。很多情緒與問題不一定會在第一時間表現出來，可能先忍耐、累積、撐住，直到超過承受範圍，才突然整個炸開。", "displayCopy": {"closingNote": "你不必等到一切倒下才承認哪裡需要改變；越早說出真實，改變就能越溫柔。", "keywords": ["突破", "釋放", "重建"], "readingParagraphs": ["你身上有一股很強的突破力量。當一個結構已經失去真實、某種狀態累積了太多壓力，或原本的限制再也容納不了現在的你，這股力量就會推動改變，讓被壓住的問題一次浮上來。高塔不一定代表災難，它更像是生命不再允許一切繼續假裝沒有問題。", "當這份力量成熟時，你會在事情徹底崩潰以前，就看見哪裡已經不穩，願意提早說出真話、調整結構，或打破不再適合的限制。但如果長期忍耐、壓抑，不願意處理真正的感受，壓力也可能一直累積，最後透過情緒爆發、突然切斷或一次推翻所有事情的方式釋放，連原本值得保留的部分也一起摧毀。"], "teaser": "有些崩塌不是失去，而是讓真實重新露出來。"}, "imbalanceExpression": "長期壓抑、不說、不處理，直到最後以劇烈情緒、突然切斷或全面破壞的方式爆發。事後可能連原本值得保留的部分也一起摧毀。", "matureExpression": "能及早辨認已經不穩固的結構，在真正崩潰前誠實處理問題。高塔的力量也能用來打破不適合的限制，快速清除已經無法繼續維持的狀態。", "name": "高塔", "number": 16, "practicalNotes": "高塔真正需要注意的不是「一定會發生災難」，而是壓力如何累積。越早允許自己說出真實感受、調整不合理的結構，就越不需要用爆炸的方式讓問題被看見。"}, "17": {"coreMeaning": "Super Star、形象、包裝，以及讓自己或事物被看見的能力。很懂得如何把自己、產品、理念與故事整理成別人容易理解、接受和記住的樣子。", "displayCopy": {"closingNote": "你不必成為另一個人才能發光；不迎合任何目光，也能自在地享受自己的閃耀。", "keywords": ["形象", "魅力", "被看見"], "readingParagraphs": ["你很有能力看見一個人、一件作品或一個想法最有吸引力的地方，也知道該如何透過形象、故事與呈現方式，讓這份價值被更多人理解和記住。別人可能只看見一個普通的東西，你卻能找到它值得被看見的位置，再把那個亮點放大。", "當這份力量用在自己身上，你也很有機會成為具有辨識度與影響力的人。你如何看待自己、如何整理自己的故事，會逐漸成為世界認識你的方式。包裝對你而言不是虛假，而是一種讓內在價值被正確接收的能力。", "但如果太在意別人眼中的自己，也可能為了維持某種形象，不敢讓人看見真實的疲倦、迷惘與改變。你不需要放棄呈現，只要記得：真正長久的光，不是創造一個完美的人設，而是讓外在的樣子始終承載著真實的內容。"], "teaser": "你所相信的自己，也正在成為世界看見你的方式。"}, "imbalanceExpression": "過度在意外在形象與別人眼中的自己，可能把包裝放在內容前面，或為了維持某種人設而逐漸遠離真實感受。", "matureExpression": "能看見一個人或產品最有吸引力的地方，再透過形象、故事、表達與呈現把它放大。適合品牌、媒體、行銷、表演、內容創作，以及需要建立辨識度的工作。", "name": "星星", "number": 17, "practicalNotes": "星星不只代表夢想或希望，在這套系統裡，更重要的是「如何讓價值被看見」。包裝本身不是虛假；真正要確認的是，呈現出來的形象是否仍然承載真實內容。"}, "18": {"coreMeaning": "安全感、孤獨、不確定感，以及需要時間成熟的內在世界。對未知、關係變化與情緒氛圍較敏感，內在常需要更多確認，才能真正感到安心。它也屬於晚熟牌，很多力量需要經過時間與經驗才會慢慢穩定。", "displayCopy": {"closingNote": "月亮過後就是太陽；你現在看不清楚，不代表前方沒有方向。", "keywords": ["安全感", "敏感", "成熟"], "readingParagraphs": ["你的內在世界比別人更細膩，也更需要安全感。關係裡微小的變化、語氣裡的不確定，或一件尚未得到答案的事，都可能在你心裡停留很久。你不是故意想太多，而是對未知與情緒氛圍的感受本來就比較深，需要更多時間與確認，才能真正安定下來。", "這也是一張需要時間成熟的牌。年輕時，你可能還不容易分辨眼前的不安究竟來自現實，還是來自心裡對失去的想像；即使身邊有人，也可能常覺得沒有人真正理解自己。但隨著經驗增加，你會越來越懂得辨認自己的感受，也能發展出很深的情緒理解力與對人心的洞察。", "你不必要求自己立刻想通，也不需要因為暫時看不清楚，就讓恐懼替你做決定。迷霧不是永遠的，只是有些答案需要在你心裡多停留一會兒，才會慢慢長出輪廓。"], "teaser": "不必急著走出迷霧，先聽懂它正在提醒你什麼。"}, "imbalanceExpression": "容易因為缺乏安全感而反覆猜測、害怕失去，或在還沒有足夠資訊時，先被自己的想像帶走。即使身邊有人，也可能感到只有自己能理解自己的孤獨。", "matureExpression": "能理解自己的敏感與不安，不急著否定它，也不讓它替自己做所有決定。經過累積後，會逐漸發展出很深的情緒理解力與對人心的感受能力。", "name": "月亮", "number": 18, "practicalNotes": "月亮過後就是太陽。它不是永遠困在黑暗裡，而是需要比別人更多時間，讓模糊的感受慢慢長出清楚。不要催促月亮立刻想通；真正重要的是，在不確定裡仍然逐步建立自己的安全感。"}, "19": {"coreMeaning": "人緣、小太陽、溫暖，以及天然使人靠近的力量。通常容易讓人感到親切、舒服、被理解或被療癒。即使沒有刻意表現，也可能自然成為團體裡帶動氣氛與提供溫度的人。", "displayCopy": {"closingNote": "你不必永遠明亮；當你不再拒絕自己的陰天，世界也會學會如何溫柔地接住你。", "keywords": ["溫暖", "人緣", "療癒"], "readingParagraphs": ["你身上有一種很自然的親切感。即使沒有刻意表現，別人也容易在你身邊感到舒服、放鬆，甚至產生一種被理解、被療癒的感覺。大家不一定說得出為什麼喜歡你，只是你的存在本身，就會為空間帶來溫度。", "當這份力量成熟時，你不只容易受到喜愛，也能創造信任、凝聚關係，讓身邊的人感覺自己被看見。你分享的光不需要很用力，它可能只是一句真誠的話、一個自然的笑容，或在別人需要時，給出剛剛好的陪伴。", "但當大家都習慣從你身上獲得溫暖，你也可能漸漸以為自己必須一直開朗、懂事，或負責照顧所有人的氣氛。你可以是別人的小太陽，也依然可以有疲倦、低落和不想發光的時候。真正的溫暖從來不是表演，而是你允許自己真實存在時，自然散發出來的力量。"], "teaser": "你不必刻意照亮誰，溫暖本身就會讓人想靠近。"}, "imbalanceExpression": "太習慣當別人的小太陽，可能覺得自己必須一直開朗、溫暖或照顧氣氛，因而忽略自己也會疲倦、低落與需要被理解。", "matureExpression": "願意分享自己的光，也能讓別人在自己身邊感到被看見。這份人緣不只是受歡迎，而是能創造信任、凝聚關係並為環境帶來生命力。", "name": "太陽", "number": 19, "practicalNotes": "太陽的優勢是天然討喜與人緣，但不代表必須永遠保持正面。真正成熟的太陽，不是勉強自己一直發光，而是知道何時分享溫暖，也允許自己休息。"}, "2": {"coreMeaning": "感知、觀察、理解沒有被說出口的訊息。很多時候知道的比說出來的更多，能讀到語言之外的情緒、氛圍與狀態。靈性感知與同理能力通常較強。", "displayCopy": {"closingNote": "這張牌常在人際互動、情緒感受、傾聽，或需要讀懂言語之外訊息時特別明顯。", "keywords": ["感知", "觀察", "理解"], "readingParagraphs": ["你常常能感覺到那些還沒有被說出口的部分。語氣裡細微的變化、空間裡的氣氛，或一個人藏在話語背後的情緒，你可能比多數人更早察覺。這不是想得太多，而是你本來就接收得到更多訊息。", "當這份感知成熟時，它會成為很深的理解力，讓你不必急著反應，也能慢慢看清事情真正的樣子。但如果吸收得太多，你也可能分不清哪些感受屬於自己、哪些只是從別人身上接收到的。你不需要關掉敏感，只需要記得：能夠理解一個人，不代表必須替他承接所有情緒。"], "teaser": "有些答案，不必急著說出口，也正在慢慢成形。"}, "imbalanceExpression": "容易吸收太多外界情緒，把別人的感受帶回自己身上。", "matureExpression": "安靜觀察、精準感受，不需要所有事情都被明講才理解。", "name": "女祭司", "number": 2, "practicalNotes": "你可以理解很多人，但不需要把所有人的感受都帶回自己身上。"}, "20": {"coreMeaning": "公平、衡量、自己的標準，以及對價值是否對等的敏感。對事情常有一套自己的判斷方式，會在意合理性、責任、付出與回報是否相稱。", "displayCopy": {"closingNote": "那個反覆出現的聲音，不一定要你立刻改變；它可能只是在提醒你，還有一部分的自己尚未被活出來。", "keywords": ["衡量", "價值", "召喚"], "readingParagraphs": ["你的心裡有一套很清楚的衡量標準。面對一個人或一件事，你不只會問自己喜不喜歡，也會在意它是否合理、是否值得，以及每個人的付出、責任與回應是否對等。當現實中的選擇與內心真正相信的價值不一致時，你往往很難假裝自己沒有感覺。", "有些時候，你所聽見的「召喚」，其實就是內在矛盾正在彼此對話。一部分的你想維持現在的生活，另一部分卻知道自己還有某些價值沒有被實現、某個更真實的自己還沒有活出來。那個聲音不一定是在催促你立刻改變，而是在提醒你：現在的選擇，可能已經無法完整代表你真正相信的事。", "當這份力量成熟時，你能在不同聲音之間慢慢形成穩定的價值判斷，辨認什麼值得繼續、什麼不必再投入，也願意為自己的決定負責。但如果太急著替事情定案，自己的標準也可能變得僵硬，讓你不斷評判誰對誰錯，或反覆計算誰付出得比較多、誰虧欠了誰。", "你不需要放棄標準，只需要讓標準隨著理解一起成熟。真正的審判不是替所有人定罪，而是在一次次內在對話之後，終於聽清楚自己願意選擇什麼，又願意成為怎樣的人。"], "teaser": "你聽見的召喚，也許正來自那個尚未活出的自己。"}, "imbalanceExpression": "當理解尚未成熟時，自己的標準可能變得僵硬，容易讓人感覺挑剔、難搞或什麼事情都要評判。也可能因為太在意公平，而反覆計算誰付出得多、誰虧欠了誰。", "matureExpression": "能形成穩定的價值判斷，不只是依照情緒或他人意見做決定。當理解逐漸成熟後，通常很會辨認什麼值得、什麼不值得，以及一件事情真正需要被負責的部分。", "name": "審判", "number": 20, "practicalNotes": "20 與 11 不完全相同。11 正義偏向分析、反覆衡量與對差異的敏感；20 審判更接近一個人最後用什麼標準做出價值判斷。靈智未開時可能顯得難搞；理解打開後，會成為很好的判斷力。"}, "21": {"coreMeaning": "海外、國際、跨界，以及透過不同世界打開可能性。當原本的環境、圈子或方法卡住時，換一個地方、文化、領域或觀看角度，事情往往就會重新流動。", "displayCopy": {"closingNote": "有時不是你走錯了路，而是眼前的世界，已經裝不下正在長大的你。", "keywords": ["海外", "跨境", "拓展"], "readingParagraphs": ["你的可能性很容易在離開熟悉的範圍之後被打開。不同的城市、文化、語言、領域與生活方式，不只會帶給你新的經驗，也可能讓原本沒有機會被使用的能力，突然找到適合發揮的位置。當一條路走不通時，問題未必是你不夠好，有時只是目前的世界還無法容納完整的你。", "當這份力量成熟時，你能跨越原本熟悉的邊界，把不同地方、文化與領域裡得到的經驗連接起來，形成更寬廣的視野。你很適合旅行、海外發展、跨界合作，或任何能讓自己接觸不同世界的機會。每一次走出去，都可能讓你看見人生原來還有另一種可能。", "但如果總覺得答案一定在更遠的地方，也可能不斷更換環境、追逐下一個世界，卻沒有真正把得到的經驗帶回自己身上。走出去是為了擴展，不是為了逃離。真正成熟的世界，不只是去過很多地方，而是每到一個地方，都讓自己的世界變得更完整。"], "teaser": "換一個世界，答案往往就打開了。"}, "imbalanceExpression": "容易覺得答案永遠在別的地方，不斷更換環境或追求更大的世界，卻沒有把經驗真正帶回自己身上。也可能因為選擇太多，而難以長期落地。", "matureExpression": "能跨越原本熟悉的邊界，把不同領域、文化與經驗連接起來。適合海外發展、旅行、國際工作、跨界合作，以及任何需要擴大視野與活動範圍的事情。", "name": "世界", "number": 21, "practicalNotes": "世界的重點不是單純「圓滿」，而是世界的擴張。當一個人長期卡住時，可以觀察是不是待在太小或太熟悉的環境裡。很多時候，不是能力不夠，而是需要換一個世界。"}, "22": {"coreMeaning": "起點也是終點、大器晚成，以及讓所有經歷最終成為材料。前期常會東摸西看、嘗試很多不同方向，看起來不一定有一條很早就確定的直線道路。但走過的路通常不會真正浪費，最後會在某個階段被重新整合。", "displayCopy": {"closingNote": "你走過的每一段路，都在等待未來的你，把它們連成只有自己才能完成的答案。", "keywords": ["探索", "整合", "大器晚成"], "readingParagraphs": ["你的人生不一定很早就會出現一條清楚而筆直的道路。前期的你可能對很多事情感到好奇，走進不同的領域、嘗試不同的角色，也可能幾次改變原本以為會一直走下去的方向。身邊的人或許會覺得你三分鐘熱度，連你自己偶爾也會懷疑，是不是總在開始，卻沒有真正抵達哪裡。", "但你不一定是在放棄，你可能只是在探索。你需要親自走進一條路，才會知道那裡有什麼、適不適合自己，以及哪些部分值得被帶走。那些看似彼此無關的興趣、能力與經歷，通常不會白費；它們會在時間足夠之後慢慢連接起來，最後形成只有你能完成的組合。", "當這份力量成熟時，你依然保有探索未知的勇氣，也開始懂得把每一次經歷留下來，讓嘗試逐漸累積成能力、作品與結果。但如果每一次剛遇到困難，就立刻被下一個新鮮的可能帶走，所有道路也可能都來不及長出真正的深度。", "你不需要為了證明自己專一，就勉強留在不適合的路上；只需要在每次轉身以前問問自己：這一次，我已經帶走了什麼？"], "teaser": "不必看清整條路，也可以先相信下一步。"}, "imbalanceExpression": "容易一直停留在嘗試與開始，興趣很多、方向很多，卻沒有讓任何一條路累積到能夠產生結果。也可能因為還看不出所有經歷的關聯，而懷疑自己是不是浪費了時間。", "matureExpression": "願意探索，也能把不同經歷、能力與興趣慢慢收回來，形成只有自己能完成的組合。它的成熟不是很早就定型，而是在走過足夠多的路之後，理解自己真正要把什麼帶進世界。", "name": "愚者", "number": 22, "practicalNotes": "22 永遠顯示為 22，不顯示為 0。愚者不是沒有方向，而是它的完整方向通常比較晚才會被看見。前期的繞路、嘗試與多元經驗，往往會在後期變成很重要的材料，因此常帶有大器晚成的特質。"}, "3": {"coreMeaning": "給予、照顧、讓愛成為具體行動。對人的需求敏感，願意照顧、提供資源、把事情安排得舒服。男性有皇后也可能非常重視家庭、伴侶與孩子。", "displayCopy": {"closingNote": "這張牌常在家庭、關係、照顧他人，或需要讓一件事慢慢長大的時候特別明顯。", "keywords": ["給予", "照顧", "滋養"], "readingParagraphs": ["你很自然會留意到別人的需要，也懂得怎麼把愛變成具體的行動。可能是一份照顧、一個舒服的安排，或在對方還沒有開口以前，就先替他想到需要的東西。你的給予不只是情感，而是有能力讓身邊的人真正感受到被接住。", "這份力量成熟時，你會在自己有餘裕的範圍裡給予，讓照顧成為一種溫柔而穩定的流動。但當你太習慣把注意力放在別人身上，也可能忘記自己同樣需要被照顧。你不必停止付出，只是要記得把自己也放進那份溫柔裡。"], "teaser": "當你願意滋養自己，生命也會開始回應你。"}, "imbalanceExpression": "太習慣照顧別人，容易忘記自己也應該被放進「值得照顧的人」裡。", "matureExpression": "在自己的能力範圍裡給予，讓身邊的人感受到被照顧。", "name": "皇后", "number": 3, "practicalNotes": "與吊人的犧牲不同，皇后的給予原則上是在自己有能力的範圍內。"}, "4": {"coreMeaning": "掌握、主導、整體配置。自然會思考事情怎麼安排、怎麼推進，以及如何讓整體價值最大化。希望局面有秩序，也容易有自己的標準。", "displayCopy": {"closingNote": "這張牌常在工作、規劃、帶領他人，或需要做決定時特別明顯。", "keywords": ["主導", "大局", "責任"], "readingParagraphs": ["你很自然會先去思考：事情該怎麼安排、怎麼推進、怎麼讓整體效益最大化。你不太像憑一時情緒衝出去的人，反而更常先看清局勢，再決定要不要出手。", "這張牌成熟時，會讓你成為能承擔、能整合，也能替局面定錨的人；但如果壓力太大，則可能不自覺想掌握所有細節，甚至要求人、進度與結果都依照自己的預想發生。你真正要學的，不是放棄掌握，而是分辨什麼需要你定錨，什麼可以交還給事情自己的流動。當你不再試著控制每一步，往往反而走得更加順利。"], "teaser": "在掌握方向之前，先看見整體。"}, "imbalanceExpression": "過度控制、要求別人依照自己的方式運作，或把「我認為最有效率」等同於唯一答案。", "matureExpression": "願意承擔、看大局、整合資源，並在聽取不同意見後做出決定，成為成熟的領導者。", "name": "皇帝", "number": 4, "practicalNotes": "皇帝不是單純霸道，而是「我要掌握整體」。成熟程度會決定它成為領導力還是控制。"}, "5": {"coreMeaning": "教學、提煉、傳遞理解。很會從複雜資訊裡抓出精華，再整理成別人容易理解、容易走的路。常帶有服務、使命、教導意味。", "displayCopy": {"closingNote": "這張牌常在心靈探索、教學、顧問、服務、內容整理，或需要把複雜事物說明清楚時特別明顯。", "keywords": ["教學", "提煉", "傳遞"], "readingParagraphs": ["你很擅長從複雜的資訊裡抓住真正重要的部分，再把它整理成別人聽得懂、也能實際使用的方法。你不只是理解得快，更有一種能替人理清方向的能力；很多原本混亂或難以靠近的事情，經過你的轉化，就會變成一條比較容易走的路。", "你本身也很容易被心靈、真理、生命真相與靈魂層面的議題吸引。你通常不滿足於只知道一件事表面上如何運作，而會想繼續往裡面走，理解它更深的意義。這份探索也可能逐漸成為你長期學習、發展，甚至帶領別人的方向。", "當這份力量成熟時，你分享的不只是答案，而是讓別人也逐漸擁有理解與選擇的能力。但如果太相信自己的框架，也可能在不知不覺中認為「這就是最好的方法」，忘了每個人需要走的路並不完全相同。你真正要傳遞的，不是唯一答案，而是幫助對方長出自己的理解。"], "teaser": "你所理解的，終有一天會成為別人的方向。"}, "imbalanceExpression": "可能太相信自己的理解框架，無意間變成說教或認為自己的方法適合所有人。", "matureExpression": "把自己的理解轉化成別人可以使用的知識。不是只分享答案，而是在替別人搭一座橋。", "name": "教宗", "number": 5, "practicalNotes": "與皇后不同，皇后偏向「照顧你的需要」，教皇偏向「讓你學會、理解、自己走」。"}, "6": {"coreMeaning": "貴人、合作、關係中的幫助與開門。很多事情不一定需要一個人硬做到底，人生中比較容易透過他人、合作或關係得到新的機會。", "displayCopy": {"closingNote": "有些門，不需要你撞開；你真正需要做的，是認出那個願意替你開門的人。", "keywords": ["相遇", "合作", "貴人"], "readingParagraphs": ["你的生命裡，很多重要的門不一定需要靠自己撞開。人與人的相遇、一次合作，或某個願意理解並支持你的人，常會為你帶來原本一個人看不見的可能。你的力量不只存在於自己身上，也會在關係裡被喚醒。", "當這張牌成熟時，你會逐漸認出哪些人真正願意與你互相成就，也懂得敞開自己，接受別人帶來的幫助。但如果太依賴關係給你答案，也可能為了留住一段連結，而忽略自己真正的感受與選擇。你可以接受別人替你開門，卻仍然要由自己決定是否走進去。"], "teaser": "你不必獨自完成一切，有些答案會由相遇帶到你面前。"}, "imbalanceExpression": "太依賴關係帶來答案，或因為關係而忽略自己的選擇。", "matureExpression": "能辨認真正願意合作、支持與互相成就的人。", "name": "戀人", "number": 6, "practicalNotes": "有些門，不需要你撞開。你真正需要做的，是認出那個願意替你開門的人。6＋10 時，通常會讓事情的順暢度與外在助力更明顯。"}, "7": {"coreMeaning": "目標、推進、抵達。當真正知道自己要去哪裡時，阻力很難讓他停下來。具有很強的任務感、目標導向與執行推進能力，常見於創業或需要突破的人。", "displayCopy": {"closingNote": "你不需要跑贏旁邊的人；你真正要抵達的，一直都是自己的目的地。", "keywords": ["目標", "推進", "抵達"], "readingParagraphs": ["當你真正知道自己要去哪裡時，身上的力量會很自然地集中起來。你不太容易被眼前的阻力勸退，反而會在目標清楚之後，快速找到下一步，並持續把事情往前推進。你需要的往往不是更多動力，而是一個此刻足以吸引你投入的方向。", "當某件事成為你當下認定的重要目標，這份力量就會被啟動。你會把專注與行動集中在那件事上，不因為外界的聲音輕易偏離。但這股推進力本身不會替你判斷方向的好壞；如果目光一直放在別人的進度上，也可能不自覺把人生變成一場競賽，為了證明自己而過度衝撞。因此，比起一味要求自己前進得更快，偶爾確認正在追逐的是否仍是自己想要的，也同樣重要。"], "teaser": "當方向足夠清楚，力量自然會向你聚集。"}, "imbalanceExpression": "容易一直看旁邊的人走到哪裡，拿自己的進度與別人比較。也可能為了達標過度衝撞。", "matureExpression": "清楚目的地，把力量集中在真正重要的方向。", "name": "戰車", "number": 7, "practicalNotes": "你不需要跑贏旁邊的人。你真正要抵達的，一直都是自己的目的地。"}, "8": {"coreMeaning": "策略、以柔克剛、降低損耗。如果戰車遇到牆會想辦法突破，力量會先思考：有沒有更省力、更安全、更有效的方法繞過去。", "displayCopy": {"closingNote": "這張牌常提醒你：穩，不等於慢；柔，也不等於弱。", "keywords": ["策略", "規劃", "柔性力量"], "readingParagraphs": ["你的力量不太像外放的衝動，更像一種知道如何用對力氣的成熟感。你擅長評估局勢、規劃路徑，並把不必要的損耗降到最低。", "很多人會把力量理解成更拚、更硬、更快，但你真正厲害的地方，是懂得什麼時候該推進、什麼時候該等待、什麼時候換個方式反而更有效。這會讓你在長期戰裡很有續航力，也比別人更不容易白白耗掉自己。"], "teaser": "不必撞破每一道牆，你也能抵達。"}, "imbalanceExpression": "過度規劃、過度避免損耗，可能因此拖延真正需要面對的行動。", "matureExpression": "評估局勢、規劃路徑、用對力氣，不需要證明自己能硬碰硬。", "name": "力量", "number": 8, "practicalNotes": "不必撞破每一道牆，你也能抵達。"}, "9": {"coreMeaning": "環境、學習、吸收、整合。學習與模仿吸收能力很強，環境以及長期相處的人，對這張牌的影響尤其明顯。喜歡一件事情時，可以非常快速地吸收並內化。", "displayCopy": {"closingNote": "你的天賦很吃土壤，所以有意識地選擇圈子，常常比多做十倍努力更重要。", "keywords": ["環境", "學習", "吸收"], "readingParagraphs": ["你的學習與吸收能力很強，環境對你的塑形也比多數人更明顯。對你來說，跟誰長期相處、待在哪個場域，往往會真正改變你最後活成的樣子。因此，環境對你不只是被動存在的背景，而是值得被你有意識選擇的一部分。", "這張牌也意味著，你需要有能讓自己沉澱與整理的空間。當外界太吵、資訊太雜，你反而容易失焦；但當你主動選擇適合自己的場域、接觸真正想靠近的人與事，你的理解力、洞察力與成長速度就會非常快。"], "teaser": "你選擇的環境，也在悄悄選擇未來的你。"}, "imbalanceExpression": "長期待在不適合的場域裡，也可能把周遭不適合自己的模式吸收進來。", "matureExpression": "選擇適合自己的環境與人，把一路接收到的資訊慢慢整合成自己的理解。", "name": "隱者", "number": 9, "practicalNotes": "本命有 9 時，環境選擇尤其重要。它不是「孤僻牌」，核心更接近環境與學習。隱者與其他人的牌、自己的隱藏牌之間可能產生明顯觸發。"}};
+
+/* ===== 讀取由 02 頁計算並暫存的結果（sessionStorage，僅此瀏覽器分頁、不永久保存） ===== */
+/* ===== 年齡：衍生資料，每次開啟頁面都以生日與當日日期重新計算，不採信 sessionStorage 中可能存在的舊值 =====
+   2月29日出生者，在非閏年以3月1日視為完成生日 */
+function isLeapYear(y){ return (y%4===0&&y%100!==0)||y%400===0 }
+function calculateAge(y,m,d){
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth()+1;
+  const currentDate = today.getDate();
+
+  let effectiveMonth = m, effectiveDay = d;
+  if(m===2 && d===29 && !isLeapYear(currentYear)){
+    effectiveMonth = 3;
+    effectiveDay = 1;
+  }
+
+  let age = currentYear - y;
+  const birthdayNotYetThisYear =
+    (currentMonth < effectiveMonth) ||
+    (currentMonth === effectiveMonth && currentDate < effectiveDay);
+  if(birthdayNotYetThisYear){
+    age--;
+  }
+  return age;
+}
+
+function getResult(){
+  try{
+    const raw = sessionStorage.getItem('soulRecipeResult');
+    if(!raw) return null;
+    const data = JSON.parse(raw);
+    if(!data || !Array.isArray(data.rawOrder) || data.rawOrder.length !== 6 || !Array.isArray(data.hiddenCards)){
+      return null;
+    }
+    data.gender = data.gender || '不指定';
+    data.age = calculateAge(data.year, data.month, data.day);
+    return data;
+  }catch(err){
+    return null;
+  }
+}
+
+function summarizeRaw(raw){
+  const c = {};
+  raw.forEach(n => c[n] = (c[n]||0) + 1);
+  return Object.keys(c).map(Number).sort((a,b)=>a-b).map(n => ({ n, count: c[n] }));
+}
+
+function renderBirthCards(data){
+  const summary = summarizeRaw(data.rawOrder);
+
+  document.getElementById('birthSummaryLine').textContent =
+    `原始序列：${data.rawOrder.join('・')}　顯示：${summary.map(x => x.n + (x.count>1?'×'+x.count:'')).join('、')}`;
+
+  const grid = document.getElementById('birthCardsGrid');
+  grid.innerHTML = summary.map((item, idx) => {
+    const card = CARDS[String(item.n)];
+    if(!card) return '';
+    const seq = String(idx+1).padStart(2,'0');
+    const repeatBadge = item.count>1 ? `<div class="repeat-badge">重複出現 ×${item.count}</div>` : '';
+    return `<article class="card tarot">
+      ${repeatBadge}
+      <div class="seq">${seq}</div>
+      <div class="num">${card.number}</div>
+      <h3>${card.name}</h3>
+      <div class="short">${card.displayCopy.teaser}</div>
+      <details class="tarot-native"><summary><span class="open-text">展開解讀</span><span class="close-text">收起解讀</span></summary>
+        <div class="native-detail">
+          ${card.displayCopy.readingParagraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+        ${card.displayCopy.keywords ? `<div class="keywords">${card.displayCopy.keywords.map(t => `<span class="keyword">${t}</span>`).join('')}</div>` : ''}
+        <div class="detail-note">${card.displayCopy.closingNote}</div>
+      </details>
+    </article>`;
+  }).join('');
+}
+
+function renderHiddenCards(data){
+  const pills = document.getElementById('hiddenCardsPills');
+  pills.innerHTML = data.hiddenCards.map(n => {
+    const card = CARDS[String(n)];
+    return card ? `<span class="hidden-pill">${card.number} ${card.name}</span>` : '';
+  }).join('');
+
+  const grid = document.getElementById('hiddenCardsGrid');
+  grid.innerHTML = data.hiddenCards.map(n => {
+    const card = CARDS[String(n)];
+    if(!card) return '';
+    return `<div class="hidden-mini">
+      <strong>${card.number}｜${card.name}</strong>
+      <p>${card.displayCopy.teaser}</p>
+      <details class="tarot-native">
+        <summary><span class="open-text">展開解讀</span><span class="close-text">收起解讀</span></summary>
+        <div class="native-detail">
+          ${card.displayCopy.readingParagraphs.map(p => `<p>${p}</p>`).join('')}
+        </div>
+        ${card.displayCopy.keywords ? `<div class="keywords">${card.displayCopy.keywords.map(t => `<span class="keyword">${t}</span>`).join('')}</div>` : ''}
+        <div class="detail-note">${card.displayCopy.closingNote}</div>
+      </details>
+    </div>`;
+  }).join('');
+}
+
+function renderOwner(data){
+  document.getElementById('ownerNameValue').textContent = data.name;
+  document.getElementById('ownerBirthValue').textContent = data.dateDisplay;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const data = getResult();
+  if(!data){
+    window.location.replace('02_建立命卡頁.html');
+    return;
+  }
+  renderOwner(data);
+  renderBirthCards(data);
+  renderHiddenCards(data);
+  renderYourTiming(data);
+  renderJourney(data);
+  renderIntegratedReading(data);
+  renderSpecificComboNote(data);
+  renderCompactCard(data);
+});
+
+/* ===== 流年計算：完全遵照 Mary K. Greer Year Card 方法（西元年＋出生月＋出生日，反覆 digit sum 至 1～22，0 視為 22）
+   A｜年度流年：1/1 切換，永遠採當年西元年份
+   B｜生日流年：生日當日切換，生日前沿用上一年份 =====*/
+function digitSum(n){
+  return String(n).split('').reduce((s,ch) => s + Number(ch), 0);
+}
+function reduceToYearCard(total){
+  while(total > 22){ total = digitSum(total); }
+  if(total === 0) total = 22;
+  return total;
+}
+function getYearCardNumber(targetYear, month, day){
+  return reduceToYearCard(targetYear + month + day);
+}
+function getEffectiveBirthdayForYear(month, day, referenceYear){
+  if(month===2 && day===29 && !isLeapYear(referenceYear)){
+    return { month: 3, day: 1 };
+  }
+  return { month, day };
+}
+function computeYearCards(data){
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth()+1;
+  const currentDate = today.getDate();
+
+  const calendarYear = currentYear;
+  const calendarYearCard = getYearCardNumber(calendarYear, data.month, data.day);
+
+  const eff = getEffectiveBirthdayForYear(data.month, data.day, currentYear);
+  const hasHadBirthday = (currentMonth > eff.month) || (currentMonth === eff.month && currentDate >= eff.day);
+  const birthdayYearRef = hasHadBirthday ? currentYear : currentYear - 1;
+  const birthdayYearCard = getYearCardNumber(birthdayYearRef, data.month, data.day);
+
+  return { calendarYear, calendarYearCard, birthdayYearRef, birthdayYearCard };
+}
+
+/* =========================================================================
+   免費版動態解讀引擎 v6b（正式版，2026-09-08 確認）
+   資料來源（逐字內嵌，file:// 無法 fetch，故比照 CARDS 常數的既有作法）：
+   - CARD_MODULES：interpretation-modules_2026-09-08_v1.json 的 cardModules
+   - PRIORITY：同檔案 selectionEngine.priorityScore
+   - ROLE_FIT／YEARLY_ROLES／GENERIC_INTEGRATION_DIFFERENT：
+     ROLEFIT_AND_DUAL_YEARLY_2026-09-08_v2-addon.json
+   - HIDDEN_CROSS_LAYER_TEMPLATE：
+     SOUL_RECIPE_FINAL_ARTICLE_ASSEMBLY_2026-09-08_v1.json 的 hiddenLanguageRule.crossLayerTemplate
+   選牌與文字組裝邏輯完整比照 v6b 驗收版本，未再修改：
+   priorityScore → section-specific candidate pools → roleFit → coherenceBonus
+   → semantic diversity → usage soft limit → deterministic tie-break。
+   不使用固定 displayCopy 拼接、不用全域 Top 5、不以牌號或 rawOrder 決定選牌。
+   ========================================================================= */
+const CARD_MODULES = {"1":{"number":1,"name":"魔術師","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card1_self_v1","text":"你很容易先抓到「怎麼做」。面對模糊資訊時，你通常能迅速整理出方法，再把抽象想法往現實推進。","allowedWhen":"self"},"talent":{"id":"card1_talent_v1","text":"你的優勢在轉化：把靈感、概念或零散資訊，整理成能被理解、執行、交換價值的東西。","allowedWhen":"talent"},"relationship":{"id":"card1_relationship_v1","text":"在關係裡，你容易成為先想方法、先找解法的人。要留意別把理解得快，變成替對方太快下結論。","allowedWhen":"relationship"},"imbalance":{"id":"card1_imbalance_v1","text":"當方法太多、腦子跑太快，反而可能一直換做法，真正落地的速度跟不上理解速度。","allowedWhen":"imbalance"},"balance":{"id":"card1_balance_v1","text":"與其再找一個更聰明的方法，不如挑一個已經夠好的方法開始做，讓現實回饋幫你修正。","allowedWhen":"balance"},"hidden":{"id":"card1_hidden_v1","text":"如果魔術師出現在隱藏層，你未必一開始把自己當成擅長創造的人；但在需要從零整理、解題或把事情做出來時，這一面會更容易被看見。","allowedWhen":"hidden"},"yearly":{"id":"card1_yearly_v1","text":"當魔術師進到今年的時間層，重點通常不是『突然變聰明』，而是今年更容易遇到需要你主動理解、轉化、開始做的情境。","allowedWhen":"yearly"}}},"2":{"number":2,"name":"女祭司","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card2_self_v1","text":"你對沒被說出口的東西很敏感。別人只看到一句話，你可能已經同時感受到語氣、氣氛和情緒。","allowedWhen":"self"},"talent":{"id":"card2_talent_v1","text":"你的天賦是感知細節與讀懂言外之意，不需要所有資訊都被明講才知道哪裡不對。","allowedWhen":"talent"},"relationship":{"id":"card2_relationship_v1","text":"你很容易感受到對方的狀態，因此關係品質會直接影響你。理解別人是優勢，但別把對方的情緒全部搬回自己身上。","allowedWhen":"relationship"},"imbalance":{"id":"card2_imbalance_v1","text":"資訊越模糊時，你越可能接收到很多細節；如果沒有界線，就容易把別人的感受誤認成自己的責任。","allowedWhen":"imbalance"},"balance":{"id":"card2_balance_v1","text":"先分清楚『我感覺到了』和『這需要我處理』是兩件事，敏感才不會變成過度承接。","allowedWhen":"balance"},"hidden":{"id":"card2_hidden_v1","text":"女祭司在隱藏層時，常代表你其實比自己以為的更敏銳，只是平常未必把這種感知當作能力。","allowedWhen":"hidden"},"yearly":{"id":"card2_yearly_v1","text":"女祭司成為時間層時，今年可能更需要你相信觀察、放慢判斷，也更要注意不要吸收過量的外界情緒。","allowedWhen":"yearly"}}},"3":{"number":3,"name":"皇后","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card3_self_v1","text":"你很自然會注意到別人需要什麼，也願意把照顧變成具體安排，而不只是口頭關心。","allowedWhen":"self"},"talent":{"id":"card3_talent_v1","text":"你的能力在於把愛落地成資源、照顧與舒適感，常能讓人感覺『有你在，事情被接住了』。","allowedWhen":"talent"},"relationship":{"id":"card3_relationship_v1","text":"關係裡你容易先看見對方的需要。成熟的皇后不是一直給，而是把自己也算進值得被照顧的人裡。","allowedWhen":"relationship"},"imbalance":{"id":"card3_imbalance_v1","text":"當照顧變成習慣，你可能不知不覺把自己排到最後，最後累了卻又覺得別人怎麼沒看見。","allowedWhen":"imbalance"},"balance":{"id":"card3_balance_v1","text":"給之前先確認自己有沒有餘裕。皇后的力量不是耗盡自己，而是在能力範圍裡讓愛有形狀。","allowedWhen":"balance"},"hidden":{"id":"card3_hidden_v1","text":"皇后在隱藏層時，你可能平常不覺得自己很會照顧人，但在家庭、伴侶或需要承接人的情境裡，這一面會更明顯。","allowedWhen":"hidden"},"yearly":{"id":"card3_yearly_v1","text":"皇后進到今年的時間層時，生活可能更常把『照顧、給予、資源怎麼分配』推到你面前。","allowedWhen":"yearly"}}},"4":{"number":4,"name":"皇帝","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card4_self_v1","text":"你習慣看整體、安排局面，遇到事情時很自然會想知道誰做什麼、怎麼推才有效率。","allowedWhen":"self"},"talent":{"id":"card4_talent_v1","text":"你的優勢是承擔與配置。當你願意聽取不同意見，再做最後決定，皇帝會成為很穩的領導力。","allowedWhen":"talent"},"relationship":{"id":"card4_relationship_v1","text":"在關係裡，你容易希望事情有方向、有規則。問題不一定是你想掌握，而是別把『最有效率』等同於『只能照我的方法』。","allowedWhen":"relationship"},"imbalance":{"id":"card4_imbalance_v1","text":"壓力高時，你可能把掌握局面變成掌握別人，越想讓事情穩定，反而越容易讓身邊的人感到被控制。","allowedWhen":"imbalance"},"balance":{"id":"card4_balance_v1","text":"保留決策力，但把『我要掌握一切』換成『我要掌握大方向，也允許別人有自己的方法』。","allowedWhen":"balance"},"hidden":{"id":"card4_hidden_v1","text":"皇帝在隱藏層時，你未必平常把自己視為主導者，但在需要負責、做決定或保護整體時，控制與領導面會更容易出現。","allowedWhen":"hidden"},"yearly":{"id":"card4_yearly_v1","text":"皇帝成為今年的時間層時，責任、決策、資源配置與『到底誰來掌舵』會比平常更有存在感。","allowedWhen":"yearly"}}},"5":{"number":5,"name":"教宗","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card5_self_v1","text":"你很會把複雜的東西整理成別人聽得懂的版本，也容易自然進入教學、提煉、指引的位置。","allowedWhen":"self"},"talent":{"id":"card5_talent_v1","text":"你的能力不是只知道答案，而是能替別人搭橋，讓原本難懂的東西變成可以理解、可以走的路。","allowedWhen":"talent"},"relationship":{"id":"card5_relationship_v1","text":"在關係裡，你常會想解釋、教對方理解事情。好的時候是分享智慧，失衡時就容易變成『我來告訴你應該怎麼做』。","allowedWhen":"relationship"},"imbalance":{"id":"card5_imbalance_v1","text":"當你太相信自己的理解框架，服務很容易悄悄變成說教，尤其面對和你思路不同的人。","allowedWhen":"imbalance"},"balance":{"id":"card5_balance_v1","text":"先確認對方現在需要的是答案、陪伴，還是只想被聽見。你的知識在被需要時最有力量。","allowedWhen":"balance"},"hidden":{"id":"card5_hidden_v1","text":"教宗在隱藏層時，你可能沒有刻意把自己當老師，但在別人卡住時，你很容易自然整理出一條路給對方。","allowedWhen":"hidden"},"yearly":{"id":"card5_yearly_v1","text":"教宗進到今年的時間層時，學習、教學、傳遞經驗或重新整理自己的信念系統，會更值得留意。","allowedWhen":"yearly"}}},"6":{"number":6,"name":"戀人","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card6_self_v1","text":"你的人生不一定適合所有事都靠自己硬做。合作、人脈與願意幫你的人，常是你真正的開門方式。","allowedWhen":"self"},"talent":{"id":"card6_talent_v1","text":"你很有機會透過關係找到資源與機會，關鍵不是依賴，而是辨認誰適合一起走。","allowedWhen":"talent"},"relationship":{"id":"card6_relationship_v1","text":"你會在關係裡得到很多東西，也容易因為關係做決定。成熟的戀人，是合作而不失去自己的選擇。","allowedWhen":"relationship"},"imbalance":{"id":"card6_imbalance_v1","text":"當你太需要關係提供答案，就可能為了不失去一個人，而忽略自己真正想要什麼。","allowedWhen":"imbalance"},"balance":{"id":"card6_balance_v1","text":"把『有人幫我』和『我把決定交給別人』分開。你可以接受助力，同時保留自己的方向。","allowedWhen":"balance"},"hidden":{"id":"card6_hidden_v1","text":"戀人在隱藏層時，你可能平常習慣靠自己，但重要機會常會在某段合作或關係裡被打開。","allowedWhen":"hidden"},"yearly":{"id":"card6_yearly_v1","text":"戀人成為今年的時間層時，合作、貴人與關係選擇會更常成為現實中的重要入口。","allowedWhen":"yearly"}}},"7":{"number":7,"name":"戰車","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card7_self_v1","text":"你一旦知道目的地，推進力會很強。真正卡住你的往往不是能力，而是方向有沒有清楚。","allowedWhen":"self"},"talent":{"id":"card7_talent_v1","text":"你的優勢是任務感與執行速度，能把力量集中在目標上，尤其適合需要突破、創業或持續推進的情境。","allowedWhen":"talent"},"relationship":{"id":"card7_relationship_v1","text":"在關係裡，你容易希望事情往前走。若對方節奏不同，你可能很快覺得對方在拖延。","allowedWhen":"relationship"},"imbalance":{"id":"card7_imbalance_v1","text":"當注意力放到別人的進度，你容易變成比較、焦躁或過度衝撞，忘記自己真正要抵達的是哪裡。","allowedWhen":"imbalance"},"balance":{"id":"card7_balance_v1","text":"每次想加速前先問：『這一步真的讓我靠近目標，還是只是因為我受不了停著？』","allowedWhen":"balance"},"hidden":{"id":"card7_hidden_v1","text":"戰車在隱藏層時，你未必平常顯得很衝，但一旦目標被你認定，推進與決斷可能比自己想像中更強。","allowedWhen":"hidden"},"yearly":{"id":"card7_yearly_v1","text":"戰車進到今年的時間層時，事情容易要求你定方向、做選擇、真正往前，而不是只停留在評估。","allowedWhen":"yearly"}}},"8":{"number":8,"name":"力量","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card8_self_v1","text":"你不是沒有行動力，而是很自然先想怎麼把損耗降到最低，再決定怎麼出手。","allowedWhen":"self"},"talent":{"id":"card8_talent_v1","text":"你的能力在策略、路徑與風險控制。別人想撞牆，你比較容易先找門。","allowedWhen":"talent"},"relationship":{"id":"card8_relationship_v1","text":"在關係裡，你可能比較需要時間評估再行動。對節奏快的人來說像拖延，但對你而言常是想避免事情更糟。","allowedWhen":"relationship"},"imbalance":{"id":"card8_imbalance_v1","text":"當你太怕走錯，就容易把『再想一下』延長成一直不動，最後錯過真正需要面對的時間點。","allowedWhen":"imbalance"},"balance":{"id":"card8_balance_v1","text":"策略要有截止點。設定一個『資訊夠到這裡就行動』的門檻，讓規劃真的替你省力。","allowedWhen":"balance"},"hidden":{"id":"card8_hidden_v1","text":"力量在隱藏層時，你可能沒有自覺自己很會算路徑，但危機來時反而很能冷靜找比較低損耗的方案。","allowedWhen":"hidden"},"yearly":{"id":"card8_yearly_v1","text":"力量進到今年的時間層時，現實更容易要求你重新安排力氣，學會不靠硬碰硬也能往前。","allowedWhen":"yearly"}}},"9":{"number":9,"name":"隱者","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card9_self_v1","text":"你吸收環境的速度很快，長期待在哪裡、跟誰相處，對你最後變成什麼樣子影響很大。","allowedWhen":"self"},"talent":{"id":"card9_talent_v1","text":"你的能力是學習、模仿、吸收後再整合成自己的理解，只要進到對的環境，成長速度可以很驚人。","allowedWhen":"talent"},"relationship":{"id":"card9_relationship_v1","text":"關係對你的影響不只在情緒，也會逐步塑造你的思考與習慣。你選的人，其實也在選你的環境。","allowedWhen":"relationship"},"imbalance":{"id":"card9_imbalance_v1","text":"如果長期待在不適合的場域，你也會很有效率地把不適合自己的模式學進來。","allowedWhen":"imbalance"},"balance":{"id":"card9_balance_v1","text":"與其只問『我要更努力嗎』，也要問『我現在待的環境，正在把我變成誰？』","allowedWhen":"balance"},"hidden":{"id":"card9_hidden_v1","text":"隱者在隱藏層時，你可能平常沒注意環境對自己有多大影響，但換人、換圈子、換場域後差異會很明顯。","allowedWhen":"hidden"},"yearly":{"id":"card9_yearly_v1","text":"隱者進到今年的時間層時，環境、學習來源與身邊的人會比平常更值得重新選擇。","allowedWhen":"yearly"}}},"10":{"number":10,"name":"命運之輪","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card10_self_v1","text":"你在外在世界裡常比較容易接到機會、資源或轉圜空間，同樣程度的努力有時能得到更好的外部結果。","allowedWhen":"self"},"talent":{"id":"card10_talent_v1","text":"你的優勢是順勢與放大成果。當你有持續累積，好的循環很容易形成複利。","allowedWhen":"talent"},"relationship":{"id":"card10_relationship_v1","text":"在關係裡，你可能成為資源、機會或現實推進的一部分，但這不等於你必須替所有人扛結果。","allowedWhen":"relationship"},"imbalance":{"id":"card10_imbalance_v1","text":"如果太習慣事情最後會有轉機，就可能低估準備的重要性，甚至在舒服的位置停太久。","allowedWhen":"imbalance"},"balance":{"id":"card10_balance_v1","text":"把運氣當成加速器，不當成方向盤。越有資源，越要知道自己準備把它用在哪裡。","allowedWhen":"balance"},"hidden":{"id":"card10_hidden_v1","text":"命運之輪在隱藏層時，你未必覺得自己運氣特別好，但在關鍵時刻常較容易出現替代路徑、資源或轉圜。","allowedWhen":"hidden"},"yearly":{"id":"card10_yearly_v1","text":"命運之輪成為今年的時間層時，外在變動、機會與資源流動會更明顯；重點仍是你怎麼接住它。","allowedWhen":"yearly"}}},"11":{"number":11,"name":"正義","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card11_self_v1","text":"你很自然會反覆衡量事情合不合理、前後一致不一致，因此常比別人看到更多細節。","allowedWhen":"self"},"talent":{"id":"card11_talent_v1","text":"你的敏感可以變成很強的分析力，尤其適合抓矛盾、風險與別人沒注意到的差異。","allowedWhen":"talent"},"relationship":{"id":"card11_relationship_v1","text":"在關係裡，你容易把一句話想很多層。若沒有說出來，對方可能只看到你沉默，卻不知道你腦內已經跑了很多輪。","allowedWhen":"relationship"},"imbalance":{"id":"card11_imbalance_v1","text":"當衡量沒有出口，就容易變成內耗，明明資訊沒有增加，腦內卻一直重跑同一題。","allowedWhen":"imbalance"},"balance":{"id":"card11_balance_v1","text":"給思考設一個終點：哪些資訊已經足夠？什麼部分只能靠行動得到答案？","allowedWhen":"balance"},"hidden":{"id":"card11_hidden_v1","text":"正義在隱藏層時，你可能外表看起來不糾結，但心裡其實比自己承認的更會反覆衡量。","allowedWhen":"hidden"},"yearly":{"id":"card11_yearly_v1","text":"正義進到今年的時間層時，決定、責任、價值衡量與內在反覆思考會比平常更被放大。","allowedWhen":"yearly"}}},"12":{"number":12,"name":"倒吊人","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card12_self_v1","text":"你對承諾與責任看得很重，一旦認定是自己的事，就算資源已經不多，也常想辦法把它完成。","allowedWhen":"self"},"talent":{"id":"card12_talent_v1","text":"你的力量在願意承擔。真正重要的人事物面前，你可以放下眼前得失，完成自己認定的責任。","allowedWhen":"talent"},"relationship":{"id":"card12_relationship_v1","text":"在關係裡，你很容易把愛和付出連在一起。長期下來，最需要留意的不是你願不願意給，而是你還剩多少自己。","allowedWhen":"relationship"},"imbalance":{"id":"card12_imbalance_v1","text":"當犧牲變成習慣，你可能一邊撐、一邊累積委屈，直到自己也說不清楚到底在氣什麼。","allowedWhen":"imbalance"},"balance":{"id":"card12_balance_v1","text":"把『我願意付出』和『我必須耗盡自己』分開。責任需要界線，否則奉獻會變成壓力。","allowedWhen":"balance"},"hidden":{"id":"card12_hidden_v1","text":"倒吊人在隱藏層時，你可能平常不覺得自己很會犧牲，但碰到真正認定的人事物，很容易把責任扛得比預期多。","allowedWhen":"hidden"},"yearly":{"id":"card12_yearly_v1","text":"倒吊人成為今年的時間層時，付出、責任與界線會更值得重新整理：哪些值得承擔，哪些需要換方式。","allowedWhen":"yearly"}}},"13":{"number":13,"name":"死亡","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card13_self_v1","text":"你更新自己的速度很快。當內在已經決定某件事不再適合，行動往往不會拖太久。","allowedWhen":"self"},"talent":{"id":"card13_talent_v1","text":"你的優勢是能結束、能重來，也能把失敗迅速轉成下一版的經驗。","allowedWhen":"talent"},"relationship":{"id":"card13_relationship_v1","text":"關係裡一旦你覺得某件事已經走到底，可能很快進入『那就改掉／結束』的模式。要留意情緒和真正決定是不是同一件事。","allowedWhen":"relationship"},"imbalance":{"id":"card13_imbalance_v1","text":"如果每一次不舒服都被判定成『該結束』，生活就容易出現過多震盪。","allowedWhen":"imbalance"},"balance":{"id":"card13_balance_v1","text":"真正成熟的死亡不是怕結束，而是知道什麼值得結束、什麼只是需要調整。","allowedWhen":"balance"},"hidden":{"id":"card13_hidden_v1","text":"死亡在隱藏層時，你可能平常看起來穩，但臨界點一到，切換方向與重新開始的速度會很快。","allowedWhen":"hidden"},"yearly":{"id":"card13_yearly_v1","text":"死亡進到今年的時間層時，舊結構更容易被要求更新。重點不是失去本身，而是你準備怎麼進入下一個版本。","allowedWhen":"yearly"}}},"14":{"number":14,"name":"節制","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card14_self_v1","text":"你很會用語言建立連結，也懂得根據不同對象調整表達方式。","allowedWhen":"self"},"talent":{"id":"card14_talent_v1","text":"你的能力在說清楚、說得讓人願意聽。溝通、銷售、教學、主持、顧問都很容易成為可用的舞台。","allowedWhen":"talent"},"relationship":{"id":"card14_relationship_v1","text":"在關係裡，你很容易用說話處理問題。優點是能協調，風險是太快進入說服，而忘了先理解。","allowedWhen":"relationship"},"imbalance":{"id":"card14_imbalance_v1","text":"當你太依賴語言能力，可能說得比做得快，或為了維持氣氛而說出當下好聽、卻未必完全符合內心的話。","allowedWhen":"imbalance"},"balance":{"id":"card14_balance_v1","text":"先確認自己現在是在表達、解釋，還是在想贏得對方同意。你的話越真，影響力越穩。","allowedWhen":"balance"},"hidden":{"id":"card14_hidden_v1","text":"節制在隱藏層時，你可能低估自己的口才，但真正需要協調、說服或把複雜事講清楚時，能力會跑出來。","allowedWhen":"hidden"},"yearly":{"id":"card14_yearly_v1","text":"節制進到今年的時間層時，溝通、談判、表達與『怎麼把話說清楚』會變成很實際的課題。","allowedWhen":"yearly"}}},"15":{"number":15,"name":"惡魔","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card15_self_v1","text":"你對自己想要什麼、利益在哪裡通常感覺很直接。真正關鍵不是有沒有自我，而是你的『自己』包含到哪裡。","allowedWhen":"self"},"talent":{"id":"card15_talent_v1","text":"你的企圖心、資源感與吸引力都可以成為很實際的推進力量，尤其當你把伴侶、家庭或團隊也放進『我的人』裡。","allowedWhen":"talent"},"relationship":{"id":"card15_relationship_v1","text":"在關係裡，你可能很在意擁有、失去與彼此是不是站在同一邊。成熟時是保護，失衡時容易變成抓緊。","allowedWhen":"relationship"},"imbalance":{"id":"card15_imbalance_v1","text":"害怕失去時，自我導向可能縮得很小，變成控制、佔有或只看眼前利益。","allowedWhen":"imbalance"},"balance":{"id":"card15_balance_v1","text":"不要假裝自己沒有需求。先誠實承認想要什麼，再看這個選擇是否也照顧到你真正重視的共同體。","allowedWhen":"balance"},"hidden":{"id":"card15_hidden_v1","text":"惡魔在隱藏層時，你可能平常不覺得自己很在意利益或掌握，但碰到真正害怕失去的東西時，抓緊感會更容易出現。","allowedWhen":"hidden"},"yearly":{"id":"card15_yearly_v1","text":"惡魔進到今年的時間層時，利益、慾望、界線、控制與『我到底真正想要什麼』會更需要被誠實看見。","allowedWhen":"yearly"}}},"16":{"number":16,"name":"高塔","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card16_self_v1","text":"你不一定第一時間把不舒服說出來，壓力可能先被你撐住，直到超過臨界點才一次釋放。","allowedWhen":"self"},"talent":{"id":"card16_talent_v1","text":"你的力量其實不是爆炸，而是有能力快速拆掉已經不適合的結構。越早看見裂縫，越能用得漂亮。","allowedWhen":"talent"},"relationship":{"id":"card16_relationship_v1","text":"關係裡如果你總是先忍，對方可能以為事情沒那麼嚴重，直到你突然整個切斷或爆發。","allowedWhen":"relationship"},"imbalance":{"id":"card16_imbalance_v1","text":"長期不說、不處理，最後很容易連本來值得留下的部分一起摧毀。","allowedWhen":"imbalance"},"balance":{"id":"card16_balance_v1","text":"不要等到100分才開口。當不舒服到30分、40分時就開始說，會比最後用爆炸讓問題被看見更安全。","allowedWhen":"balance"},"hidden":{"id":"card16_hidden_v1","text":"高塔在隱藏層時，平常可能看不出來，但若壓力長期沒有出口，劇烈切斷或全面重整的傾向才會浮現。","allowedWhen":"hidden"},"yearly":{"id":"card16_yearly_v1","text":"高塔進到今年的時間層時，已經不穩的結構比較難再裝作沒事；越早調整，越不需要走到全面崩塌。","allowedWhen":"yearly"}}},"17":{"number":17,"name":"星星","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card17_self_v1","text":"你很懂得怎麼讓價值被看見，會自然注意形象、故事、辨識度與呈現方式。","allowedWhen":"self"},"talent":{"id":"card17_talent_v1","text":"你的優勢是包裝與放大亮點，不管是人、品牌、產品或理念，都容易被你整理成更容易被記住的樣子。","allowedWhen":"talent"},"relationship":{"id":"card17_relationship_v1","text":"在關係裡，你會注意彼此呈現出來的樣子，也可能很在意別人怎麼看這段關係。","allowedWhen":"relationship"},"imbalance":{"id":"card17_imbalance_v1","text":"如果太在意形象，可能開始為了維持人設而忽略真實感受。","allowedWhen":"imbalance"},"balance":{"id":"card17_balance_v1","text":"包裝不是問題，問題是包裝裡還有沒有真實內容。讓呈現服務本質，而不是取代本質。","allowedWhen":"balance"},"hidden":{"id":"card17_hidden_v1","text":"星星在隱藏層時，你可能沒意識到自己很有呈現與包裝能力，但一旦需要讓某件事被看見，這一面會很快出現。","allowedWhen":"hidden"},"yearly":{"id":"card17_yearly_v1","text":"星星進到今年的時間層時，曝光、品牌、形象與『怎麼讓價值被看見』會更值得經營。","allowedWhen":"yearly"}}},"18":{"number":18,"name":"月亮","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card18_self_v1","text":"你對不確定、關係變化和氣氛很敏感，需要比別人更多確認，才能真正覺得安全。","allowedWhen":"self"},"talent":{"id":"card18_talent_v1","text":"你的敏感經過時間成熟後，會變成很深的情緒理解力，也更能理解人心裡那些還說不清楚的部分。","allowedWhen":"talent"},"relationship":{"id":"card18_relationship_v1","text":"關係對你來說很容易和安全感連在一起。對方的距離、語氣或狀態變化，都可能比表面看起來更影響你。","allowedWhen":"relationship"},"imbalance":{"id":"card18_imbalance_v1","text":"資訊不足時，你很容易先被想像帶走，開始猜測、害怕失去，甚至明明有人陪仍感到孤單。","allowedWhen":"imbalance"},"balance":{"id":"card18_balance_v1","text":"月亮不需要被催著立刻想通。先補資訊、補安全感，再做判斷，比逼自己現在就有答案更有效。","allowedWhen":"balance"},"hidden":{"id":"card18_hidden_v1","text":"月亮在隱藏層時，你未必平常表現得不安，但在真正重要的關係或未知情境裡，安全感需求會更容易浮上來。","allowedWhen":"hidden"},"yearly":{"id":"card18_yearly_v1","text":"月亮進到今年的時間層時，不確定感與安全感議題可能更明顯；重點是讓模糊慢慢變清楚，不要急著替未知下結論。","allowedWhen":"yearly"}}},"19":{"number":19,"name":"太陽","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card19_self_v1","text":"你天然容易讓人覺得舒服、親切、被看見。很多時候你不需要刻意做什麼，別人就願意靠近。","allowedWhen":"self"},"talent":{"id":"card19_talent_v1","text":"你的優勢是溫度與人緣，能建立信任、凝聚人，也能讓一個空間因為你而變得比較有生命力。","allowedWhen":"talent"},"relationship":{"id":"card19_relationship_v1","text":"你很需要也很能創造『看見彼此』的感覺。重要關係裡，真實相處與面對面的溫度往往比純文字更有力量。","allowedWhen":"relationship"},"imbalance":{"id":"card19_imbalance_v1","text":"太習慣當小太陽時，你可能覺得自己必須永遠好相處、永遠有光，反而不敢讓人看見疲倦。","allowedWhen":"imbalance"},"balance":{"id":"card19_balance_v1","text":"真正成熟的太陽不用一直發光。允許自己休息，也讓別人有機會照顧你。","allowedWhen":"balance"},"hidden":{"id":"card19_hidden_v1","text":"太陽在隱藏層時，你可能沒把自己當成很有感染力的人，但在熟悉關係或安全環境裡，溫暖與人緣會更容易被看見。","allowedWhen":"hidden"},"yearly":{"id":"card19_yearly_v1","text":"太陽進到今年的時間層時，人際、曝光、連結與被看見的機會可能增加，也更適合重新把溫度帶回重要關係。","allowedWhen":"yearly"}}},"20":{"number":20,"name":"審判","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card20_self_v1","text":"你對『值不值得、合不合理、付出和回報是否對等』有一套自己的標準。","allowedWhen":"self"},"talent":{"id":"card20_talent_v1","text":"當你的理解成熟，這份標準會變成很好的判斷力，幫你快速辨認什麼值得投入、什麼不值得。","allowedWhen":"talent"},"relationship":{"id":"card20_relationship_v1","text":"在關係裡，你會在意責任、對等與誰做了多少。這可以幫助關係公平，也可能讓彼此開始記帳。","allowedWhen":"relationship"},"imbalance":{"id":"card20_imbalance_v1","text":"當標準太僵硬，你可能變得挑剔，或者陷入『到底誰欠誰比較多』的循環。","allowedWhen":"imbalance"},"balance":{"id":"card20_balance_v1","text":"公平不是每一件事都五五分，而是雙方都知道現在的分配為什麼合理，也能在失衡時重新談。","allowedWhen":"balance"},"hidden":{"id":"card20_hidden_v1","text":"審判在隱藏層時，你可能平常沒意識到自己有很強的價值標準，但碰到不對等或不合理時，反應會很清楚。","allowedWhen":"hidden"},"yearly":{"id":"card20_yearly_v1","text":"審判進到今年的時間層時，價值判斷、責任分配與『什麼值得繼續』會更常成為現實問題。","allowedWhen":"yearly"}}},"21":{"number":21,"name":"世界","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card21_self_v1","text":"你常在換環境、換領域、接觸不同文化或跨界之後，重新找到流動。","allowedWhen":"self"},"talent":{"id":"card21_talent_v1","text":"你的優勢是跨界與擴張，能把不同世界的經驗接起來，適合海外、國際、旅行與跨領域合作。","allowedWhen":"talent"},"relationship":{"id":"card21_relationship_v1","text":"關係裡你也需要視野與空間。當兩個人一直困在同一種生活方式，換場景、共同探索新世界有時反而能重新打開關係。","allowedWhen":"relationship"},"imbalance":{"id":"card21_imbalance_v1","text":"如果一直覺得答案在別處，就可能不停換環境，卻沒有把經驗真正帶回自己。","allowedWhen":"imbalance"},"balance":{"id":"card21_balance_v1","text":"世界不是叫你一直離開，而是每一次出去之後，都要把新的視野變成自己的能力。","allowedWhen":"balance"},"hidden":{"id":"card21_hidden_v1","text":"世界在隱藏層時，你可能平常待在熟悉環境裡，但一旦接觸海外、跨界或不同圈子，整個人會更容易被打開。","allowedWhen":"hidden"},"yearly":{"id":"card21_yearly_v1","text":"世界進到今年的時間層時，換環境、跨界、旅行、海外或擴大活動範圍，可能成為重要的推進方式。","allowedWhen":"yearly"}}},"22":{"number":22,"name":"愚者","sourceFields":["coreMeaning","matureExpression","imbalanceExpression","practicalNotes"],"status":"derived_copy_only_no_new_card_meaning","modules":{"self":{"id":"card22_self_v1","text":"你的路不一定很早就會收斂成一條線，前期多嘗試、繞路，往往也是在收集未來會用到的材料。","allowedWhen":"self"},"talent":{"id":"card22_talent_v1","text":"你的能力在整合不同經驗。當走過足夠多的路，你反而可能形成一種很難被複製的組合。","allowedWhen":"talent"},"relationship":{"id":"card22_relationship_v1","text":"關係裡你也需要保留探索與成長空間。太早被要求定型，容易讓你覺得自己還沒走完就被迫下結論。","allowedWhen":"relationship"},"imbalance":{"id":"card22_imbalance_v1","text":"如果一直停在開始與嘗試，就會讓所有經驗都來不及長成成果。","allowedWhen":"imbalance"},"balance":{"id":"card22_balance_v1","text":"不用急著證明自己已經定型，但要選幾件值得累積的事，讓探索最後有地方落地。","allowedWhen":"balance"},"hidden":{"id":"card22_hidden_v1","text":"愚者在隱藏層時，你可能平常看起來有固定生活，但內在其實保留很強的探索與重新開始能力。","allowedWhen":"hidden"},"yearly":{"id":"card22_yearly_v1","text":"愚者進到今年的時間層時，新起點、重新試驗與打開可能性會更重要，但仍需要把探索帶回實際累積。","allowedWhen":"yearly"}}}};
+const PRIORITY = {"birth_repeat_4plus":100,"birth_repeat_3":90,"birth_repeat_2":80,"birth_single":55,"hidden_supported_by_birth_same_number":50,"hidden_supported_by_context_or_year":45,"hidden_only":25,"year_matches_birth":50,"year_matches_hidden":40,"year_other":35};
+const ROLE_FIT = {"1":{"name":"魔術師","opening":5,"strength":5,"friction":3,"adjustment":4,"semanticBuckets":["理解／轉化","創造／落地"]},"2":{"name":"女祭司","opening":4,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["感知／觀察","界線"]},"3":{"name":"皇后","opening":4,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["照顧／資源","自我照顧"]},"4":{"name":"皇帝","opening":5,"strength":5,"friction":5,"adjustment":5,"semanticBuckets":["主導／配置","控制"]},"5":{"name":"教宗","opening":4,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["教學／整理","說教"]},"6":{"name":"戀人","opening":4,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["合作／關係","選擇"]},"7":{"name":"戰車","opening":5,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["方向／推進","焦躁／比較"]},"8":{"name":"力量","opening":5,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["策略／損耗","延遲行動"]},"9":{"name":"隱者","opening":4,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["環境／學習","吸收"]},"10":{"name":"命運之輪","opening":4,"strength":5,"friction":4,"adjustment":4,"semanticBuckets":["機會／資源","順勢"]},"11":{"name":"正義","opening":4,"strength":5,"friction":5,"adjustment":5,"semanticBuckets":["衡量／分析","內耗"]},"12":{"name":"倒吊人","opening":4,"strength":5,"friction":5,"adjustment":5,"semanticBuckets":["責任／付出","界線"]},"13":{"name":"死亡","opening":4,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["結束／更新","重生"]},"14":{"name":"節制","opening":4,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["表達／溝通","說服"]},"15":{"name":"惡魔","opening":4,"strength":5,"friction":5,"adjustment":5,"semanticBuckets":["需求／利益","控制／抓緊"]},"16":{"name":"高塔","opening":3,"strength":4,"friction":5,"adjustment":5,"semanticBuckets":["壓力／爆發","結構重整"]},"17":{"name":"星星","opening":4,"strength":5,"friction":3,"adjustment":4,"semanticBuckets":["呈現／形象","包裝"]},"18":{"name":"月亮","opening":4,"strength":4,"friction":5,"adjustment":5,"semanticBuckets":["安全感／不確定","情緒"]},"19":{"name":"太陽","opening":5,"strength":5,"friction":3,"adjustment":5,"semanticBuckets":["溫暖／連結","被看見"]},"20":{"name":"審判","opening":4,"strength":5,"friction":5,"adjustment":5,"semanticBuckets":["公平／標準","價值判斷"]},"21":{"name":"世界","opening":4,"strength":5,"friction":3,"adjustment":5,"semanticBuckets":["跨界／環境","擴張"]},"22":{"name":"愚者","opening":5,"strength":5,"friction":4,"adjustment":5,"semanticBuckets":["探索／整合","落地"]}};
+const YEARLY_ROLES = {"1":{"number":1,"name":"魔術師","annualYearly":{"id":"card1_annualYearly_v1","text":"今年的外在環境更容易把「開始、理解、轉化」推到你面前。你可能需要把一個原本模糊的想法真正做成可執行的方案，現實會更直接回應你有沒有開始動手。"},"birthdayYearly":{"id":"card1_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在更像走進一段重新理解自己方法的階段。你可能會反覆整理：我真正相信什麼、想把什麼做出來、哪些想法值得變成現實。"},"sameYearly":{"id":"card1_sameYearly_v1","text":"今年外在需要你開始做，內在也正在重新整理自己的方法與創造方向。魔術師這個主題同時出現在兩層，讓「把想法變成現實」這件事更難被忽略。"}},"2":{"number":2,"name":"女祭司","annualYearly":{"id":"card2_annualYearly_v1","text":"今年外在環境更容易出現需要你觀察氣氛、讀懂沒有被說出口訊息的情境。資訊未必一次到齊，先看清楚再回應，會比急著下結論更有利。"},"birthdayYearly":{"id":"card2_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在可能更敏感，也更需要分辨哪些感受是自己的、哪些只是你接收到了。這是一段練習相信感知、同時建立界線的時間。"},"sameYearly":{"id":"card2_sameYearly_v1","text":"今年外在與內在都把感知、觀察與界線拉到前景。你可能更容易察覺細節，也更需要學會不把所有感受到的東西都帶回自己身上。"}},"3":{"number":3,"name":"皇后","annualYearly":{"id":"card3_annualYearly_v1","text":"今年現實層面更容易出現照顧、資源分配、家庭或承接他人需求的情境。你可能會更常被放在「怎麼把事情照顧好」的位置。"},"birthdayYearly":{"id":"card3_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在會更需要重新整理給予與被照顧的平衡。你可以很會照顧人，但這段時間也會提醒你把自己算進值得被照顧的人裡。"},"sameYearly":{"id":"card3_sameYearly_v1","text":"今年外在需要你照顧與承接，內在也在整理「我怎麼給、我有沒有把自己算進去」。皇后的主題同時變得明顯，但不是要求你付出更多。"}},"4":{"number":4,"name":"皇帝","annualYearly":{"id":"card4_annualYearly_v1","text":"今年現實上更容易遇到需要你做決策、負責、安排資源或掌握大方向的事情。誰來做決定、怎麼配置、怎麼讓局面穩住，會比平常更有存在感。"},"birthdayYearly":{"id":"card4_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在重新整理自己和責任、控制、主導權的關係。你可能更清楚什麼需要自己決定，也更需要練習不把掌握方向變成掌握所有人。"},"sameYearly":{"id":"card4_sameYearly_v1","text":"今年外在與內在都把責任、決策與主導權推到前景。皇帝同時出現在兩層，不代表你要控制更多，而是更需要成熟地使用自己的決策力。"}},"5":{"number":5,"name":"教宗","annualYearly":{"id":"card5_annualYearly_v1","text":"今年外在環境更容易把學習、教學、傳遞經驗或替別人整理方法的機會帶到你面前。你的理解可能需要被說清楚、教出去或形成一套可使用的方式。"},"birthdayYearly":{"id":"card5_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在可能正在重整自己的信念與理解框架。你會更常問：哪些是我真正相信的，哪些只是以前習慣接受的答案。"},"sameYearly":{"id":"card5_sameYearly_v1","text":"今年外在有更多知識與傳遞的需求，內在也在重整自己的信念系統。教宗的主題同時可見，重點不是知道更多，而是讓理解真正成為你自己的。"}},"6":{"number":6,"name":"戀人","annualYearly":{"id":"card6_annualYearly_v1","text":"今年外在更容易透過合作、人脈、關係與他人的幫助打開機會。重要選擇可能不只關於你一個人，而是和誰一起走、如何合作。"},"birthdayYearly":{"id":"card6_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在更需要整理自己在關係裡的選擇。你可以接受支持，但也會被提醒：合作不等於把方向交給別人。"},"sameYearly":{"id":"card6_sameYearly_v1","text":"今年外在與內在都把合作、關係與選擇推到前景。戀人的主題同時存在，重點是學會在接受助力時仍然保留自己的方向。"}},"7":{"number":7,"name":"戰車","annualYearly":{"id":"card7_annualYearly_v1","text":"今年現實更容易要求你定方向、做選擇、推進進度。事情可能不太適合一直停在評估，目標是否清楚會直接影響你前進的效率。"},"birthdayYearly":{"id":"card7_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在整理自己真正想往哪裡走。你可能更難忍受沒有方向的狀態，也會更需要分辨「真的想前進」和「只是受不了停著」。"},"sameYearly":{"id":"card7_sameYearly_v1","text":"今年外在要求你前進，內在也正在重新確認方向。戰車的主題同時變得明顯，真正重要的不是更快，而是知道自己正在往哪裡去。"}},"8":{"number":8,"name":"力量","annualYearly":{"id":"card8_annualYearly_v1","text":"今年現實更容易要求你重新安排力氣、降低不必要的損耗，找到比硬碰硬更有效的路徑。策略、資源配置與風險控制會變得更重要。"},"birthdayYearly":{"id":"card8_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在學習怎麼更成熟地使用力氣。你可能會重新思考：哪些事值得用力、哪些可以換方法、什麼時候不需要靠硬撐證明自己。"},"sameYearly":{"id":"card8_sameYearly_v1","text":"今年外在與內在都在提醒你重新安排力氣。力量同時出現在兩層，「怎麼用更省力但有效的方法前進」正成為此刻更值得看見的主題。"}},"9":{"number":9,"name":"隱者","annualYearly":{"id":"card9_annualYearly_v1","text":"今年外在環境、圈子、學習來源與你長期接觸的人，會更明顯影響你的方向。換場域、換參照或靠近更成熟的典範，可能比單純再努力更有效。"},"birthdayYearly":{"id":"card9_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在重新吸收、整理並形成自己的理解。你會更需要留意：我現在待的環境，正在把我變成誰。"},"sameYearly":{"id":"card9_sameYearly_v1","text":"今年外在與內在都把環境與學習推到前景。隱者同時出現在兩層，重點不是躲起來，而是更有意識地選擇自己要吸收什麼、靠近誰。"}},"10":{"number":10,"name":"命運之輪","annualYearly":{"id":"card10_annualYearly_v1","text":"今年外在的機會、資源、變動與轉圜空間可能更明顯。現實可能出現新的入口，但真正的差別仍在你有沒有準備好接住它。"},"birthdayYearly":{"id":"card10_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在比較像走在一段重新理解「我準備往哪裡流動」的階段。你可能會更在意機會、轉換與下一步，也需要分辨順勢和被環境帶著走的差別。"},"sameYearly":{"id":"card10_sameYearly_v1","text":"今年外在有更多流動與機會，內在也正在整理自己準備往哪裡走。命運之輪同時出現在兩層，表示「如何接住變動、辨認哪些機會值得跟上」正成為此刻更值得留意的主題。"}},"11":{"number":11,"name":"正義","annualYearly":{"id":"card11_annualYearly_v1","text":"今年現實更容易出現需要衡量、決定、整理責任或處理前後不一致的情境。你可能需要更仔細地看條件、做選擇，也更容易感覺事情沒有辦法含糊帶過。"},"birthdayYearly":{"id":"card11_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在比較容易反覆衡量、重新校準自己的標準。這可能不是很輕鬆的階段，但也很適合把內耗轉成更清楚的判斷。"},"sameYearly":{"id":"card11_sameYearly_v1","text":"今年外在與內在都把衡量、責任與重新校準推到前景。正義同時出現在兩層，讓你更難忽略那些真正需要被理清的事情。"}},"12":{"number":12,"name":"倒吊人","annualYearly":{"id":"card12_annualYearly_v1","text":"今年現實更容易把責任、付出與界線問題放到你面前。某些事可能需要你承擔，但也會更直接考驗：哪些值得繼續扛、哪些需要換方法。"},"birthdayYearly":{"id":"card12_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在重新整理自己和責任、犧牲、付出的關係。你可能更容易感覺到累，也更需要分辨『我願意』和『我只能』。"},"sameYearly":{"id":"card12_sameYearly_v1","text":"今年外在與內在都把付出、責任與界線推到前景。倒吊人同時出現在兩層，讓你更需要重新決定：什麼值得承擔，什麼需要換方式。"}},"13":{"number":13,"name":"死亡","annualYearly":{"id":"card13_annualYearly_v1","text":"今年現實中的舊結構更容易出現結束、轉換或重新開始的需求。某些變化可能來得很明確，重點不是守住原樣，而是看見下一個版本要怎麼長出來。"},"birthdayYearly":{"id":"card13_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正處在一段更新速度較快的階段。你可能對某些已經不適合的事更難繼續假裝沒問題，也更需要練習有意識地結束與重啟。"},"sameYearly":{"id":"card13_sameYearly_v1","text":"今年外在與內在都把結束、轉換與重生推到前景。死亡同時出現在兩層，不代表一定失去什麼，而是舊版本更難維持原樣。"}},"14":{"number":14,"name":"節制","annualYearly":{"id":"card14_annualYearly_v1","text":"今年外在更容易出現需要溝通、說明、談判、教學或協調的情境。很多事情能不能往前，可能取決於你怎麼把話說清楚。"},"birthdayYearly":{"id":"card14_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在整理自己真正想表達什麼，以及怎麼說才既能被理解、又不需要為了維持氣氛偏離真實。"},"sameYearly":{"id":"card14_sameYearly_v1","text":"今年外在與內在都把溝通與表達推到前景。節制同時出現在兩層，重點不是說更多，而是讓你說出口的話更清楚、更真。"}},"15":{"number":15,"name":"惡魔","annualYearly":{"id":"card15_annualYearly_v1","text":"今年現實更容易把利益、資源、需求、界線與掌握感帶到你面前。你可能更直接看見自己真正想要什麼，也更需要處理害怕失去時的反應。"},"birthdayYearly":{"id":"card15_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在重新理解自己的需求、慾望與『我的人／我的事』的範圍。這是一段適合更誠實面對自己想要什麼的時間。"},"sameYearly":{"id":"card15_sameYearly_v1","text":"今年外在與內在都把需求、利益與控制感推到前景。惡魔同時出現在兩層，不是要你壓抑慾望，而是更成熟地理解自己正在抓住什麼、為什麼。"}},"16":{"number":16,"name":"高塔","annualYearly":{"id":"card16_annualYearly_v1","text":"今年現實比較不容易讓已經不穩的結構繼續被忽略。累積已久的問題可能更需要被處理，越早調整，越不必等到事情用劇烈方式提醒你。"},"birthdayYearly":{"id":"card16_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在可能更難繼續壓住那些其實已經不舒服的部分。這是一段學習在壓力還沒到臨界點前，就誠實處理問題的時間。"},"sameYearly":{"id":"card16_sameYearly_v1","text":"今年外在與內在都讓不穩的地方更難被忽略。高塔同時出現在兩層，不代表一定崩塌，而是更需要在事情走到臨界點前做真正的調整。"}},"17":{"number":17,"name":"星星","annualYearly":{"id":"card17_annualYearly_v1","text":"今年外在更容易出現曝光、品牌、形象、作品被看見或需要重新包裝呈現的機會。你怎麼讓價值被理解，可能比以前更重要。"},"birthdayYearly":{"id":"card17_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在整理自己想被怎麼看見，以及哪些形象是真的自己、哪些只是以前習慣維持的樣子。"},"sameYearly":{"id":"card17_sameYearly_v1","text":"今年外在與內在都把『被看見』推到前景。星星同時出現在兩層，重點不是經營更漂亮的人設，而是讓呈現更貼近真正的價值。"}},"18":{"number":18,"name":"月亮","annualYearly":{"id":"card18_annualYearly_v1","text":"今年外在的不確定、關係氣氛或資訊不完整，可能更容易影響你的安全感。現實未必立刻給答案，因此補資訊、確認狀況會比靠猜測更重要。"},"birthdayYearly":{"id":"card18_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在對安全感、失去與未知的感受可能更明顯。你會更需要允許自己慢慢看清楚，而不是逼自己立刻不害怕。"},"sameYearly":{"id":"card18_sameYearly_v1","text":"今年外在與內在都把安全感與不確定感推到前景。月亮同時出現在兩層，不代表事情一定不好，而是模糊更容易被你感受到，也更需要慢慢確認。"}},"19":{"number":19,"name":"太陽","annualYearly":{"id":"card19_annualYearly_v1","text":"今年外在人際、曝光、連結與被看見的機會可能增加。你和人的真實互動、信任與現場溫度，會比平常更容易成為推進事情的力量。"},"birthdayYearly":{"id":"card19_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在更需要重新感受到溫暖、連結與『我有被看見』。你也可能開始重新理解，不需要一直發光，仍然值得被喜歡與靠近。"},"sameYearly":{"id":"card19_sameYearly_v1","text":"今年外在與內在都把連結、溫度與被看見推到前景。太陽同時出現在兩層，不是要求你更亮，而是更值得使用真實的人際連結。"}},"20":{"number":20,"name":"審判","annualYearly":{"id":"card20_annualYearly_v1","text":"今年現實更容易把公平、責任分配、價值判斷與『值不值得繼續投入』的問題帶到你面前。很多事情可能需要重新談條件、重新做選擇。"},"birthdayYearly":{"id":"card20_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在重新整理自己的標準。你可能更清楚哪些事讓你覺得不對等，也更需要分辨自己的標準是幫助判斷，還是讓自己一直記帳。"},"sameYearly":{"id":"card20_sameYearly_v1","text":"今年外在與內在都把公平、標準與價值判斷推到前景。審判同時出現在兩層，不是要你更挑剔，而是更清楚什麼值得繼續投入。"}},"21":{"number":21,"name":"世界","annualYearly":{"id":"card21_annualYearly_v1","text":"今年外在更容易透過換環境、跨界、旅行、海外或接觸不同圈子打開新路。移動本身不是目的，但新的場域可能帶來新的答案。"},"birthdayYearly":{"id":"card21_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在正在擴大自己的視野。你可能更想離開熟悉框架，重新看看還有哪些人生版本可以選。"},"sameYearly":{"id":"card21_sameYearly_v1","text":"今年外在與內在都把跨界、移動與擴張推到前景。世界同時出現在兩層，重點不是一直離開，而是把新的視野真正帶回自己的生活。"}},"22":{"number":22,"name":"愚者","annualYearly":{"id":"card22_annualYearly_v1","text":"今年外在更容易出現新起點、試驗與重新開始的機會。路線未必一開始就完整，但現實可能需要你先走一步，再從回饋裡慢慢修正。"},"birthdayYearly":{"id":"card22_birthdayYearly_v1","text":"從這次生日到下一次生日，你內在更像進入一段重新探索自己的時間。你可能還不想太快定型，但也會需要找出哪些嘗試值得真正累積。"},"sameYearly":{"id":"card22_sameYearly_v1","text":"今年外在與內在都把探索與新起點推到前景。愚者同時出現在兩層，不是要你一直漂，而是允許自己先走一步，再把經驗慢慢整合成方向。"}}};
+const GENERIC_INTEGRATION_DIFFERENT = "外在正在推進的方向，和你內在真正走到的階段此刻不完全一樣。這不是彼此衝突，而是兩條時間線同時存在：一條描述現實正在把什麼帶到你面前，一條描述你自己正在怎麼經歷它。";
+const HIDDEN_CROSS_LAYER_TEMPLATE = "『{cardName}』同時也是你的隱藏牌。這表示這個主題不只存在於你平常可見的運作裡，也可能有一些你自己尚未完全察覺的部分，在特定情境下更容易浮現。";
+
+const NEAR_TIE_THRESHOLD = 5;
+const ROLE_FIT_NEAR_TIE = 1;
+
+function deterministicHash(str){
+  let h = 2166136261;
+  for(let i=0;i<str.length;i++){
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function effectiveCoherence(cand, buckets, coreLineCards, bucketUsageCount){
+  if(!coreLineCards.has(cand.number)) return 0;
+  const overConcentrated = buckets.length > 0 && buckets.every(bkt => (bucketUsageCount.get(bkt) || 0) >= 2);
+  return overConcentrated ? 0 : 1;
+}
+
+function makeBirthComparator(section, birthDateStr, usedBuckets, bucketUsageCount, coreLineCards){
+  return (a, b) => {
+    const scoreDiff = b.score - a.score;
+    if(Math.abs(scoreDiff) > NEAR_TIE_THRESHOLD) return scoreDiff;
+
+    const aFit = (ROLE_FIT[String(a.number)] || {})[section] || 0;
+    const bFit = (ROLE_FIT[String(b.number)] || {})[section] || 0;
+    const fitDiff = bFit - aFit;
+    if(Math.abs(fitDiff) > ROLE_FIT_NEAR_TIE) return fitDiff;
+
+    const aBuckets = (ROLE_FIT[String(a.number)] || {}).semanticBuckets || [];
+    const bBuckets = (ROLE_FIT[String(b.number)] || {}).semanticBuckets || [];
+
+    const aCoherence = effectiveCoherence(a, aBuckets, coreLineCards, bucketUsageCount);
+    const bCoherence = effectiveCoherence(b, bBuckets, coreLineCards, bucketUsageCount);
+    if(aCoherence !== bCoherence) return bCoherence - aCoherence;
+
+    const aBringsNew = aBuckets.some(bkt => !usedBuckets.has(bkt));
+    const bBringsNew = bBuckets.some(bkt => !usedBuckets.has(bkt));
+    if(aBringsNew !== bBringsNew) return aBringsNew ? -1 : 1;
+
+    const aHash = deterministicHash(`${birthDateStr}|${section}|${a.number}`);
+    const bHash = deterministicHash(`${birthDateStr}|${section}|${b.number}`);
+    return aHash - bHash;
+  };
+}
+
+function annualYearlyText(number){ return YEARLY_ROLES[String(number)].annualYearly.text; }
+function birthdayYearlyText(number){ return YEARLY_ROLES[String(number)].birthdayYearly.text; }
+function sameYearlyText(number){ return YEARLY_ROLES[String(number)].sameYearly.text; }
+function annualBridgeText(name){ return `『${name}』也是你今年的外在流年（年度流年），代表這個本來就存在的主題，在外在環境與現實推進上更容易被感覺到。`; }
+function birthdayBridgeText(name){ return `『${name}』也是你這段生日流年（內在階段），代表這個本來就存在的主題，在內在經驗上更容易被感覺到。`; }
+function sameBridgeText(name){ return `『${name}』同時出現在你的外在時間與內在階段裡，讓這個本來就存在的主題在此刻更容易被感覺到。`; }
+function hiddenBridgeSentence(name){ return HIDDEN_CROSS_LAYER_TEMPLATE.replace(/\{cardName\}/g, name); }
+
+function buildEngineChart(data){
+  const yc = computeYearCards(data);
+  const birthDateStr = `${data.year}-${String(data.month).padStart(2,'0')}-${String(data.day).padStart(2,'0')}`;
+  return {
+    rawOrder: data.rawOrder,
+    hiddenCards: data.hiddenCards,
+    repeatedCards: data.repeatedCards,
+    annualYearCard: yc.calendarYearCard,
+    birthdayYearCard: yc.birthdayYearCard,
+    birthDateStr
+  };
+}
+
+function computeBirthPool(chart){
+  const counts = {};
+  chart.rawOrder.forEach(n => counts[n] = (counts[n]||0) + 1);
+  return Object.keys(counts).map(Number).map(n => {
+    const c = counts[n];
+    let score;
+    if(c >= 4) score = PRIORITY.birth_repeat_4plus;
+    else if(c === 3) score = PRIORITY.birth_repeat_3;
+    else if(c === 2) score = PRIORITY.birth_repeat_2;
+    else score = PRIORITY.birth_single;
+    return { number:n, name: CARD_MODULES[String(n)].name, repeatCount:c, score, reason: c>1 ? `本命重複×${c}` : '本命單張' };
+  }).sort((a,b) => b.score - a.score || a.number - b.number);
+}
+
+function computeHiddenPool(chart){
+  const { rawOrder, hiddenCards, annualYearCard, birthdayYearCard } = chart;
+  const birthSet = new Set(rawOrder);
+  return hiddenCards.map(n => {
+    const supportedByBirth = birthSet.has(n);
+    const supportedByYear = (n === annualYearCard) || (n === birthdayYearCard);
+    let score, reason, hasEvidence;
+    if(supportedByBirth){ score = PRIORITY.hidden_supported_by_birth_same_number; reason='隱藏牌×本命同號支持'; hasEvidence=true; }
+    else if(supportedByYear){ score = PRIORITY.hidden_supported_by_context_or_year; reason='隱藏牌×流年同號支持'; hasEvidence=true; }
+    else { score = PRIORITY.hidden_only; reason='隱藏牌（無額外證據）'; hasEvidence=false; }
+    return { number:n, name: CARD_MODULES[String(n)].name, score, reason, hasEvidence };
+  }).filter(c => c.hasEvidence).sort((a,b) => b.score - a.score || a.number - b.number);
+}
+
+function computeYearPool(chart){
+  const { annualYearCard, birthdayYearCard } = chart;
+  const tracksByNumber = new Map();
+  const add = (n, track) => { if(!tracksByNumber.has(n)) tracksByNumber.set(n, []); tracksByNumber.get(n).push(track); };
+  add(annualYearCard, 'annual');
+  add(birthdayYearCard, 'birthday');
+  return Array.from(tracksByNumber.entries()).map(([n, tracks]) => ({ number:n, name: CARD_MODULES[String(n)].name, tracks }));
+}
+
+function makeUsageTracker(){
+  const usage = new Map();
+  return {
+    get(n){ if(!usage.has(n)) usage.set(n, { count:0, roles:new Set() }); return usage.get(n); },
+    canUseFullModule(n, role, opts){
+      const allowSoft = opts && opts.allowSoft;
+      const u = this.get(n);
+      if(u.roles.has(role)) return false;
+      if(u.count < 2) return true;
+      if(allowSoft && u.count < 3) return true;
+      return false;
+    },
+    recordFullModule(n, role){ const u = this.get(n); u.count += 1; u.roles.add(role); },
+    isAtCap(n, opts){ const allowSoft = opts && opts.allowSoft; return this.get(n).count >= (allowSoft ? 3 : 2); }
+  };
+}
+
+const ENGINE_SECTION_TITLES = {
+  opening: '你的主要模式',
+  strength: '天賦所在',
+  friction: '失衡時刻',
+  hidden: '未察覺的一面',
+  now: '當下主題',
+  adjustment: '調整方向',
+};
+
+function pickFromBirthPool(birthPool, usage, roles, maxSlots, opts, ctx){
+  const assigned = [];
+  const usedInThisSection = new Set();
+  while(assigned.length < maxSlots){
+    const role = roles[Math.min(assigned.length, roles.length - 1)];
+    const eligible = birthPool.filter(c => !usedInThisSection.has(c.number) && usage.canUseFullModule(c.number, role, opts));
+    if(eligible.length === 0) break;
+    const sorted = [...eligible].sort(makeBirthComparator(ctx.section, ctx.birthDateStr, ctx.usedBuckets, ctx.bucketUsageCount, ctx.coreLineCards));
+    const winner = sorted[0];
+    const winnerBuckets = (ROLE_FIT[String(winner.number)] || {}).semanticBuckets || [];
+    usage.recordFullModule(winner.number, role);
+    usedInThisSection.add(winner.number);
+    ctx.coreLineCards.add(winner.number);
+    winnerBuckets.forEach(b => {
+      ctx.usedBuckets.add(b);
+      ctx.bucketUsageCount.set(b, (ctx.bucketUsageCount.get(b) || 0) + 1);
+    });
+    assigned.push({ number: winner.number, name: winner.name, role, mode:'full' });
+  }
+  return { assigned };
+}
+
+function pickAdjustment(birthPool, usage, ctx){
+  let result = pickFromBirthPool(birthPool, usage, ['balance'], 2, { allowSoft:false }, ctx);
+  if(result.assigned.length === 0){
+    result = pickFromBirthPool(birthPool, usage, ['balance'], 1, { allowSoft:true }, ctx);
+  }
+  return result;
+}
+
+function pickFromHiddenPool(hiddenPool, usage, maxSlots){
+  const assigned = [];
+  for(const cand of hiddenPool){
+    if(assigned.length >= maxSlots) break;
+    if(usage.canUseFullModule(cand.number, 'hidden')){
+      usage.recordFullModule(cand.number, 'hidden');
+      assigned.push({ number:cand.number, name:cand.name, role:'hidden', mode:'full' });
+    } else {
+      assigned.push({ number:cand.number, name:cand.name, role:'hidden', mode:'bridge' });
+    }
+  }
+  return { assigned };
+}
+
+function buildNowSection(chart, usage){
+  const { annualYearCard, birthdayYearCard } = chart;
+  const sameNumber = annualYearCard === birthdayYearCard;
+
+  if(sameNumber){
+    const name = CARDS[String(annualYearCard)].name;
+    let text;
+    if(usage.canUseFullModule(annualYearCard, 'sameYearly', { allowSoft:true })){
+      usage.recordFullModule(annualYearCard, 'sameYearly');
+      text = sameYearlyText(annualYearCard);
+    } else {
+      text = sameBridgeText(name);
+    }
+    return { assigned: [{ number: annualYearCard, name, role:'sameYearly', mode:'full' }], text };
+  }
+
+  function renderTrack(number, trackKey){
+    const role = trackKey === 'annual' ? 'annualYearly' : 'birthdayYearly';
+    const label = trackKey === 'annual' ? '年度流年｜外在時間' : '生日流年｜內在階段';
+    const name = CARDS[String(number)].name;
+    if(usage.canUseFullModule(number, role, { allowSoft:true })){
+      usage.recordFullModule(number, role);
+      const body = trackKey === 'annual' ? annualYearlyText(number) : birthdayYearlyText(number);
+      return { text: `【${label}】${body}` };
+    }
+    const bridge = trackKey === 'annual' ? annualBridgeText(name) : birthdayBridgeText(name);
+    return { text: `【${label}】${bridge}` };
+  }
+
+  const a = renderTrack(annualYearCard, 'annual');
+  const b = renderTrack(birthdayYearCard, 'birthday');
+  return {
+    assigned: [
+      { number: annualYearCard, name: CARDS[String(annualYearCard)].name, role:'annualYearly', track:'annual' },
+      { number: birthdayYearCard, name: CARDS[String(birthdayYearCard)].name, role:'birthdayYearly', track:'birthday' },
+    ],
+    text: `${a.text} ${b.text} ${GENERIC_INTEGRATION_DIFFERENT}`
+  };
+}
+
+function buildEngineTrace(chart){
+  const birthPool = computeBirthPool(chart);
+  const hiddenPool = computeHiddenPool(chart);
+  const usage = makeUsageTracker();
+  const usedBuckets = new Set();
+  const bucketUsageCount = new Map();
+  const coreLineCards = new Set();
+  const ctxFor = (section) => ({ section, birthDateStr: chart.birthDateStr, usedBuckets, bucketUsageCount, coreLineCards });
+
+  const sections = [];
+  sections.push({ id:'opening', ...pickFromBirthPool(birthPool, usage, ['self','talent'], 2, {}, ctxFor('opening')) });
+  sections.push({ id:'strength', ...pickFromBirthPool(birthPool, usage, ['talent'], 1, {}, ctxFor('strength')) });
+  sections.push({ id:'friction', ...pickFromBirthPool(birthPool, usage, ['imbalance'], 2, {}, ctxFor('friction')) });
+  sections.push({ id:'hidden', ...pickFromHiddenPool(hiddenPool, usage, 2) });
+  const nowSec = buildNowSection(chart, usage);
+  sections.push({ id:'now', assigned:nowSec.assigned, prebuiltText:nowSec.text });
+  sections.push({ id:'adjustment', ...pickAdjustment(birthPool, usage, ctxFor('adjustment')) });
+
+  return { sections };
+}
+
+const ROLE_TRANSITION_POOL = {
+  'self->talent': ['具體來說，', '這也展現在：', '往實際的一面看，'],
+  'talent->imbalance': ['但這份力量用過頭時，', '只是同一份特質一旦過度，', '不過用力過猛時，'],
+  'imbalance->balance': ['調整的方向是：', '可以試著這樣拿回平衡：', '要鬆開這一點，'],
+  'self->imbalance': ['但失衡時，', '只是這份傾向一旦過度，', '而它也有另一面：'],
+  'talent->balance': ['要讓這份優勢走得久一點：', '想維持這份能力，', '讓它更穩定的方式是：'],
+};
+function pickTransition(fromRole, toRole, birthDateStr, cardNumber){
+  const pool = ROLE_TRANSITION_POOL[`${fromRole}->${toRole}`];
+  if(!pool) return '同時，';
+  const idx = deterministicHash(`${birthDateStr}|transition|${cardNumber}|${fromRole}|${toRole}`) % pool.length;
+  return pool[idx];
+}
+
+function toCoordinateClause(sentence){
+  let s = sentence.replace(/[。！？]$/, '');
+  if(/^你的/.test(s)){ return '同時，' + s; }
+  if(/^你/.test(s)) return '也' + s.slice(1);
+  const idx = s.indexOf('，你');
+  if(idx !== -1){ return s.slice(0, idx) + '，也' + s.slice(idx + 2); }
+  return '同時，' + s;
+}
+
+function mergeTwoModuleTexts(textA, textB){
+  const bSentences = textB.split(/(?<=[。！？])/).filter(Boolean);
+  const bFirst = bSentences[0] || '';
+  const bRest = bSentences.slice(1).join('');
+  const aTrimmed = textA.replace(/[。！？]$/, '');
+  const bFirstClause = toCoordinateClause(bFirst);
+  return `${aTrimmed}；${bFirstClause}。${bRest}`;
+}
+
+function assembleEngineArticle(chart, trace){
+  const lastRoleByCard = new Map();
+  const paragraphs = [];
+
+  trace.sections.forEach(section => {
+    if(section.id === 'now'){
+      paragraphs.push({ id:'now', title: ENGINE_SECTION_TITLES.now, text: section.prebuiltText });
+      return;
+    }
+    if(!section.assigned || section.assigned.length === 0) return;
+
+    const raw = section.assigned.map(a => {
+      const text = a.mode === 'bridge' ? hiddenBridgeSentence(a.name) : CARD_MODULES[String(a.number)].modules[a.role].text;
+      const prevRole = lastRoleByCard.get(a.number);
+      lastRoleByCard.set(a.number, a.role);
+      return { text, number: a.number, role: a.role, prevRole: a.mode === 'bridge' ? null : prevRole };
+    });
+
+    let finalText;
+    if(raw.length === 1){
+      const entry = raw[0];
+      finalText = entry.prevRole ? pickTransition(entry.prevRole, entry.role, chart.birthDateStr, entry.number) + entry.text : entry.text;
+    } else {
+      finalText = mergeTwoModuleTexts(raw[0].text, raw[1].text);
+    }
+
+    paragraphs.push({ id: section.id, title: ENGINE_SECTION_TITLES[section.id], text: finalText });
+  });
+
+  return paragraphs;
+}
+
+/* ===== 05 Integrated Reading：正式接上 v6b 動態解讀引擎（不再是固定預告文案） ===== */
+function renderIntegratedReading(data){
+  const chart = buildEngineChart(data);
+  const trace = buildEngineTrace(chart);
+  const paragraphs = assembleEngineArticle(chart, trace);
+
+  const body = document.getElementById('integratedReadingBody');
+  body.innerHTML = paragraphs.map(p => `<div class="layer">
+      <h3>${p.title}</h3>
+      <p>${p.text}</p>
+    </div>`).join('');
+}
+
+/* ===== 03 · Your Timing：時間導航，不是人格解讀區。
+   資料來源正式分工：
+   外在主題 → annualYearly／內在階段 → birthdayYearly／
+   五年旅程 → yearJourneySummary（獨立濃縮摘要，不是完整 annualYearly，也不是 displayCopy）。
+   「當下位置」已從 03 前台移除（與 05 Integrated Reading 的「當下主題」功能重疊）；
+   buildYourPositionText()／sameYearly／雙軌整合 bridge 仍保留在後台，供其他模組使用，只是不再由 03 呼叫顯示。
+   CARDS[n].displayCopy 不再作為本區流年解讀來源（仍保留給單張牌卡片與分享圖卡等既有用途）。===== */
+
+/* yearJourneySummary：每張牌一句約15~25字的時間摘要，逐字濃縮自該牌的正式牌義與
+   annualYearly（外在時間）文字，不新增牌義、不寫成事件預測、不把任何牌號寫成固定事件。 */
+const YEAR_JOURNEY_SUMMARY = {
+  "1": "把模糊的想法動手做成現實的一年。",
+  "2": "學習觀察氣氛、讀懂言外之意的一年。",
+  "3": "照顧他人、安排資源與家庭需求的一年。",
+  "4": "做決策、扛責任、掌握大方向的一年。",
+  "5": "整理知識、教學與傳遞經驗的一年。",
+  "6": "透過合作與關係打開機會的一年。",
+  "7": "定方向、做選擇、往前推進的一年。",
+  "8": "重新安排力氣、找省力方法的一年。",
+  "9": "換環境、換圈子、影響方向的一年。",
+  "10": "接住機會與變動、資源流動的一年。",
+  "11": "整理選擇、責任與界線的一年。",
+  "12": "承擔責任、整理付出與界線的一年。",
+  "13": "結束舊結構、開始新版本的一年。",
+  "14": "溝通、談判與協調變重要的一年。",
+  "15": "面對需求、利益與掌控感的一年。",
+  "16": "已經不穩的結構需要調整的一年。",
+  "17": "作品與形象更容易被看見的一年。",
+  "18": "資訊不足、安全感受影響的一年。",
+  "19": "人際連結與被看見機會增加的一年。",
+  "20": "重新衡量公平與價值判斷的一年。",
+  "21": "跨界、換環境、打開新路的一年。",
+  "22": "新起點、重新嘗試增加的一年。"
+};
+
+/* 雙軌整合能力：不再由 03 前台呼叫（「當下位置」區塊已移除，與 05 Integrated Reading 的
+   「當下主題」功能重疊）。函式保留在後台，供未來其他模組使用；獨立於 05 的 usage 預算之外，
+   同號時只解一次 sameYearly；不同號時分別保留 annualYearly／birthdayYearly，再接正式的雙軌
+   整合 bridge（GENERIC_INTEGRATION_DIFFERENT），不判斷哪一層比較重要。 */
+function buildYourPositionText(annualYearCard, birthdayYearCard){
+  if(annualYearCard === birthdayYearCard){
+    return sameYearlyText(annualYearCard);
+  }
+  // 只做雙軌整合，不重貼 annualYearly／birthdayYearly 全文（那兩段已經各自在
+  // 「外在主題」「內在階段」顯示過了）。
+  return GENERIC_INTEGRATION_DIFFERENT;
+}
+
+/* 生日流年的實際日期區間：從這次生日（birthdayYearRef 年）到下一次生日的前一天。
+   用 Date 物件做加減，正確處理跨月／跨年與 2/29 邊界，不手動假設每月天數。 */
+function formatDatePart(y, m, d){
+  return `${y}.${String(m).padStart(2,'0')}.${String(d).padStart(2,'0')}`;
+}
+function computeBirthdayRangeLabel(month, day, birthdayYearRef){
+  const startEff = getEffectiveBirthdayForYear(month, day, birthdayYearRef);
+  const startLabel = formatDatePart(birthdayYearRef, startEff.month, startEff.day);
+
+  const nextYear = birthdayYearRef + 1;
+  const nextEff = getEffectiveBirthdayForYear(month, day, nextYear);
+  const nextBirthday = new Date(nextYear, nextEff.month - 1, nextEff.day);
+  const endDate = new Date(nextBirthday.getTime() - 24*60*60*1000);
+  const endLabel = formatDatePart(endDate.getFullYear(), endDate.getMonth()+1, endDate.getDate());
+
+  return `${startLabel} – ${endLabel}`;
+}
+
+function renderYourTiming(data){
+  const yc = computeYearCards(data);
+  const annualCard = CARDS[String(yc.calendarYearCard)];
+  const birthdayCard = CARDS[String(yc.birthdayYearCard)];
+
+  document.getElementById('annualMeta').textContent = `西元${yc.calendarYear}年｜${annualCard.number} ${annualCard.name}`;
+  document.getElementById('annualText').textContent = annualYearlyText(yc.calendarYearCard);
+
+  const birthdayRangeLabel = computeBirthdayRangeLabel(data.month, data.day, yc.birthdayYearRef);
+  document.getElementById('birthdayMeta').textContent = `${birthdayRangeLabel}｜${birthdayCard.number} ${birthdayCard.name}`;
+  document.getElementById('birthdayText').textContent = birthdayYearlyText(yc.birthdayYearCard);
+}
+
+/* ===== 五年旅程：時間地圖，不是完整解讀。近兩年～未來兩年的年度流年，
+   每年只顯示年份、牌號、牌名與一句 yearJourneySummary（沿用既有 .journey/.years/.year-item 版型，
+   年份範圍維持現有邏輯不變；每年都用正式 Year Card 算法即時算出，不套用固定 +1）。 ===== */
+function renderJourney(data){
+  const el = document.getElementById('journeyYears');
+  if(!el) return;
+  const currentYear = new Date().getFullYear();
+  const offsets = [-2,-1,0,1,2];
+  el.innerHTML = offsets.map(offset => {
+    const y = currentYear + offset;
+    const n = getYearCardNumber(y, data.month, data.day);
+    const card = CARDS[String(n)];
+    if(!card) return '';
+    const posClass = offset===0 ? 'current' : (Math.abs(offset)===1 ? 'near' : '');
+    return `<div class="year-item ${posClass}">
+      <div class="yr-tag"${offset===0 ? '' : ' style="visibility:hidden"'}>今年</div>
+      <div class="yr">${y}</div>
+      <div class="year-dot"></div>
+      <div class="name">${card.number}｜${card.name}</div>
+      <div class="mini">${YEAR_JOURNEY_SUMMARY[String(n)] || ''}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ===== 交互作用：只顯示 soul-recipe-rules.json interactionRules.confirmedSpecificCombination
+   裡逐字寫明的已確認牌組線索，不自行推測、不生成任意組合的解讀文字 ===== */
+const CONFIRMED_COMBINATIONS = [
+  { cards: [1,14,15], text: '節制＋惡魔＋魔術師可能呈現更高明、技巧性更強的謊言。' },
+  { cards: [14,15], text: '節制＋惡魔可能呈現較容易說謊的傾向。' }
+];
+const CONFIRMED_COMBINATION_GUARDRAIL = '以上只是高辨識度線索，不是最終結論，需回到整體盤、成熟／失衡狀態、流年與現實情境驗證。';
+
+function renderSpecificComboNote(data){
+  const el = document.getElementById('specificComboNote');
+  if(!el) return;
+  const pool = new Set([...data.rawOrder, ...data.hiddenCards]);
+  const matched = CONFIRMED_COMBINATIONS.find(combo => combo.cards.every(n => pool.has(n)));
+  if(!matched){
+    el.innerHTML = '';
+    return;
+  }
+  el.innerHTML = `<div class="close-copy" style="margin-top:14px">${matched.text}<br><span style="font-size:12px;color:var(--muted)">${CONFIRMED_COMBINATION_GUARDRAIL}</span></div>`;
+}
+
+function formatTodayDisplay(){
+  const today = new Date();
+  return `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')}`;
+}
+
+/* ===== 複製命卡結果文字，方便貼給小菲｜靈魂配方助理 ===== */
+function copyCardResultText(){
+  const data = getResult();
+  if(!data) return;
+  const summary = summarizeRaw(data.rawOrder);
+  const summaryDisplay = summary.map(item => item.n + (item.count > 1 ? '×' + item.count : '')).join('、');
+  const hiddenDisplay = data.hiddenCards.join('、');
+  const yc = computeYearCards(data);
+
+  const text = `【我的塔羅靈數命卡】
+姓名：${data.name}
+生日：${data.dateDisplay}
+本命牌（原始序列）：${data.rawOrder.join('、')}
+本命牌顯示：${summaryDisplay}
+隱藏牌：${hiddenDisplay}
+年度流年（西元${yc.calendarYear}年）：${yc.calendarYearCard}
+生日流年（西元${yc.birthdayYearRef}年區間）：${yc.birthdayYearCard}
+資料產生日期：${formatTodayDisplay()}`;
+
+  const btn = document.getElementById('copyResultBtn');
+  const originalText = btn.textContent;
+
+  const showCopied = () => {
+    btn.textContent = '已複製 ✓';
+    setTimeout(() => { btn.textContent = originalText; }, 1800);
+  };
+
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(showCopied).catch(() => {
+      alert('複製失敗，請手動選取以下內容：\n\n' + text);
+    });
+  }else{
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try{
+      document.execCommand('copy');
+      showCopied();
+    }catch(err){
+      alert('複製失敗，請手動選取以下內容：\n\n' + text);
+    }
+    document.body.removeChild(textarea);
+  }
+}
+
+/* ===== 分享用精簡圖卡的內容（跟正式命卡共用同一份 data，只是排版不同） ===== */
+function renderCompactCard(data){
+  const summary = summarizeRaw(data.rawOrder);
+
+  document.getElementById('compactOwnerName').textContent = data.name;
+  document.getElementById('compactOwnerBirth').textContent = data.dateDisplay;
+
+  const birthGrid = document.getElementById('compactBirthCards');
+  birthGrid.innerHTML = summary.map(item => {
+    const card = CARDS[String(item.n)];
+    if(!card) return '';
+    const repeatText = item.count > 1 ? ` ×${item.count}` : '';
+    return `<div style="text-align:center">
+      <div style="font-family:'Noto Serif TC';font-size:15px;font-weight:700;margin-bottom:8px">${card.number}｜${card.name}${repeatText}</div>
+      <div style="background:#fff;border-radius:16px;padding:14px 10px;border:1px solid #E7DDD2;font-size:11px;color:#877C73;line-height:1.6">${card.displayCopy.teaser}</div>
+    </div>`;
+  }).join('');
+
+  const hiddenWrap = document.getElementById('compactHiddenCards');
+  hiddenWrap.innerHTML = data.hiddenCards.map(n => {
+    const card = CARDS[String(n)];
+    if(!card) return '';
+    return `<span style="background:#E9F0F3;color:#6D8290;border-radius:999px;padding:8px 14px;font-size:12px;font-weight:700">${card.number} ${card.name}</span>`;
+  }).join('');
+}
+
+/* ===== 保存 / 分享命卡圖片 =====
+   手機瀏覽器（尤其 iOS Safari）對 <a download> 支援不穩定，
+   改成把生成的圖片直接顯示在畫面上，讓使用者長按存到相簿，
+   這是手機瀏覽器最通用、最不會出錯的做法。 */
+function showImagePreview(dataUrl){
+  document.getElementById('previewImg').src = dataUrl;
+  document.getElementById('imagePreviewModal').style.display = 'flex';
+}
+function closeImagePreview(){
+  document.getElementById('imagePreviewModal').style.display = 'none';
+}
+
+function saveCardAsImage(){
+  const btn = document.getElementById('saveCardBtn');
+  const originalText = btn.textContent;
+  btn.textContent = '生成圖片中…';
+  btn.disabled = true;
+  html2canvas(document.getElementById('shareCapture'), {
+    backgroundColor: '#F8F4EE',
+    scale: 2,
+    useCORS: true
+  }).then(canvas => {
+    showImagePreview(canvas.toDataURL('image/png'));
+  }).catch(() => {
+    alert('圖片生成失敗，請再試一次');
+  }).finally(() => {
+    btn.textContent = originalText;
+    btn.disabled = false;
+  });
+}
+
+function shareCardAsImage(){
+  const btn = document.getElementById('shareCardBtn');
+  const originalText = btn.textContent;
+  btn.textContent = '準備中…';
+  btn.disabled = true;
+  html2canvas(document.getElementById('shareCardCompact'), {
+    backgroundColor: '#F8F4EE',
+    scale: 2,
+    useCORS: true
+  }).then(canvas => {
+    canvas.toBlob(async (blob) => {
+      const file = new File([blob], '我的塔羅靈數命卡.png', { type: 'image/png' });
+      if(navigator.canShare && navigator.canShare({ files: [file] })){
+        try{
+          await navigator.share({
+            files: [file],
+            title: '我的塔羅靈數檔案',
+            text: '看看我的塔羅靈數命卡'
+          });
+        }catch(err){
+          // 使用者自己取消分享，不用特別處理
+        }
+      }else{
+        showImagePreview(canvas.toDataURL('image/png'));
+      }
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }, 'image/png');
+  }).catch(() => {
+    alert('圖片生成失敗，請再試一次');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>

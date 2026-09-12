@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解鎖完整版 | 靈魂配方使用手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F4EF;--paper:#FFFDF9;--ink:#2C2824;--muted:#81776F;
+  --line:#E8DED4;--rose:#C98F86;--rose-deep:#A66F68;
+  --rose-soft:#F3E3DF;--blue-soft:#E9F0F3;--gold:#AE925F;
+  --shadow:0 18px 55px rgba(53,42,35,.08)
+}
+*{box-sizing:border-box}
+body{
+  margin:0;color:var(--ink);font-family:'Noto Sans TC',sans-serif;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(243,227,223,.72), transparent 28%),
+    radial-gradient(circle at 90% 12%, rgba(233,240,243,.65), transparent 25%),
+    var(--bg);
+}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:24px 16px 72px}
+.sheet{
+  background:rgba(255,253,249,.97);border-radius:32px;padding:32px 24px 30px;
+  box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.92);
+  margin-top:40px
+}
+.kicker{
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--rose-deep);font-weight:900;text-align:center
+}
+h1{
+  font-family:'Noto Serif TC';font-size:30px;line-height:1.32;
+  text-align:center;margin:14px 0 12px;letter-spacing:.01em
+}
+.intro{
+  text-align:center;color:var(--muted);font-size:13px;line-height:2;
+  max-width:520px;margin:0 auto 10px
+}
+.start{
+  display:block;width:min(100%,420px);margin:24px auto 0;text-align:center;border-radius:999px;
+  padding:14px 22px;background:#5F4E48;color:#fff;font-size:13px;
+  font-weight:900;box-shadow:0 9px 24px rgba(95,78,72,.11)
+}
+.brand{
+  text-align:center;margin-top:40px;padding:30px 12px 8px;border-top:1px solid var(--line)
+}
+.brand strong{font-family:'Noto Serif TC';font-size:12px;color:#6F655D}
+.brand .tagline{font-size:11px;color:#9A8F86;line-height:1.9;margin-top:5px}
+@media(max-width:480px){
+  .wrap{padding:18px 14px 60px}
+  .sheet{border-radius:28px;padding:28px 18px 26px}
+  h1{font-size:clamp(20px,7.2vw,28px)}
+  .intro{font-size:12.5px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <main class="sheet" id="checking">
+    <div class="kicker">Soul Recipe · Full Version</div>
+    <h1>正在核對你的專屬連結…</h1>
+    <p class="intro">請稍候，我們正在確認你的完整版使用權。</p>
+  </main>
+
+  <main class="sheet" id="invalid" style="display:none">
+    <div class="kicker">Soul Recipe · Full Version</div>
+    <h1>這組連結無效</h1>
+    <p class="intro">這組連結不存在，或已經失效了。請確認你收到的專屬連結是否正確，如果有問題，歡迎透過 LINE 聯繫我們重新取得。</p>
+    <a class="start" href="01_入口頁.html">先看看免費版</a>
+  </main>
+
+  <main class="sheet" id="valid" style="display:none">
+    <div class="kicker">Soul Recipe · Full Version</div>
+    <h1 id="welcomeHeading">歡迎回家</h1>
+    <p class="intro">你的完整版使用權已確認，即將帶你進入建立命卡頁。</p>
+  </main>
+
+  <footer class="brand">
+    <strong>靈魂配方使用手冊 · Soul Recipe Manual</strong>
+    <div class="tagline">看懂自己，不是為了被定義，而是為了更自由地使用自己。</div>
+    <div class="tagline" style="margin-top:8px"><a href="mailto:soulrecipe.tw@gmail.com" style="color:inherit;text-decoration:none">soulrecipe.tw@gmail.com</a></div>
+  </footer>
+</div>
+
+<script src="supabase-config.js"></script>
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('key');
+
+  const checkingEl = document.getElementById('checking');
+  const invalidEl = document.getElementById('invalid');
+  const validEl = document.getElementById('valid');
+
+  function showInvalid(){
+    checkingEl.style.display = 'none';
+    invalidEl.style.display = 'block';
+  }
+
+  if(!token){
+    showInvalid();
+    return;
+  }
+
+  fetch(`${SOUL_RECIPE_SUPABASE_URL}/rest/v1/rpc/check_access_token`, {
+    method: 'POST',
+    headers: {
+      'apikey': SOUL_RECIPE_SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SOUL_RECIPE_SUPABASE_ANON_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ input_token: token })
+  })
+  .then(res => {
+    if(!res.ok) throw new Error('access check failed');
+    return res.json();
+  })
+  .then(data => {
+    /* check_access_token 目前的正式定義是 RETURNS boolean，PostgREST 呼叫 RPC 回傳
+       純布林值（data 直接是 true/false），不是物件。同時保留判斷 {valid, display_name}
+       物件格式的相容性，未來如果把函式改成回傳 JSON 物件（例如加上 display_name），
+       這裡不需要再改。 */
+    const isValid = (typeof data === 'boolean') ? data : !!(data && data.valid === true);
+    const displayName = (data && typeof data === 'object' && data.display_name) ? data.display_name : null;
+
+    if(isValid){
+      try{
+        sessionStorage.setItem('soulRecipeFullVersion', 'true');
+        sessionStorage.setItem('soulRecipeAccessToken', token);
+        if(displayName){
+          sessionStorage.setItem('soulRecipeDisplayName', displayName);
+        }
+      }catch(err){
+        // sessionStorage 無法使用時，仍放行到建立命卡頁，只是不會記得「完整版」狀態
+      }
+      if(displayName){
+        document.getElementById('welcomeHeading').textContent = `歡迎回家，${displayName}`;
+      }
+      checkingEl.style.display = 'none';
+      validEl.style.display = 'block';
+      setTimeout(()=>{ window.location.href = '04_付費入口建立命卡頁.html'; }, 1200);
+    }else{
+      showInvalid();
+    }
+  })
+  .catch(showInvalid);
+})();
+</script>
+</body>
+</html>
