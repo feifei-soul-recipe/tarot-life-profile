@@ -248,7 +248,14 @@
   font-size:10px;
   line-height:1.8;
   color:#9A8F86;
-}.hero-title{max-width:920px}.hero-title .line{display:block;white-space:nowrap}.single-row-title{white-space:nowrap}.origin-card h3.small{font-size:clamp(19px,3vw,24px)}.pull-title{white-space:nowrap}.feedback-title{font-size:clamp(22px,4vw,34px)}.four-cards{grid-template-columns:repeat(2,1fr)}.date-selects{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:10px}.date-field{display:block}.date-field span{display:block;font-size:11px;letter-spacing:.08em;color:#DDD4CB;margin:0 0 6px;font-weight:700}.date-field select{
+}.reviews-section{padding-top:36px;padding-bottom:36px}.reviews-strip{
+  display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  margin-top:20px;padding:2px 4px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}.reviews-strip::-webkit-scrollbar{display:none}.review-card{
+  flex:0 0 min(270px,76vw);scroll-snap-align:start;
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;
+  padding:18px 17px;box-shadow:var(--shadow)
+}.review-card .mark{font-size:15px;color:var(--rose-deep);line-height:1;margin-bottom:6px;display:block}.review-card p{font-size:12px;line-height:1.85;color:#4E463F;margin:0 0 12px;font-style:italic}.review-card .attr{font-size:10px;color:var(--rose-deep);font-weight:800;letter-spacing:.02em}.hero-title{max-width:920px}.hero-title .line{display:block;white-space:nowrap}.single-row-title{white-space:nowrap}.origin-card h3.small{font-size:clamp(19px,3vw,24px)}.pull-title{white-space:nowrap}.feedback-title{font-size:clamp(22px,4vw,34px)}.four-cards{grid-template-columns:repeat(2,1fr)}.date-selects{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:10px}.date-field{display:block}.date-field span{display:block;font-size:11px;letter-spacing:.08em;color:#DDD4CB;margin:0 0 6px;font-weight:700}.date-field select{
   width:100%;border:none;border-radius:16px;padding:13px 14px;background:#F9F4EE;color:var(--ink);
   appearance:none;-webkit-appearance:none;
   background-image:linear-gradient(45deg, transparent 50%, #86786f 50%),linear-gradient(135deg, #86786f 50%, transparent 50%);
@@ -1825,6 +1832,44 @@ html{
     </div>
   </section>
 
+  <section class="section reviews-section">
+    <div class="eyebrow">Reviews</div>
+    <h2 class="single-row-title">真實使用者回饋</h2>
+
+    <div class="reviews-strip" aria-label="真實使用者回饋">
+      <div class="review-card">
+        <span class="mark">"</span>
+        <p>我看完之後更加確定我應該放膽做自己，做我自己就很有價值了，也為他人帶來很大的價值。看完有一種如釋重負的感覺，妳給了我很大的力量。</p>
+        <div class="attr">30歲｜AI老師｜女祭司</div>
+      </div>
+      <div class="review-card">
+        <span class="mark">"</span>
+        <p>我看到最後竟然這不是完整版就這麼完整。妳真的很佛♡♡♡而且也太準了……看到起雞皮疙瘩耶，好像比我自己還了解我。</p>
+        <div class="attr">32歲｜服務業｜皇后</div>
+      </div>
+      <div class="review-card">
+        <span class="mark">"</span>
+        <p>我沒想到塔羅牌可以分析得這麼透徹。根本是完全說中耶～不只是準，而是更深入自己的狀態，很像一個了解自己的好朋友在剖析自己。</p>
+        <div class="attr">39歲｜金融業｜魔術師</div>
+      </div>
+      <div class="review-card">
+        <span class="mark">"</span>
+        <p>我其實好怕算命、算塔羅，常常會有種「我是不是正在被批判」的感覺。可是這個結果，我好想整張給你看——真的就是「這個牌就是我，真的有人懂我」。</p>
+        <div class="attr">29歲｜心輔員｜審判</div>
+      </div>
+      <div class="review-card">
+        <span class="mark">"</span>
+        <p>其實我一直覺得沒有很了解自己，看完以後覺得我更了解自己了。遇到瓶頸或困難時，可以照內容去試著突破、順利度過，持續打開新的篇章。</p>
+        <div class="attr">33歲｜全職媽媽｜太陽</div>
+      </div>
+      <div class="review-card">
+        <span class="mark">"</span>
+        <p>全都講中！前陣子發現自己失衡時整個超級可怕，看到這個才發現，原來過去我自己界線都沒有完全分清楚。很棒的資源，太讚了。</p>
+        <div class="attr">37歲｜品牌工作者｜太陽</div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="buy">
     <div class="pricebox" id="price-888">
       <div class="muted">付費完整版・早鳥開放中</div>
@@ -1870,7 +1915,7 @@ html{
       </div>
 
       <div class="line-connect">
-        <p><strong>付款怎麼進行？</strong><br>目前採人工核對，請私訊 LINE 完成付款，核對後會傳一組專屬連結給你，點擊連結即可解鎖完整版與小菲｜靈魂配方助理。</p>
+        <p><strong>付款怎麼進行？</strong><br>目前採人工核對，請私訊 LINE 完成付款，核對後會傳一組專屬連結，點擊連結即可解鎖完整版與小菲｜靈魂配方助理。</p>
         <a class="line-btn" href="https://line.me/R/ti/p/%40103rvgsu" target="_blank" rel="noopener noreferrer">私訊 LINE 完成付款 →</a>
       </div>
     </div>
