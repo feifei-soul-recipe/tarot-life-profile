@@ -1073,6 +1073,10 @@ function closeImagePreview(){
 function saveCardAsImage(){
   const btn = document.getElementById('saveCardBtn');
   const originalText = btn.textContent;
+  if(typeof html2canvas === 'undefined'){
+    alert('圖片生成失敗，請再試一次');
+    return;
+  }
   btn.textContent = '生成圖片中…';
   btn.disabled = true;
   html2canvas(document.getElementById('shareCapture'), {
@@ -1092,33 +1096,25 @@ function saveCardAsImage(){
 function shareCardAsImage(){
   const btn = document.getElementById('shareCardBtn');
   const originalText = btn.textContent;
+  if(typeof html2canvas === 'undefined'){
+    alert('圖片生成失敗，請再試一次');
+    return;
+  }
   btn.textContent = '準備中…';
   btn.disabled = true;
+  /* ===== 分享改成跟「保存我的命卡」用同一套流程（直接顯示圖片讓使用者長按儲存），
+     不再嘗試 navigator.share／canvas.toBlob／File：這些 API 在 Instagram 等
+     App 內建瀏覽器裡支援不穩定，曾經造成按鈕卡住沒反應。toDataURL 是同步呼叫，
+     沒有回呼卡住的風險，跟保存按鈕一樣可靠。===== */
   html2canvas(document.getElementById('shareCardCompact'), {
     backgroundColor: '#F8F4EE',
     scale: 2,
     useCORS: true
   }).then(canvas => {
-    canvas.toBlob(async (blob) => {
-      const file = new File([blob], '我的塔羅靈數命卡.png', { type: 'image/png' });
-      if(navigator.canShare && navigator.canShare({ files: [file] })){
-        try{
-          await navigator.share({
-            files: [file],
-            title: '我的塔羅靈數檔案',
-            text: '看看我的塔羅靈數命卡'
-          });
-        }catch(err){
-          // 使用者自己取消分享，不用特別處理
-        }
-      }else{
-        showImagePreview(canvas.toDataURL('image/png'));
-      }
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }, 'image/png');
+    showImagePreview(canvas.toDataURL('image/png'));
   }).catch(() => {
     alert('圖片生成失敗，請再試一次');
+  }).finally(() => {
     btn.textContent = originalText;
     btn.disabled = false;
   });
