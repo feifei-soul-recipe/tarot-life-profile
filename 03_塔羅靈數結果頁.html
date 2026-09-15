@@ -967,16 +967,14 @@ const CONFIRMED_COMBINATIONS = [
 ];
 const CONFIRMED_COMBINATION_GUARDRAIL = '以上只是高辨識度線索，不是最終結論，需回到整體盤、成熟／失衡狀態、流年與現實情境驗證。';
 
+/* ===== 這組「已確認牌組線索」是內部參考資料，不對外顯示：直接把某個組合講成
+   「較容易說謊」這類定性判斷，不符合本站解讀一律避免人格判決的語氣原則。
+   保留 CONFIRMED_COMBINATIONS／CONFIRMED_COMBINATION_GUARDRAIL 供未來內部參考，
+   但頁面上不再渲染任何內容。===== */
 function renderSpecificComboNote(data){
   const el = document.getElementById('specificComboNote');
   if(!el) return;
-  const pool = new Set([...data.rawOrder, ...data.hiddenCards]);
-  const matched = CONFIRMED_COMBINATIONS.find(combo => combo.cards.every(n => pool.has(n)));
-  if(!matched){
-    el.innerHTML = '';
-    return;
-  }
-  el.innerHTML = `<div class="close-copy" style="margin-top:14px">${matched.text}<br><span style="font-size:12px;color:var(--muted)">${CONFIRMED_COMBINATION_GUARDRAIL}</span></div>`;
+  el.innerHTML = '';
 }
 
 function formatTodayDisplay(){
