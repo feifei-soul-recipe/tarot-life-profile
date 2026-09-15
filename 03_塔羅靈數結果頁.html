@@ -260,7 +260,7 @@ details:not([open]) > *:not(summary){display:none}
 </section>
 
 <section class="section">
-  <div class="eyebrow">03 · Your Timing</div><h2>此刻的流動</h2>
+  <div class="eyebrow">03 · Your Timing</div><h2>今年，時間把你帶到這裡</h2>
   <div class="section-sub">流年不是一張牌的單獨預測，而是當年度模式與你的本命結構彼此相遇後，形成的階段性提醒。時間導航，不是再一次的人格解讀。</div>
 
   <div class="integrated" style="margin-top:20px">
@@ -1102,16 +1102,64 @@ function shareCardAsImage(){
   }
   btn.textContent = '準備中…';
   btn.disabled = true;
-  /* ===== 分享改成跟「保存我的命卡」用同一套流程（直接顯示圖片讓使用者長按儲存），
-     不再嘗試 navigator.share／canvas.toBlob／File：這些 API 在 Instagram 等
-     App 內建瀏覽器裡支援不穩定，曾經造成按鈕卡住沒反應。toDataURL 是同步呼叫，
-     沒有回呼卡住的風險，跟保存按鈕一樣可靠。===== */
+  /* ===== 分享：優先嘗試系統原生分享（可以直接分享到 IG／LINE 等 App），
+     但整段包上安全網——toBlob 用 try/catch、blob 為 null 時、canShare 不支援時、
+     share() 拋出同步例外時，或 4 秒內沒有任何結果時，一律 fallback 回「顯示圖片
+     讓使用者長按儲存」。settled 只在 finish() 裡才會變 true，逾時計時器也只在
+     finish() 裡清除，確保無論卡在哪個環節，最晚 4 秒後一定會恢復，不會再讓
+     按鈕卡住沒反應。===== */
   html2canvas(document.getElementById('shareCardCompact'), {
     backgroundColor: '#F8F4EE',
     scale: 2,
     useCORS: true
   }).then(canvas => {
-    showImagePreview(canvas.toDataURL('image/png'));
+    const dataUrl = canvas.toDataURL('image/png');
+    return new Promise(resolve => {
+      let settled = false;
+      let timeoutId;
+      const finish = () => {
+        if(settled) return;
+        settled = true;
+        clearTimeout(timeoutId);
+        resolve();
+      };
+      const fallbackToPreview = () => { showImagePreview(dataUrl); finish(); };
+      timeoutId = setTimeout(fallbackToPreview, 4000);
+
+      try{
+        canvas.toBlob((blob) => {
+          if(settled) return;
+          if(!blob){
+            fallbackToPreview();
+            return;
+          }
+          const file = new File([blob], '我的塔羅靈數命卡.png', { type: 'image/png' });
+          if(navigator.canShare && navigator.canShare({ files: [file] })){
+            try{
+              const shareResult = navigator.share({
+                files: [file],
+                title: '我的塔羅靈數檔案',
+                text: '看看我的塔羅靈數命卡'
+              });
+              if(shareResult && typeof shareResult.then === 'function'){
+                shareResult.catch(() => {
+                  // 使用者自己取消分享，不用特別處理
+                }).finally(finish);
+              }else{
+                finish();
+              }
+            }catch(err){
+              // 部分 App 內建瀏覽器的 share() 會直接拋出例外，而不是回傳被拒絕的 Promise
+              fallbackToPreview();
+            }
+          }else{
+            fallbackToPreview();
+          }
+        }, 'image/png');
+      }catch(err){
+        fallbackToPreview();
+      }
+    });
   }).catch(() => {
     alert('圖片生成失敗，請再試一次');
   }).finally(() => {
