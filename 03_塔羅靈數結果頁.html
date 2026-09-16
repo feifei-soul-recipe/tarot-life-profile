@@ -670,6 +670,46 @@ function extractSituationUnit(sentences){
   }
   return acc;
 }
+/* 語意相近雙牌融合規則（2026-09-16 新增、09-16 精簡版修正，只影響本函式）：
+   兩張牌的情境句若落在同一語意群（都在講敏銳／察覺／氣氛，或都在講分析矛盾／提前發現問題，
+   或都在講環境影響／轉場），原本「A完整句＋同時，＋B完整句」會變成兩段各自「[牌名]藏著你……的
+   能力／敏銳」重複堆疊、且各自附一段「值得留意的是」，讀起來像兩段牌義硬接、字數也偏長。
+   改成：A保留完整內容（情境＋A自己的提醒句，作為唯一的主要提醒軸）；B只取自己的情境延伸句，
+   拿掉重複的「[牌名]藏著你……的X，」開場模板，不附B自己完整的提醒句，只用語意相符的自然銜接詞
+   接上B獨有的具體延伸／例子／差異，讀起來是同一個人的一個面向在延伸，而不是兩張牌輪流自我介紹。
+   目標字數約110-145字；不強切字、不截斷句子、不新增牌義、不刪任一方的具體延伸內容。
+   只有兩張牌被判定為同一語意群時才啟用，其餘配對完全走原本的 candidates 邏輯，不受影響。 */
+const HIDDEN_MERGE_SEMANTIC_CLUSTERS = [
+  { keywords: ['敏銳','氣氛','察覺','感受'],
+    connectors: ['這份敏銳也會延伸到，', '同樣的敏感，也讓你留意到，', '你不只會這樣感覺，也容易發現，'] },
+  { keywords: ['矛盾','分析','不穩','漏洞','發現'],
+    connectors: ['同樣的觀察力，也讓你發現，', '這份提前發現問題的敏感度，也出現在，', '不只如此，你也容易注意到，'] },
+  { keywords: ['環境','場域','圈子','跨界','塑造'],
+    connectors: ['這樣的影響，換個場合也一樣明顯——', '同樣地，', '不只如此，'] },
+];
+const HIDDEN_MERGE_OPENER_RE = /^[一-龥]{1,6}藏著你.+?的[^，、]+，/;
+function findSemanticClusterIndex(situationA, situationB){
+  for(let i=0;i<HIDDEN_MERGE_SEMANTIC_CLUSTERS.length;i++){
+    const kws = HIDDEN_MERGE_SEMANTIC_CLUSTERS[i].keywords;
+    const aHit = kws.some(kw => situationA.includes(kw));
+    const bHit = kws.some(kw => situationB.includes(kw));
+    if(aHit && bHit) return i;
+  }
+  return -1;
+}
+function mergeSemanticClosePair(fullA, situationB, clusterIdx){
+  const cluster = HIDDEN_MERGE_SEMANTIC_CLUSTERS[clusterIdx];
+  const pickIdx = deterministicHash(fullA + '|' + situationB + '|semantic_ext') % cluster.connectors.length;
+  const connector = cluster.connectors[pickIdx];
+  let remainderB = situationB.replace(HIDDEN_MERGE_OPENER_RE, '');
+  /* 「同樣地，」是純粹的輕銜接詞、本身不帶「也」，所以在它後面補一個「也」讓下一句語法完整
+     （例如：同樣地，換一個環境或接觸新的領域，也常常能讓你打開原本卡住的局面。），
+     純文法上的黏著字，不改變B原本的具體內容。 */
+  if(connector === '同樣地，'){
+    remainderB = remainderB.replace(/，/, '，也');
+  }
+  return fullA + connector + remainderB;
+}
 function mergeHiddenPairNatural(textA, textB){
   const connector = '同時，';
   const sentsA = splitSentences(textA);
@@ -678,6 +718,15 @@ function mergeHiddenPairNatural(textA, textB){
   const fullB = sentsB.join('');
   const situationA = extractSituationUnit(sentsA);
   const situationB = extractSituationUnit(sentsB);
+
+  const semanticClusterIdx = findSemanticClusterIndex(situationA, situationB);
+  if(semanticClusterIdx >= 0){
+    /* 精簡融合版（2026-09-16）：A保留完整內容（含A自己的提醒句，作為唯一的主要提醒軸），
+       B只取situationB（B自己的情境延伸句）去除開場模板後的內容，不保留B自己的「值得留意的是」，
+       避免兩張牌各自完整提醒疊加造成段落過長、讀起來像兩段拼接。 */
+    const fused = mergeSemanticClosePair(fullA, situationB, semanticClusterIdx);
+    return { text: fused, ok: true, via: 'semantic-close' };
+  }
 
   const candidates = [
     fullA + connector + fullB,
