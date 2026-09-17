@@ -1371,6 +1371,10 @@ html{
 @media(max-width:390px){
   .wrap{padding:0 22px 110px}
 }
+.navbtn.lang-toggle{
+  font-weight:900;letter-spacing:.04em;min-width:44px;text-align:center;cursor:pointer;
+  border:1px solid var(--line);background:var(--paper)
+}
 </style>
 </head>
 <body id="page01">
@@ -1381,11 +1385,12 @@ html{
     <div class="brand">
       <div class="brandmark">✦</div>
       <div>
-        <div class="brandname">靈魂配方使用手冊</div>
+        <div class="brandname"><span class="lang-zh">靈魂配方使用手冊</span><span class="lang-en" hidden>Soul Recipe Manual</span></div>
         <div class="brandsub">SOUL RECIPE MANUAL</div>
       </div>
     </div>
-    <a class="navbtn" href="02_建立命卡頁.html" aria-label="立刻開始體驗">立刻開始體驗</a>
+    <a class="navbtn" href="02_建立命卡頁.html" aria-label="立刻開始體驗"><span class="lang-zh">立刻開始體驗</span><span class="lang-en" hidden>Try it now</span></a>
+    <button class="navbtn lang-toggle" id="langToggle" type="button" aria-label="切換語言 / Switch language">EN</button>
   </div>
 </div>
 
@@ -1402,11 +1407,14 @@ html{
       <span class="phase waning-crescent"></span>
     </div>
     <div class="eyebrow">Soul Recipe Manual</div>
-    <h1 class="hero-title"><span class="line">你不是需要更多答案，</span><span class="line">而是需要看懂自己正在怎麼運作。</span></h1>
-    <p class="lead">如果人生像做菜，在查食譜之前，你可能要先知道，你有哪些材料。</p>
-    <p class="sub">你的天賦、慣性與潛在模式，究竟如何一起成為現在的你。</p>
+    <h1 class="hero-title">
+      <span class="lang-zh"><span class="line">你不是需要更多答案，</span><span class="line">而是需要看懂自己正在怎麼運作。</span></span>
+      <span class="lang-en" hidden><span class="line">You don't need more answers,</span><span class="line">you need to see how you actually work.</span></span>
+    </h1>
+    <p class="lead"><span class="lang-zh">如果人生像做菜，在查食譜之前，你可能要先知道，你有哪些材料。</span><span class="lang-en" hidden>If life were cooking, before you search for a recipe, you'd want to know what ingredients you already have.</span></p>
+    <p class="sub"><span class="lang-zh">你的天賦、慣性與潛在模式，究竟如何一起成為現在的你。</span><span class="lang-en" hidden>How your gifts, habits and hidden patterns come together to make you who you are.</span></p>
     <div class="ctas">
-      <a class="btn btn-primary" href="02_建立命卡頁.html" style="display:inline-block;text-align:center">查看我的靈魂材料</a>
+      <a class="btn btn-primary" href="02_建立命卡頁.html" style="display:inline-block;text-align:center"><span class="lang-zh">查看我的靈魂材料</span><span class="lang-en" hidden>See my soul ingredients</span></a>
     </div>
   </section>
 
@@ -1414,41 +1422,41 @@ html{
     <div class="eyebrow">Before we begin</div>
 
     <div class="story">
-      <p>星盤、人類圖、八字、紫微、生命靈數、塔羅……我們擁有前所未有的工具，可以從各種角度理解自己。</p>
-      <p>很多時候，看到某一段解讀，我們會立刻點頭：<span class="highlight">「對，這就是我。」</span></p>
-      <p>你也許已經聽過很多關於「你是誰」的說法。</p>
-      <p style="font-size:17px;font-weight:900;color:var(--ink)">可是，接下來呢？</p>
+      <p><span class="lang-zh">星盤、人類圖、八字、紫微、生命靈數、塔羅……我們擁有前所未有的工具，可以從各種角度理解自己。</span><span class="lang-en" hidden>Astrology, Human Design, Bazi, Zi Wei, numerology, tarot — we now have more tools than ever to understand ourselves from every angle.</span></p>
+      <p><span class="lang-zh">很多時候，看到某一段解讀，我們會立刻點頭：<span class="highlight">「對，這就是我。」</span></span><span class="lang-en" hidden>Often, we read a passage and nod right away: <span class="highlight">"Yes — that's exactly me."</span></span></p>
+      <p><span class="lang-zh">你也許已經聽過很多關於「你是誰」的說法。</span><span class="lang-en" hidden>You've probably already heard plenty of ways to describe who you are.</span></p>
+      <p style="font-size:17px;font-weight:900;color:var(--ink)"><span class="lang-zh">可是，接下來呢？</span><span class="lang-en" hidden>But then what?</span></p>
     </div>
 
     <div class="pullquote">
-      <strong>真正困住人的，不是不知道自己有什麼，而是不知道怎麼使用它。</strong>
-      <span>同一種敏感，可以成為洞察，也可以變成內耗；同一種付出，可以成為愛，也可以變成消耗。</span>
+      <strong><span class="lang-zh">真正困住人的，不是不知道自己有什麼，而是不知道怎麼使用它。</span><span class="lang-en" hidden>What really traps people isn't not knowing what they have — it's not knowing how to use it.</span></strong>
+      <span><span class="lang-zh">同一種敏感，可以成為洞察，也可以變成內耗；同一種付出，可以成為愛，也可以變成消耗。</span><span class="lang-en" hidden>The same sensitivity can become insight, or it can wear you down; the same giving can become love, or it can drain you.</span></span>
     </div>
   </section>
 
   <section class="section">
     <div class="eyebrow">How this began</div>
-    <h2>如果說抽牌占卜是治標，那麼看懂模式，就是治本。</h2>
+    <h2><span class="lang-zh">如果說抽牌占卜是治標，那麼看懂模式，就是治本。</span><span class="lang-en" hidden>If drawing a card treats the symptom, understanding the pattern treats the cause.</span></h2>
 
     <div class="origin-grid">
       <article class="origin-card">
         <div class="origin-no">01</div>
-        <h3>看懂自己的模式，就不需要再向外找答案。</h3>
-        <p>在過去的一對一諮詢裡，我反覆遇到一件事：當我解讀完個案的命卡，</p>
-        <p>有些個案甚至會告訴我：<strong>「我已經不需要抽牌了。」</strong></p>
+        <h3><span class="lang-zh">看懂自己的模式，就不需要再向外找答案。</span><span class="lang-en" hidden>Once you understand your own pattern, you stop needing to look outward for answers.</span></h3>
+        <p><span class="lang-zh">在過去的一對一諮詢裡，我反覆遇到一件事：當我解讀完個案的命卡，</span><span class="lang-en" hidden>In one-on-one sessions, I kept running into the same thing: after I finished reading someone's soul cards,</span></p>
+        <p><span class="lang-zh">有些個案甚至會告訴我：<strong>「我已經不需要抽牌了。」</strong></span><span class="lang-en" hidden>some clients would tell me: <strong>"I don't even need to draw a card anymore."</strong></span></p>
       </article>
 
       <article class="origin-card">
         <div class="origin-no">02</div>
-        <h3>如果我的問題跟他人有關呢？</h3>
-        <p>有好幾次，我只用命卡與合盤陪個案整理問題，沒有抽牌。</p>
-        <p><strong>「我好像已經知道答案了。」</strong><br><strong>「我知道現在該怎麼想，接下來可以怎麼做。」</strong></p>
+        <h3><span class="lang-zh">如果我的問題跟他人有關呢？</span><span class="lang-en" hidden>What if my issue is really about someone else?</span></h3>
+        <p><span class="lang-zh">有好幾次，我只用命卡與合盤陪個案整理問題，沒有抽牌。</span><span class="lang-en" hidden>Several times, I helped a client work through their question using only soul cards and compatibility reading — no cards drawn at all.</span></p>
+        <p><span class="lang-zh"><strong>「我好像已經知道答案了。」</strong><br><strong>「我知道現在該怎麼想，接下來可以怎麼做。」</strong></span><span class="lang-en" hidden><strong>"I think I already know the answer."</strong><br><strong>"I know how to think about this now, and what to do next."</strong></span></p>
       </article>
 
       <article class="origin-card">
         <div class="origin-no">03</div>
-        <h3>寶寶出生後個案的時間變少了<br>我開始思考：<br>「幫助別人」一定要等一場預約嗎？</h3>
-        <p>我想將我的經驗，變成一個可以隨時陪伴你，在需要的時刻即時回應你的工具。</p>
+        <h3><span class="lang-zh">寶寶出生後個案的時間變少了<br>我開始思考：<br>「幫助別人」一定要等一場預約嗎？</span><span class="lang-en" hidden>After my baby was born, I had far less time for sessions<br>and started to wonder:<br>does "helping someone" always have to wait for a booking?</span></h3>
+        <p><span class="lang-zh">我想將我的經驗，變成一個可以隨時陪伴你，在需要的時刻即時回應你的工具。</span><span class="lang-en" hidden>I wanted to turn my experience into something that could stay with you anytime, responding the moment you actually need it.</span></p>
       </article>
     </div>
   </section>
@@ -1457,67 +1465,67 @@ html{
 
   <section class="section" id="free-overview">
     <div class="eyebrow">The system</div>
-    <h2>真正的你，不存在於任何一張單獨的牌裡。</h2>
-    <p class="muted">一張牌呈現一種模式。你的人生，是這些模式長期互相作用之後的結果。</p>
+    <h2><span class="lang-zh">真正的你，不存在於任何一張單獨的牌裡。</span><span class="lang-en" hidden>The real you doesn't live in any single card.</span></h2>
+    <p class="muted"><span class="lang-zh">一張牌呈現一種模式。你的人生，是這些模式長期互相作用之後的結果。</span><span class="lang-en" hidden>Each card shows one pattern. Your life is what happens when these patterns interact over time.</span></p>
 
     <div class="concept-grid four-cards">
       <div class="concept-card">
         <div class="n">01</div>
-        <div class="concept-label">本命牌</div><h3>你出生時就帶著的生命材料</h3>
+        <div class="concept-label"><span class="lang-zh">本命牌</span><span class="lang-en" hidden>Core Card</span></div><h3><span class="lang-zh">你出生時就帶著的生命材料</span><span class="lang-en" hidden>The raw material you were born carrying</span></h3>
       </div>
 
       <div class="concept-card">
         <div class="n">02</div>
-        <div class="concept-label">隱藏牌</div><h3>那些原本存在，卻不一定一開始就被你認出的部分</h3>
+        <div class="concept-label"><span class="lang-zh">隱藏牌</span><span class="lang-en" hidden>Hidden Card</span></div><h3><span class="lang-zh">那些原本存在，卻不一定一開始就被你認出的部分</span><span class="lang-en" hidden>The parts that were always there, but you might not recognize right away</span></h3>
       </div>
 
       <div class="concept-card">
         <div class="n">03</div>
-        <div class="concept-label">交互作用</div><h3>真正值得讀的，是模式與模式之間的關係</h3>
+        <div class="concept-label"><span class="lang-zh">交互作用</span><span class="lang-en" hidden>Interaction</span></div><h3><span class="lang-zh">真正值得讀的，是模式與模式之間的關係</span><span class="lang-en" hidden>What's really worth reading is the relationship between patterns</span></h3>
       </div>
 
       <div class="concept-card">
         <div class="n">04</div>
-        <div class="concept-label">流年</div><h3>時間是一場輪迴，每一年都有不同的樣貌。</h3>
+        <div class="concept-label"><span class="lang-zh">流年</span><span class="lang-en" hidden>Yearly Cycle</span></div><h3><span class="lang-zh">時間是一場輪迴，每一年都有不同的樣貌。</span><span class="lang-en" hidden>Time moves in cycles — every year has a different shape.</span></h3>
       </div>
     </div>
   </section>
 
   <section class="section" id="demo">
     <div class="eyebrow">Free preview</div>
-    <h2>翻開第一頁。<br>看看你天生帶著哪些生命模式。</h2>
-    <p class="muted">先從第一頁看見你的生命輪廓，再往下讀本命牌、隱藏牌、流年與彼此之間的交互作用。</p>
+    <h2><span class="lang-zh">翻開第一頁。<br>看看你天生帶著哪些生命模式。</span><span class="lang-en" hidden>Turn to the first page.<br>See which life patterns you were born with.</span></h2>
+    <p class="muted"><span class="lang-zh">先從第一頁看見你的生命輪廓，再往下讀本命牌、隱藏牌、流年與彼此之間的交互作用。</span><span class="lang-en" hidden>Start with the first page to see the outline of your life, then read on for your core card, hidden card, yearly cycle, and how they interact.</span></p>
 
     <div class="demo">
-      <h3>先從你的出生日期開始</h3>
-      <p>這不是要替你定義自己，只是先把你手上的材料攤開來看。</p>
+      <h3><span class="lang-zh">先從你的出生日期開始</span><span class="lang-en" hidden>Start with your birth date</span></h3>
+      <p><span class="lang-zh">這不是要替你定義自己，只是先把你手上的材料攤開來看。</span><span class="lang-en" hidden>This isn't about defining who you are — just laying out the raw material you already have.</span></p>
       <div class="demo-grid">
         <div class="date-selects" aria-label="選擇出生日期">
           <label class="date-field">
-            <span>年份</span>
+            <span><span class="lang-zh">年份</span><span class="lang-en" hidden>Year</span></span>
             <select id="birthYear"></select>
           </label>
           <label class="date-field">
-            <span>月份</span>
+            <span><span class="lang-zh">月份</span><span class="lang-en" hidden>Month</span></span>
             <select id="birthMonth"></select>
           </label>
           <label class="date-field">
-            <span>日期</span>
+            <span><span class="lang-zh">日期</span><span class="lang-en" hidden>Day</span></span>
             <select id="birthDay"></select>
           </label>
         </div>
-        <a id="buildLink" class="btn btn-primary" href="02_建立命卡頁.html" onclick="return updateBuildLink(this)" style="display:inline-block;text-align:center">建立我的塔羅靈數檔案</a>
+        <a id="buildLink" class="btn btn-primary" href="02_建立命卡頁.html" onclick="return updateBuildLink(this)" style="display:inline-block;text-align:center"><span class="lang-zh">建立我的塔羅靈數檔案</span><span class="lang-en" hidden>Build my tarot numerology profile</span></a>
       </div>
-      <div id="dateIncompleteMsg" style="display:none;margin-top:10px;font-size:12px;color:var(--rose-deep)">請先選擇完整的出生日期</div>
+      <div id="dateIncompleteMsg" style="display:none;margin-top:10px;font-size:12px;color:var(--rose-deep)"><span class="lang-zh">請先選擇完整的出生日期</span><span class="lang-en" hidden>Please select your full birth date first</span></div>
 
       <div id="result" class="result">
         <div class="summary-row">
           <div class="summary">
-            <div class="lab">本命牌｜天生運作傾向</div>
+            <div class="lab"><span class="lang-zh">本命牌｜天生運作傾向</span><span class="lang-en" hidden>Core Card | Innate tendencies</span></div>
             <div class="nums" id="externalLine"></div>
           </div>
           <div class="summary">
-            <div class="lab">隱藏牌｜潛在發展力量</div>
+            <div class="lab"><span class="lang-zh">隱藏牌｜潛在發展力量</span><span class="lang-en" hidden>Hidden Card | Latent strengths</span></div>
             <div class="nums" id="hiddenLine"></div>
           </div>
         </div>
@@ -1528,8 +1536,8 @@ html{
         </div>
 
         <div class="locked">
-          <strong>真正完整的你，還沒有讀完。</strong>
-          <span>免費版會繼續看：本命牌、隱藏牌、重複牌、交互作用、流年與整體輪廓。完整版則陪你把這張命盤帶進感情、事業、家庭與重要關係裡使用。</span>
+          <strong><span class="lang-zh">真正完整的你，還沒有讀完。</span><span class="lang-en" hidden>The full picture of you isn't finished yet.</span></strong>
+          <span><span class="lang-zh">免費版會繼續看：本命牌、隱藏牌、重複牌、交互作用、流年與整體輪廓。完整版則陪你把這張命盤帶進感情、事業、家庭與重要關係裡使用。</span><span class="lang-en" hidden>The free version continues with: your core card, hidden card, repeated cards, interactions, yearly cycle and overall shape. The full version goes further — helping you actually use this chart in love, career, family and the relationships that matter most.</span></span>
         </div>
       </div>
     </div>
@@ -1538,43 +1546,43 @@ html{
 
   <section class="section" id="complete-manual">
     <div class="eyebrow">Full reading</div>
-    <h2 class="balanced-title full-reading-title">購買完整版，<br><span>你會獲得以下內容：</span></h2>
-      <p class="full-reading-intro-note"><strong>完整版不只是更多牌義，</strong><br>而是把一堆特質，帶回真正用進生活裡的行動。</p>
+    <h2 class="balanced-title full-reading-title"><span class="lang-zh">購買完整版，<br><span>你會獲得以下內容：</span></span><span class="lang-en" hidden>Get the full version,<br><span>and here's what you'll receive:</span></span></h2>
+      <p class="full-reading-intro-note"><span class="lang-zh"><strong>完整版不只是更多牌義，</strong><br>而是把一堆特質，帶回真正用進生活裡的行動。</span><span class="lang-en" hidden><strong>The full version isn't just more card meanings —</strong><br>it turns a list of traits into something you can actually act on in daily life.</span></p>
 
     <div class="content-grid">
       <div class="content-card">
-        <div class="card-title-row"><div class="no">1</div><h3>你的核心結構</h3></div>
-        <p>哪些模式在你身上最明顯？它們彼此怎麼支持、拉扯、放大？先看整體，而不是把你拆成很多零碎標籤。</p>
+        <div class="card-title-row"><div class="no">1</div><h3><span class="lang-zh">你的核心結構</span><span class="lang-en" hidden>Your core structure</span></h3></div>
+        <p><span class="lang-zh">哪些模式在你身上最明顯？它們彼此怎麼支持、拉扯、放大？先看整體，而不是把你拆成很多零碎標籤。</span><span class="lang-en" hidden>Which patterns show up most strongly in you? How do they support, pull against, or amplify each other? You'll see the whole picture first — not a pile of disconnected labels.</span></p>
       </div>
       <div class="content-card">
-        <div class="card-title-row"><div class="no">2</div><h3>天賦真正的使用方式</h3></div>
-        <p>不是只告訴你「你很聰明、你很有貴人運」，而是看這份能力在哪些情境真正會被打開，以及怎麼用才不會反過來消耗你。</p>
+        <div class="card-title-row"><div class="no">2</div><h3><span class="lang-zh">天賦真正的使用方式</span><span class="lang-en" hidden>How to actually use your gifts</span></h3></div>
+        <p><span class="lang-zh">不是只告訴你「你很聰明、你很有貴人運」，而是看這份能力在哪些情境真正會被打開，以及怎麼用才不會反過來消耗你。</span><span class="lang-en" hidden>Not just "you're smart" or "you attract good luck" — this looks at exactly when this ability actually switches on, and how to use it without it draining you instead.</span></p>
       </div>
       <div class="content-card">
-        <div class="card-title-row"><div class="no">3</div><h3>你容易失衡的地方</h3></div>
-        <p>一體兩面從來不是一句漂亮話。每一份天賦都可能有自己的陰影，理解它，才知道自己為什麼老是在某些地方用力過頭。</p>
+        <div class="card-title-row"><div class="no">3</div><h3><span class="lang-zh">你容易失衡的地方</span><span class="lang-en" hidden>Where you tend to lose balance</span></h3></div>
+        <p><span class="lang-zh">一體兩面從來不是一句漂亮話。每一份天賦都可能有自己的陰影，理解它，才知道自己為什麼老是在某些地方用力過頭。</span><span class="lang-en" hidden>Every strength has a shadow side — that's not just a nice saying. Understanding yours is how you finally see why you keep pushing too hard in the same places.</span></p>
       </div>
       <div class="content-card">
-        <div class="card-title-row"><div class="no">4</div><h3>關係裡的你</h3></div>
-        <p>你怎麼感受、怎麼愛、怎麼付出、怎麼保護自己，哪些人又最容易勾出你的隱藏材料。</p>
+        <div class="card-title-row"><div class="no">4</div><h3><span class="lang-zh">關係裡的你</span><span class="lang-en" hidden>You, in relationships</span></h3></div>
+        <p><span class="lang-zh">你怎麼感受、怎麼愛、怎麼付出、怎麼保護自己，哪些人又最容易勾出你的隱藏材料。</span><span class="lang-en" hidden>How you feel, love, give, and protect yourself — and which people are most likely to draw out your hidden material.</span></p>
       </div>
       <div class="content-card">
-        <div class="card-title-row"><div class="no">5</div><h3>事業與發展路徑</h3></div>
-        <p>真正適合你的未必是一個職稱，而是一種工作方式。你的能力在哪種節奏、環境與角色裡最容易發揮？</p>
+        <div class="card-title-row"><div class="no">5</div><h3><span class="lang-zh">事業與發展路徑</span><span class="lang-en" hidden>Career and direction</span></h3></div>
+        <p><span class="lang-zh">真正適合你的未必是一個職稱，而是一種工作方式。你的能力在哪種節奏、環境與角色裡最容易發揮？</span><span class="lang-en" hidden>What actually suits you may not be a job title, but a way of working. In what rhythm, environment and role does your ability come through most easily?</span></p>
       </div>
       <div class="content-card">
-        <div class="card-title-row"><div class="no">6</div><h3>重新使用自己的建議</h3></div>
-        <p>不是修掉自己，也不是變成另一個人，而是把原本的力量放回更適合的位置，讓同一組材料煮出完全不同的人生。</p>
+        <div class="card-title-row"><div class="no">6</div><h3><span class="lang-zh">重新使用自己的建議</span><span class="lang-en" hidden>How to use yourself differently</span></h3></div>
+        <p><span class="lang-zh">不是修掉自己，也不是變成另一個人，而是把原本的力量放回更適合的位置，讓同一組材料煮出完全不同的人生。</span><span class="lang-en" hidden>Not fixing yourself, not becoming someone else — just putting the strength you already have back in a better place, so the same ingredients can cook up a completely different life.</span></p>
       </div>
     </div>
 
     <div id="xiaofei-demo" class="xiaofei-before-compat">
       <div class="xf-section xf-section-v15">
         <div class="xf-kicker">KEEP THE CONVERSATION GOING</div>
-        <h2 class="xf-title xf-title-v15">還有想問的問題？<br>沒問題。</h2>
+        <h2 class="xf-title xf-title-v15"><span class="lang-zh">還有想問的問題？<br>沒問題。</span><span class="lang-en" hidden>Still have questions?<br>No problem.</span></h2>
 
         <p class="xf-lead xf-lead-v15">
-          你還會帶走 <strong>小菲｜靈魂配方助理</strong>。遇到親子、關係、工作，或當下的重要選擇，都可以隨時解牌。
+          <span class="lang-zh">你還會帶走 <strong>小菲｜靈魂配方助理</strong>。遇到親子、關係、工作，或當下的重要選擇，都可以隨時解牌。</span><span class="lang-en" hidden>You'll also take home <strong>Feifei | Soul Recipe Assistant</strong>. Parenting, relationships, work, or a decision you're facing right now — read your cards for it anytime.</span>
         </p>
 
         <div class="xf-chat xf-chat-v15">
@@ -1584,12 +1592,15 @@ html{
               <div class="xf-avatar-v15 xf-avatar-user-v15">
                 <span class="xf-user-mark">YOU</span>
               </div>
-              <div class="xf-avatar-label">你</div>
+              <div class="xf-avatar-label"><span class="lang-zh">你</span><span class="lang-en" hidden>You</span></div>
             </div>
             <div class="xf-bubble-v15 xf-bubble-user-v15">
-              我想知道我女兒的天賦跟生命模式。<br>
+              <span class="lang-zh">我想知道我女兒的天賦跟生命模式。<br>
               我也想知道，要怎麼跟她相處、用她比較能接受的方式溝通，
-              讓她把自己的潛能發揮出來。
+              讓她把自己的潛能發揮出來。</span>
+              <span class="lang-en" hidden>I want to know my daughter's gifts and life patterns.<br>
+              I also want to know how to be around her, and how to communicate in a way she can actually accept,
+              so she can bring out her own potential.</span>
             </div>
           </div>
 
@@ -1601,16 +1612,22 @@ html{
               </div>
               <div class="xf-avatar-label xf-avatar-label-fei">
                 <strong>小菲</strong>
-                <span>靈魂配方助理</span>
+                <span class="lang-zh">靈魂配方助理</span><span class="lang-en" hidden>Soul Recipe Assistant</span>
               </div>
             </div>
             <div class="xf-bubble-v15 xf-bubble-fei-v15">
-              以她的牌型來看，她不是越催越快的孩子。她比較需要先知道自己現在要做什麼，再進入自己的節奏。<br><br>
+              <span class="lang-zh">以她的牌型來看，她不是越催越快的孩子。她比較需要先知道自己現在要做什麼，再進入自己的節奏。<br><br>
               所以跟她溝通時，比起一直提醒「快一點、專心一點」，更適合把事情拆成清楚的一小步。<br><br>
               你可以改成：<br>
               「我們現在先把這一個做完就好。」<br>
               或是「你想先從哪一個開始？」<br><br>
-              這會比催促更容易讓她把注意力收回來，也比較不會把你的焦慮變成她的壓力。🤍
+              這會比催促更容易讓她把注意力收回來，也比較不會把你的焦慮變成她的壓力。🤍</span>
+              <span class="lang-en" hidden>Based on her cards, she's not a kid who speeds up the more you push. She needs to know what to do right now first, then settle into her own pace.<br><br>
+              So instead of repeating "hurry up, focus," it works better to break things into clear, small steps.<br><br>
+              You could try:<br>
+              "Let's just finish this one part for now."<br>
+              or "Which one do you want to start with?"<br><br>
+              That pulls her attention back more easily than pushing does, and it's less likely to turn your anxiety into her pressure. 🤍</span>
             </div>
           </div>
 
@@ -1619,10 +1636,10 @@ html{
               <div class="xf-avatar-v15 xf-avatar-user-v15">
                 <span class="xf-user-mark">YOU</span>
               </div>
-              <div class="xf-avatar-label">你</div>
+              <div class="xf-avatar-label"><span class="lang-zh">你</span><span class="lang-en" hidden>You</span></div>
             </div>
             <div class="xf-bubble-v15 xf-bubble-user-v15">
-              那如果她真的很慢、很容易分心，我還是可以推她一下嗎？
+              <span class="lang-zh">那如果她真的很慢、很容易分心，我還是可以推她一下嗎？</span><span class="lang-en" hidden>But if she really is slow and easily distracted, can I still give her a push?</span>
             </div>
           </div>
 
@@ -1634,114 +1651,117 @@ html{
               </div>
               <div class="xf-avatar-label xf-avatar-label-fei">
                 <strong>小菲</strong>
-                <span>靈魂配方助理</span>
+                <span class="lang-zh">靈魂配方助理</span><span class="lang-en" hidden>Soul Recipe Assistant</span>
               </div>
             </div>
             <div class="xf-bubble-v15 xf-bubble-fei-v15">
-              可以推，但不要用一直催的方式推。<br><br>
+              <span class="lang-zh">可以推，但不要用一直催的方式推。<br><br>
               對她來說，比較有效的是幫她把下一步變清楚，然後讓她自己走進去。
-              你是在幫她找到入口，不是替她把路走完。🌙
+              你是在幫她找到入口，不是替她把路走完。🌙</span>
+              <span class="lang-en" hidden>You can — just not by constantly hurrying her.<br><br>
+              What actually works for her is making the next step clear, then letting her walk into it herself.
+              You're helping her find the doorway, not walking the whole path for her. 🌙</span>
             </div>
           </div>
 
           <div class="xf-chat-footer">
             <span class="xf-chat-dots">● ● ●</span>
-            <span>把想問的問題，繼續帶來跟小菲聊。</span>
+            <span><span class="lang-zh">把想問的問題，繼續帶來跟小菲聊。</span><span class="lang-en" hidden>Bring whatever you're still wondering about, and keep talking with Feifei.</span></span>
           </div>
-          <div class="xf-chat-note">以上是對話情境示意，讓你先感受小菲會怎麼陪你把問題聊深、聊清楚。</div>
+          <div class="xf-chat-note"><span class="lang-zh">以上是對話情境示意，讓你先感受小菲會怎麼陪你把問題聊深、聊清楚。</span><span class="lang-en" hidden>The above is a sample conversation, so you can get a feel for how Feifei helps you think a question through.</span></div>
         </div>
       </div>
     </div>
 
     <div class="compatibility" id="relationship">
-      <h3 class="relationship-more-title">還想知道更多？<br>也可以！</h3>
+      <h3 class="relationship-more-title"><span class="lang-zh">還想知道更多？<br>也可以！</span><span class="lang-en" hidden>Want to go deeper?<br>You can!</span></h3>
       <div class="xf-usage-examples relationship-question-examples">
         <div class="relationship-question-row avatar-right">
-          <div class="xf-usage-example">「我跟合夥人常常意見不合，我知道我們都想把事情做好，但為什麼每次溝通到最後，都快吵起來？」</div>
+          <div class="xf-usage-example"><span class="lang-zh">「我跟合夥人常常意見不合，我知道我們都想把事情做好，但為什麼每次溝通到最後，都快吵起來？」</span><span class="lang-en" hidden>"My business partner and I disagree a lot. I know we both want things to go well, so why does every conversation almost turn into a fight?"</span></div>
           <span class="relationship-avatar business" aria-hidden="true"></span>
         </div>
         <div class="relationship-question-row avatar-left">
           <span class="relationship-avatar parent" aria-hidden="true"></span>
-          <div class="xf-usage-example">「我知道爸媽是愛我的，可是為什麼每次跟他們相處，我還是很容易受傷？」</div>
+          <div class="xf-usage-example"><span class="lang-zh">「我知道爸媽是愛我的，可是為什麼每次跟他們相處，我還是很容易受傷？」</span><span class="lang-en" hidden>"I know my parents love me, so why do I still get hurt so easily whenever I'm around them?"</span></div>
         </div>
         <div class="relationship-question-row avatar-right">
-          <div class="xf-usage-example">「我明明知道這段關係讓我很累，為什麼每次分手後，我都好後悔？」</div>
+          <div class="xf-usage-example"><span class="lang-zh">「我明明知道這段關係讓我很累，為什麼每次分手後，我都好後悔？」</span><span class="lang-en" hidden>"I know this relationship exhausts me, so why do I regret it every time we break up?"</span></div>
           <span class="relationship-avatar love" aria-hidden="true"></span>
         </div>
       </div>
       <div class="compat-grid">
-        <div class="compat"><strong>感情｜自己 × 伴侶</strong><br>看吸引、互補、摩擦，以及彼此最容易勾出的隱藏力量。</div>
-        <div class="compat"><strong>親子｜孩子 × 主要照顧者</strong><br>看孩子在什麼環境容易被打開，以及照顧者如何參與他的成長。</div>
-        <div class="compat"><strong>原生家庭｜自己 × 父母</strong><br>看長期互動如何形塑你，某些反應又為什麼特別容易被觸發。</div>
-        <div class="compat"><strong>事業｜自己 × 合作夥伴</strong><br>看彼此怎麼分工、放大優勢，又在哪些地方容易互相消耗。</div>
+        <div class="compat"><strong><span class="lang-zh">感情｜自己 × 伴侶</span><span class="lang-en" hidden>Love | You × Partner</span></strong><br><span class="lang-zh">看吸引、互補、摩擦，以及彼此最容易勾出的隱藏力量。</span><span class="lang-en" hidden>See the attraction, the complementary fit, the friction, and the hidden strengths you're most likely to draw out in each other.</span></div>
+        <div class="compat"><strong><span class="lang-zh">親子｜孩子 × 主要照顧者</span><span class="lang-en" hidden>Parenting | Child × Primary caregiver</span></strong><br><span class="lang-zh">看孩子在什麼環境容易被打開，以及照顧者如何參與他的成長。</span><span class="lang-en" hidden>See the environment that opens your child up, and how you as the caregiver shape their growth.</span></div>
+        <div class="compat"><strong><span class="lang-zh">原生家庭｜自己 × 父母</span><span class="lang-en" hidden>Family of origin | You × Parents</span></strong><br><span class="lang-zh">看長期互動如何形塑你，某些反應又為什麼特別容易被觸發。</span><span class="lang-en" hidden>See how years of interaction shaped you, and why certain reactions get triggered so easily.</span></div>
+        <div class="compat"><strong><span class="lang-zh">事業｜自己 × 合作夥伴</span><span class="lang-en" hidden>Career | You × Business partner</span></strong><br><span class="lang-zh">看彼此怎麼分工、放大優勢，又在哪些地方容易互相消耗。</span><span class="lang-en" hidden>See how you divide work, amplify each other's strengths, and where you're likely to wear each other down.</span></div>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="eyebrow">Why this matters</div>
-    <h2>我不希望你看完之後，<br>只留下「好準」。</h2>
+    <h2><span class="lang-zh">我不希望你看完之後，<br>只留下「好準」。</span><span class="lang-en" hidden>I don't want you to walk away<br>just thinking "wow, that's accurate."</span></h2>
 
     <div class="manifesto">
-      <div class="big">我更希望有一天，你遇到問題時，不再第一時間問：「為什麼命運又這樣對我？」</div>
-      <p>而是慢慢能看見：原來這是某一種模式正在被放大；原來我又在用一種慣性保護自己；</p>
-      <p style="margin-top:14px">當你開始看懂這些，命理就不再只是預測未來的工具，而會變成一面讓你更自由的鏡子。</p>
+      <div class="big"><span class="lang-zh">我更希望有一天，你遇到問題時，不再第一時間問：「為什麼命運又這樣對我？」</span><span class="lang-en" hidden>What I really hope is that one day, when something goes wrong, your first thought isn't "why does fate keep doing this to me?"</span></div>
+      <p><span class="lang-zh">而是慢慢能看見：原來這是某一種模式正在被放大；原來我又在用一種慣性保護自己；</span><span class="lang-en" hidden>Instead, you slowly start to see: this is a pattern being amplified; I'm protecting myself with the same old habit again.</span></p>
+      <p style="margin-top:14px"><span class="lang-zh">當你開始看懂這些，命理就不再只是預測未來的工具，而會變成一面讓你更自由的鏡子。</span><span class="lang-en" hidden>Once you start to see that, this system stops being a tool for predicting the future, and becomes a mirror that sets you more free.</span></p>
     </div>
   </section>
 
 
   <section class="section" id="faq">
     <div class="eyebrow">FAQ</div>
-    <h2>常見問題</h2>
+    <h2><span class="lang-zh">常見問題</span><span class="lang-en" hidden>FAQ</span></h2>
     <div class="faq">
       <details class="faq-item">
-        <summary>我完全不懂塔羅，也看得懂嗎？</summary>
+        <summary><span class="lang-zh">我完全不懂塔羅，也看得懂嗎？</span><span class="lang-en" hidden>I know nothing about tarot — can I still understand this?</span></summary>
         <div class="ans">
-          <p>可以。你不需要先學牌義，也不需要任何命理背景。</p>
-          <p>你只要輸入出生日期，系統會替你整理命卡結構，再把牌與牌之間的關係翻譯成可以理解的語言。</p>
-          <p><strong>真正重要的不是會不會算，而是看完之後，你有沒有更理解自己。</strong></p>
+          <p><span class="lang-zh">可以。你不需要先學牌義，也不需要任何命理背景。</span><span class="lang-en" hidden>Yes. You don't need to learn card meanings first, and you don't need any background in this kind of reading.</span></p>
+          <p><span class="lang-zh">你只要輸入出生日期，系統會替你整理命卡結構，再把牌與牌之間的關係翻譯成可以理解的語言。</span><span class="lang-en" hidden>Just enter your birth date — the system organizes your card structure for you, then translates the relationships between cards into plain language.</span></p>
+          <p><strong><span class="lang-zh">真正重要的不是會不會算，而是看完之後，你有沒有更理解自己。</span><span class="lang-en" hidden>What matters isn't whether you know how to read cards — it's whether you understand yourself better after reading this.</span></strong></p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>這和一般生命靈數或塔羅牌義有什麼不同？</summary>
+        <summary><span class="lang-zh">這和一般生命靈數或塔羅牌義有什麼不同？</span><span class="lang-en" hidden>How is this different from regular numerology or tarot readings?</span></summary>
         <div class="ans">
-          <p>差別不在「用了哪些牌」，而在怎麼讀。</p>
-          <p>這套系統不會停在「你有某張牌，所以你是某種人」，而是繼續看重複牌、特殊牌、交互作用與隱藏牌，最後共同形成什麼樣的運作模式。</p>
+          <p><span class="lang-zh">差別不在「用了哪些牌」，而在怎麼讀。</span><span class="lang-en" hidden>The difference isn't which cards are used — it's how they're read.</span></p>
+          <p><span class="lang-zh">這套系統不會停在「你有某張牌，所以你是某種人」，而是繼續看重複牌、特殊牌、交互作用與隱藏牌，最後共同形成什麼樣的運作模式。</span><span class="lang-en" hidden>This system doesn't stop at "you have this card, so you're this type of person." It keeps going — looking at repeated cards, special cards, interactions and hidden cards, to see what kind of pattern they form together.</span></p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>「無限次使用」是什麼意思？</summary>
+        <summary><span class="lang-zh">「無限次使用」是什麼意思？</span><span class="lang-en" hidden>What does "unlimited use" mean?</span></summary>
         <div class="ans">
-          <p>購買完整版後，你可以不限次數重新使用。</p>
-          <p>今天看自己，明天看伴侶，下次也可以看父母、孩子、朋友或合作夥伴。</p>
-          <p><strong>它不是只能看一次的報告，而是一套會一直留在你手上的理解工具。</strong></p>
+          <p><span class="lang-zh">購買完整版後，你可以不限次數重新使用。</span><span class="lang-en" hidden>Once you buy the full version, you can use it again as many times as you like.</span></p>
+          <p><span class="lang-zh">今天看自己，明天看伴侶，下次也可以看父母、孩子、朋友或合作夥伴。</span><span class="lang-en" hidden>Look at yourself today, your partner tomorrow, and your parents, kids, friends or business partner next time.</span></p>
+          <p><strong><span class="lang-zh">它不是只能看一次的報告，而是一套會一直留在你手上的理解工具。</span><span class="lang-en" hidden>It's not a one-time report — it's a tool for understanding that stays with you.</span></strong></p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>可以幫朋友算嗎？</summary>
+        <summary><span class="lang-zh">可以幫朋友算嗎？</span><span class="lang-en" hidden>Can I do this for a friend?</span></summary>
         <div class="ans">
-          <p>可以。你可以替身邊的人輸入生日，重新展開一份新的命卡結果。</p>
-          <p>有時候理解一個人，不是為了替他找理由，而是終於知道：原來你們一直在用完全不同的方式感受、思考與回應世界。</p>
+          <p><span class="lang-zh">可以。你可以替身邊的人輸入生日，重新展開一份新的命卡結果。</span><span class="lang-en" hidden>Yes. You can enter someone else's birth date to generate a new soul-card reading for them.</span></p>
+          <p><span class="lang-zh">有時候理解一個人，不是為了替他找理由，而是終於知道：原來你們一直在用完全不同的方式感受、思考與回應世界。</span><span class="lang-en" hidden>Sometimes understanding someone isn't about making excuses for them — it's finally realizing you've been feeling, thinking and responding to the world in completely different ways all along.</span></p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>合盤是看我們合不合嗎？</summary>
+        <summary><span class="lang-zh">合盤是看我們合不合嗎？</span><span class="lang-en" hidden>Does compatibility reading just tell me if we're compatible?</span></summary>
         <div class="ans">
-          <p>不是。合盤不做「適合／不適合」的單一判決。</p>
-          <p>它真正看的，是兩組材料放在一起之後，會彼此勾出什麼、放大什麼、互補什麼，以及哪裡需要更多理解與調整。</p>
+          <p><span class="lang-zh">不是。合盤不做「適合／不適合」的單一判決。</span><span class="lang-en" hidden>No. It doesn't hand down a single verdict of "compatible" or "not compatible."</span></p>
+          <p><span class="lang-zh">它真正看的，是兩組材料放在一起之後，會彼此勾出什麼、放大什麼、互補什麼，以及哪裡需要更多理解與調整。</span><span class="lang-en" hidden>What it actually looks at is what happens when your two sets of material meet — what gets drawn out, amplified, complemented, and where you'll need more understanding and adjustment.</span></p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>這些解讀一定百分之百是我嗎？</summary>
+        <summary><span class="lang-zh">這些解讀一定百分之百是我嗎？</span><span class="lang-en" hidden>Is this reading guaranteed to be 100% me?</span></summary>
         <div class="ans">
-          <p>不是，而且我不希望你用這套系統去證明「看吧，我就是這樣」。</p>
-          <p>本命牌是固定材料，但一個人最後會長成什麼樣子，仍然受到環境、經驗、關係、選擇與成熟程度影響；隱藏牌也不代表每一張都已經被勾出。</p>
-          <p><strong>把它當成一張地圖，而不是一份判決書。</strong></p>
+          <p><span class="lang-zh">不是，而且我不希望你用這套系統去證明「看吧，我就是這樣」。</span><span class="lang-en" hidden>No — and I don't want you using this system to prove "see, this is just how I am."</span></p>
+          <p><span class="lang-zh">本命牌是固定材料，但一個人最後會長成什麼樣子，仍然受到環境、經驗、關係、選擇與成熟程度影響；隱藏牌也不代表每一張都已經被勾出。</span><span class="lang-en" hidden>Your core card is fixed material, but who you actually become is still shaped by environment, experience, relationships, choices and maturity — and not every hidden card is necessarily activated.</span></p>
+          <p><strong><span class="lang-zh">把它當成一張地圖，而不是一份判決書。</span><span class="lang-en" hidden>Treat it as a map, not a verdict.</span></strong></p>
         </div>
       </details>
     </div>
@@ -1749,14 +1769,14 @@ html{
 
   <section class="section feedback-section">
     <div class="eyebrow">What people took with them</div>
-    <h2 class="single-row-title feedback-title">有些人帶走的，不是一個答案。</h2>
-    <p class="muted">而是重新看懂自己之後，心裡開始有了方向。</p>
+    <h2 class="single-row-title feedback-title"><span class="lang-zh">有些人帶走的，不是一個答案。</span><span class="lang-en" hidden>What some people took away wasn't an answer.</span></h2>
+    <p class="muted"><span class="lang-zh">而是重新看懂自己之後，心裡開始有了方向。</span><span class="lang-en" hidden>It was a sense of direction, once they understood themselves again.</span></p>
 
     <div class="feedback-tags">
-      <span>被看見・被理解</span>
-      <span>頭腦變清楚</span>
-      <span>知道可以往哪裡思考</span>
-      <span>重新相信自己的聲音</span>
+      <span><span class="lang-zh">被看見・被理解</span><span class="lang-en" hidden>Felt seen &amp; understood</span></span>
+      <span><span class="lang-zh">頭腦變清楚</span><span class="lang-en" hidden>Mental clarity</span></span>
+      <span><span class="lang-zh">知道可以往哪裡思考</span><span class="lang-en" hidden>Knew what to think through next</span></span>
+      <span><span class="lang-zh">重新相信自己的聲音</span><span class="lang-en" hidden>Trusted their own voice again</span></span>
     </div>
 
     <div class="feedback-strip" aria-label="過去個案回饋">
@@ -1769,156 +1789,158 @@ html{
     </div>
 
     <div class="feedback-note">
-      這些回饋來自過去的一對一個案與諮詢。每個人的感受與收穫不同，《靈魂配方》提供的是一個重新理解自己的視角，而不是保證某一種結果。
+      <span class="lang-zh">這些回饋來自過去的一對一個案與諮詢。每個人的感受與收穫不同，《靈魂配方》提供的是一個重新理解自己的視角，而不是保證某一種結果。</span>
+      <span class="lang-en" hidden>These are screenshots from past 1:1 sessions, shown in the original Chinese. Everyone's experience is different — Soul Recipe offers a new lens for understanding yourself, not a guaranteed outcome.</span>
     </div>
   </section>
 
   <section class="section reviews-section">
     <div class="eyebrow">Reviews</div>
-    <h2 class="single-row-title">真實使用者回饋</h2>
+    <h2 class="single-row-title"><span class="lang-zh">真實使用者回饋</span><span class="lang-en" hidden>Real user reviews</span></h2>
 
     <div class="reviews-strip" aria-label="真實使用者回饋">
       <div class="review-card">
         <span class="mark">"</span>
-        <p>我看完之後更加確定我應該放膽做自己，做我自己就很有價值了，也為他人帶來很大的價值。看完有一種如釋重負的感覺，妳給了我很大的力量。</p>
-        <div class="attr">30歲｜AI老師｜女祭司</div>
+        <p><span class="lang-zh">我看完之後更加確定我應該放膽做自己，做我自己就很有價值了，也為他人帶來很大的價值。看完有一種如釋重負的感覺，妳給了我很大的力量。</span><span class="lang-en" hidden>After reading this, I'm even more sure I should just be bold enough to be myself — being myself is already valuable, and it brings a lot of value to others too. Reading it felt like a weight lifted. You gave me real strength.</span></p>
+        <div class="attr"><span class="lang-zh">30歲｜AI老師｜女祭司</span><span class="lang-en" hidden>Age 30 | AI Instructor | High Priestess</span></div>
       </div>
       <div class="review-card">
         <span class="mark">"</span>
-        <p>我看到最後竟然這不是完整版就這麼完整。妳真的很佛♡♡♡而且也太準了……看到起雞皮疙瘩耶，好像比我自己還了解我。</p>
-        <div class="attr">32歲｜服務業｜皇后</div>
+        <p><span class="lang-zh">我看到最後竟然這不是完整版就這麼完整。妳真的很佛♡♡♡而且也太準了……看到起雞皮疙瘩耶，好像比我自己還了解我。</span><span class="lang-en" hidden>By the end I couldn't believe how complete this was, and it wasn't even the full version. You're so generous ♡♡♡ and way too accurate... I got goosebumps — it felt like you understood me better than I understand myself.</span></p>
+        <div class="attr"><span class="lang-zh">32歲｜服務業｜皇后</span><span class="lang-en" hidden>Age 32 | Service Industry | The Empress</span></div>
       </div>
       <div class="review-card">
         <span class="mark">"</span>
-        <p>我沒想到塔羅牌可以分析得這麼透徹。根本是完全說中耶～不只是準，而是更深入自己的狀態，很像一個了解自己的好朋友在剖析自己。</p>
-        <div class="attr">39歲｜金融業｜魔術師</div>
+        <p><span class="lang-zh">我沒想到塔羅牌可以分析得這麼透徹。根本是完全說中耶～不只是準，而是更深入自己的狀態，很像一個了解自己的好朋友在剖析自己。</span><span class="lang-en" hidden>I never expected tarot could be analyzed this thoroughly. It nailed it completely — not just accurate, but a much deeper read on my actual state. It felt like a close friend who really gets me, breaking me down.</span></p>
+        <div class="attr"><span class="lang-zh">39歲｜金融業｜魔術師</span><span class="lang-en" hidden>Age 39 | Finance | The Magician</span></div>
       </div>
       <div class="review-card">
         <span class="mark">"</span>
-        <p>我其實好怕算命、算塔羅，常常會有種「我是不是正在被批判」的感覺。可是這個結果，我好想整張給你看——真的就是「這個牌就是我，真的有人懂我」。</p>
-        <div class="attr">29歲｜心輔員｜審判</div>
+        <p><span class="lang-zh">我其實好怕算命、算塔羅，常常會有種「我是不是正在被批判」的感覺。可是這個結果，我好想整張給你看——真的就是「這個牌就是我，真的有人懂我」。</span><span class="lang-en" hidden>I've actually always been afraid of fortune-telling and tarot — I often feel like I'm being judged. But with this result, I wanted to show it to everyone. It really was "this card is me, someone actually gets me."</span></p>
+        <div class="attr"><span class="lang-zh">29歲｜心輔員｜審判</span><span class="lang-en" hidden>Age 29 | Counselor | Judgement</span></div>
       </div>
       <div class="review-card">
         <span class="mark">"</span>
-        <p>其實我一直覺得沒有很了解自己，看完以後覺得我更了解自己了。遇到瓶頸或困難時，可以照內容去試著突破、順利度過，持續打開新的篇章。</p>
-        <div class="attr">33歲｜全職媽媽｜太陽</div>
+        <p><span class="lang-zh">其實我一直覺得沒有很了解自己，看完以後覺得我更了解自己了。遇到瓶頸或困難時，可以照內容去試著突破、順利度過，持續打開新的篇章。</span><span class="lang-en" hidden>I never really felt like I understood myself, and after reading this I feel like I do now. When I hit a wall or a hard moment, I can use what it said to try to break through and get past it, and keep opening new chapters.</span></p>
+        <div class="attr"><span class="lang-zh">33歲｜全職媽媽｜太陽</span><span class="lang-en" hidden>Age 33 | Full-time Mom | The Sun</span></div>
       </div>
       <div class="review-card">
         <span class="mark">"</span>
-        <p>全都講中！前陣子發現自己失衡時整個超級可怕，看到這個才發現，原來過去我自己界線都沒有完全分清楚。很棒的資源，太讚了。</p>
-        <div class="attr">37歲｜品牌工作者｜太陽</div>
+        <p><span class="lang-zh">全都講中！前陣子發現自己失衡時整個超級可怕，看到這個才發現，原來過去我自己界線都沒有完全分清楚。很棒的資源，太讚了。</span><span class="lang-en" hidden>It got everything right! A while back when I realized I was out of balance, it was genuinely scary — reading this, I realized I'd never really had clear boundaries. Such a great resource, love it.</span></p>
+        <div class="attr"><span class="lang-zh">37歲｜品牌工作者｜太陽</span><span class="lang-en" hidden>Age 37 | Brand Professional | The Sun</span></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="buy">
     <div class="pricebox" id="price-888">
-      <div class="muted">付費完整版・早鳥開放中</div>
-      <div class="price" style="font-size:42px">NT$888</div>
+      <div class="muted"><span class="lang-zh">付費完整版</span><span class="lang-en" hidden>Full version</span></div>
+      <div class="price" style="font-size:42px">NT$1,980</div>
 
       <div class="delivery-head">
         <div class="tiny">WHAT YOU GET</div>
-        <h3>你會拿到兩樣核心內容</h3>
+        <h3><span class="lang-zh">你會拿到兩樣核心內容</span><span class="lang-en" hidden>You'll receive two core things</span></h3>
       </div>
 
       <div class="delivery-core">
         <div class="delivery-card report">
           <div class="ico">📖</div>
-          <h4>01｜你的完整靈魂配方</h4>
-          <p>一份精美的完整報告，深度解析六大區塊。<br>收藏起來，隨時都能反覆回看。</p>
+          <h4><span class="lang-zh">01｜你的完整靈魂配方</span><span class="lang-en" hidden>01 | Your full Soul Recipe</span></h4>
+          <p><span class="lang-zh">一份精美的完整報告，深度解析六大區塊。<br>收藏起來，隨時都能反覆回看。</span><span class="lang-en" hidden>A beautifully designed full report, with an in-depth breakdown across six sections.<br>Keep it, and come back to it anytime.</span></p>
         </div>
 
         <div class="delivery-card assistant">
           <div class="ico">🌙</div>
-          <h4>02｜小菲｜靈魂配方助理</h4>
-          <p>不管白天或黑夜，小菲助理隨時在線。<br>24 小時為你解牌，接住每一個需要答案的時刻。</p>
+          <h4><span class="lang-zh">02｜小菲｜靈魂配方助理</span><span class="lang-en" hidden>02 | Feifei | Soul Recipe Assistant</span></h4>
+          <p><span class="lang-zh">不管白天或黑夜，小菲助理隨時在線。<br>24 小時為你解牌，接住每一個需要答案的時刻。</span><span class="lang-en" hidden>Day or night, Feifei is always online.<br>Reading your cards 24 hours a day, there for every moment you need an answer.</span></p>
         </div>
       </div>
 
       <div class="report-map">
-        <h4>深度解析六大區塊</h4>
+        <h4><span class="lang-zh">深度解析六大區塊</span><span class="lang-en" hidden>Six sections, in depth</span></h4>
         <div class="report-map-grid">
-          <div class="report-map-item"><strong>01｜你的生命材料</strong><br>看見整張命盤最明顯的核心結構與主要運作方式。</div>
-          <div class="report-map-item"><strong>02｜那些尚未總是被看見的你</strong><br>理解隱藏材料如何在不同階段、關係與環境中浮現。</div>
-          <div class="report-map-item"><strong>03｜你的牌，如何成為現在的你</strong><br>把單張牌放回整體，看不同模式如何彼此牽動，形成現在的感受、選擇與回應。</div>
-          <div class="report-map-item"><strong>04｜完整深度解讀</strong><br>從核心主軸、行動方式、關係、環境、事業到失衡提醒，逐層讀懂你的整體運作。</div>
-          <div class="report-map-item"><strong>05｜今年，時間把你帶到這裡</strong><br>整合年度流年、生日流年與五年旅程，看現在正走在哪一段時間脈絡裡。</div>
-          <div class="report-map-item"><strong>06｜重新使用自己的方向</strong><br>不是把任何一張牌修掉，而是找到更適合、更能長久使用自己的方式。</div>
+          <div class="report-map-item"><strong><span class="lang-zh">01｜你的生命材料</span><span class="lang-en" hidden>01 | Your life material</span></strong><br><span class="lang-zh">看見整張命盤最明顯的核心結構與主要運作方式。</span><span class="lang-en" hidden>See the most prominent core structure and how your chart primarily operates.</span></div>
+          <div class="report-map-item"><strong><span class="lang-zh">02｜那些尚未總是被看見的你</span><span class="lang-en" hidden>02 | The parts of you not always seen</span></strong><br><span class="lang-zh">理解隱藏材料如何在不同階段、關係與環境中浮現。</span><span class="lang-en" hidden>Understand how your hidden material surfaces across different stages, relationships and environments.</span></div>
+          <div class="report-map-item"><strong><span class="lang-zh">03｜你的牌，如何成為現在的你</span><span class="lang-en" hidden>03 | How your cards became who you are now</span></strong><br><span class="lang-zh">把單張牌放回整體，看不同模式如何彼此牽動，形成現在的感受、選擇與回應。</span><span class="lang-en" hidden>Put each card back into the whole picture, and see how different patterns pull on each other to shape how you feel, choose and respond now.</span></div>
+          <div class="report-map-item"><strong><span class="lang-zh">04｜完整深度解讀</span><span class="lang-en" hidden>04 | The full in-depth reading</span></strong><br><span class="lang-zh">從核心主軸、行動方式、關係、環境、事業到失衡提醒，逐層讀懂你的整體運作。</span><span class="lang-en" hidden>From your core throughline and how you act, to relationships, environment, career and where you tend to lose balance — read your whole system layer by layer.</span></div>
+          <div class="report-map-item"><strong><span class="lang-zh">05｜今年，時間把你帶到這裡</span><span class="lang-en" hidden>05 | This year, time brought you here</span></strong><br><span class="lang-zh">整合年度流年、生日流年與五年旅程，看現在正走在哪一段時間脈絡裡。</span><span class="lang-en" hidden>Combining your yearly cycle, birthday cycle and five-year journey, see exactly where you are in your own timeline right now.</span></div>
+          <div class="report-map-item"><strong><span class="lang-zh">06｜重新使用自己的方向</span><span class="lang-en" hidden>06 | A new direction for using yourself</span></strong><br><span class="lang-zh">不是把任何一張牌修掉，而是找到更適合、更能長久使用自己的方式。</span><span class="lang-en" hidden>Not erasing any card — finding a way to use yourself that fits better, and lasts longer.</span></div>
         </div>
       </div>
 
-      <div class="note-box" style="background:var(--rose-soft);border-color:rgba(166,111,104,.16)">
-        <p style="color:var(--rose-deep)"><strong>目前限定 30 位，額滿後將暫停開放。</strong><br>額滿後將以正式價 NT$1,980 重新上架。</p>
-      </div>
-
       <div class="note-box">
-        <p style="color:#877C73">往後隨著內容與功能持續增加，價格可能會調整；現在加入的你，不會因為之後調價被另外加收。</p>
+        <p style="color:#877C73"><span class="lang-zh">往後隨著內容與功能持續增加，價格可能會調整；現在加入的你，不會因為之後調價被另外加收。</span><span class="lang-en" hidden>As content and features keep expanding, the price may change over time — but joining now locks in your rate, so you won't be charged extra later.</span></p>
       </div>
 
       <div class="line-connect">
-        <p><strong>付款怎麼進行？</strong><br>目前採人工核對，請私訊 LINE 完成付款，核對後會傳一組專屬連結，點擊連結即可解鎖完整版與小菲｜靈魂配方助理。</p>
-        <a class="line-btn" href="https://line.me/R/ti/p/%40103rvgsu" target="_blank" rel="noopener noreferrer">私訊 LINE 完成付款 →</a>
+        <p><span class="lang-zh"><strong>付款怎麼進行？</strong><br>目前採人工核對，請私訊 LINE 完成付款，核對後會傳一組專屬連結，點擊連結即可解鎖完整版與小菲｜靈魂配方助理。</span><span class="lang-en" hidden><strong>How does payment work?</strong><br>Payment is currently verified manually — message us on LINE to complete payment, and once confirmed we'll send you a personal link. Click it to unlock the full version and Feifei | Soul Recipe Assistant.</span></p>
+        <a class="line-btn" href="https://line.me/R/ti/p/%40103rvgsu" target="_blank" rel="noopener noreferrer"><span class="lang-zh">私訊 LINE 完成付款 →</span><span class="lang-en" hidden>Message us on LINE to pay →</span></a>
       </div>
     </div>
   </section>
 
   <section class="section" id="about-feifei">
     <div class="eyebrow">About me</div>
-    <h2>我是菲菲。<br>我把靈性帶回現實，也陪人重新看懂自己。</h2>
+    <h2>
+      <span class="lang-zh">我是菲菲。<br>我把靈性帶回現實，也陪人重新看懂自己。</span>
+      <span class="lang-en" hidden>I'm Feifei.<br>I bring spirituality back down to earth, and help people see themselves clearly again.</span>
+    </h2>
 
 
       <div class="profile-card">
 <div class="profile-badge"><img src="data:image/jpeg;base64,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" alt="菲菲"></div>
         <div class="profile-name">菲菲</div>
-        <div class="profile-meta">Tarot Reader · Founder · Creator<br>塔羅 10 年 · 長期一對一個案</div>
+        <div class="profile-meta">Tarot Reader · Founder · Creator<br><span class="lang-zh">塔羅 10 年 · 長期一對一個案</span><span class="lang-en" hidden>10 years reading tarot · long-term 1:1 sessions</span></div>
         <div class="pills">
-          <span class="pill">塔羅 10 年</span>
-          <span class="pill">創業 / 品牌</span>
-          <span class="pill">靈性探索</span>
-          <span class="pill">一對一個案</span>
+          <span class="pill"><span class="lang-zh">塔羅 10 年</span><span class="lang-en" hidden>10yr tarot</span></span>
+          <span class="pill"><span class="lang-zh">創業 / 品牌</span><span class="lang-en" hidden>Founder / Brand</span></span>
+          <span class="pill"><span class="lang-zh">靈性探索</span><span class="lang-en" hidden>Spirituality</span></span>
+          <span class="pill"><span class="lang-zh">一對一個案</span><span class="lang-en" hidden>1:1 sessions</span></span>
         </div>
       </div>
 
     <div class="profile-copy">
-        <p>十四歲開始工作，後來走進銷售、品牌與創業，曾經品牌一年近五千萬營業額。<br>外在一路往前，卻沒有讓我更知道自己是誰。</p>
+        <p><span class="lang-zh">十四歲開始工作，後來走進銷售、品牌與創業，曾經品牌一年近五千萬營業額。<br>外在一路往前，卻沒有讓我更知道自己是誰。</span><span class="lang-en" hidden>I started working at fourteen, and later moved into sales, branding and running my own company — one brand I built did close to NT$50 million a year.<br>My outer life kept moving forward, but it never made me know myself any better.</span></p>
 
         <div class="pullquote rose">
-          <strong>痛苦與焦慮，不會因為你外在好像變得更厲害，<br>就自動消失。</strong>
+          <strong><span class="lang-zh">痛苦與焦慮，不會因為你外在好像變得更厲害，<br>就自動消失。</span><span class="lang-en" hidden>Pain and anxiety don't just disappear<br>because your outer life looks more impressive.</span></strong>
         </div>
 
-        <p>我走進塔羅，曾經只為了知道答案。<br>這件事會不會成功？<br>這個人怎麼想？<br>這段關係會走到哪裡？</p>
-        <p>算了上百組個案後，我開始發現，比答案更重要的是：<br><span class="highlight">為什麼一個人總會在不同人生階段，反覆遇見相似的模式？</span></p>
+        <p><span class="lang-zh">我走進塔羅，曾經只為了知道答案。<br>這件事會不會成功？<br>這個人怎麼想？<br>這段關係會走到哪裡？</span><span class="lang-en" hidden>I first turned to tarot just to get answers.<br>Will this work out?<br>What is this person thinking?<br>Where is this relationship headed?</span></p>
+        <p><span class="lang-zh">算了上百組個案後，我開始發現，比答案更重要的是：<br><span class="highlight">為什麼一個人總會在不同人生階段，反覆遇見相似的模式？</span></span><span class="lang-en" hidden>After hundreds of readings, I started noticing something more important than any answer:<br><span class="highlight">why does a person keep running into the same pattern, over and over, at different stages of life?</span></span></p>
 
         <details class="feifei-story">
           <summary>
-            <span class="when-closed">展開菲菲的故事 ↓</span>
-            <span class="when-open">收起完整故事 ↑</span>
+            <span class="when-closed"><span class="lang-zh">展開菲菲的故事 ↓</span><span class="lang-en" hidden>Read Feifei's full story ↓</span></span>
+            <span class="when-open"><span class="lang-zh">收起完整故事 ↑</span><span class="lang-en" hidden>Collapse ↑</span></span>
           </summary>
           <div class="full-story">
-            <p>從那時開始，塔羅對我來說，變成一種理解人的方式。</p>
-            <p>33歲在做完365天《奇蹟課程》心智訓練後，靈性，讓我徹底體驗「一切都只是一面鏡子」。</p>
-            <p>轉換視角以後，我過上過去從未感受過內在平靜祥和的生活<br>不再需要依賴藥物與酒精，<br>我擁有了在任何一種情緒跟思考裡，帶自己走出來的能力<br><br>我重新回頭看這套我已經使用了十年的命卡系統<br><strong>我看見每一種思考與行為都只是一種「模式」<br>只是我們都誤以為「那就是我沒辦法改變的自己」。</strong></p>
-            <p>在這樣內心平安且幸福的日子裡，我真正感受到拿破崙・希爾（Napoleon Hill）的著作《心靜致富》那句話：</p>
+            <p><span class="lang-zh">從那時開始，塔羅對我來說，變成一種理解人的方式。</span><span class="lang-en" hidden>From that point on, tarot became a way for me to understand people — not just a way to predict things.</span></p>
+            <p><span class="lang-zh">33歲在做完365天《奇蹟課程》心智訓練後，靈性，讓我徹底體驗「一切都只是一面鏡子」。</span><span class="lang-en" hidden>At 33, after finishing a full year of A Course in Miracles mind training, spirituality let me truly experience that "everything is just a mirror."</span></p>
+            <p><span class="lang-zh">轉換視角以後，我過上過去從未感受過內在平靜祥和的生活<br>不再需要依賴藥物與酒精，<br>我擁有了在任何一種情緒跟思考裡，帶自己走出來的能力<br><br>我重新回頭看這套我已經使用了十年的命卡系統<br><strong>我看見每一種思考與行為都只是一種「模式」<br>只是我們都誤以為「那就是我沒辦法改變的自己」。</strong></span><span class="lang-en" hidden>Once my perspective shifted, I found an inner peace I had never felt before —<br>I no longer needed to lean on medication or alcohol,<br>and I gained the ability to bring myself back out of any emotion or thought spiral.<br><br>I went back and looked again at this soul-card system I'd been using for ten years,<br><strong>and I saw that every thought and behavior is just a "pattern" —<br>we simply mistake it for "who I am, and can't change."</strong></span></p>
+            <p><span class="lang-zh">在這樣內心平安且幸福的日子裡，我真正感受到拿破崙・希爾（Napoleon Hill）的著作《心靜致富》那句話：</span><span class="lang-en" hidden>Living in that kind of inner peace and happiness, I truly felt what Napoleon Hill wrote in Think and Grow Rich:</span></p>
 
             <div class="pullquote">
               <span class="pq-icon">✦</span>
-              <strong>內心的平靜，才是人生最大的財富。少了它，就沒有真正的幸福。</strong>
+              <strong><span class="lang-zh">內心的平靜，才是人生最大的財富。少了它，就沒有真正的幸福。</span><span class="lang-en" hidden>Peace of mind is the greatest wealth in life. Without it, there can be no true happiness.</span></strong>
               <span class="pq-en">「Peace of mind is the greatest wealth in life. Without it, there can be no true happiness.」</span>
             </div>
 
-            <p>35歲的今天，曾經不婚不生主義的我結婚了，也成為一名母親，我把這套命卡系統，融合多年個案、人生經驗與現在的理解方式裡，讓這些牌組以有別於市面上普遍的解牌邏輯，以全新的視角重新詮釋，</p>
-            <p>它更像一面鏡子。<br>映照出，<br>此刻的你正在怎麼運作。<br>幫助你看見：哪些模式正在支持你，哪些又讓你反覆輪迴。</p>
-            <p><strong>看懂自己，不是為了被定義。<br>而是為了更自由地使用自己。</strong></p>
-            <p>這就是《靈魂配方》。</p>
+            <p><span class="lang-zh">35歲的今天，曾經不婚不生主義的我結婚了，也成為一名母親，我把這套命卡系統，融合多年個案、人生經驗與現在的理解方式裡，讓這些牌組以有別於市面上普遍的解牌邏輯，以全新的視角重新詮釋，</span><span class="lang-en" hidden>Today, at 35 — once a committed anti-marriage, anti-kids person — I'm married and a mother. I've folded years of readings, life experience and how I understand things now back into this soul-card system, reinterpreting the cards from a lens different from the usual way tarot gets read.</span></p>
+            <p><span class="lang-zh">它更像一面鏡子。<br>映照出，<br>此刻的你正在怎麼運作。<br>幫助你看見：哪些模式正在支持你，哪些又讓你反覆輪迴。</span><span class="lang-en" hidden>It works more like a mirror.<br>Reflecting back<br>how you're operating right now —<br>helping you see which patterns are supporting you, and which ones keep pulling you into the same loop.</span></p>
+            <p><strong><span class="lang-zh">看懂自己，不是為了被定義。<br>而是為了更自由地使用自己。</span><span class="lang-en" hidden>Understanding yourself isn't about being defined.<br>It's about being able to use yourself more freely.</span></strong></p>
+            <p><span class="lang-zh">這就是《靈魂配方》。</span><span class="lang-en" hidden>This is the Soul Recipe.</span></p>
           </div>
         </details>
     </div>
   </section>
 
   <div class="footer">
-    靈魂配方使用手冊 · Soul Recipe Manual<br>
-    看懂自己，不是為了被定義，而是為了更自由地使用自己。
-    <div style="margin-top:22px">✦ 菲菲　<a href="https://www.instagram.com/babybabyfeifei/" target="_blank" rel="noopener noreferrer" style="color:var(--rose-deep);text-decoration:none;border-bottom:1px solid rgba(166,111,104,.28);padding-bottom:1px">@babybabyfeifei</a></div>
+    <span class="lang-zh">靈魂配方使用手冊 · Soul Recipe Manual<br>
+    看懂自己，不是為了被定義，而是為了更自由地使用自己。</span>
+    <span class="lang-en" hidden>Soul Recipe Manual<br>
+    Understanding yourself isn't about being defined — it's about being able to use yourself more freely.</span>
+    <div style="margin-top:22px">✦ <span class="lang-zh">菲菲</span><span class="lang-en" hidden>Feifei</span>　<a href="https://www.instagram.com/babybabyfeifei/" target="_blank" rel="noopener noreferrer" style="color:var(--rose-deep);text-decoration:none;border-bottom:1px solid rgba(166,111,104,.28);padding-bottom:1px">@babybabyfeifei</a></div>
     <div style="margin-top:10px;font-size:11px;color:#9A8F86"><a href="mailto:soulrecipe.tw@gmail.com" style="color:inherit;text-decoration:none">soulrecipe.tw@gmail.com</a></div>
   </div>
 </div>
@@ -1926,16 +1948,51 @@ html{
 <div class="sticky-buy">
   <div class="sticky-in">
     <div>
-      <div class="sticky-title">🌙 靈魂配方使用手冊</div>
-      <div class="sticky-sub">單人全盤＋完整合盤＋無限次使用</div>
+      <div class="sticky-title">🌙 <span class="lang-zh">靈魂配方使用手冊</span><span class="lang-en" hidden>Soul Recipe Manual</span></div>
+      <div class="sticky-sub"><span class="lang-zh">單人全盤＋完整合盤＋無限次使用</span><span class="lang-en" hidden>Full personal reading + compatibility + unlimited use</span></div>
     </div>
-    <a class="btn btn-primary" href="#price-888" style="display:inline-block;text-align:center">NT$888 解鎖完整版</a>
+    <a class="btn btn-primary" href="#price-888" style="display:inline-block;text-align:center"><span class="lang-zh">NT$1,980 解鎖完整版</span><span class="lang-en" hidden>NT$1,980 Unlock full version</span></a>
   </div>
 </div>
 
 
 
+<script>
+(function(){
+  var STORAGE_KEY = 'soulRecipeLang';
+  var btn = document.getElementById('langToggle');
 
+  function applyLang(lang){
+    var zhEls = document.querySelectorAll('.lang-zh');
+    var enEls = document.querySelectorAll('.lang-en');
+    for(var i=0;i<zhEls.length;i++){ zhEls[i].hidden = (lang === 'en'); }
+    for(var i=0;i<enEls.length;i++){ enEls[i].hidden = (lang !== 'en'); }
+    if(btn){ btn.textContent = (lang === 'en') ? '中文' : 'EN'; }
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-Hant';
+  }
+
+  function getStoredLang(){
+    try{ return localStorage.getItem(STORAGE_KEY) || 'zh'; }
+    catch(e){ return 'zh'; }
+  }
+
+  function setStoredLang(lang){
+    try{ localStorage.setItem(STORAGE_KEY, lang); }catch(e){}
+  }
+
+  var currentLang = getStoredLang();
+  applyLang(currentLang);
+
+  if(btn){
+    btn.addEventListener('click', function(){
+      currentLang = (currentLang === 'en') ? 'zh' : 'en';
+      setStoredLang(currentLang);
+      applyLang(currentLang);
+      if(typeof refreshDemoLang === 'function'){ refreshDemoLang(); }
+    });
+  }
+})();
+</script>
 <script>
 function sumDigits(n){return String(Math.abs(Number(n)||0)).split('').reduce((a,b)=>a+Number(b),0)}
 function mod22(x){const r=x%22;return r===0?22:r}
@@ -1964,6 +2021,9 @@ function summarize(ex){
   const c={};ex.forEach(n=>c[n]=(c[n]||0)+1);
   return Object.keys(c).map(Number).sort((a,b)=>a-b).map(n=>({n,count:c[n]}));
 }
+function getDemoLang(){
+  try{ return localStorage.getItem('soulRecipeLang')||'zh'; }catch(e){ return 'zh'; }
+}
 function setupDateSelectors(){
   const ySel=document.getElementById('birthYear');
   const mSel=document.getElementById('birthMonth');
@@ -1971,17 +2031,18 @@ function setupDateSelectors(){
   if(!ySel || !mSel || !dSel || ySel.dataset.ready==='true') return;
   ySel.dataset.ready='true';
 
-  const yPlaceholder=document.createElement('option'); yPlaceholder.value=''; yPlaceholder.textContent='出生年';
+  const isEn=getDemoLang()==='en';
+  const yPlaceholder=document.createElement('option'); yPlaceholder.value=''; yPlaceholder.textContent=isEn?'Year':'出生年';
   ySel.appendChild(yPlaceholder);
   for(let y=2028;y>=1940;y--){
-    const opt=document.createElement('option'); opt.value=y; opt.textContent=`${y} 年`; ySel.appendChild(opt);
+    const opt=document.createElement('option'); opt.value=y; opt.textContent=isEn?`${y}`:`${y} 年`; ySel.appendChild(opt);
   }
-  const mPlaceholder=document.createElement('option'); mPlaceholder.value=''; mPlaceholder.textContent='出生月';
+  const mPlaceholder=document.createElement('option'); mPlaceholder.value=''; mPlaceholder.textContent=isEn?'Month':'出生月';
   mSel.appendChild(mPlaceholder);
   for(let m=1;m<=12;m++){
-    const opt=document.createElement('option'); opt.value=m; opt.textContent=`${String(m).padStart(2,'0')} 月`; mSel.appendChild(opt);
+    const opt=document.createElement('option'); opt.value=m; opt.textContent=isEn?`${String(m).padStart(2,'0')}`:`${String(m).padStart(2,'0')} 月`; mSel.appendChild(opt);
   }
-  const dPlaceholder=document.createElement('option'); dPlaceholder.value=''; dPlaceholder.textContent='出生日';
+  const dPlaceholder=document.createElement('option'); dPlaceholder.value=''; dPlaceholder.textContent=isEn?'Day':'出生日';
   dSel.appendChild(dPlaceholder);
 
   ySel.value=''; mSel.value=''; dSel.value='';
@@ -1989,6 +2050,21 @@ function setupDateSelectors(){
   ySel.addEventListener('change', ()=>{ updateDays(); checkDateComplete(); });
   mSel.addEventListener('change', ()=>{ updateDays(); checkDateComplete(); });
   dSel.addEventListener('change', checkDateComplete);
+}
+function refreshDemoLang(){
+  const ySel=document.getElementById('birthYear');
+  if(!ySel || ySel.dataset.ready!=='true') return;
+  const isEn=getDemoLang()==='en';
+  const yVal=ySel.value, mVal=document.getElementById('birthMonth').value, dVal=document.getElementById('birthDay').value;
+  ySel.dataset.ready='false';
+  ySel.innerHTML=''; document.getElementById('birthMonth').innerHTML='';
+  setupDateSelectors();
+  ySel.value=yVal; document.getElementById('birthMonth').value=mVal;
+  updateDays();
+  document.getElementById('birthDay').value=dVal;
+  const msgEl=document.getElementById('dateIncompleteMsg');
+  if(msgEl) msgEl.textContent=isEn?'Please select your full birth date first':'請先選擇完整的出生日期';
+  if(isDateComplete()) calculate();
 }
 function isDateComplete(){
   const y=document.getElementById('birthYear').value;
@@ -2014,8 +2090,9 @@ function updateDays(){
   const yVal=document.getElementById('birthYear').value;
   const mVal=document.getElementById('birthMonth').value;
   const dSel=document.getElementById('birthDay');
+  const isEn=getDemoLang()==='en';
   dSel.innerHTML='';
-  const dPlaceholder=document.createElement('option'); dPlaceholder.value=''; dPlaceholder.textContent='出生日';
+  const dPlaceholder=document.createElement('option'); dPlaceholder.value=''; dPlaceholder.textContent=isEn?'Day':'出生日';
   dSel.appendChild(dPlaceholder);
   if(yVal===''||mVal===''){
     dSel.value='';
@@ -2024,7 +2101,7 @@ function updateDays(){
   const y=Number(yVal), m=Number(mVal);
   const max=dim(y,m);
   for(let d=1;d<=max;d++){
-    const opt=document.createElement('option'); opt.value=d; opt.textContent=`${String(d).padStart(2,'0')} 日`; dSel.appendChild(opt);
+    const opt=document.createElement('option'); opt.value=d; opt.textContent=isEn?`${String(d).padStart(2,'0')}`:`${String(d).padStart(2,'0')} 日`; dSel.appendChild(opt);
   }
   dSel.value='';
 }
@@ -2042,18 +2119,19 @@ function calculate(){
   document.getElementById('hiddenLine').textContent=hid.join(' · ');
 
   const nums=summary.map(x=>x.n);
-  let title='你不是一張牌，而是一整組彼此作用的生命模式。';
-  let text='你現在看到的是整體輪廓。真正完整的解讀，會繼續往下看這些模式如何彼此支持、互相拉扯，以及它們在不同人生情境裡會如何展現。';
+  const isEn=getDemoLang()==='en';
+  let title=isEn?"You're not one card — you're a whole set of life patterns interacting.":'你不是一張牌，而是一整組彼此作用的生命模式。';
+  let text=isEn?"What you're seeing now is the overall shape. The full reading goes further — looking at how these patterns support each other, pull against each other, and show up differently across life situations.":'你現在看到的是整體輪廓。真正完整的解讀，會繼續往下看這些模式如何彼此支持、互相拉扯，以及它們在不同人生情境裡會如何展現。';
 
   if(summary.find(x=>x.n===1&&x.count>=2) && nums.includes(2)){
-    title='你理解得快，也感受得深。';
-    text='重複的魔術師讓理解、創造與轉化能力被明顯放大；女祭司則讓你不只靠邏輯理解世界，也很能接收到那些沒有被說出口的訊息。真正需要看的，不只是「你很聰明、很敏感」，而是這兩股力量放在一起後，會如何影響你的決定、人際與人生節奏。';
+    title=isEn?'You understand quickly, and you feel deeply.':'你理解得快，也感受得深。';
+    text=isEn?"A repeated Magician noticeably amplifies your ability to understand, create and transform; the High Priestess means you don't just understand the world through logic — you also pick up on what's left unsaid. What really matters isn't just \"you're smart, you're sensitive\" — it's how these two forces together shape your decisions, relationships and pace through life.":'重複的魔術師讓理解、創造與轉化能力被明顯放大；女祭司則讓你不只靠邏輯理解世界，也很能接收到那些沒有被說出口的訊息。真正需要看的，不只是「你很聰明、很敏感」，而是這兩股力量放在一起後，會如何影響你的決定、人際與人生節奏。';
   } else if(nums.includes(9)){
-    title='你的環境，從來不只是背景。';
-    text='表象有隱者的人，學習與吸收能力很強，也更容易把長期相處的人、習慣與場域慢慢內化成自己的一部分。對你來說，選擇環境，有時候幾乎就是在選擇未來的自己。';
+    title=isEn?'Your environment was never just a backdrop.':'你的環境，從來不只是背景。';
+    text=isEn?"With the Hermit showing up, you tend to have a strong capacity for learning and absorbing — and you're more likely to gradually internalize the people, habits and settings you're around for a long time. For you, choosing your environment can be almost the same as choosing who you'll become.":'表象有隱者的人，學習與吸收能力很強，也更容易把長期相處的人、習慣與場域慢慢內化成自己的一部分。對你來說，選擇環境，有時候幾乎就是在選擇未來的自己。';
   } else if(nums.includes(7)&&nums.includes(8)){
-    title='你同時擁有推進力與策略感。';
-    text='戰車讓你在目標清楚時很難被攔住；力量則讓你知道不是每一道牆都需要撞破。真正成熟的版本，是既能往前，也懂得降低損耗。';
+    title=isEn?'You have both drive and strategy.':'你同時擁有推進力與策略感。';
+    text=isEn?"The Chariot makes you hard to stop once your goal is clear; Strength means you know not every wall needs to be broken through. The mature version of this is being able to move forward while also knowing how to conserve your energy.":'戰車讓你在目標清楚時很難被攔住；力量則讓你知道不是每一道牆都需要撞破。真正成熟的版本，是既能往前，也懂得降低損耗。';
   }
 
   document.getElementById('demoTitle').textContent=title;
