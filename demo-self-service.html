@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自助產生連結（示範版·非正式功能）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F4EF;--paper:#FFFDF9;--ink:#2C2824;--muted:#81776F;
+  --line:#E8DED4;--rose:#C98F86;--rose-deep:#A66F68;
+  --rose-soft:#F3E3DF;--blue-soft:#E9F0F3;--gold:#AE925F;
+  --warn-bg:#FCF3DE;--warn-ink:#8A6A2A;
+  --shadow:0 18px 55px rgba(53,42,35,.08)
+}
+*{box-sizing:border-box}
+body{
+  margin:0;color:var(--ink);font-family:'Noto Sans TC',sans-serif;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(243,227,223,.72), transparent 28%),
+    radial-gradient(circle at 90% 12%, rgba(233,240,243,.65), transparent 25%),
+    var(--bg);
+}
+.wrap{max-width:520px;margin:0 auto;padding:40px 16px 72px}
+.demo-flag{
+  text-align:center;background:#5F4E48;color:#fff;font-size:11px;font-weight:900;
+  letter-spacing:.08em;border-radius:999px;padding:8px 16px;display:block;
+  width:fit-content;margin:0 auto 22px
+}
+.badge{
+  display:block;text-align:center;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--rose-deep);font-weight:900;margin-bottom:10px
+}
+h1{
+  font-family:'Noto Serif TC';font-size:24px;line-height:1.4;
+  text-align:center;margin:0 0 6px
+}
+.note{
+  text-align:center;color:var(--muted);font-size:12px;line-height:1.9;
+  max-width:400px;margin:0 auto 30px
+}
+.sheet{
+  background:rgba(255,253,249,.97);border-radius:28px;padding:28px 24px;
+  box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.92)
+}
+.field{margin-bottom:16px}
+label{
+  display:block;font-size:10px;letter-spacing:.14em;
+  color:var(--muted);font-weight:900;margin-bottom:9px
+}
+input{
+  width:100%;border:1px solid var(--line);background:#FBF7F2;
+  border-radius:16px;padding:14px 15px;font-size:15px;color:var(--ink);
+  outline:none
+}
+input:focus{
+  border-color:rgba(166,111,104,.4);
+  box-shadow:0 0 0 3px rgba(201,143,134,.07)
+}
+.gen-btn{
+  display:block;width:100%;margin-top:8px;text-align:center;border-radius:999px;
+  padding:14px 22px;background:#5F4E48;color:#fff;font-size:13px;
+  font-weight:900;border:none;cursor:pointer;box-shadow:0 9px 24px rgba(95,78,72,.11)
+}
+.result{
+  margin-top:22px;padding-top:22px;border-top:1px solid var(--line);
+  display:none
+}
+.result.show{display:block}
+.result-label{font-size:10px;letter-spacing:.14em;color:var(--muted);font-weight:900;margin-bottom:9px}
+.result-url{
+  padding:14px 15px;border-radius:16px;background:var(--blue-soft);
+  font-size:12px;color:#3E4A50;word-break:break-all;font-family:monospace;line-height:1.7
+}
+.warn{
+  margin-top:20px;padding:14px 16px;border-radius:16px;
+  background:var(--warn-bg);font-size:11px;line-height:1.9;color:var(--warn-ink);
+  border:1px solid rgba(138,106,42,.14)
+}
+.brand{
+  text-align:center;margin-top:36px;padding:24px 12px 8px;border-top:1px solid var(--line)
+}
+.brand strong{font-family:'Noto Serif TC';font-size:12px;color:#6F655D}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="demo-flag">⚠ 示範版・不是正式功能</span>
+  <div class="badge">Soul Recipe · Prototype</div>
+  <h1>建立我的專屬連結</h1>
+  <p class="note">填寫你的暱稱和 Email，系統會幫你產生一組「專屬連結」。</p>
+
+  <div class="sheet">
+    <div class="field">
+      <label>暱稱 / 店名</label>
+      <input type="text" id="nameInput" placeholder="例如：小美美甲工作室">
+    </div>
+    <div class="field">
+      <label>Email（示範用，不會真的寄送任何信件）</label>
+      <input type="email" id="emailInput" placeholder="you@example.com">
+    </div>
+    <button class="gen-btn" id="genBtn">建立我的專屬連結</button>
+
+    <div class="result" id="result">
+      <div class="result-label">你的專屬連結（示範用，不是真的能用的連結）</div>
+      <div class="result-url" id="urlDisplay"></div>
+    </div>
+
+    <div class="warn">
+      ⚠ 這只是示範畫面，用來看看「填資料自動產生連結」這個操作流程的感覺。這個連結**不會真的寫進資料庫，也不會真的解鎖完整版**——目前靈魂配方的完整版，還是要透過菲菲人工核對付款後手動核發亂碼才有效。
+    </div>
+  </div>
+
+  <footer class="brand">
+    <strong>靈魂配方使用手冊 · Soul Recipe Manual</strong>
+    <div class="tagline" style="margin-top:8px"><a href="mailto:soulrecipe.tw@gmail.com" style="color:inherit;text-decoration:none">soulrecipe.tw@gmail.com</a></div>
+  </footer>
+</div>
+
+<script>
+document.getElementById('genBtn').addEventListener('click', function(){
+  const name = document.getElementById('nameInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+  if(!name || !email){
+    alert('示範用，還是要填一下暱稱跟 Email 才能看到效果喔');
+    return;
+  }
+  const fakeToken = Math.random().toString(36).slice(2, 10) + Math.random().toString(36).slice(2, 10);
+  const fakeUrl = 'https://feifei-soul-recipe.github.io/tarot-life-profile/unlock.html?key=' + fakeToken;
+
+  document.getElementById('urlDisplay').textContent = fakeUrl;
+  document.getElementById('result').classList.add('show');
+});
+</script>
+</body>
+</html>
