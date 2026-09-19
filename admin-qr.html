@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="supabase-config.js"></script>
 <style>
 :root{
   --bg:#F8F4EF;--paper:#FFFDF9;--ink:#2C2824;--muted:#81776F;
@@ -77,6 +78,13 @@ input:focus{
   background:rgba(233,240,243,.62);font-size:11px;line-height:1.9;color:#6B7A82;
   border:1px solid rgba(140,162,176,.10)
 }
+.status{
+  margin-top:14px;font-size:12px;line-height:1.8;display:none
+}
+.status.show{display:block}
+.status.ok{color:#4C7A5B}
+.status.err{color:#B3453F}
+.gen-btn:disabled{opacity:.55;cursor:not-allowed}
 .brand{
   text-align:center;margin-top:36px;padding:24px 12px 8px;border-top:1px solid var(--line)
 }
@@ -96,18 +104,20 @@ input:focus{
     <label style="margin-top:16px">顯示名稱（不是必填，解鎖時會跟「歡迎回家」一起顯示）</label>
     <input type="text" id="nameInput" placeholder="例如 阿菲塔羅宇宙" autocomplete="off">
 
+    <label style="margin-top:16px">管理密碼（只有你知道，這台裝置會記住，不用每次重打）</label>
+    <input type="password" id="adminKeyInput" placeholder="管理密碼" autocomplete="off">
+
     <button class="gen-btn" id="genBtn">產生 QR Code</button>
+
+    <div class="status" id="statusMsg"></div>
 
     <div class="result" id="result">
       <div id="qrcode"></div>
       <div class="url-display" id="urlDisplay"></div>
-
-      <label style="margin-top:18px">複製這行到 Supabase SQL Editor 執行，這組亂碼才會真的生效</label>
-      <div class="url-display" id="sqlDisplay"></div>
     </div>
 
     <div class="hint">
-      長按（手機）或右鍵（電腦）QR code 圖片就可以存檔或直接傳給客人。記得先把下面那行 SQL 拿去 Supabase 執行過，這組亂碼才會真的有效。
+      按下「產生 QR Code」會直接把這組亂碼寫進資料庫，不用再自己跑 SQL。寫入成功才會顯示 QR code；長按（手機）或右鍵（電腦）圖片就可以存檔或直接傳給客人。
     </div>
   </div>
 
@@ -119,42 +129,87 @@ input:focus{
 
 <script>
 const BASE_URL = 'https://feifei-soul-recipe.github.io/tarot-life-profile/unlock.html?key=';
+const ADMIN_KEY_STORAGE = 'soulRecipeAdminKey';
+
 const qrContainer = document.getElementById('qrcode');
 const resultEl = document.getElementById('result');
 const urlDisplayEl = document.getElementById('urlDisplay');
+const statusEl = document.getElementById('statusMsg');
+const genBtn = document.getElementById('genBtn');
+const adminKeyInput = document.getElementById('adminKeyInput');
 
-function sqlEscape(str){
-  return str.replace(/'/g, "''");
+try{
+  const savedKey = localStorage.getItem(ADMIN_KEY_STORAGE);
+  if(savedKey) adminKeyInput.value = savedKey;
+}catch(err){
+  // localStorage 無法使用時，只是每次要重打管理密碼，不影響功能
 }
 
-document.getElementById('genBtn').addEventListener('click', function(){
+function showStatus(kind, text){
+  statusEl.className = 'status show ' + kind;
+  statusEl.textContent = text;
+}
+
+document.getElementById('genBtn').addEventListener('click', async function(){
   const token = document.getElementById('tokenInput').value.trim();
   const displayName = document.getElementById('nameInput').value.trim();
+  const adminKey = adminKeyInput.value.trim();
+
   if(!token){
-    alert('請先輸入這位客人的專屬亂碼');
+    showStatus('err', '請先輸入這位客人的專屬亂碼');
     return;
   }
-  const fullUrl = BASE_URL + encodeURIComponent(token);
-
-  qrContainer.innerHTML = '';
-  new QRCode(qrContainer, {
-    text: fullUrl,
-    width: 220,
-    height: 220,
-    colorDark: '#2C2824',
-    colorLight: '#ffffff'
-  });
-
-  urlDisplayEl.textContent = fullUrl;
-
-  const sqlEl = document.getElementById('sqlDisplay');
-  if(displayName){
-    sqlEl.textContent = `insert into access_tokens (token, display_name) values ('${sqlEscape(token)}', '${sqlEscape(displayName)}');`;
-  }else{
-    sqlEl.textContent = `insert into access_tokens (token) values ('${sqlEscape(token)}');`;
+  if(!adminKey){
+    showStatus('err', '請先輸入管理密碼');
+    return;
   }
 
-  resultEl.classList.add('show');
+  resultEl.classList.remove('show');
+  genBtn.disabled = true;
+  showStatus('ok', '寫入資料庫中…');
+
+  try{
+    const res = await fetch(`${SOUL_RECIPE_SUPABASE_URL}/rest/v1/rpc/create_access_token`, {
+      method: 'POST',
+      headers: {
+        'apikey': SOUL_RECIPE_SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SOUL_RECIPE_SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        input_token: token,
+        input_display_name: displayName || null,
+        input_admin_key: adminKey
+      })
+    });
+    if(!res.ok) throw new Error('request failed');
+    const ok = await res.json();
+
+    if(ok !== true){
+      showStatus('err', '寫入失敗，管理密碼錯誤，或這組亂碼已經用過了。QR code 尚未產生，請確認後再試一次。');
+      genBtn.disabled = false;
+      return;
+    }
+
+    try{ localStorage.setItem(ADMIN_KEY_STORAGE, adminKey); }catch(err){}
+
+    const fullUrl = BASE_URL + encodeURIComponent(token);
+    qrContainer.innerHTML = '';
+    new QRCode(qrContainer, {
+      text: fullUrl,
+      width: 220,
+      height: 220,
+      colorDark: '#2C2824',
+      colorLight: '#ffffff'
+    });
+    urlDisplayEl.textContent = fullUrl;
+    resultEl.classList.add('show');
+    showStatus('ok', '✅ 已寫入資料庫，這組亂碼現在就能用，不用再手動跑 SQL。');
+  }catch(err){
+    showStatus('err', '連線失敗，請檢查網路後再試一次。QR code 尚未產生。');
+  }finally{
+    genBtn.disabled = false;
+  }
 });
 </script>
 </body>
