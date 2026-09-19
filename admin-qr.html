@@ -182,7 +182,10 @@ document.getElementById('genBtn').addEventListener('click', async function(){
         input_admin_key: adminKey
       })
     });
-    if(!res.ok) throw new Error('request failed');
+    if(!res.ok){
+      const errText = await res.text().catch(() => '');
+      throw new Error(`HTTP ${res.status}${errText ? '：' + errText.slice(0, 200) : ''}`);
+    }
     const ok = await res.json();
 
     if(ok !== true){
@@ -206,7 +209,7 @@ document.getElementById('genBtn').addEventListener('click', async function(){
     resultEl.classList.add('show');
     showStatus('ok', '✅ 已寫入資料庫，這組亂碼現在就能用，不用再手動跑 SQL。');
   }catch(err){
-    showStatus('err', '連線失敗，請檢查網路後再試一次。QR code 尚未產生。');
+    showStatus('err', '連線失敗：' + (err && err.message ? err.message : '未知錯誤') + '。QR code 尚未產生。');
   }finally{
     genBtn.disabled = false;
   }
