@@ -190,14 +190,14 @@ h1{
     <div class="badge">✓ 付費專屬版</div>
     <div class="kicker">Your Soul Recipe Assistant</div>
     <h1>你的專屬小菲助理指令</h1>
-    <p class="intro">已經依正式算法算好你的完整命盤，並整理成一份專屬指令。複製後貼到你自己的 ChatGPT 對話框，小菲就會直接開始。</p>
+    <p class="intro">你的完整命盤已依正式算法計算完成，並整理成專屬指令。複製後貼到 ChatGPT，小菲就會直接開始。</p>
 
     <div class="summary-card" id="summaryCard"></div>
 
     <div class="setup-guide" id="setupGuide">
       <div class="setup-guide-head">
         <h2>複製前，先為小菲準備一個乾淨的家</h2>
-        <p>為了避免其他聊天中的人物、八字或既有記憶影響這次解讀，請先建立一個獨立專案。這項設定只需完成一次，以後都可以回到此專案繼續和小菲聊天。🤍</p>
+        <p>為了避免其他聊天中的人物、八字或既有記憶影響這次解讀，請先建立一個獨立專案。這項設定只需完成一次，以後都可以回到此專案繼續和小菲解牌。🤍</p>
       </div>
 
       <div class="platform-panel" id="panelChatGPT">
@@ -1889,7 +1889,7 @@ function renderSummaryCard(intake, dataBlock){
       setTimeout(() => { btn.classList.remove('copied'); updateCopyLockState(); }, 2600);
 
       guideRemind.style.display = 'none';
-      copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>現在請回到剛建立的「小菲｜靈魂配方助理」專案，開啟新聊天，將整段內容貼到最下方的訊息輸入框並送出。小菲會為你準備完整版命卡。';
+      copySuccess.innerHTML = '<strong>已複製你的專屬小菲助理指令 ✨</strong>回到剛建立的「小菲｜靈魂配方助理」專案，貼上並送出。小菲會為你準備完整命卡報告。';
       copySuccess.style.display = 'block';
     };
     if(navigator.clipboard && navigator.clipboard.writeText){
