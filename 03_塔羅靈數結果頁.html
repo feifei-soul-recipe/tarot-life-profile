@@ -567,6 +567,365 @@ const YEARLY_ROLES = {"1":{"number":1,"name":"魔術師","annualYearly":{"id":"c
 const GENERIC_INTEGRATION_DIFFERENT = "外在正在推進的方向，和你內在真正走到的階段此刻不完全一樣。這不是彼此衝突，而是兩條時間線同時存在：一條描述現實正在把什麼帶到你面前，一條描述你自己正在怎麼經歷它。";
 const HIDDEN_CROSS_LAYER_TEMPLATE = "『{cardName}』同時也是你的隱藏牌。這表示這個主題不只存在於你平常可見的運作裡，也可能有一些你自己尚未完全察覺的部分，在特定情境下更容易浮現。";
 
+const CARD_MODULES_EN = {
+"1": {"number":1,"name":"The Magician","modules": {
+  "self": {"text": `You tend to grasp "how to do it" first. When information is vague, you can usually work out a method quickly, then start moving an abstract idea toward something real.`},
+  "talent": {"text": `Your strength is in translation — turning inspiration, concepts, or scattered information into something that can be understood, acted on, and exchanged for value.`},
+  "relationship": {"text": `In relationships, you tend to be the one who reaches for a method or a solution first. It's worth watching that understanding things quickly doesn't turn into deciding things for the other person too soon.`},
+  "imbalance": {"text": `When you have too many methods and your mind moves too fast, you may keep switching approaches — and the pace of actually getting things done can't keep up with how quickly you understand them.`},
+  "balance": {"text": `Instead of looking for an even smarter method, pick one that's already good enough and start — let real-world feedback help you correct course.`},
+  "hidden": {"text": `The Magician holds your ability to turn a vague idea into a concrete method — something you might use when writing a proposal, breaking a task into steps, or helping someone figure out their next move. It's worth noticing whether the speed at which you come up with methods is running far ahead of how quickly you actually start executing them. Sometimes starting with a version that's good enough will get you to results faster than continuing to search for a better method.`},
+  "yearly": {"text": `When the Magician enters this year's timing layer, it's usually not about "suddenly becoming smarter" — it's that this year is more likely to bring situations that call on you to understand, translate, and actually start doing.`}
+}},
+"2": {"number":2,"name":"The High Priestess","modules": {
+  "self": {"text": `You're sensitive to what's left unsaid. Where others just hear a sentence, you may already be picking up on tone, atmosphere, and emotion at the same time.`},
+  "talent": {"text": `Your gift is picking up on detail and reading between the lines — you don't need everything spelled out to sense that something's off.`},
+  "relationship": {"text": `You pick up on the other person's state easily, so the quality of a relationship affects you directly. Understanding people is a strength — just be careful not to carry all of their emotions back home with you.`},
+  "imbalance": {"text": `The more ambiguous a situation is, the more detail you tend to pick up. Without clear boundaries, it's easy to mistake someone else's feelings for something you're responsible for.`},
+  "balance": {"text": `Start by separating "I sensed it" from "this is mine to handle" — they're two different things. That's what keeps sensitivity from turning into taking on too much.`},
+  "hidden": {"text": `The High Priestess holds your knack for reading a room and picking up on what's unsaid — who actually disagrees in a meeting, who's in a bad mood at a gathering, you often notice before anyone else does. It's worth keeping in mind: sensing something isn't the same as knowing why it's happening. Reacting straight off a guess can sometimes cause more misunderstanding than simply asking.`},
+  "yearly": {"text": `When the High Priestess becomes this year's timing layer, you may need to trust your observations and slow down before judging — and pay extra attention to not absorbing too much of what other people are feeling.`}
+}},
+"3": {"number":3,"name":"The Empress","modules": {
+  "self": {"text": `You naturally notice what others need, and you're willing to turn that care into concrete arrangements — not just words of concern.`},
+  "talent": {"text": `Your ability lies in grounding love into resources, care, and comfort — people often feel that with you around, things are held together.`},
+  "relationship": {"text": `In relationships, you tend to see the other person's needs first. A mature Empress isn't someone who just keeps giving — she counts herself among the people worth taking care of, too.`},
+  "imbalance": {"text": `When caretaking becomes a habit, you may unknowingly put yourself last — and then, once you're exhausted, wonder why no one noticed.`},
+  "balance": {"text": `Before you give, check whether you actually have the capacity to. The Empress's strength isn't about depleting yourself — it's giving love a shape within what you can actually sustain.`},
+  "hidden": {"text": `The Empress holds your ability to turn care into concrete action — organizing a get-together, arranging an itinerary, helping someone get their life in order, all of it tends to come naturally to you. It's worth noticing whether, in the middle of arranging all this, you're also counting yourself among the people being taken care of — or whether you keep checking if everyone else is comfortable while rarely asking yourself the same question.`},
+  "yearly": {"text": `When the Empress enters this year's timing layer, life may more often put questions of care, giving, and how to allocate resources in front of you.`}
+}},
+"4": {"number":4,"name":"The Emperor","modules": {
+  "self": {"text": `You're used to seeing the whole picture and arranging how things fit together — when something comes up, you naturally want to know who's doing what, and what the most efficient way forward is.`},
+  "talent": {"text": `Your strength is taking responsibility and allocating resources well. When you're willing to hear different opinions before making the final call, the Emperor becomes a steady form of leadership.`},
+  "relationship": {"text": `In relationships, you tend to want things to have direction and rules. The issue isn't necessarily wanting control — it's making sure "the most efficient way" doesn't quietly become "only my way."`},
+  "imbalance": {"text": `Under high pressure, controlling the situation can turn into controlling people. The harder you try to keep things stable, the more the people around you may end up feeling controlled.`},
+  "balance": {"text": `Keep your decision-making power, but shift from "I need to control everything" to "I'll hold the overall direction, and let others have their own way of getting there."`},
+  "hidden": {"text": `The Emperor holds your ability to bring order to a chaotic situation — when you're suddenly handed a project, or a group of people are each doing their own thing with no direction, you're often the one who speaks up first to divide the work. It's worth noticing whether, after handing out the tasks, you leave room for others to do things their own way, or whether you want the process itself to go exactly as you imagined it.`},
+  "yearly": {"text": `When the Emperor becomes this year's timing layer, responsibility, decision-making, resource allocation, and the question of who's actually steering will be more present than usual.`}
+}},
+"5": {"number":5,"name":"The Hierophant","modules": {
+  "self": {"text": `You're good at turning something complicated into a version other people can actually understand, and you naturally fall into the role of teaching, distilling, or guiding.`},
+  "talent": {"text": `Your ability isn't just knowing the answer — it's building a bridge for other people, turning something hard to grasp into a path they can actually walk.`},
+  "relationship": {"text": `In relationships, you often want to explain things and help the other person understand. At its best, that's sharing wisdom; out of balance, it can easily turn into "let me tell you how you should do this."`},
+  "imbalance": {"text": `When you trust your own framework of understanding too much, being of service can quietly turn into lecturing — especially with people whose way of thinking is different from yours.`},
+  "balance": {"text": `Check first whether the other person needs an answer, company, or simply to be heard. Your knowledge is most powerful when it's actually wanted.`},
+  "hidden": {"text": `The Hierophant holds your ability to explain something complicated clearly — when a coworker is stuck or a friend has a question, you can often sum up the key point in just a couple of sentences. It's worth checking, before you speak, whether the other person wants an answer or simply wants to talk and be heard — the two situations call for different responses.`},
+  "yearly": {"text": `When the Hierophant enters this year's timing layer, learning, teaching, passing on experience, or reorganizing your own belief system are worth paying more attention to.`}
+}},
+"6": {"number":6,"name":"The Lovers","modules": {
+  "self": {"text": `Your life isn't necessarily suited to forcing everything through on your own. Collaboration, connections, and people willing to help you are often what actually opens doors for you.`},
+  "talent": {"text": `You have real opportunities to find resources and openings through relationships. The key isn't dependence — it's recognizing who's actually right to walk alongside.`},
+  "relationship": {"text": `You gain a lot through relationships, and you're prone to letting them shape your decisions. A mature Lovers card means collaborating without losing your own say in things.`},
+  "imbalance": {"text": `When you rely too heavily on a relationship to give you the answer, you may end up ignoring what you actually want just to avoid losing someone.`},
+  "balance": {"text": `Separate "someone is helping me" from "I'm handing the decision over to someone else." You can accept support while still keeping your own direction.`},
+  "hidden": {"text": `The Lovers holds your ability to open up opportunities through collaboration — important turning points often don't come from grinding it out alone, but from someone making a connection or introducing the right person. It's worth noticing whether you're choosing who to walk with because they're genuinely a good fit, or simply because they're kind to you and you feel bad saying no.`},
+  "yearly": {"text": `When the Lovers becomes this year's timing layer, collaboration, helpful people, and the choices you make in relationships are more likely to become important doorways in real life.`}
+}},
+"7": {"number":7,"name":"The Chariot","modules": {
+  "self": {"text": `Once you know where you're headed, your drive kicks in hard. What actually holds you back usually isn't ability — it's whether the direction is clear.`},
+  "talent": {"text": `Your strength is a strong sense of mission and speed of execution — you can concentrate your energy on a goal, which makes you especially suited to situations that call for breaking through, starting something new, or sustained forward motion.`},
+  "relationship": {"text": `In relationships, you tend to want things to keep moving forward. When the other person's pace is different from yours, you may quickly start feeling like they're dragging their feet.`},
+  "imbalance": {"text": `When your attention shifts to other people's progress, you can slide into comparing, impatience, or pushing too hard — and lose sight of where you were actually trying to go.`},
+  "balance": {"text": `Before you speed up, ask yourself: "Is this step actually bringing me closer to the goal, or am I just moving because I can't stand sitting still?"`},
+  "hidden": {"text": `The Chariot holds the drive you bring once you've locked onto a goal — once you've decided to do something, you often push it forward faster than most people would. It's worth pausing every so often, mid-push, to check: is this step actually bringing you closer to the goal, or are you moving simply because standing still feels unbearable?`},
+  "yearly": {"text": `As the Chariot enters this year's timing layer, things tend to demand that you set a direction, make a choice, and actually move forward — rather than staying stuck in evaluation.`}
+}},
+"8": {"number":8,"name":"Strength","modules": {
+  "self": {"text": `It's not that you lack the drive to act — you naturally think first about how to minimize the cost, then decide how to move.`},
+  "talent": {"text": `Your ability lies in strategy, choosing a path, and managing risk. Where others might want to push straight through a wall, you're more likely to look for the door first.`},
+  "relationship": {"text": `In relationships, you may need more time to weigh things before acting. To someone with a faster pace, that can look like stalling, but for you it's often about trying to keep things from getting worse.`},
+  "imbalance": {"text": `When you're too afraid of getting it wrong, "let me think about it a bit more" can stretch into not moving at all — and you may end up missing the moment you actually needed to face.`},
+  "balance": {"text": `Strategy needs a cutoff point. Set a threshold — "once I have this much information, I act" — so planning actually saves you effort instead of replacing it.`},
+  "hidden": {"text": `Strength holds your ability to assess risk and find the path that costs the least — while others are rushing to push through, you're often already thinking about a way to do it with less loss. It's worth remembering that assessment needs an endpoint: if you already have enough information and you're still saying "let me think about it more," that may just be delaying the moment you actually need to face.`},
+  "yearly": {"text": `When Strength enters this year's timing layer, reality is more likely to ask you to redistribute your effort and learn that you can move forward without meeting force with force.`}
+}},
+"9": {"number":9,"name":"The Hermit","modules": {
+  "self": {"text": `You absorb your environment fast — where you spend your time long-term, and who you spend it with, has a real influence on who you end up becoming.`},
+  "talent": {"text": `Your ability is learning, absorbing, and integrating what you take in into your own understanding — put you in the right environment, and your growth rate can be remarkable.`},
+  "relationship": {"text": `Relationships affect you beyond just your emotions — they gradually shape how you think and what habits you form. The people you choose are, in effect, also choosing your environment.`},
+  "imbalance": {"text": `If you stay somewhere that doesn't suit you for too long, you'll also, quite efficiently, absorb patterns that don't actually suit you.`},
+  "balance": {"text": `Instead of only asking "do I need to try harder," also ask "who is the environment I'm in right now turning me into?"`},
+  "hidden": {"text": `The Hermit holds your capacity to absorb your surroundings and be quickly shaped by them — change teams, change your circle of friends, and your whole state often shifts noticeably. It's worth considering whether whatever's been making you feel drained or unmotivated lately might not be about you at all, but about an environment that simply isn't a good fit right now.`},
+  "yearly": {"text": `When the Hermit enters this year's timing layer, your environment, sources of learning, and the people around you are more worth reconsidering than usual.`}
+}},
+"10": {"number":10,"name":"Wheel of Fortune","modules": {
+  "self": {"text": `In the outer world, you tend to have an easier time landing opportunities, resources, or room to maneuver — the same amount of effort can sometimes bring a better external result for you.`},
+  "talent": {"text": `Your strength is riding momentum and amplifying results. When you keep building steadily, a good cycle can easily compound.`},
+  "relationship": {"text": `In relationships, you may become part of how resources, opportunities, or momentum move — but that doesn't mean you have to carry the outcome for everyone.`},
+  "imbalance": {"text": `If you get too used to things working out in the end, you may underestimate how much preparation actually matters, or linger too long in a comfortable position.`},
+  "balance": {"text": `Treat luck as an accelerator, not a steering wheel. The more resources you have, the more you need to know where you actually intend to use them.`},
+  "hidden": {"text": `Wheel of Fortune holds your knack for catching opportunities and finding room to maneuver — the same effort, applied by you, can sometimes bring a better-than-expected result. It's worth noticing that when opportunities come easily, it's tempting to relax your preparation — but the moment to ride the momentum is exactly when the fundamentals matter most.`},
+  "yearly": {"text": `When Wheel of Fortune becomes this year's timing layer, outer change, opportunity, and the movement of resources will be more noticeable — what still matters most is how you catch it.`}
+}},
+"11": {"number":11,"name":"Justice","modules": {
+  "self": {"text": `You naturally weigh things over and over — whether something is reasonable, whether it's consistent — so you often see more detail than other people do.`},
+  "talent": {"text": `Your sensitivity can turn into strong analytical ability, especially good at catching contradictions, risks, and differences other people miss.`},
+  "relationship": {"text": `In relationships, a single sentence can send you through many layers of thought. If you don't voice it, the other person may just see you go quiet, with no idea how many rounds you've already run through in your head.`},
+  "imbalance": {"text": `When all that weighing has nowhere to go, it easily turns into wearing yourself down — the information hasn't actually increased, but your mind keeps rerunning the same question.`},
+  "balance": {"text": `Give your thinking an endpoint: which information is already enough? And which part can only be answered by actually acting?`},
+  "hidden": {"text": `Justice holds your analytical ability to spot contradictions and inconsistencies — a gap in a contract, a plan, or something someone said offhand, you often catch it before anyone else does. It's worth practicing setting yourself a stopping point after you spot a problem: once you have enough to judge by, switch to action and let reality test it, instead of continuing to turn it over in your head.`},
+  "yearly": {"text": `When Justice enters this year's timing layer, decisions, responsibility, weighing what matters, and inner deliberation will be more amplified than usual.`}
+}},
+"12": {"number":12,"name":"The Hanged Man","modules": {
+  "self": {"text": `You take promises and responsibility seriously — once you've decided something is yours to handle, you'll often find a way to see it through even when you don't have much left to give.`},
+  "talent": {"text": `Your strength is a willingness to carry weight. In front of the people or things that truly matter, you can set aside immediate gains and losses to fulfill what you've decided is your responsibility.`},
+  "relationship": {"text": `In relationships, you readily tie love to giving. Over the long run, what's worth watching isn't whether you're willing to give — it's how much of yourself you have left.`},
+  "imbalance": {"text": `When sacrifice becomes a habit, you may keep holding things up while quietly accumulating resentment — until even you can't quite say what you're upset about anymore.`},
+  "balance": {"text": `Separate "I'm willing to give" from "I have to exhaust myself." Responsibility needs boundaries, or devotion turns into pressure.`},
+  "hidden": {"text": `The Hanged Man holds your persistence in fully carrying out whatever you've decided is your responsibility — once you feel something is yours to shoulder, you'll find a way to do it even without enough resources. It's worth asking yourself, before you take it on, whether you genuinely want to — or whether you simply feel like you can't refuse. Those two feel very different once you're actually carrying it.`},
+  "yearly": {"text": `When the Hanged Man becomes this year's timing layer, giving, responsibility, and boundaries are more worth sorting through again — which things are worth carrying, and which ones need a different approach.`}
+}},
+"13": {"number":13,"name":"Death","modules": {
+  "self": {"text": `You update yourself fast. Once something inside you has decided a thing no longer fits, you don't tend to drag your feet on acting.`},
+  "talent": {"text": `Your strength is being able to end something, start over, and quickly turn a failure into experience for the next version.`},
+  "relationship": {"text": `In relationships, once you feel something has run its course, you may move quickly into "change it or end it" mode. It's worth checking whether that's an emotion, or an actual decision.`},
+  "imbalance": {"text": `If every moment of discomfort gets read as "this should end," life can end up with more upheaval than it needs.`},
+  "balance": {"text": `A truly mature Death isn't about fearing endings — it's knowing what's actually worth ending, and what just needs adjusting.`},
+  "hidden": {"text": `Death holds your ability to correct course and update yourself through endings and experience — when a method isn't working, you don't usually cling to it, you switch to a new version and try again. It's worth separating, before you decide to end or change something, whether you've actually thought it through, or whether it's just discomfort in the moment.`},
+  "yearly": {"text": `When Death enters this year's timing layer, old structures are more likely to be called on to update. What matters isn't the loss itself — it's how you're preparing to step into the next version.`}
+}},
+"14": {"number":14,"name":"Temperance","modules": {
+  "self": {"text": `You're good at using language to build connection, and you know how to adjust how you express something depending on who you're talking to.`},
+  "talent": {"text": `Your ability is saying things clearly, in a way people actually want to listen to. Communication, sales, teaching, hosting, consulting can all easily become stages where this works for you.`},
+  "relationship": {"text": `In relationships, you tend to handle problems by talking them through. The upside is you can mediate; the risk is moving into persuasion too quickly, before you've really understood.`},
+  "imbalance": {"text": `When you rely too heavily on your way with words, you may end up talking faster than you act, or say what sounds good in the moment to keep the mood pleasant, even when it's not quite how you actually feel.`},
+  "balance": {"text": `Check first whether you're expressing or explaining something — or trying to win the other person's agreement. The more honest your words are, the steadier your influence.`},
+  "hidden": {"text": `Temperance holds your ability to say things clearly, in a way people want to listen to — when different opinions need mediating or a situation needs calming, you often find the right words. It's worth checking, before you speak, whether you want to explain something clearly or persuade the other person to agree with you — the words that come out will be quite different depending on which one it is.`},
+  "yearly": {"text": `When Temperance enters this year's timing layer, communication, negotiation, expression, and figuring out how to say things clearly become very practical topics.`}
+}},
+"15": {"number":15,"name":"The Devil","modules": {
+  "self": {"text": `You usually have a pretty direct sense of what you want and where your interests lie. What actually matters isn't whether you have a sense of self — it's how far that "self" extends.`},
+  "talent": {"text": `Your ambition, sense of resources, and pull on other people can all become real driving force — especially once you count a partner, family, or team as "my people" too.`},
+  "relationship": {"text": `In relationships, you may care a great deal about having, losing, and whether you're on the same side. Mature, that becomes protectiveness; out of balance, it easily turns into holding on too tight.`},
+  "imbalance": {"text": `When you're afraid of losing something, your sense of self can shrink down small and turn into control, possessiveness, or only seeing what's in front of you.`},
+  "balance": {"text": `Don't pretend you have no needs. Admit honestly what you want first, then check whether that choice also takes care of the people you genuinely value.`},
+  "hidden": {"text": `The Devil holds your drive to fight for important resources and relationships — it can show up in how work gets divided, how you handle a relationship, or family decisions. What's worth distinguishing is whether that drive is purely about your own needs, or whether it also includes the people you care about and shared goals. The same persistence can come from very different places, and that changes how things play out afterward.`},
+  "yearly": {"text": `When the Devil enters this year's timing layer, interests, desire, boundaries, control, and the question of what you actually want will need to be looked at more honestly.`}
+}},
+"16": {"number":16,"name":"The Tower","modules": {
+  "self": {"text": `You don't necessarily voice discomfort right away — pressure may get held up first, until it crosses a threshold and releases all at once.`},
+  "talent": {"text": `Your real strength isn't the explosion itself — it's the ability to quickly dismantle a structure that no longer fits. The earlier you see the crack, the more skillfully you can use this.`},
+  "relationship": {"text": `In relationships, if you always endure things first, the other person may assume it's not that serious — until you suddenly cut it off completely or reach a breaking point.`},
+  "imbalance": {"text": `Staying silent and not dealing with things for too long can easily end up destroying even the parts that were worth keeping.`},
+  "balance": {"text": `Don't wait until things reach 100 before you speak up. Starting to say something at 30 or 40 percent discomfort is safer than letting an eventual explosion be what finally makes the problem visible.`},
+  "hidden": {"text": `The Tower holds your sharp sense for when a structure has already become unstable and needs adjusting — you tend to feel that something's off in a relationship or an arrangement earlier than most people do. It's worth checking whether pressure has been building, and speaking up or adjusting things sooner, so change doesn't have to wait for a full breaking point — and important relationships are less likely to get hurt along the way.`},
+  "yearly": {"text": `When the Tower enters this year's timing layer, a structure that's already unstable becomes harder to pretend is fine. The sooner you adjust it, the less likely it is to reach a full collapse.`}
+}},
+"17": {"number":17,"name":"The Star","modules": {
+  "self": {"text": `You know how to make value visible — you naturally pay attention to image, story, recognizability, and how something is presented.`},
+  "talent": {"text": `Your strength is packaging and amplifying what's worth noticing — whether it's a person, a brand, a product, or an idea, you can easily shape it into something more memorable.`},
+  "relationship": {"text": `In relationships, you pay attention to how things look from the outside, and you may care a lot about how other people see the relationship.`},
+  "imbalance": {"text": `If you get too caught up in image, you may start ignoring what you actually feel in order to keep up appearances.`},
+  "balance": {"text": `Packaging itself isn't the problem — the question is whether there's still real substance inside it. Let presentation serve the substance, not replace it.`},
+  "hidden": {"text": `The Star holds your ability to make value visible — the same thing, once you've organized and presented it, often becomes easier for people to remember and understand. It's worth making sure that, while you put effort into the packaging, what's inside can actually hold up under scrutiny — presentation only helps something get seen; it can't replace the real substance.`},
+  "yearly": {"text": `When the Star enters this year's timing layer, visibility, branding, image, and figuring out how to make your value seen are more worth investing in.`}
+}},
+"18": {"number":18,"name":"The Moon","modules": {
+  "self": {"text": `You're sensitive to uncertainty, shifts in a relationship, and atmosphere — you need more confirmation than most people before you can genuinely feel safe.`},
+  "talent": {"text": `Given time to mature, your sensitivity turns into a deep capacity for emotional understanding — a better ability to grasp the parts of someone's inner world that they can't quite put into words yet.`},
+  "relationship": {"text": `Relationships tend to get tied to your sense of safety. A shift in the other person's distance, tone, or state may affect you more than it looks like from the outside.`},
+  "imbalance": {"text": `When there isn't enough information, you're easily carried off by imagination — guessing, fearing loss, even feeling lonely with someone right there beside you.`},
+  "balance": {"text": `The Moon doesn't need to be rushed into figuring things out right away. Gathering more information and a sense of safety first, before you judge, works better than forcing yourself to have an answer now.`},
+  "hidden": {"text": `The Moon holds your sensitivity to shifts in emotion and atmosphere — a subtle change in someone's tone or attitude, you often notice before other people do. It's worth remembering that sensing a change isn't the same as knowing what the other person feels or why. Facing the unknown or a shift in a relationship, you may need more confirmation than most before you can genuinely feel at ease.`},
+  "yearly": {"text": `When the Moon enters this year's timing layer, uncertainty and questions of safety may become more prominent. What matters is letting what's unclear gradually come into focus, rather than rushing to conclude what's still unknown.`}
+}},
+"19": {"number":19,"name":"The Sun","modules": {
+  "self": {"text": `You naturally put people at ease — warm, approachable, seen. A lot of the time you don't have to do anything deliberate for people to want to be near you.`},
+  "talent": {"text": `Your strength is warmth and likability — you can build trust, bring people together, and make a room feel more alive just by being in it.`},
+  "relationship": {"text": `You both need and are good at creating a feeling of being truly seen by each other. In important relationships, real time together and face-to-face warmth tend to carry more weight than text ever can.`},
+  "imbalance": {"text": `When you get too used to being everyone's little sun, you may start feeling you have to always be easy to get along with, always shining — and end up afraid to let anyone see you tired.`},
+  "balance": {"text": `A truly mature Sun doesn't need to shine all the time. Let yourself rest, and give other people the chance to take care of you too.`},
+  "hidden": {"text": `The Sun holds your ability to make people feel warmly treated — when a group feels awkward or the atmosphere goes cold, you're often the one who speaks up first and warms things back up. It's worth remembering that this ability needs recharging too after long use — allowing yourself to skip being the one who carries the mood sometimes won't cost you people's affection.`},
+  "yearly": {"text": `When the Sun enters this year's timing layer, chances for connection, visibility, and being seen may increase — and it's a good time to bring warmth back into your important relationships.`}
+}},
+"20": {"number":20,"name":"Judgement","modules": {
+  "self": {"text": `You have your own standard for whether something is worth it, whether it's reasonable, and whether effort and reward match up.`},
+  "talent": {"text": `As your understanding matures, that standard becomes strong judgment — helping you quickly recognize what's worth investing in and what isn't.`},
+  "relationship": {"text": `In relationships, you care about responsibility, fairness, and who's doing how much. That can help keep a relationship fair — or turn into both of you keeping score.`},
+  "imbalance": {"text": `When your standard gets too rigid, you may become overly critical, or fall into a loop of who owes whom more.`},
+  "balance": {"text": `Fairness doesn't mean splitting everything fifty-fifty — it means both people understand why the current arrangement makes sense, and can renegotiate when it stops feeling that way.`},
+  "hidden": {"text": `Judgement holds your clear standard for whether something is worth investing in — after a collaboration or relationship has gone on for a while, you can usually sense pretty quickly whether it's worth it. It's worth noticing that when your standard gets too tight, it can turn into keeping score of who's doing more. It may help to just say your standard out loud sometimes, so the other person has a chance to respond or adjust too.`},
+  "yearly": {"text": `When Judgement enters this year's timing layer, questions of value, how responsibility is divided, and what's actually worth continuing will come up more often in real life.`}
+}},
+"21": {"number":21,"name":"The World","modules": {
+  "self": {"text": `You often find your flow again after changing environments, switching fields, encountering a different culture, or crossing into new territory.`},
+  "talent": {"text": `Your strength is crossing boundaries and expanding — connecting experience from different worlds. You're suited to going abroad, working internationally, traveling, and collaborating across fields.`},
+  "relationship": {"text": `In relationships, you also need perspective and room. When two people stay stuck in the same way of living, changing the scenery and exploring a new world together can sometimes open the relationship back up.`},
+  "imbalance": {"text": `If you keep believing the answer is somewhere else, you may end up constantly changing environments without ever actually bringing the experience back into yourself.`},
+  "balance": {"text": `The World isn't telling you to keep leaving — it's asking you to turn the new perspective you gain each time you go out into an actual ability of your own.`},
+  "hidden": {"text": `The World holds your ability to integrate different experiences and find your flow again — changing environments or encountering a new field can often open up a situation that felt stuck. It's worth remembering that changing your environment can offer a better position to work from, but the real gain still depends on whether you actually bring that new perspective back and use it.`},
+  "yearly": {"text": `When the World enters this year's timing layer, changing your environment, crossing into new fields, traveling, going abroad, or expanding your range of activity may become an important way forward.`}
+}},
+"22": {"number":22,"name":"The Fool","modules": {
+  "self": {"text": `Your path doesn't necessarily narrow into a single line early on — trying many things and taking detours early is often also a way of gathering material you'll use later.`},
+  "talent": {"text": `Your ability lies in integrating different experiences. Once you've walked enough different roads, you may end up forming a combination that's genuinely hard to replicate.`},
+  "relationship": {"text": `In relationships, you also need room to keep exploring and growing. Being asked to settle into a fixed shape too early can leave you feeling forced into a conclusion before you've actually finished the journey.`},
+  "imbalance": {"text": `If you stay stuck at starting and trying without moving further, none of that experience gets the chance to grow into an actual result.`},
+  "balance": {"text": `You don't need to rush to prove you've already settled into a shape — but pick a few things worth building on, so your exploration eventually has somewhere to land.`},
+  "hidden": {"text": `The Fool holds your ability to gather material through trying and exploring — the urge to change direction or start over is a natural part of who you are. It's worth checking, before each new attempt, whether you've actually kept what you learned from the last one — rather than only ever getting as far as starting over.`},
+  "yearly": {"text": `When the Fool enters this year's timing layer, new beginnings, experimenting again, and opening up possibilities become more important — but the exploring still needs to be brought back into real accumulation.`}
+}}
+};
+
+const YEARLY_ROLES_EN = {
+"1": {"number":1,"name":"The Magician","annualYearly":{"text":`This year, the world around you is more likely to bring "starting, understanding, and transforming" right in front of you. You may need to turn a once-vague idea into something you can actually execute — circumstances will respond more directly to whether you've actually started.`},"birthdayYearly":{"text":`From this birthday to your next, you're moving through a stretch of re-understanding your own methods. You may find yourself sorting through, again and again, what you truly believe, what you want to bring into being, and which ideas are worth turning into reality.`},"sameYearly":{"text":`This year, circumstances are asking you to start doing, while inwardly you're also reorganizing your own methods and creative direction. The Magician's theme shows up on both fronts, making it harder to overlook the work of turning ideas into reality.`}},
+"2": {"number":2,"name":"The High Priestess","annualYearly":{"text":`This year, circumstances are more likely to bring situations that call for you to read the room and pick up on what's left unsaid. Information may not all arrive at once — seeing clearly before you respond will serve you better than rushing to a conclusion.`},"birthdayYearly":{"text":`From this birthday to your next, you may feel more sensitive, and it becomes especially important to tell apart which feelings are your own and which you've simply picked up from someone else. This is a stretch for practicing trust in what you sense while also building boundaries around it.`},"sameYearly":{"text":`This year, both what's happening around you and what's happening inside you bring perception, observation, and boundaries into the foreground. You may notice details more easily, and it matters more than usual not to carry everything you sense back home with you.`}},
+"3": {"number":3,"name":"The Empress","annualYearly":{"text":`This year, circumstances are more likely to bring situations involving care, allocating resources, family, or taking on what other people need. You may more often find yourself in the position of figuring out how to take care of things well.`},"birthdayYearly":{"text":`From this birthday to your next, you're working through the balance between giving and being cared for. You may be very good at taking care of people, but this stretch will also remind you to count yourself among those worth taking care of.`},"sameYearly":{"text":`This year, circumstances are asking you to care for and take on things, while inwardly you're sorting out how you give, and whether you've counted yourself in. The Empress's theme becomes noticeable on both fronts — though it isn't asking you to give more.`}},
+"4": {"number":4,"name":"The Emperor","annualYearly":{"text":`This year, circumstances are more likely to bring things that call for you to make decisions, take responsibility, allocate resources, or hold the overall direction. Who decides, how things get arranged, and how to keep a situation steady will feel more present than usual.`},"birthdayYearly":{"text":`From this birthday to your next, you're reworking your relationship with responsibility, control, and being in charge. You may get clearer on what actually needs your decision, and it's worth practicing not letting holding the direction turn into controlling everyone in it.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring responsibility, decision-making, and being in charge to the foreground. The Emperor's theme shows up on both fronts — not as a call to control more, but to use your decision-making power more maturely.`}},
+"5": {"number":5,"name":"The Hierophant","annualYearly":{"text":`This year, circumstances are more likely to bring opportunities to learn, teach, pass on experience, or organize a method for someone else. What you understand may need to be spelled out, taught, or shaped into something usable.`},"birthdayYearly":{"text":`From this birthday to your next, you may be reorganizing your own beliefs and framework of understanding. You'll likely find yourself asking more often: which of these do I actually believe, and which are just answers I've gotten used to accepting?`},"sameYearly":{"text":`This year, circumstances call for more knowledge and passing it on, while inwardly you're also reorganizing your own belief system. The Hierophant's theme is visible on both fronts — the point isn't knowing more, it's making your understanding genuinely your own.`}},
+"6": {"number":6,"name":"The Lovers","annualYearly":{"text":`This year, circumstances are more likely to open opportunities through collaboration, connections, relationships, and other people's help. An important choice may not be about you alone, but about who you walk with and how you collaborate.`},"birthdayYearly":{"text":`From this birthday to your next, you're sorting through the choices you make within relationships. You can accept support, but you'll also be reminded that collaborating doesn't mean handing your direction over to someone else.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring collaboration, relationships, and choice to the foreground. The Lovers' theme is present on both fronts — what matters is holding onto your own direction even while accepting help.`}},
+"7": {"number":7,"name":"The Chariot","annualYearly":{"text":`This year, circumstances may call for you to choose a direction, make decisions, and move things forward. Some situations may not allow you to keep weighing your options indefinitely. How clearly you define your goal will directly affect how effectively you move forward.`},"birthdayYearly":{"text":`From this birthday to your next, you're exploring where you truly want to go. Being without a clear direction may feel more uncomfortable than usual, making it especially important to distinguish between truly wanting to move forward and simply finding it hard to stay still.`},"sameYearly":{"text":`This year, circumstances are calling you forward as you reconsider your direction within. The Chariot's theme is becoming more noticeable in both your outer experiences and your inner life. What matters most is knowing where you're headed, rather than how quickly you get there.`}},
+"8": {"number":8,"name":"Strength","annualYearly":{"text":`This year, circumstances are more likely to ask you to redistribute your effort, cut unnecessary loss, and find a more effective path than meeting force with force. Strategy, resource allocation, and risk management will matter more.`},"birthdayYearly":{"text":`From this birthday to your next, you're learning to use your effort more maturely. You may find yourself reconsidering what's actually worth pushing hard for, what could use a different approach, and when you don't need to prove yourself by gritting it out.`},"sameYearly":{"text":`This year, both circumstances and your inner life are reminding you to redistribute your effort. Strength's theme shows up on both fronts — figuring out how to move forward with less waste and more effect is a theme worth paying attention to right now.`}},
+"9": {"number":9,"name":"The Hermit","annualYearly":{"text":`This year, your environment, circle, sources of learning, and the people you spend time with will noticeably shape your direction. Changing your setting, your points of reference, or getting closer to someone more seasoned may do more than simply trying harder.`},"birthdayYearly":{"text":`From this birthday to your next, you're absorbing, sorting, and forming your own understanding again. It's worth paying attention to what the environment you're in right now is turning you into.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring environment and learning to the foreground. The Hermit's theme shows up on both fronts — the point isn't withdrawing, it's choosing more deliberately what you absorb and who you get close to.`}},
+"10": {"number":10,"name":"Wheel of Fortune","annualYearly":{"text":`This year, opportunities, resources, change, and room to maneuver may become more visible around you. New openings may appear, but what really makes the difference is still whether you're prepared to catch them.`},"birthdayYearly":{"text":`From this birthday to your next, you're moving through a stretch of re-understanding where you're preparing to flow toward. You may pay more attention to opportunity, transition, and what's next, and it matters to tell apart riding momentum from simply being swept along.`},"sameYearly":{"text":`This year, circumstances bring more movement and opportunity, while inwardly you're also sorting out where you're preparing to go. Wheel of Fortune's theme shows up on both fronts, which means how you catch change and recognize which opportunities are worth following is a theme worth watching right now.`}},
+"11": {"number":11,"name":"Justice","annualYearly":{"text":`This year, circumstances are more likely to bring situations that call for weighing things, deciding, sorting out responsibility, or dealing with inconsistencies. You may need to look more carefully at the conditions before choosing, and things may feel harder to leave vague.`},"birthdayYearly":{"text":`From this birthday to your next, you're prone to weighing things over and recalibrating your own standards. This may not be an easy stretch, but it's a good one for turning that inner wear-and-tear into clearer judgment.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring weighing things, responsibility, and recalibration to the foreground. Justice's theme shows up on both fronts, making it harder to ignore the things that genuinely need sorting out.`}},
+"12": {"number":12,"name":"The Hanged Man","annualYearly":{"text":`This year, circumstances are more likely to put questions of responsibility, giving, and boundaries in front of you. Something may need you to carry it, but it will also test more directly which things are worth continuing to carry and which need a different approach.`},"birthdayYearly":{"text":`From this birthday to your next, you're reworking your relationship with responsibility, sacrifice, and giving. You may feel tired more easily, and it matters to tell apart "I want to" from "I have no choice."`},"sameYearly":{"text":`This year, both circumstances and your inner life bring giving, responsibility, and boundaries to the foreground. The Hanged Man's theme shows up on both fronts, which means deciding again what's worth carrying and what needs a different approach.`}},
+"13": {"number":13,"name":"Death","annualYearly":{"text":`This year, old structures in your life are more likely to need ending, changing, or starting over. Some changes may arrive quite clearly — what matters isn't holding onto how things were, but seeing how the next version is meant to take shape.`},"birthdayYearly":{"text":`From this birthday to your next, you're in a stretch where you update yourself faster than usual. It may get harder to keep pretending something that no longer fits is fine, and it's worth practicing ending and restarting things on purpose.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring endings, change, and renewal to the foreground. Death's theme shows up on both fronts — that doesn't necessarily mean losing something, but it does mean the old version is harder to keep as it was.`}},
+"14": {"number":14,"name":"Temperance","annualYearly":{"text":`This year, circumstances are more likely to bring situations that call for communicating, explaining, negotiating, teaching, or mediating. Whether many things can move forward may depend on how clearly you put things into words.`},"birthdayYearly":{"text":`From this birthday to your next, you're sorting out what you actually want to say, and how to say it in a way that gets understood without straying from what's true just to keep the mood pleasant.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring communication and expression to the foreground. Temperance's theme shows up on both fronts — the point isn't saying more, it's making the words you do say clearer and more honest.`}},
+"15": {"number":15,"name":"The Devil","annualYearly":{"text":`This year, circumstances are more likely to bring interests, resources, needs, boundaries, and a sense of control right in front of you. You may see more directly what you actually want, and it matters to deal with how you react when you're afraid of losing it.`},"birthdayYearly":{"text":`From this birthday to your next, you're re-understanding your own needs, desires, and where the boundary of "my people, my things" actually sits. This is a good stretch for facing what you want more honestly.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring needs, interests, and a sense of control to the foreground. The Devil's theme shows up on both fronts — not as a call to suppress desire, but to understand more maturely what you're holding onto, and why.`}},
+"16": {"number":16,"name":"The Tower","annualYearly":{"text":`This year, circumstances make it harder for an already unstable structure to keep being ignored. A long-building problem may need addressing — the earlier you adjust it, the less you'll need things to get dramatic before you notice.`},"birthdayYearly":{"text":`From this birthday to your next, it may get harder to keep holding down the parts that already feel uncomfortable. This is a stretch for learning to deal with a problem honestly before the pressure reaches its breaking point.`},"sameYearly":{"text":`This year, both circumstances and your inner life make what's unstable harder to ignore. The Tower's theme shows up on both fronts — that doesn't necessarily mean a collapse, but it does call for real adjustment before things reach the breaking point.`}},
+"17": {"number":17,"name":"The Star","annualYearly":{"text":`This year, circumstances are more likely to bring opportunities for visibility, branding, image, having your work seen, or needing to present something in a new way. How you make your value understood may matter more than it used to.`},"birthdayYearly":{"text":`From this birthday to your next, you're sorting out how you want to be seen, and which parts of your image are genuinely you versus just a shape you've gotten used to keeping up.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring being seen to the foreground. The Star's theme shows up on both fronts — the point isn't cultivating a prettier image, it's making the presentation sit closer to the real value underneath.`}},
+"18": {"number":18,"name":"The Moon","annualYearly":{"text":`This year, uncertainty, the mood in a relationship, or incomplete information may affect your sense of safety more easily. Circumstances may not hand you an answer right away, so gathering more information and confirming the situation will matter more than guessing.`},"birthdayYearly":{"text":`From this birthday to your next, your feelings around safety, loss, and the unknown may become more pronounced. It matters to let yourself see things clearly at your own pace, rather than forcing yourself to stop being afraid right now.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring safety and uncertainty to the foreground. The Moon's theme shows up on both fronts — that doesn't mean things are necessarily bad, just that ambiguity will be easier for you to feel, and worth confirming slowly.`}},
+"19": {"number":19,"name":"The Sun","annualYearly":{"text":`This year, chances for connection, visibility, and being seen may increase around you. Real interaction with people, trust, and warmth in the room may more easily become a force that moves things forward.`},"birthdayYearly":{"text":`From this birthday to your next, you need to feel warmth, connection, and being seen again. You may also start understanding that you don't have to keep shining to still be worth liking and being close to.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring connection, warmth, and being seen to the foreground. The Sun's theme shows up on both fronts — not as a demand to shine brighter, but as an invitation to lean on real human connection.`}},
+"20": {"number":20,"name":"Judgement","annualYearly":{"text":`This year, circumstances are more likely to bring questions of fairness, how responsibility is divided, value judgments, and whether something is still worth investing in. A lot of things may need renegotiating or re-choosing.`},"birthdayYearly":{"text":`From this birthday to your next, you're reworking your own standards. You may get clearer on what feels unequal to you, and it matters to tell apart whether your standard is helping you judge, or just keeping you stuck keeping score.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring fairness, standards, and value judgment to the foreground. Judgement's theme shows up on both fronts — not as a call to be more critical, but to get clearer on what's actually worth continuing to invest in.`}},
+"21": {"number":21,"name":"The World","annualYearly":{"text":`This year, circumstances are more likely to open new paths through changing your environment, crossing into new fields, traveling, going abroad, or encountering different circles. Movement itself isn't the goal, but a new setting may bring a new answer.`},"birthdayYearly":{"text":`From this birthday to your next, you're expanding your own perspective. You may find yourself wanting to step outside a familiar frame and look again at what other versions of your life are available.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring crossing boundaries, movement, and expansion to the foreground. The World's theme shows up on both fronts — the point isn't to keep leaving, it's actually bringing the new perspective back into your own life.`}},
+"22": {"number":22,"name":"The Fool","annualYearly":{"text":`This year, circumstances are more likely to bring new starting points, experiments, and chances to begin again. The route may not be complete from the start, but you may need to take a step first and correct course from the feedback you get along the way.`},"birthdayYearly":{"text":`From this birthday to your next, you're moving into a stretch of exploring yourself again. You may not want to settle into a shape too quickly, but you'll also need to figure out which attempts are worth actually building on.`},"sameYearly":{"text":`This year, both circumstances and your inner life bring exploration and new beginnings to the foreground. The Fool's theme shows up on both fronts — not as a call to keep drifting, but as permission to take a step first, then slowly integrate the experience into direction.`}}
+};
+
+const HIDDEN_SAME_NUMBER_TEXT_EN = {
+"15": `When you're pursuing something you want, it's worth noticing who you've included within "yourself." Beyond your own needs, that may also include family, partners, or a shared goal. This ambition can be used to create resources for the whole group — and it's also worth checking whether the arrangement you believe is good for everyone still leaves room for each person to voice their needs and take part in the choice.`,
+"1": `The ways you've solved problems in the past may have built up into a toolkit you can reuse — you don't necessarily have to start from zero every time. It's worth noticing whether, when a new problem comes up, you forget to check first whether an existing method might already apply, before deciding you need to design a new one.`,
+"2": `When communicating over text, you may easily notice small shifts in someone's word choice, punctuation, or reply speed and sense something's off. It's worth remembering that signals picked up through a screen are more easily amplified by your own guesses than they would be face to face — it may help to leave the other person a bit more room to explain before you respond.`,
+"3": `This ability to care for others may also extend into work or projects — making sure resources are in place and watching for anything that's been missed is its own kind of concrete arrangement. It's worth noticing whether, when making these arrangements, you default to just handling it yourself, or whether you also let others know how much coordination it actually takes.`,
+"4": `When you're not the one in charge and things are being done someone else's way, it's worth noticing whether you can genuinely let go and trust them, or whether you keep correcting the small details. Telling apart "this needs me to carry it" from "this is something I can let someone else carry" means you don't have to hold up everything yourself.`,
+"5": `When someone tries to remind or teach you something, it's worth noticing whether you tend to argue back in your head first, feeling like you already know what they're getting at. Being willing to hear them out before judging whether it holds up will get you further than rushing to prove you already know — and it lets the other person feel heard too.`,
+"6": `When a new collaborator or opportunity comes along, it's worth noticing whether you want to team up simply because the person is likeable and easy to talk to, without first checking whether your directions actually align. Even the right person with a different goal can still end up out of sync halfway through, and a good rapport spent for nothing.`,
+"7": `If you're often the one pushing progress forward in a collaboration, it's worth practicing this: when someone else's pace is different, ask what's holding them up before taking over or pushing them. That tends to keep the collaboration going better than making them feel judged — and it's fairer to them too.`,
+"8": `When someone close to you is about to make a decision that looks risky, you may not be able to resist pointing out everything that could go wrong. It's worth noticing whether those warnings are actually helping them see the risk clearly, or whether you're unconsciously applying your own habit of "let's think about it more" onto them too.`,
+"9": `When you want to improve faster in some area, it's worth checking whether you're only focused on trying harder without seriously considering who to get close to or what environment to be in. Sometimes changing who you spend time with or where can show results faster than willpower alone, and the change tends to last longer too.`,
+"10": `When you have resources or an opportunity in hand, rather than holding onto it tightly, you may do better letting it keep moving — sharing it, trading it, or putting it toward the next thing tends to bring a new cycle more than hoarding does. It's worth noticing what resources have been sitting unused for a while — it might be time to put them into motion.`,
+"11": `When reviewing someone else's plan or decision, you can usually spot the problem quickly. Reviewing your own, though, your standard may actually get stricter, magnifying your own small mistakes. It's worth noticing whether you're using a different ruler for yourself than for other people, one that's especially unforgiving.`,
+"12": `Before you take something on, it's worth noticing whether this responsibility was clearly handed to you, or whether you quietly took it over yourself because the situation looked off. The latter often means you end up carrying a lot that nobody actually asked you to carry — and nobody knows to thank you, or to share the load.`,
+"13": `After a major change or ending, it's worth noticing whether you take the time to hold onto what you learned, rather than quickly moving on to the next thing. Writing down or saying out loud what you specifically learned lets your ability to update yourself accumulate into experience that's genuinely yours, rather than just starting over again and again.`,
+"14": `You're good at adjusting how you say something depending on who you're talking to, so everyone can understand and accept it more easily. It's worth noticing whether, with the phrasing shifting so much, even you start losing track of your own original, most honest position on the matter.`,
+"16": `When you notice something can't be sustained but hasn't actually hit a breaking point yet, you also have the ability to call it early and start reorganizing — you don't have to wait until you truly can't take it anymore. The sooner you admit "this needs adjusting," the more likely you are to close it well, instead of waiting for the relationship or plan to collapse entirely.`,
+"17": `The same piece of work or result can leave a very different impression depending on how it's presented. This sensitivity you have for adjusting presentation is especially useful when preparing a report, a portfolio, or a pitch. It's worth checking whether you're putting a lot of thought into the presentation without first confirming what this particular audience actually cares about.`,
+"18": `When someone close to you says they're fine but you can sense something's off, you can ask if they want to talk — while also leaving room for the possibility that they really are fine, or just don't want to talk about it yet. Asking this way tends to make the other person feel more respected than calling it out directly, and it gives you both a little more room.`,
+"19": `In an unfamiliar setting, you may put people you've just met at ease through friendly interaction, without needing to force the mood. It's worth remembering that this ease isn't the same as truly knowing each other — taking the time to let a relationship deepen builds something sturdier than just leaving everyone thinking you're easy to get along with.`,
+"20": `When a relationship or collaboration feels uneven, it's worth noticing whether what you actually care about is the arrangement itself being unfair, or simply wanting your effort to be seen and appreciated. Telling these apart can help you decide whether what needs adjusting is the actual arrangement, or whether you first need to say that you want to be acknowledged.`,
+"21": `If things with someone important feel a bit stuck, circling the same way of being together, consider trying something new together — going somewhere you've never been, learning something new side by side. A new setting can sometimes let you see each other from a different angle, instead of staying stuck in a familiar pattern.`,
+"22": `When you're exploring and haven't settled on a direction yet, that might be because you want to keep your options open — or it might be that you simply haven't found what you actually want to commit to. These two can feel very similar, but what comes next is different depending on which one it actually is, so it's worth noticing which applies to you.`
+};
+
+const HIDDEN_FALLBACK_TEXT_EN = {
+"15": `Some needs aren't easy to say out loud directly. It's worth checking whether the work, relationships, or goals you're putting yourself into right now are actually answering your own preferences and hopes. Seeing this clearly isn't about wanting less — it's about naming what you need, then checking whether your current choices still fit the life you actually want over the long run, so your ambition goes toward what's genuinely worth investing in.`,
+"1": `You tend to have a solution worked out before someone's even finished talking, which is genuinely useful in a work discussion. It's just worth checking whether the other person actually wants an answer right away, or wants to finish explaining the situation and feel understood first. Slowing down enough to let them finish can sometimes be more useful than getting there a step ahead.`,
+"2": `You often sense there's another meaning behind what's said, and that sharpness is useful when you need to read a situation, lead people, or handle a dispute. Rather than calling it out directly, it's usually better to ask what's going on and whether they want to talk — while leaving room for the possibility that they really are fine, or just not ready to talk yet. That tends to put less pressure on the relationship.`,
+"3": `After a while of taking care of others, you may not easily notice how much fatigue you've built up, because your attention has been fixed on whether the other person is okay. It's worth noticing that when your body or emotions start feeling impatient, that's usually a sign it's time to pause and put some resources back into yourself.`,
+"4": `In important relationships, you may also be used to laying out how things work fairly clearly — who's responsible for what, how to handle a given situation. That can give a relationship a sense of security, but it's worth occasionally asking whether these arrangements were actually worked out together, or whether you tend to decide them first most of the time.`,
+"5": `You may often feel the urge to explain something clearly for someone even when they haven't asked. It's worth practicing waiting a moment to see if they actually want to know, rather than jumping in with your own explanation every time you notice an incomplete understanding — giving them a chance to work it out themselves too.`,
+"6": `When you hit a wall, you may not be used to reaching out and asking for help, feeling like you should figure it out yourself. Letting someone else in, or drawing on their resources or experience, can actually find a way through faster than gritting it out alone — and it doesn't mean you're not capable, it means you know how to use what's around you well.`,
+"7": `When you notice you're stuck spinning your wheels, it's worth first checking where the problem actually is — is the direction still unclear, or is it already clear and you simply haven't actually started? Knowing which one it is changes what you need to adjust completely, and saves you from wasting effort on the wrong fix.`,
+"8": `Your habit of assessing before acting may look like hesitation to other people, especially those who move faster. It's worth practicing letting them know what you're thinking and roughly how long you'll need, rather than assessing silently and letting them assume you're not handling it at all — or have even given up.`,
+"9": `The people you spend a lot of time with may quietly reshape your standards for many things — what counts as normal, what's worth caring about. It's worth occasionally checking whether these standards are ones you actually agree with, or whether you've simply picked them up because that's what everyone around you thinks.`,
+"10": `When things keep going smoothly, you may not easily notice that you've actually been standing still for a while, because on the surface nothing looks wrong. It's worth occasionally asking yourself, beyond just maintaining the status quo, whether there's some preparation you could start now but keep putting off.`,
+"11": `For some problems, you've actually already worked out the analysis in your head — what's holding you back is just whether to actually try it. It's worth practicing separating two situations clearly: which things still lack information and need confirming, and which you've already thought through clearly enough that all that's left is testing it in reality. Once that's clear, acting will get you an answer faster than continuing to think.`,
+"12": `When you take something on, you may not particularly distinguish between temporary help and a responsibility you'll see all the way through — once you take it, you'll finish it. It's worth noticing whether something that started as temporary support ends up, because you did it so well for so long, becoming a fixed job that's just assumed to be yours, with no one ever asking again.`,
+"13": `Once you find a better alternative to a working method or tool you're used to, you tend to switch quickly, without much attachment to "this is how it's always been done." It's worth noticing that this decisiveness works well for methods, but rushing to fully switch to a new one you haven't actually tested yet can sometimes cause more back-and-forth than it saves.`,
+"14": `You're used to explaining something complicated until people actually understand it, which is useful when leading, teaching, or hosting. It's worth practicing leaving a bit of space after you finish, so the other person has room to take it in or ask a question — rather than rushing to add more detail and filling up the whole conversation, leaving them no opening to speak.`,
+"16": `This sharpness of the Tower may also show up in plans or arrangements — you may already sense faintly that some part isn't holding up before anyone else has noticed a problem. It's worth practicing putting that intuition into concrete words, naming which step or which condition feels unstable, rather than leaving it as a vague unease you can't quite explain.`,
+"17": `This ability of yours to make things visible and memorable also works well on other people's behalf — talking about a friend's strengths or a team's results, you often describe it more clearly and appealingly than they would themselves. It's worth practicing occasionally putting that same care into saying a few words for your own effort, instead of only being used to boosting others.`,
+"18": `When you're alone and can't reach someone important for a moment, your mind may quickly run through several bad guesses, even though the actual situation is usually not that dire. It's worth practicing doing something else to distract yourself first, and coming back to it once there's actually news — rather than letting the imagining keep extending further and further.`,
+"19": `When there's a new face in a group, or someone quiet who hasn't settled in yet, you often naturally go over, say hello, and find something to talk about to put them at ease. It's worth practicing using this sensitivity to who's on the edges more deliberately — for instance, deliberately setting aside a bit more attention for people you don't know well yet at a gathering.`,
+"20": `If an arrangement no longer feels as reasonable as it did at the start, you can name specifically what feels off and discuss with the other person whether it needs adjusting. It's worth noting that pointing out exactly which part feels unreasonable is usually easier for the other person to understand than resetting the whole discussion from scratch, and it gets you to a new approach faster too.`,
+"21": `You're often someone who finds your rhythm again after changing to a new environment or field, rather than figuring out your direction in a place you're already familiar with. It's worth noticing whether, after each time you adjust to somewhere new, you actually bring back and use what you learned there, rather than just having gone through it.`,
+"22": `Those seemingly unrelated experiences you've tried in the past may be more useful than you realize — you just don't normally look at them side by side. It's worth practicing, when a new problem comes up, actively thinking about whether some past experience might apply, rather than assuming those are all in the past and no longer useful.`
+};
+
+const YEAR_JOURNEY_SUMMARY_EN = {
+"1": "A year for turning a vague idea into reality.",
+"2": "A year for learning to read the room and what's unsaid.",
+"3": "A year for caring for others and managing resources and family needs.",
+"4": "A year for making decisions, carrying responsibility, and holding the direction.",
+"5": "A year for organizing knowledge, teaching, and passing on experience.",
+"6": "A year for opening opportunities through collaboration and relationships.",
+"7": "A year for setting direction, choosing, and moving forward.",
+"8": "A year for redistributing your effort and finding a more efficient way.",
+"9": "A year when changing your environment or circle shapes your direction.",
+"10": "A year for catching opportunity, change, and the flow of resources.",
+"11": "A year for sorting out choices, responsibility, and boundaries.",
+"12": "A year for carrying responsibility and sorting out giving and boundaries.",
+"13": "A year for ending an old structure and starting a new version.",
+"14": "A year when communication, negotiation, and mediation matter more.",
+"15": "A year for facing your needs, interests, and sense of control.",
+"16": "A year when an already unstable structure needs adjusting.",
+"17": "A year when your work and image are more likely to be seen.",
+"18": "A year when incomplete information affects your sense of safety.",
+"19": "A year with more chances for connection and being seen.",
+"20": "A year for re-weighing fairness and value judgments.",
+"21": "A year for crossing into new territory and opening new paths.",
+"22": "A year with more new beginnings and fresh attempts."
+};
+
+const GENERIC_INTEGRATION_DIFFERENT_EN = `What's moving forward around you right now isn't quite the same as the stage you're actually at inside. That's not a conflict — it's two timelines existing at once: one describing what circumstances are bringing to you, the other describing how you're actually experiencing it.`;
+
+const HIDDEN_CROSS_LAYER_TEMPLATE_EN = `"{cardName}" is also your hidden card. That means this theme doesn't only show up in how you usually operate visibly — there may also be a part of it you haven't fully noticed yet, one that's more likely to surface in certain situations.`;
+
+const ENGINE_SECTION_TITLES_EN = {
+  opening: "Your Primary Pattern",
+  strength: "Where Your Gift Lies",
+  friction: "Moments of Imbalance",
+  hidden: "The Side You Haven't Noticed",
+  now: "This Moment's Theme",
+  adjustment: "Direction to Adjust",
+};
+
+
+/* ===== English mode: data-source getters (mirrors getCards() above) ===== */
+function getModulesDB(){ return getPageLang()==='en' ? CARD_MODULES_EN : CARD_MODULES; }
+function getYearlyRolesDB(){ return getPageLang()==='en' ? YEARLY_ROLES_EN : YEARLY_ROLES; }
+function getHiddenSameNumberDB(){ return getPageLang()==='en' ? HIDDEN_SAME_NUMBER_TEXT_EN : HIDDEN_SAME_NUMBER_TEXT; }
+function getHiddenFallbackDB(){ return getPageLang()==='en' ? HIDDEN_FALLBACK_TEXT_EN : HIDDEN_FALLBACK_TEXT; }
+function getEngineSectionTitles(){ return getPageLang()==='en' ? ENGINE_SECTION_TITLES_EN : ENGINE_SECTION_TITLES; }
+function getGenericIntegrationDifferent(){ return getPageLang()==='en' ? GENERIC_INTEGRATION_DIFFERENT_EN : GENERIC_INTEGRATION_DIFFERENT; }
+function getYearJourneySummaryDB(){ return getPageLang()==='en' ? YEAR_JOURNEY_SUMMARY_EN : YEAR_JOURNEY_SUMMARY; }
+
+/* ===== English mode merge/transition logic: simplified by design decision (2026-09-24).
+   The Chinese merge machinery (mergeHiddenPairNatural／mergeTwoModuleTexts／toCoordinateClause／
+   HIDDEN_MERGE_SEMANTIC_CLUSTERS) does Chinese-grammar-specific sentence splitting and clause
+   coordination, and cannot be reused for English text. English mode always keeps both module
+   texts whole and joins them with a plain transition phrase — no semantic-cluster fusion, no
+   character-count trimming. This is intentionally less compact than the Chinese version but
+   never drops or rewrites any original content. ===== */
+const ROLE_TRANSITION_POOL_EN = {
+  'self->talent': ['More concretely, ', 'This also shows up as: ', 'In practical terms, '],
+  'talent->imbalance': ['But push this too far, and ', 'The same strength, overused, means ', 'Taken too far, though, '],
+  'imbalance->balance': ['The way to rebalance: ', 'One way to loosen this up: ', 'To ease this, try: '],
+  'self->imbalance': ['Out of balance, though, ', 'Taken too far, this same tendency means ', "There's another side to this: "],
+  'talent->balance': ['To make this strength last: ', 'To keep this ability steady, ', 'What keeps this sustainable is: '],
+};
+function pickTransitionEN(fromRole, toRole, birthDateStr, cardNumber){
+  const pool = ROLE_TRANSITION_POOL_EN[`${fromRole}->${toRole}`];
+  if(!pool) return 'At the same time, ';
+  const idx = deterministicHash(`${birthDateStr}|transitionEN|${cardNumber}|${fromRole}|${toRole}`) % pool.length;
+  return pool[idx];
+}
+function lowercaseFirstEN(str){
+  return str ? str.charAt(0).toLowerCase() + str.slice(1) : str;
+}
+const MODULE_MERGE_CONNECTORS_EN = ['At the same time, ', 'Alongside that, ', 'This also comes with something else: '];
+function mergeTwoModuleTextsEN(textA, textB){
+  const idx = deterministicHash(textA + '|' + textB + '|moduleMergeEN') % MODULE_MERGE_CONNECTORS_EN.length;
+  return `${textA} ${MODULE_MERGE_CONNECTORS_EN[idx]}${lowercaseFirstEN(textB)}`;
+}
+const HIDDEN_MERGE_CONNECTORS_EN = ['At the same time, ', 'Alongside that, ', 'This also shows up as: '];
+function mergeHiddenPairNaturalEN(textA, textB){
+  const idx = deterministicHash(textA + '|' + textB + '|hiddenMergeEN') % HIDDEN_MERGE_CONNECTORS_EN.length;
+  return { text: `${textA} ${HIDDEN_MERGE_CONNECTORS_EN[idx]}${lowercaseFirstEN(textB)}`, ok: true, via: 'simple-en' };
+}
+
+
 const NEAR_TIE_THRESHOLD = 5;
 const ROLE_FIT_NEAR_TIE = 1;
 
@@ -612,13 +971,28 @@ function makeBirthComparator(section, birthDateStr, usedBuckets, bucketUsageCoun
   };
 }
 
-function annualYearlyText(number){ return YEARLY_ROLES[String(number)].annualYearly.text; }
-function birthdayYearlyText(number){ return YEARLY_ROLES[String(number)].birthdayYearly.text; }
-function sameYearlyText(number){ return YEARLY_ROLES[String(number)].sameYearly.text; }
-function annualBridgeText(name){ return `『${name}』也是你今年的外在流年（年度流年），代表這個本來就存在的主題，在外在環境與現實推進上更容易被感覺到。`; }
-function birthdayBridgeText(name){ return `『${name}』也是你這段生日流年（內在階段），代表這個本來就存在的主題，在內在經驗上更容易被感覺到。`; }
-function sameBridgeText(name){ return `『${name}』同時出現在你的外在時間與內在階段裡，讓這個本來就存在的主題在此刻更容易被感覺到。`; }
-function hiddenBridgeSentence(name){ return HIDDEN_CROSS_LAYER_TEMPLATE.replace(/\{cardName\}/g, name); }
+function annualYearlyText(number){ return getYearlyRolesDB()[String(number)].annualYearly.text; }
+function birthdayYearlyText(number){ return getYearlyRolesDB()[String(number)].birthdayYearly.text; }
+function sameYearlyText(number){ return getYearlyRolesDB()[String(number)].sameYearly.text; }
+function annualBridgeText(name){
+  return getPageLang()==='en'
+    ? `"${name}" is also your outer theme for this year (your annual year card) — a sign that this already-present theme is easier to feel in your surroundings and how things are moving forward.`
+    : `『${name}』也是你今年的外在流年（年度流年），代表這個本來就存在的主題，在外在環境與現實推進上更容易被感覺到。`;
+}
+function birthdayBridgeText(name){
+  return getPageLang()==='en'
+    ? `"${name}" is also your inner stage for this birthday year (your birthday year card) — a sign that this already-present theme is easier to feel in your inner experience.`
+    : `『${name}』也是你這段生日流年（內在階段），代表這個本來就存在的主題，在內在經驗上更容易被感覺到。`;
+}
+function sameBridgeText(name){
+  return getPageLang()==='en'
+    ? `"${name}" shows up in both your outer timing and your inner stage at once, making this already-present theme easier to feel right now.`
+    : `『${name}』同時出現在你的外在時間與內在階段裡，讓這個本來就存在的主題在此刻更容易被感覺到。`;
+}
+function hiddenBridgeSentence(name){
+  const template = getPageLang()==='en' ? HIDDEN_CROSS_LAYER_TEMPLATE_EN : HIDDEN_CROSS_LAYER_TEMPLATE;
+  return template.replace(/\{cardName\}/g, name);
+}
 
 const HIDDEN_SAME_NUMBER_TEXT = {"15": "在爭取想要的事物時，可以留意你把哪些人放進了「自己」的範圍。除了個人需要，也可能包含家庭、夥伴與共同目標。這份企圖心可以用來替整體創造資源；同時，也值得確認，你認為對大家好的安排，是否留有讓每個人表達需要、參與選擇的空間。", "1": "你過去解決問題的方法，可能已經累積成一套可以重複使用的工具箱，不一定每次都要從零開始想。可以留意的是，遇到新問題時，會不會忘記先看看有沒有現成的方法可以先套用看看，再決定要不要重新設計。", "2": "透過文字或訊息溝通時，你可能也很容易注意到對方選詞、標點或回覆速度的細微變化，覺得哪裡不太對勁。這種時候值得留意的是，隔著螢幕感受到的訊號，比面對面時更容易被自己的猜測放大，回覆前不妨多給對方一點解釋的空間。", "3": "這份照顧能力，也可能延伸到工作或計畫上——確保資源到位、留意有沒有漏掉的環節，也是一種具體的安排方式。可以留意的是，做這些安排時，你會不會習慣自己處理就好，還是也讓其他人知道這其實需要花心思協調。", "4": "當主導權不在你手上、事情照別人的方式進行時，可以留意自己是真的能放手信任，還是忍不住在旁邊糾正細節。分得清楚『這件事需要我扛』和『這件事我可以讓別人扛』，會讓你不用每件事都自己撐著。", "5": "別人想提醒或教你什麼的時候，可以留意自己是不是容易先在心裡反駁，覺得對方講的道理你早就懂。願意先聽完再判斷有沒有道理，會比急著證明自己已經懂了，更容易真的學到新東西，也讓對方感覺被尊重。", "6": "有新的合作對象或機會出現時，可以留意自己是不是因為對方人很好、很聊得來，就想一起做，而沒有先確認彼此想要的方向是不是真的一致。對的人加上不同的目標，一樣可能走到一半才發現不合拍，白費了一段交情。", "7": "如果在合作裡，你常常是那個先把進度往前推的人，可以練習在對方步調不同時，先問一句對方目前卡在哪裡，而不是直接接手或催促。這麼做通常比讓對方感覺被評斷，更容易讓合作繼續下去，也不會冤枉對方。", "8": "身邊的人要做一個看起來有風險的決定時，你可能會忍不住幫忙分析各種可能出錯的地方。可以留意的是，這些提醒是真的在幫對方看清風險，還是不知不覺把自己對『再想一下』的習慣，也套用在了對方身上。", "9": "想要某方面進步得快一點時，可以留意自己是不是只顧著更努力，卻沒有認真想過該靠近誰、待在什麼樣的環境裡。有時候換一個常常接觸的對象或場合，會比單靠意志力更快看到改變，效果也通常更持久明顯。", "10": "手上有資源或機會的時候，比起緊緊留著不用，你可能更適合讓它繼續流動——分享出去、拿去交換、或投入下一件事，反而比囤著更容易帶來新的循環。可以留意的是，哪些資源已經放了很久卻沒有真正使用，也許是時候讓它動起來了。", "11": "檢視別人的方案或決定時，你通常很快能抓到問題；檢視自己做的決定時，標準可能反而更嚴格，容易放大自己的小疏漏。可以留意的是，對自己與對別人，是不是用了不一樣的尺，讓你對自己特別不留情面。", "12": "扛起一件事之前，可以留意這份責任是別人明確交給你的，還是你自己看情況不對，就默默接手過來的。後者常常會讓你扛了很多其實沒有人要求你扛的事，卻沒有人知道要感謝你、也沒有人知道該分擔。", "13": "經歷過重大改變或結束之後，可以留意自己有沒有花時間把這次學到的東西留下來，而不是很快就翻篇、投入下一件事。把具體學到了什麼寫下來或說出來，能讓這份更新的能力，累積成真正屬於你的經驗，而不只是不斷重來。", "14": "你很懂得依照不同的人調整說法，讓每個人都聽得懂、也比較能接受。可以留意的是，說法一直變的時候，會不會連你自己都開始搞不清楚，對這件事最真實、最原本的立場到底是什麼，還是也跟著模糊了。", "16": "發現某件事已經撐不下去，卻還沒真的忍到臨界點時，你也有能力提早喊停、主動重整，不需要等到真的受不了才動手。越早承認『這裡該調整了』，通常越能好好收尾，而不是等到關係或計畫整個垮掉。", "17": "同一件作品或成果，用不同方式呈現出來，別人接收到的印象可能差很多。你這份調整呈現方式的敏感度，用在準備報告、作品集或提案的場合特別有用。可以留意的是，是不是花了很多心思在呈現上，卻沒有先確認這次的對象真正在意的是什麼。", "18": "身邊的人明明說沒事，你卻能感覺到不太對勁時，可以問問對方是否想聊聊，也保留對方真的沒事、或暫時不想談的可能。這種問法本身，通常就比直接點破，更容易讓對方感覺被尊重，也給彼此留一點餘裕。", "19": "在不熟悉的場合裡，你可能透過親切的互動，讓新認識的人比較自在，不一定需要刻意炒熱氣氛。可以留意的是，這種自在感不等於真的認識彼此——花一點時間讓關係慢慢深下去，會比只停留在讓每個人都覺得你很好相處更扎實。", "20": "覺得某段關係或合作不太對等的時候，可以留意自己真正在意的是分配本身不公平，還是其實只是希望自己的付出被看見、被感謝。分清楚這兩者，能幫助你決定要調整的是實際安排，還是先說出你想被肯定的心情。", "21": "如果和重要的人之間感覺有點卡住、一直在同一種相處方式裡打轉，可以考慮一起嘗試點新的東西，像是換個從沒去過的地方、一起學一件新的事。新的場景有時候能讓你們用不同的角度重新看見彼此，而不是只能困在熟悉的模式裡。", "22": "當你正在探索、尚未決定方向時，這有可能是因為你想保留選擇的空間，也有可能是還沒找到真正想投入的方向。這兩種心情感覺很像，但接下來要做的事不太一樣，可以留意自己實際上是哪一種，兩者需要的下一步並不相同。"};
 const HIDDEN_FALLBACK_TEXT = {"15": "有些需要，未必容易直接說出口。你可以留意，現在投入的工作、關係或目標，是否真的回應了自己的喜好與期待。看懂這一面，不是要求自己少想要一點，而是把需求說清楚，再看看眼前的選擇，長期是否仍符合你想過的生活，讓企圖心用在真正值得投入的地方。", "1": "你很容易在別人還沒說完之前，就已經想出一套解法，這在工作討論裡是很實際的幫助。只是也值得確認，對方需要的是馬上得到答案，還是想先把情況說完、被聽懂。慢半拍讓對方講完，有時候比快一步給方法更有用。", "2": "你常常感覺到一句話背後可能還有別的意思，這種敏銳在需要判斷情勢、帶人或處理糾紛時很有用。與其直接點破，更適合先問問對方發生了什麼、要不要聊聊，也保留對方確實沒事、或暫時不想談的可能，這樣對關係比較不會有壓力。", "3": "照顧別人一段時間後，你可能不容易發現自己其實已經累積了不少疲憊，因為注意力一直放在別人夠不夠好。可以留意的是，身體或情緒開始不耐煩的時候，往往就是該停下來、把資源分一點給自己的訊號。", "4": "在重要的關係裡，你可能也習慣把相處方式訂得比較清楚，像是誰負責什麼、遇到狀況該怎麼處理。這能讓關係比較有安全感，但也可以偶爾問問對方，這些安排是你們一起談出來的，還是大多時候都是你先決定好了。", "5": "你可能常常忍不住想幫別人把事情解釋清楚，即使對方沒有開口問。可以練習的是，先等一等，看對方是不是真的想知道，而不是每次看到不夠完整的理解，就急著補上你的說法，讓對方也有機會自己想清楚。", "6": "遇到卡關的事情時，你可能不太習慣主動開口找人幫忙，覺得應該自己想辦法解決。其實適時讓別人參與、借助對方的資源或經驗，往往能比獨自硬撐更快找到出路，也不代表你能力不夠，反而是懂得善用身邊的資源。", "7": "當你發現自己一直原地打轉、進度卡住時，值得先確認問題出在哪裡——是還沒想清楚方向，還是方向已經很明確，只是遲遲沒有真正動手。看清楚是哪一種，接下來要調整的方法完全不一樣，也比較不會白費力氣。", "8": "你評估之後才行動的節奏，在別人眼中可能像猶豫不決，尤其是步調比較快的人。可以練習的是，先讓對方知道你在想什麼、大概需要多久，而不是悶著頭評估，讓對方誤以為你根本沒在處理這件事，甚至已經放棄了。", "9": "長期相處的對象，可能在不知不覺中，也改變了你對很多事情的判斷標準，像是什麼算正常、什麼值得在意。可以偶爾檢查一下，這些標準是你自己認同的，還是單純因為身邊的人都這樣想，你也跟著這樣想。", "10": "事情一直順利的時候，你可能不容易察覺自己其實已經停在原地一段時間，因為表面上看起來沒什麼問題。可以偶爾問問自己，除了維持現狀，有沒有什麼準備，是你明明可以現在開始、卻一直往後拖的。", "11": "有些問題，其實你心裡已經有分析結果了，卡住的只是要不要真的去試。可以練習明確分出兩種情況：哪些是還缺資訊、需要再確認的，哪些其實你已經想得夠清楚，只差實際去驗證。分清楚之後，行動會比繼續想更快得到答案。", "12": "接下一件事的時候，你可能沒有特別區分這是暫時幫忙，還是會一路做到底的責任，反正接了就會做完。可以留意的是，有些原本只是臨時支援的事，會不會因為你做得太好、太久，最後變成沒有人再問過你、卻理所當然一直是你在做的固定工作。", "13": "工作方法或習慣用的工具一旦被你發現有更好的替代方案，你通常會很快換掉舊的，不太留戀『一直以來都這樣做』。可以留意的是，這份果斷用在方法上很有效率，但如果連還沒真正驗證過的新方法，也急著全部換上，有時候反而會來回折騰。", "14": "你很習慣把複雜的事情講到讓人聽懂為止，這在帶人、教學或主持場合很有用。可以練習的是，講完之後留一點空白，讓對方有機會消化或提問，而不是急著補充更多細節，把整個對話空間都填滿，讓對方沒有機會開口。", "16": "高塔的這份敏銳，也可能出現在計畫或安排上——別人還沒發現哪裡有問題時，你可能已經隱約覺得某個環節撐不住。可以練習把這種直覺具體說出來，例如指出是哪個步驟、哪個條件不穩，而不是只留下一種說不清楚的不安。", "17": "你這份讓事情被看見、被記住的能力，也很適合用在幫別人身上——講起朋友的優點、團隊的成果時，你常常比對方自己講得更清楚、更吸引人。可以練習偶爾也用同樣的用心，替自己的努力說幾句話，而不是只習慣幫別人加分。", "18": "獨自一個人、一時聯絡不上重要的人時，你的腦中可能很快跑出好幾種不好的猜測，即使實際情況通常沒有那麼糟。可以練習的是，先做點別的事分散注意力，等真的有新消息，再回頭處理，而不是讓想像一直往下延伸。", "19": "團體裡有新面孔或比較安靜、還沒融入的人時，你常常會自然地過去打個招呼、找話題讓對方比較自在。這份留意邊緣角色的敏感度，可以練習更有意識地使用，例如固定在聚會裡多留一點心力給還不熟的人。", "20": "某個安排如果已經不像剛開始那樣合理，可以把覺得不合理的地方說清楚，再和對方討論是否需要調整。可以留意的是，具體指出是哪個部分不合理，通常會比整體重新歸零討論更容易讓對方理解，也更快找到新的做法。", "21": "你也常常是換了新環境或新領域之後，才重新找到自己的節奏，而不是在原本熟悉的地方就想清楚方向。可以留意的是，每次適應新環境之後，有沒有把當時學到的東西具體帶回來用，而不只是經歷過這件事而已。", "22": "你過去嘗試過的那些看似不相關的經驗，可能比你自己以為的更有用，只是平常沒有特別把它們放在一起看。可以練習的是，遇到新的問題時，主動想想有沒有哪段舊經驗可以拿來參考，而不是覺得那些都已經過去、用不上了。"};
@@ -768,7 +1142,7 @@ function computeBirthPool(chart){
     else if(c === 3) score = PRIORITY.birth_repeat_3;
     else if(c === 2) score = PRIORITY.birth_repeat_2;
     else score = PRIORITY.birth_single;
-    return { number:n, name: CARD_MODULES[String(n)].name, repeatCount:c, score, reason: c>1 ? `本命重複×${c}` : '本命單張' };
+    return { number:n, name: getModulesDB()[String(n)].name, repeatCount:c, score, reason: c>1 ? `本命重複×${c}` : '本命單張' };
   }).sort((a,b) => b.score - a.score || a.number - b.number);
 }
 
@@ -782,7 +1156,7 @@ function computeHiddenPool(chart){
     if(supportedByBirth){ score = PRIORITY.hidden_supported_by_birth_same_number; reason='隱藏牌×本命同號支持'; hasEvidence=true; }
     else if(supportedByYear){ score = PRIORITY.hidden_supported_by_context_or_year; reason='隱藏牌×流年同號支持'; hasEvidence=true; }
     else { score = PRIORITY.hidden_only; reason='隱藏牌（無額外證據）'; hasEvidence=false; }
-    return { number:n, name: CARD_MODULES[String(n)].name, score, reason, hasEvidence };
+    return { number:n, name: getModulesDB()[String(n)].name, score, reason, hasEvidence };
   }).filter(c => c.hasEvidence).sort((a,b) => b.score - a.score || a.number - b.number);
 }
 
@@ -792,7 +1166,7 @@ function computeYearPool(chart){
   const add = (n, track) => { if(!tracksByNumber.has(n)) tracksByNumber.set(n, []); tracksByNumber.get(n).push(track); };
   add(annualYearCard, 'annual');
   add(birthdayYearCard, 'birthday');
-  return Array.from(tracksByNumber.entries()).map(([n, tracks]) => ({ number:n, name: CARD_MODULES[String(n)].name, tracks }));
+  return Array.from(tracksByNumber.entries()).map(([n, tracks]) => ({ number:n, name: getModulesDB()[String(n)].name, tracks }));
 }
 
 function makeUsageTracker(){
@@ -866,12 +1240,12 @@ function pickFromHiddenPool(hiddenPool, usage, maxSlots){
 }
 function resolveHiddenText(a){
   if(a.mode === 'bridge'){
-    return HIDDEN_FALLBACK_TEXT[String(a.number)] || hiddenBridgeSentence(a.name);
+    return getHiddenFallbackDB()[String(a.number)] || hiddenBridgeSentence(a.name);
   }
-  if(a.reason === '隱藏牌×本命同號支持' && HIDDEN_SAME_NUMBER_TEXT[String(a.number)]){
-    return HIDDEN_SAME_NUMBER_TEXT[String(a.number)];
+  if(a.reason === '隱藏牌×本命同號支持' && getHiddenSameNumberDB()[String(a.number)]){
+    return getHiddenSameNumberDB()[String(a.number)];
   }
-  return CARD_MODULES[String(a.number)].modules.hidden.text;
+  return getModulesDB()[String(a.number)].modules.hidden.text;
 }
 
 function buildNowSection(chart, usage){
@@ -879,7 +1253,7 @@ function buildNowSection(chart, usage){
   const sameNumber = annualYearCard === birthdayYearCard;
 
   if(sameNumber){
-    const name = CARDS[String(annualYearCard)].name;
+    const name = getCards()[String(annualYearCard)].name;
     let text;
     if(usage.canUseFullModule(annualYearCard, 'sameYearly', { allowSoft:true })){
       usage.recordFullModule(annualYearCard, 'sameYearly');
@@ -892,25 +1266,29 @@ function buildNowSection(chart, usage){
 
   function renderTrack(number, trackKey){
     const role = trackKey === 'annual' ? 'annualYearly' : 'birthdayYearly';
-    const label = trackKey === 'annual' ? '年度流年｜外在時間' : '生日流年｜內在階段';
-    const name = CARDS[String(number)].name;
+    const isEn = getPageLang()==='en';
+    const label = trackKey === 'annual'
+      ? (isEn ? 'Annual Year Card | Outer Timing' : '年度流年｜外在時間')
+      : (isEn ? 'Birthday Year Card | Inner Stage' : '生日流年｜內在階段');
+    const name = getCards()[String(number)].name;
+    const wrap = isEn ? (s => `[${s}]`) : (s => `【${s}】`);
     if(usage.canUseFullModule(number, role, { allowSoft:true })){
       usage.recordFullModule(number, role);
       const body = trackKey === 'annual' ? annualYearlyText(number) : birthdayYearlyText(number);
-      return { text: `【${label}】${body}` };
+      return { text: `${wrap(label)}${body}` };
     }
     const bridge = trackKey === 'annual' ? annualBridgeText(name) : birthdayBridgeText(name);
-    return { text: `【${label}】${bridge}` };
+    return { text: `${wrap(label)}${bridge}` };
   }
 
   const a = renderTrack(annualYearCard, 'annual');
   const b = renderTrack(birthdayYearCard, 'birthday');
   return {
     assigned: [
-      { number: annualYearCard, name: CARDS[String(annualYearCard)].name, role:'annualYearly', track:'annual' },
-      { number: birthdayYearCard, name: CARDS[String(birthdayYearCard)].name, role:'birthdayYearly', track:'birthday' },
+      { number: annualYearCard, name: getCards()[String(annualYearCard)].name, role:'annualYearly', track:'annual' },
+      { number: birthdayYearCard, name: getCards()[String(birthdayYearCard)].name, role:'birthdayYearly', track:'birthday' },
     ],
-    text: `${a.text} ${b.text} ${GENERIC_INTEGRATION_DIFFERENT}`
+    text: `${a.text} ${b.text} ${getGenericIntegrationDifferent()}`
   };
 }
 
@@ -970,10 +1348,17 @@ function mergeTwoModuleTexts(textA, textB){
 function assembleEngineArticle(chart, trace){
   const lastRoleByCard = new Map();
   const paragraphs = [];
+  const isEn = getPageLang()==='en';
+  const pickTransitionFn = isEn ? pickTransitionEN : pickTransition;
+  const mergeHiddenPairFn = isEn ? mergeHiddenPairNaturalEN : mergeHiddenPairNatural;
+  const mergeTwoModuleTextsFn = isEn ? mergeTwoModuleTextsEN : mergeTwoModuleTexts;
+  const modulesDb = getModulesDB();
+  const sectionTitles = getEngineSectionTitles();
+  const applyTransition = (prefix, text) => prefix + (isEn ? lowercaseFirstEN(text) : text);
 
   trace.sections.forEach(section => {
     if(section.id === 'now'){
-      paragraphs.push({ id:'now', title: ENGINE_SECTION_TITLES.now, text: section.prebuiltText });
+      paragraphs.push({ id:'now', title: sectionTitles.now, text: section.prebuiltText });
       return;
     }
     if(!section.assigned || section.assigned.length === 0) return;
@@ -981,25 +1366,26 @@ function assembleEngineArticle(chart, trace){
     let finalText;
     if(section.id === 'hidden'){
       /* 未察覺的一面：一般版用 CARD_MODULES[n].modules.hidden.text，同號／備援改查對照表；
-         兩張隱藏牌時改用 mergeHiddenPairNatural 精簡合併，不套用舊有的兩段全文相接。 */
+         兩張隱藏牌時改用 mergeHiddenPairNatural 精簡合併，不套用舊有的兩段全文相接。
+         英文模式改用簡化版合併（見 mergeHiddenPairNaturalEN 定義處說明），不套用中文字數/語意分群邏輯。 */
       const primary = section.assigned[0];
       const primaryText = resolveHiddenText(primary);
       const primaryPrevRole = lastRoleByCard.get(primary.number);
       section.assigned.forEach(a => lastRoleByCard.set(a.number, a.role));
       if(section.assigned.length === 1){
         finalText = (primary.mode !== 'bridge' && primaryPrevRole)
-          ? pickTransition(primaryPrevRole, primary.role, chart.birthDateStr, primary.number) + primaryText
+          ? applyTransition(pickTransitionFn(primaryPrevRole, primary.role, chart.birthDateStr, primary.number), primaryText)
           : primaryText;
       } else {
         const secondary = section.assigned[1];
         const secondaryText = resolveHiddenText(secondary);
-        const mergeResult = mergeHiddenPairNatural(primaryText, secondaryText);
+        const mergeResult = mergeHiddenPairFn(primaryText, secondaryText);
         let merged;
         if(mergeResult.ok){
           merged = mergeResult.text;
         } else {
           /* 沒有合格候選：記錄下來供覆蓋測試回報，畫面上退回候選④（主牌情境句+副牌情境句），
-             即使不在90-120字範圍，也不會偷偷丟掉內容。 */
+             即使不在90-120字範圍，也不會偷偷丟掉內容。（僅中文路徑會走到這裡，英文簡化版永遠 ok:true） */
           window.__hiddenMergeFailures = window.__hiddenMergeFailures || [];
           window.__hiddenMergeFailures.push({
             primary: primary.number, secondary: secondary.number,
@@ -1008,25 +1394,25 @@ function assembleEngineArticle(chart, trace){
           merged = mergeResult.candidates[3].text;
         }
         finalText = (primary.mode !== 'bridge' && primaryPrevRole)
-          ? pickTransition(primaryPrevRole, primary.role, chart.birthDateStr, primary.number) + merged
+          ? applyTransition(pickTransitionFn(primaryPrevRole, primary.role, chart.birthDateStr, primary.number), merged)
           : merged;
       }
     } else {
       const raw = section.assigned.map(a => {
-        const text = a.mode === 'bridge' ? hiddenBridgeSentence(a.name) : CARD_MODULES[String(a.number)].modules[a.role].text;
+        const text = a.mode === 'bridge' ? hiddenBridgeSentence(a.name) : modulesDb[String(a.number)].modules[a.role].text;
         const prevRole = lastRoleByCard.get(a.number);
         lastRoleByCard.set(a.number, a.role);
         return { text, number: a.number, role: a.role, prevRole: a.mode === 'bridge' ? null : prevRole };
       });
       if(raw.length === 1){
         const entry = raw[0];
-        finalText = entry.prevRole ? pickTransition(entry.prevRole, entry.role, chart.birthDateStr, entry.number) + entry.text : entry.text;
+        finalText = entry.prevRole ? applyTransition(pickTransitionFn(entry.prevRole, entry.role, chart.birthDateStr, entry.number), entry.text) : entry.text;
       } else {
-        finalText = mergeTwoModuleTexts(raw[0].text, raw[1].text);
+        finalText = mergeTwoModuleTextsFn(raw[0].text, raw[1].text);
       }
     }
 
-    paragraphs.push({ id: section.id, title: ENGINE_SECTION_TITLES[section.id], text: finalText });
+    paragraphs.push({ id: section.id, title: sectionTitles[section.id], text: finalText });
   });
 
   return paragraphs;
@@ -1113,14 +1499,20 @@ function computeBirthdayRangeLabel(month, day, birthdayYearRef){
 
 function renderYourTiming(data){
   const yc = computeYearCards(data);
-  const annualCard = CARDS[String(yc.calendarYearCard)];
-  const birthdayCard = CARDS[String(yc.birthdayYearCard)];
+  const isEn = getPageLang()==='en';
+  const cards = getCards();
+  const annualCard = cards[String(yc.calendarYearCard)];
+  const birthdayCard = cards[String(yc.birthdayYearCard)];
 
-  document.getElementById('annualMeta').textContent = `西元${yc.calendarYear}年｜${annualCard.number} ${annualCard.name}`;
+  document.getElementById('annualMeta').textContent = isEn
+    ? `${yc.calendarYear} | ${annualCard.number} ${annualCard.name}`
+    : `西元${yc.calendarYear}年｜${annualCard.number} ${annualCard.name}`;
   document.getElementById('annualText').textContent = annualYearlyText(yc.calendarYearCard);
 
   const birthdayRangeLabel = computeBirthdayRangeLabel(data.month, data.day, yc.birthdayYearRef);
-  document.getElementById('birthdayMeta').textContent = `${birthdayRangeLabel}｜${birthdayCard.number} ${birthdayCard.name}`;
+  document.getElementById('birthdayMeta').textContent = isEn
+    ? `${birthdayRangeLabel} | ${birthdayCard.number} ${birthdayCard.name}`
+    : `${birthdayRangeLabel}｜${birthdayCard.number} ${birthdayCard.name}`;
   document.getElementById('birthdayText').textContent = birthdayYearlyText(yc.birthdayYearCard);
 }
 
@@ -1130,20 +1522,23 @@ function renderYourTiming(data){
 function renderJourney(data){
   const el = document.getElementById('journeyYears');
   if(!el) return;
+  const isEn = getPageLang()==='en';
+  const cards = getCards();
+  const journeySummary = getYearJourneySummaryDB();
   const currentYear = new Date().getFullYear();
   const offsets = [-2,-1,0,1,2];
   el.innerHTML = offsets.map(offset => {
     const y = currentYear + offset;
     const n = getYearCardNumber(y, data.month, data.day);
-    const card = CARDS[String(n)];
+    const card = cards[String(n)];
     if(!card) return '';
     const posClass = offset===0 ? 'current' : (Math.abs(offset)===1 ? 'near' : '');
     return `<div class="year-item ${posClass}">
-      <div class="yr-tag"${offset===0 ? '' : ' style="visibility:hidden"'}>今年</div>
+      <div class="yr-tag"${offset===0 ? '' : ' style="visibility:hidden"'}>${isEn ? 'This year' : '今年'}</div>
       <div class="yr">${y}</div>
       <div class="year-dot"></div>
       <div class="name">${card.number}｜${card.name}</div>
-      <div class="mini">${YEAR_JOURNEY_SUMMARY[String(n)] || ''}</div>
+      <div class="mini">${journeySummary[String(n)] || ''}</div>
     </div>`;
   }).join('');
 }
@@ -1414,6 +1809,9 @@ function shareCardAsImage(){
         if(typeof renderBirthCards === 'function'){ renderBirthCards(data); }
         if(typeof renderHiddenCards === 'function'){ renderHiddenCards(data); }
         if(typeof renderCompactCard === 'function'){ renderCompactCard(data); }
+        if(typeof renderYourTiming === 'function'){ renderYourTiming(data); }
+        if(typeof renderJourney === 'function'){ renderJourney(data); }
+        if(typeof renderIntegratedReading === 'function'){ renderIntegratedReading(data); }
       }
     });
   }

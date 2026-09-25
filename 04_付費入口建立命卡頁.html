@@ -130,80 +130,90 @@ input:focus{
   .intro{font-size:12.5px}
   .date-selects{grid-template-columns:1.3fr .85fr .85fr}
 }
+.lang-toggle-fixed{
+  position:fixed;top:14px;right:14px;z-index:80;
+  border:1px solid var(--line);background:var(--paper);border-radius:999px;
+  padding:8px 12px;font-size:11px;font-weight:800;color:var(--ink);cursor:pointer;
+  box-shadow:var(--shadow);white-space:nowrap
+}
 </style>
 </head>
 <body>
+<button class="lang-toggle-fixed" id="langToggle" type="button" aria-label="切換語言 / Switch language">EN</button>
 <div class="wrap">
 
   <main class="sheet" id="blockedView" style="display:none">
     <div class="kicker">Soul Recipe · Full Version</div>
-    <h1>這是付費專屬入口</h1>
-    <p class="intro">這一頁只提供給已確認付款的客人使用。請透過菲菲傳給你的專屬連結進入；如果你是從其他地方直接打開這一頁，請先確認連結是否正確，或透過官方 LINE 聯繫我們。</p>
-    <a class="start" style="display:block" href="01_入口頁.html">先看看免費版</a>
+    <h1><span class="lang-zh">這是付費專屬入口</span><span class="lang-en" hidden>This is a paid-access page</span></h1>
+    <p class="intro"><span class="lang-zh">這一頁只提供給已確認付款的客人使用。請透過菲菲傳給你的專屬連結進入；如果你是從其他地方直接打開這一頁，請先確認連結是否正確，或透過官方 LINE 聯繫我們。</span><span class="lang-en" hidden>This page is only for customers whose payment has been confirmed. Please enter through the personal link Feifei sent you — if you opened this page some other way, please double-check the link, or reach us on official LINE.</span></p>
+    <a class="start" style="display:block" href="01_入口頁.html"><span class="lang-zh">先看看免費版</span><span class="lang-en" hidden>Try the free version first</span></a>
   </main>
 
   <main class="sheet" id="formView" style="display:none">
-    <div class="badge">✓ 付費專屬版</div>
+    <div class="badge">✓ <span class="lang-zh">付費專屬版</span><span class="lang-en" hidden>Full Version</span></div>
     <div class="kicker">Create Your Tarot Numerology File</div>
-    <h1>建立你的塔羅靈數檔案</h1>
+    <h1><span class="lang-zh">建立你的塔羅靈數檔案</span><span class="lang-en" hidden>Create Your Tarot Numerology File</span></h1>
     <p class="intro">
-      輸入你的名字與出生日期。<br>
-      我們會依正式算法計算你的完整命盤，並準備好你的專屬小菲助理指令。
+      <span class="lang-zh">輸入你的名字與出生日期。<br>
+      我們會依正式算法計算你的完整命盤，並準備好你的專屬小菲助理指令。</span>
+      <span class="lang-en" hidden>Enter your name and date of birth.<br>
+      We'll calculate your full reading using the official algorithm and prepare your personal Xiaofei assistant instructions.</span>
     </p>
 
     <div class="form-card">
       <div class="field">
-        <label>檔案持有人</label>
-        <input type="text" id="ownerName" value="" placeholder="請輸入姓名或稱呼">
-        <div id="nameError" style="display:none;margin-top:8px;font-size:11px;color:var(--rose-deep);line-height:1.7">請輸入檔案持有人姓名或稱呼。</div>
+        <label><span class="lang-zh">檔案持有人</span><span class="lang-en" hidden>Profile owner</span></label>
+        <input type="text" id="ownerName" value="" placeholder="請輸入姓名或稱呼" data-ph-zh="請輸入姓名或稱呼" data-ph-en="Enter your name or how you'd like to be addressed">
+        <div id="nameError" style="display:none;margin-top:8px;font-size:11px;color:var(--rose-deep);line-height:1.7"><span class="lang-zh">請輸入檔案持有人姓名或稱呼。</span><span class="lang-en" hidden>Please enter the profile owner's name or preferred form of address.</span></div>
       </div>
 
       <div class="field">
-        <label>出生日期</label>
+        <label><span class="lang-zh">出生日期</span><span class="lang-en" hidden>Birth date</span></label>
         <div class="date-selects" aria-label="選擇出生日期">
           <label class="date-field">
-            <span>年份</span>
+            <span class="lang-zh">年份</span><span class="lang-en" hidden>Year</span>
             <select id="birthYear"></select>
           </label>
           <label class="date-field">
-            <span>月份</span>
+            <span class="lang-zh">月份</span><span class="lang-en" hidden>Month</span>
             <select id="birthMonth"></select>
           </label>
           <label class="date-field">
-            <span>日期</span>
+            <span class="lang-zh">日期</span><span class="lang-en" hidden>Day</span>
             <select id="birthDay"></select>
           </label>
         </div>
-        <div id="dateError" style="display:none;margin-top:8px;font-size:11px;color:var(--rose-deep);line-height:1.7">請選擇完整的出生年、月、日，且不是未來的日期。</div>
+        <div id="dateError" style="display:none;margin-top:8px;font-size:11px;color:var(--rose-deep);line-height:1.7"><span class="lang-zh">請選擇完整的出生年、月、日，且不是未來的日期。</span><span class="lang-en" hidden>Please select your full birth year, month and day — and make sure it isn't a future date.</span></div>
       </div>
 
       <div class="field">
-        <label>性別</label>
+        <label><span class="lang-zh">性別</span><span class="lang-en" hidden>Gender</span></label>
         <div class="gender-options" role="group" aria-label="性別">
-          <button type="button" class="gender-btn" data-value="女">女</button>
-          <button type="button" class="gender-btn" data-value="男">男</button>
-          <button type="button" class="gender-btn" data-value="不指定">不指定</button>
+          <button type="button" class="gender-btn" data-value="女"><span class="lang-zh">女</span><span class="lang-en" hidden>Female</span></button>
+          <button type="button" class="gender-btn" data-value="男"><span class="lang-zh">男</span><span class="lang-en" hidden>Male</span></button>
+          <button type="button" class="gender-btn" data-value="不指定"><span class="lang-zh">不指定</span><span class="lang-en" hidden>Unspecified</span></button>
         </div>
         <input type="radio" name="gender" value="女" class="visually-hidden" id="genderRadio女">
         <input type="radio" name="gender" value="男" class="visually-hidden" id="genderRadio男">
         <input type="radio" name="gender" value="不指定" class="visually-hidden" id="genderRadio不指定">
-        <div id="genderError" style="display:none;margin-top:8px;font-size:11px;color:var(--rose-deep);line-height:1.7">請選擇性別，或選擇不指定。</div>
-        <div style="margin-top:14px;font-size:11px;color:var(--muted);line-height:1.7">性別與目前的人生階段會用於調整解讀語境，不影響本命牌與隱藏牌的計算結果。</div>
+        <div id="genderError" style="display:none;margin-top:8px;font-size:11px;color:var(--rose-deep);line-height:1.7"><span class="lang-zh">請選擇性別，或選擇不指定。</span><span class="lang-en" hidden>Please select a gender, or choose unspecified.</span></div>
+        <div style="margin-top:14px;font-size:11px;color:var(--muted);line-height:1.7"><span class="lang-zh">性別與目前的人生階段會用於調整解讀語境，不影響本命牌與隱藏牌的計算結果。</span><span class="lang-en" hidden>Gender and life stage are used to adjust the reading's context — they don't affect how your core card and hidden card are calculated.</span></div>
       </div>
 
       <div class="hint">
-        這些資料只會在你目前這個瀏覽器分頁中用來計算命盤，不會上傳、不會儲存進資料庫，也不會傳送給任何 AI 服務。關閉分頁後就不會留下紀錄。
+        <span class="lang-zh">這些資料只會在你目前這個瀏覽器分頁中用來計算命盤，不會上傳、不會儲存進資料庫，也不會傳送給任何 AI 服務。關閉分頁後就不會留下紀錄。</span>
+        <span class="lang-en" hidden>This information is only used in your current browser tab to calculate your reading — it's never uploaded, stored in a database, or sent to any AI service. Nothing is kept once you close the tab.</span>
       </div>
 
-      <button class="start" id="startBtn" type="button">計算我的命盤，準備專屬指令</button>
-      <div class="micro">下一步會產生你的專屬小菲助理指令 ↓</div>
+      <button class="start" id="startBtn" type="button"><span class="lang-zh">計算我的命盤，準備專屬指令</span><span class="lang-en" hidden>Calculate my reading and prepare my instructions</span></button>
+      <div class="micro"><span class="lang-zh">下一步會產生你的專屬小菲助理指令 ↓</span><span class="lang-en" hidden>Next, we'll generate your personal Xiaofei assistant instructions ↓</span></div>
     </div>
   </main>
 
   <footer class="brand">
-    <strong>靈魂配方使用手冊 · Soul Recipe Manual</strong>
-    <div class="tagline">看懂自己，不是為了被定義，而是為了更自由地使用自己。</div>
-    <div class="creator">✦ 菲菲　<a href="https://www.instagram.com/babybabyfeifei/" target="_blank" rel="noopener noreferrer">@babybabyfeifei</a></div>
+    <strong><span class="lang-zh">靈魂配方使用手冊 · Soul Recipe Manual</span><span class="lang-en" hidden>Soul Recipe Manual</span></strong>
+    <div class="tagline"><span class="lang-zh">看懂自己，不是為了被定義，而是為了更自由地使用自己。</span><span class="lang-en" hidden>Understanding yourself isn't about being defined — it's about being able to use yourself more freely.</span></div>
+    <div class="creator">✦ <span class="lang-zh">菲菲</span><span class="lang-en" hidden>Feifei</span>　<a href="https://www.instagram.com/babybabyfeifei/" target="_blank" rel="noopener noreferrer">@babybabyfeifei</a></div>
     <div class="tagline" style="margin-top:8px"><a href="mailto:soulrecipe.tw@gmail.com" style="color:inherit;text-decoration:none">soulrecipe.tw@gmail.com</a></div>
   </footer>
 </div>
@@ -256,21 +266,25 @@ function repeatedFromRaw(raw){
    手機數字鍵盤沒有句點鍵，自由輸入文字日期在手機上難以正確打出「1991.01.28」這種格式，
    也容易打出不存在的日期；下拉選單從結構上就不可能選到無效日期，不需要另外做格式驗證。
    仍加上「不得接受未來生日」（付費版新增要求，02 本身未做此檢查，不回頭改 02）。===== */
+function getPageLang(){
+  try{ return localStorage.getItem('soulRecipeLang')||'zh'; }catch(e){ return 'zh'; }
+}
 function setupDateSelectors(){
   const ySel=document.getElementById('birthYear');
   const mSel=document.getElementById('birthMonth');
   const dSel=document.getElementById('birthDay');
+  const isEn=getPageLang()==='en';
 
-  const yPlaceholder=document.createElement('option'); yPlaceholder.value=''; yPlaceholder.textContent='出生年';
+  const yPlaceholder=document.createElement('option'); yPlaceholder.value=''; yPlaceholder.textContent=isEn?'Year':'出生年';
   ySel.appendChild(yPlaceholder);
   const currentYear = new Date().getFullYear();
   for(let y=currentYear; y>=1940; y--){
-    const opt=document.createElement('option'); opt.value=y; opt.textContent=`${y} 年`; ySel.appendChild(opt);
+    const opt=document.createElement('option'); opt.value=y; opt.textContent=isEn?`${y}`:`${y} 年`; ySel.appendChild(opt);
   }
-  const mPlaceholder=document.createElement('option'); mPlaceholder.value=''; mPlaceholder.textContent='出生月';
+  const mPlaceholder=document.createElement('option'); mPlaceholder.value=''; mPlaceholder.textContent=isEn?'Month':'出生月';
   mSel.appendChild(mPlaceholder);
   for(let m=1;m<=12;m++){
-    const opt=document.createElement('option'); opt.value=m; opt.textContent=`${String(m).padStart(2,'0')} 月`; mSel.appendChild(opt);
+    const opt=document.createElement('option'); opt.value=m; opt.textContent=isEn?`${String(m).padStart(2,'0')}`:`${String(m).padStart(2,'0')} 月`; mSel.appendChild(opt);
   }
   updateDays();
 
@@ -281,9 +295,10 @@ function updateDays(){
   const yVal=document.getElementById('birthYear').value;
   const mVal=document.getElementById('birthMonth').value;
   const dSel=document.getElementById('birthDay');
+  const isEn=getPageLang()==='en';
   const prevValue = dSel.value;
   dSel.innerHTML='';
-  const dPlaceholder=document.createElement('option'); dPlaceholder.value=''; dPlaceholder.textContent='出生日';
+  const dPlaceholder=document.createElement('option'); dPlaceholder.value=''; dPlaceholder.textContent=isEn?'Day':'出生日';
   dSel.appendChild(dPlaceholder);
   if(yVal===''||mVal===''){
     dSel.value='';
@@ -292,11 +307,20 @@ function updateDays(){
   const y=Number(yVal), m=Number(mVal);
   const max=dim(y,m);
   for(let d=1;d<=max;d++){
-    const opt=document.createElement('option'); opt.value=d; opt.textContent=`${String(d).padStart(2,'0')} 日`; dSel.appendChild(opt);
+    const opt=document.createElement('option'); opt.value=d; opt.textContent=isEn?`${String(d).padStart(2,'0')}`:`${String(d).padStart(2,'0')} 日`; dSel.appendChild(opt);
   }
   dSel.value = (prevValue && Number(prevValue) <= max) ? prevValue : '';
 }
 setupDateSelectors();
+function refreshDateSelectorsLang(){
+  const ySel=document.getElementById('birthYear');
+  const mSel=document.getElementById('birthMonth');
+  const dSel=document.getElementById('birthDay');
+  const yVal=ySel.value, mVal=mSel.value, dVal=dSel.value;
+  ySel.innerHTML=''; mSel.innerHTML='';
+  setupDateSelectors();
+  ySel.value=yVal; mSel.value=mVal; updateDays(); dSel.value=dVal;
+}
 
 function getSelectedDate(){
   const yVal=document.getElementById('birthYear').value;
@@ -370,12 +394,52 @@ document.getElementById('startBtn').addEventListener('click', function(){
   try{
     sessionStorage.setItem('soulRecipePaidIntake', JSON.stringify(result));
   }catch(err){
-    alert('這個瀏覽器目前無法暫存資料，請確認沒有開啟無痕模式的儲存限制，或換一個瀏覽器再試一次。');
+    const lang = getPageLang();
+    alert(lang === 'en'
+      ? "This browser can't temporarily store data right now. Please check you're not in a private/incognito mode with storage restrictions, or try a different browser."
+      : '這個瀏覽器目前無法暫存資料，請確認沒有開啟無痕模式的儲存限制，或換一個瀏覽器再試一次。');
     return;
   }
 
   window.location.href = '05_付費專屬指令頁.html';
 });
+
+/* ===== 語言切換 ===== */
+(function(){
+  var STORAGE_KEY = 'soulRecipeLang';
+  var btn = document.getElementById('langToggle');
+  var nameInput = document.getElementById('ownerName');
+
+  function applyLang(lang){
+    var zhEls = document.querySelectorAll('.lang-zh');
+    var enEls = document.querySelectorAll('.lang-en');
+    for(var i=0;i<zhEls.length;i++){ zhEls[i].hidden = (lang === 'en'); }
+    for(var i=0;i<enEls.length;i++){ enEls[i].hidden = (lang !== 'en'); }
+    if(btn){ btn.textContent = (lang === 'en') ? '中文' : 'EN'; }
+    if(nameInput){ nameInput.placeholder = (lang === 'en') ? nameInput.dataset.phEn : nameInput.dataset.phZh; }
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-Hant';
+  }
+
+  function getStoredLang(){
+    try{ return localStorage.getItem(STORAGE_KEY) || 'zh'; }
+    catch(e){ return 'zh'; }
+  }
+  function setStoredLang(lang){
+    try{ localStorage.setItem(STORAGE_KEY, lang); }catch(e){}
+  }
+
+  var currentLang = getStoredLang();
+  applyLang(currentLang);
+
+  if(btn){
+    btn.addEventListener('click', function(){
+      currentLang = (currentLang === 'en') ? 'zh' : 'en';
+      setStoredLang(currentLang);
+      applyLang(currentLang);
+      refreshDateSelectorsLang();
+    });
+  }
+})();
 </script>
 </body>
 </html>

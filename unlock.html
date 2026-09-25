@@ -57,33 +57,40 @@ h1{
   h1{font-size:clamp(20px,7.2vw,28px)}
   .intro{font-size:12.5px}
 }
+.lang-toggle-fixed{
+  position:fixed;top:14px;right:14px;z-index:80;
+  border:1px solid var(--line);background:var(--paper);border-radius:999px;
+  padding:8px 12px;font-size:11px;font-weight:800;color:var(--ink);cursor:pointer;
+  box-shadow:var(--shadow);white-space:nowrap
+}
 </style>
 </head>
 <body>
+<button class="lang-toggle-fixed" id="langToggle" type="button" aria-label="切換語言 / Switch language">EN</button>
 <div class="wrap">
 
   <main class="sheet" id="checking">
     <div class="kicker">Soul Recipe · Full Version</div>
-    <h1>正在核對你的專屬連結…</h1>
-    <p class="intro">請稍候，我們正在確認你的完整版使用權。</p>
+    <h1><span class="lang-zh">正在核對你的專屬連結…</span><span class="lang-en" hidden>Checking your personal link…</span></h1>
+    <p class="intro"><span class="lang-zh">請稍候，我們正在確認你的完整版使用權。</span><span class="lang-en" hidden>Just a moment while we confirm your full-version access.</span></p>
   </main>
 
   <main class="sheet" id="invalid" style="display:none">
     <div class="kicker">Soul Recipe · Full Version</div>
-    <h1>這組連結無效</h1>
-    <p class="intro">這組連結不存在，或已經失效了。請確認你收到的專屬連結是否正確，如果有問題，歡迎透過 LINE 聯繫我們重新取得。</p>
-    <a class="start" href="01_入口頁.html">先看看免費版</a>
+    <h1><span class="lang-zh">這組連結無效</span><span class="lang-en" hidden>This link isn't valid</span></h1>
+    <p class="intro"><span class="lang-zh">這組連結不存在，或已經失效了。請確認你收到的專屬連結是否正確，如果有問題，歡迎透過 LINE 聯繫我們重新取得。</span><span class="lang-en" hidden>This link doesn't exist or has expired. Please double-check the personal link you received — if anything looks off, feel free to reach us on LINE and we'll get you a new one.</span></p>
+    <a class="start" href="01_入口頁.html"><span class="lang-zh">先看看免費版</span><span class="lang-en" hidden>Try the free version first</span></a>
   </main>
 
   <main class="sheet" id="valid" style="display:none">
     <div class="kicker">Soul Recipe · Full Version</div>
-    <h1 id="welcomeHeading">歡迎回家</h1>
-    <p class="intro">你的完整版使用權已確認，即將帶你進入建立命卡頁。</p>
+    <h1 id="welcomeHeading"><span class="lang-zh">歡迎回家</span><span class="lang-en" hidden>Welcome back</span></h1>
+    <p class="intro"><span class="lang-zh">你的完整版使用權已確認，即將帶你進入建立命卡頁。</span><span class="lang-en" hidden>Your full-version access is confirmed — taking you to the reading setup page.</span></p>
   </main>
 
   <footer class="brand">
-    <strong>靈魂配方使用手冊 · Soul Recipe Manual</strong>
-    <div class="tagline">看懂自己，不是為了被定義，而是為了更自由地使用自己。</div>
+    <strong><span class="lang-zh">靈魂配方使用手冊 · Soul Recipe Manual</span><span class="lang-en" hidden>Soul Recipe Manual</span></strong>
+    <div class="tagline"><span class="lang-zh">看懂自己，不是為了被定義，而是為了更自由地使用自己。</span><span class="lang-en" hidden>Understanding yourself isn't about being defined — it's about being able to use yourself more freely.</span></div>
     <div class="tagline" style="margin-top:8px"><a href="mailto:soulrecipe.tw@gmail.com" style="color:inherit;text-decoration:none">soulrecipe.tw@gmail.com</a></div>
   </footer>
 </div>
@@ -140,7 +147,20 @@ h1{
         // sessionStorage 無法使用時，仍放行到建立命卡頁，只是不會記得「完整版」狀態
       }
       if(displayName){
-        document.getElementById('welcomeHeading').textContent = `歡迎回家，${displayName}`;
+        function escapeHtml(str){
+          return String(str).replace(/[&<>"']/g, function(c){
+            return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+          });
+        }
+        const safeName = escapeHtml(displayName);
+        const h = document.getElementById('welcomeHeading');
+        h.innerHTML = '<span class="lang-zh">歡迎回家，' + safeName + '</span><span class="lang-en" hidden>Welcome back, ' + safeName + '</span>';
+        let lang;
+        try{ lang = localStorage.getItem('soulRecipeLang') || 'zh'; }catch(e){ lang = 'zh'; }
+        const zhSpan = h.querySelector('.lang-zh');
+        const enSpan = h.querySelector('.lang-en');
+        if(zhSpan) zhSpan.hidden = (lang === 'en');
+        if(enSpan) enSpan.hidden = (lang !== 'en');
       }
       checkingEl.style.display = 'none';
       validEl.style.display = 'block';
@@ -150,6 +170,40 @@ h1{
     }
   })
   .catch(showInvalid);
+})();
+
+/* ===== 語言切換 ===== */
+(function(){
+  var STORAGE_KEY = 'soulRecipeLang';
+  var btn = document.getElementById('langToggle');
+
+  function applyLang(lang){
+    var zhEls = document.querySelectorAll('.lang-zh');
+    var enEls = document.querySelectorAll('.lang-en');
+    for(var i=0;i<zhEls.length;i++){ zhEls[i].hidden = (lang === 'en'); }
+    for(var i=0;i<enEls.length;i++){ enEls[i].hidden = (lang !== 'en'); }
+    if(btn){ btn.textContent = (lang === 'en') ? '中文' : 'EN'; }
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-Hant';
+  }
+
+  function getStoredLang(){
+    try{ return localStorage.getItem(STORAGE_KEY) || 'zh'; }
+    catch(e){ return 'zh'; }
+  }
+  function setStoredLang(lang){
+    try{ localStorage.setItem(STORAGE_KEY, lang); }catch(e){}
+  }
+
+  var currentLang = getStoredLang();
+  applyLang(currentLang);
+
+  if(btn){
+    btn.addEventListener('click', function(){
+      currentLang = (currentLang === 'en') ? 'zh' : 'en';
+      setStoredLang(currentLang);
+      applyLang(currentLang);
+    });
+  }
 })();
 </script>
 </body>
