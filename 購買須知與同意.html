@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<title>購買前，請先確認 | 靈魂配方使用手冊</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="購買《靈魂配方使用手冊》前，請先閱讀商品內容、交付方式與退費說明。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="靈魂配方使用手冊 · Soul Recipe Manual">
+<meta property="og:title" content="購買前，請先確認 | 靈魂配方使用手冊">
+<meta property="og:description" content="購買《靈魂配方使用手冊》前，請先閱讀商品內容、交付方式與退費說明。">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F8F4EF;--paper:#FFFDF9;--ink:#2C2824;--muted:#81776F;
+  --line:#E8DED4;--rose:#C98F86;--rose-deep:#A66F68;
+  --rose-soft:#F3E3DF;--blue-soft:#E9F0F3;--gold:#AE925F;
+  --shadow:0 18px 55px rgba(53,42,35,.08)
+}
+*{box-sizing:border-box}
+body{
+  margin:0;color:var(--ink);font-family:'Noto Sans TC',sans-serif;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(243,227,223,.72), transparent 28%),
+    radial-gradient(circle at 90% 12%, rgba(233,240,243,.65), transparent 25%),
+    var(--bg);
+}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 72px}
+.back-link{
+  display:inline-flex;align-items:center;gap:6px;margin-top:40px;
+  font-size:12px;font-weight:800;color:var(--muted)
+}
+.sheet{
+  background:rgba(255,253,249,.97);border-radius:32px;padding:32px 24px 30px;
+  box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.92);
+  margin-top:16px
+}
+.kicker{
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--rose-deep);font-weight:900;text-align:center
+}
+h1{
+  font-family:'Noto Serif TC';font-size:28px;line-height:1.32;
+  text-align:center;margin:14px 0 22px;letter-spacing:.01em
+}
+.terms-section{
+  padding:18px 2px;border-top:1px solid rgba(232,222,212,.85)
+}
+.terms-section:first-of-type{border-top:none;padding-top:0}
+.terms-section h2{
+  font-family:'Noto Serif TC';font-size:16px;margin:0 0 8px;color:var(--ink)
+}
+.terms-section p{
+  margin:0;font-size:13px;line-height:1.95;color:#4E463F
+}
+.terms-section p + p{margin-top:10px}
+.consent-block{
+  margin-top:22px;padding:16px 15px;border-radius:16px;
+  background:rgba(233,240,243,.45);border:1px solid rgba(140,162,176,.16)
+}
+.consent-check{
+  display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+  font-size:12.5px;line-height:1.8;color:#3F4B50
+}
+.consent-check input{
+  margin-top:2px;flex:0 0 auto;width:17px;height:17px;
+  accent-color:#5F4E48;cursor:pointer
+}
+.consent-btn{
+  display:block;width:100%;margin-top:16px;text-align:center;border-radius:999px;
+  padding:14px 22px;background:#5F4E48;color:#fff;font-size:14px;
+  font-weight:900;box-shadow:0 9px 24px rgba(95,78,72,.11);border:none;cursor:pointer
+}
+.consent-btn:disabled,.consent-btn.locked{
+  background:#D9D0C6;color:#A69B8F;box-shadow:none;cursor:not-allowed
+}
+.hint-line{
+  margin-top:10px;text-align:center;font-size:11px;color:#9A8F86;line-height:1.8
+}
+.brand{
+  text-align:center;margin-top:40px;padding:30px 12px 8px;border-top:1px solid var(--line)
+}
+.brand strong{font-family:'Noto Serif TC';font-size:12px;color:#6F655D}
+.brand .tagline{font-size:11px;color:#9A8F86;line-height:1.9;margin-top:5px}
+@media(max-width:480px){
+  .wrap{padding:18px 14px 60px}
+  .sheet{border-radius:28px;padding:26px 18px 24px}
+  h1{font-size:clamp(20px,6.8vw,26px)}
+  .terms-section p{font-size:12.5px}
+}
+.lang-toggle-fixed{
+  position:fixed;top:14px;right:14px;z-index:80;
+  border:1px solid var(--line);background:var(--paper);border-radius:999px;
+  padding:8px 12px;font-size:11px;font-weight:800;color:var(--ink);cursor:pointer;
+  box-shadow:var(--shadow);white-space:nowrap
+}
+</style>
+</head>
+<body>
+<button class="lang-toggle-fixed" id="langToggle" type="button" aria-label="切換語言 / Switch language">EN</button>
+<div class="wrap">
+
+  <a class="back-link" id="backLink" href="01_入口頁.html">← <span class="lang-zh">返回上一頁</span><span class="lang-en" hidden>Back</span></a>
+
+  <main class="sheet">
+    <div class="kicker">Soul Recipe · Before You Buy</div>
+    <h1><span class="lang-zh">購買前，請先確認</span><span class="lang-en" hidden>Before You Buy, Please Confirm</span></h1>
+
+    <div class="terms-section">
+      <h2><span class="lang-zh">你會收到什麼</span><span class="lang-en" hidden>What You'll Receive</span></h2>
+      <p><span class="lang-zh">靈魂配方使用手冊為數位產品，提供小菲專屬助理指令，讓你在自己的 ChatGPT 生成完整命卡報告並延伸對話。不含真人一對一諮詢，內容供自我探索參考，不保證特定結果。</span><span class="lang-en" hidden>Soul Recipe Manual is a digital product. You'll receive personal instructions for Feifei, your AI assistant, which you use in your own ChatGPT to generate a complete reading report and continue the conversation from there. It does not include a live 1:1 consultation. The content is for self-exploration and doesn't guarantee any specific outcome.</span></p>
+    </div>
+
+    <div class="terms-section">
+      <h2><span class="lang-zh">如何取得與使用</span><span class="lang-en" hidden>How to Get &amp; Use It</span></h2>
+      <p><span class="lang-zh">付款核對完成後，我們會於 48 小時內（不含假日）透過 LINE 提供專屬使用連結與操作說明，不寄送實體商品。使用時需自備 ChatGPT 帳號，可用功能與額度依該平台規定。</span><span class="lang-en" hidden>Once your payment is verified, we'll send your personal access link and instructions through LINE within 48 hours (excluding weekends and holidays) — no physical product is shipped. You'll need your own ChatGPT account to use it; available features and usage limits follow that platform's own terms.</span></p>
+    </div>
+
+    <div class="terms-section">
+      <h2><span class="lang-zh">取消與退款</span><span class="lang-en" hidden>Cancellation &amp; Refunds</span></h2>
+      <p><span class="lang-zh">尚未提供數位內容前，可聯絡官方 LINE 申請取消及退款。經你事先同意開始提供數位內容後，於符合法定例外條件時，不適用七日解除權。</span><span class="lang-en" hidden>Before we've provided any digital content, you can contact us on LINE to request a cancellation and refund. Once you've agreed in advance to have digital content delivery begin, the 7-day withdrawal right no longer applies wherever the legal exceptions for this apply.</span></p>
+      <p><span class="lang-zh">如遇重複付款，核對後退還重複款項；若未收到內容或檔案無法使用，我們會協助補發或修復，若仍無法完成約定交付，將辦理退款。上述說明不影響你依法享有的其他權利。</span><span class="lang-en" hidden>If you're charged twice by mistake, we'll verify it and refund the duplicate charge. If you don't receive your content, or a file doesn't work, we'll help resend or fix it — and if we still can't deliver what was agreed, we'll issue a refund. None of this affects any other rights you have under the law.</span></p>
+    </div>
+
+    <div class="consent-block">
+      <label class="consent-check">
+        <input type="checkbox" id="consentCheck">
+        <span><span class="lang-zh">我已閱讀商品、交付與退費說明，同意付款確認後開始提供數位內容，並了解開始提供後，於符合法定例外條件時不適用七日解除權。</span><span class="lang-en" hidden>I've read the product, delivery and refund terms above. I agree that digital content delivery will begin once payment is confirmed, and I understand that once delivery begins, the 7-day withdrawal right no longer applies wherever the legal exceptions for this apply.</span></span>
+      </label>
+      <button class="consent-btn locked" id="consentBtn" type="button" disabled><span class="lang-zh">同意並前往 LINE</span><span class="lang-en" hidden>Agree &amp; Go to LINE</span></button>
+      <div class="hint-line"><span class="lang-zh">點擊後會開啟官方 LINE，聯繫並不代表已付款或已解鎖。</span><span class="lang-en" hidden>This opens our official LINE — messaging us doesn't mean payment or unlocking is complete.</span></div>
+    </div>
+  </main>
+
+  <footer class="brand">
+    <strong><span class="lang-zh">靈魂配方使用手冊 · Soul Recipe Manual</span><span class="lang-en" hidden>Soul Recipe Manual</span></strong>
+    <div class="tagline"><span class="lang-zh">看懂自己，不是為了被定義，而是為了更自由地使用自己。</span><span class="lang-en" hidden>Understanding yourself isn't about being defined — it's about being able to use yourself more freely.</span></div>
+    <div class="tagline" style="margin-top:8px"><a href="mailto:soulrecipe.tw@gmail.com" style="color:inherit;text-decoration:none">soulrecipe.tw@gmail.com</a></div>
+  </footer>
+</div>
+
+<script src="supabase-config.js"></script>
+<script>
+/* ===== 條款版本：文案有實質變動時（不含純排版/翻譯修正）就更新這個字串，
+   讓後續若有同意紀錄留存，可以對應到當時看到的是哪一版條款。===== */
+const TERMS_VERSION = '2026-09-26-v2';
+const OFFICIAL_LINE_URL = 'https://line.me/R/ti/p/%40103rvgsu';
+
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const from = params.get('from');
+  const ALLOWED_RETURN_PAGES = [
+    '01_入口頁.html',
+    '02_建立命卡頁.html',
+    '03_塔羅靈數結果頁.html'
+  ];
+  const backLink = document.getElementById('backLink');
+  if(from && ALLOWED_RETURN_PAGES.includes(from)){
+    backLink.href = from;
+  }
+})();
+
+/* ===== 同意紀錄：盡力而為地寫入後端（見部署說明），不會阻擋或延遲開啟 LINE，
+   失敗時只在 console 留紀錄，畫面上不會顯示任何「已儲存」或「已完成」文字——
+   單純的前端勾選或瀏覽器儲存，不能代表已經留存可對應購買者的同意紀錄。===== */
+function logConsentBestEffort(){
+  try{
+    const consentId = (crypto && crypto.randomUUID) ? crypto.randomUUID() : (Date.now() + '-' + Math.random().toString(16).slice(2));
+    const lang = (function(){ try{ return localStorage.getItem('soulRecipeLang') || 'zh'; }catch(e){ return 'zh'; } })();
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get('from') || 'direct';
+    if(typeof SOUL_RECIPE_SUPABASE_URL === 'undefined') return;
+    fetch(`${SOUL_RECIPE_SUPABASE_URL}/rest/v1/rpc/log_purchase_consent`, {
+      method: 'POST',
+      headers: {
+        'apikey': SOUL_RECIPE_SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SOUL_RECIPE_SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        input_consent_id: consentId,
+        input_terms_version: TERMS_VERSION,
+        input_lang: lang,
+        input_source: source
+      })
+    }).catch(err => { console.warn('consent log failed (non-blocking):', err); });
+  }catch(err){
+    console.warn('consent log skipped:', err);
+  }
+}
+
+(function(){
+  const checkbox = document.getElementById('consentCheck');
+  const btn = document.getElementById('consentBtn');
+
+  function updateBtnState(){
+    const checked = checkbox.checked;
+    btn.disabled = !checked;
+    btn.classList.toggle('locked', !checked);
+  }
+  checkbox.addEventListener('change', updateBtnState);
+  updateBtnState();
+
+  btn.addEventListener('click', function(){
+    if(!checkbox.checked) return;
+    logConsentBestEffort();
+    window.open(OFFICIAL_LINE_URL, '_blank', 'noopener,noreferrer');
+  });
+})();
+
+/* ===== 語言切換 ===== */
+(function(){
+  var STORAGE_KEY = 'soulRecipeLang';
+  var btn = document.getElementById('langToggle');
+
+  function applyLang(lang){
+    var zhEls = document.querySelectorAll('.lang-zh');
+    var enEls = document.querySelectorAll('.lang-en');
+    for(var i=0;i<zhEls.length;i++){ zhEls[i].hidden = (lang === 'en'); }
+    for(var i=0;i<enEls.length;i++){ enEls[i].hidden = (lang !== 'en'); }
+    if(btn){ btn.textContent = (lang === 'en') ? '中文' : 'EN'; }
+    document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-Hant';
+  }
+
+  function getStoredLang(){
+    try{ return localStorage.getItem(STORAGE_KEY) || 'zh'; }
+    catch(e){ return 'zh'; }
+  }
+  function setStoredLang(lang){
+    try{ localStorage.setItem(STORAGE_KEY, lang); }catch(e){}
+  }
+
+  var currentLang = getStoredLang();
+  applyLang(currentLang);
+
+  if(btn){
+    btn.addEventListener('click', function(){
+      currentLang = (currentLang === 'en') ? 'zh' : 'en';
+      setStoredLang(currentLang);
+      applyLang(currentLang);
+    });
+  }
+})();
+</script>
+</body>
+</html>
