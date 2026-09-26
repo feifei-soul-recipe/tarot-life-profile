@@ -3,7 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <title>你的塔羅靈數檔案</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="你的塔羅靈數命卡結果：本命牌、隱藏牌、流年運勢與完整解讀，看懂屬於你的生命脈絡。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="靈魂配方使用手冊 · Soul Recipe Manual">
+<meta property="og:title" content="你的塔羅靈數檔案｜靈魂配方使用手冊">
+<meta property="og:description" content="你的塔羅靈數命卡結果：本命牌、隱藏牌、流年運勢與完整解讀，看懂屬於你的生命脈絡。">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
@@ -301,7 +316,6 @@ details:not([open]) > *:not(summary){display:none}
 
   <div class="integrated">
     <div id="integratedReadingBody"></div>
-    <div id="specificComboNote"></div>
   </div>
 </section>
 </div>
@@ -505,7 +519,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderYourTiming(data);
   renderJourney(data);
   renderIntegratedReading(data);
-  renderSpecificComboNote(data);
   renderCompactCard(data);
 });
 
@@ -1435,8 +1448,7 @@ function renderIntegratedReading(data){
    資料來源正式分工：
    外在主題 → annualYearly／內在階段 → birthdayYearly／
    五年旅程 → yearJourneySummary（獨立濃縮摘要，不是完整 annualYearly，也不是 displayCopy）。
-   「當下位置」已從 03 前台移除（與 05 Integrated Reading 的「當下主題」功能重疊）；
-   buildYourPositionText()／sameYearly／雙軌整合 bridge 仍保留在後台，供其他模組使用，只是不再由 03 呼叫顯示。
+   「當下位置」已從 03 前台移除（與 05 Integrated Reading 的「當下主題」功能重疊）。
    CARDS[n].displayCopy 不再作為本區流年解讀來源（仍保留給單張牌卡片與分享圖卡等既有用途）。===== */
 
 /* yearJourneySummary：每張牌一句約15~25字的時間摘要，逐字濃縮自該牌的正式牌義與
@@ -1465,19 +1477,6 @@ const YEAR_JOURNEY_SUMMARY = {
   "21": "跨界、換環境、打開新路的一年。",
   "22": "新起點、重新嘗試增加的一年。"
 };
-
-/* 雙軌整合能力：不再由 03 前台呼叫（「當下位置」區塊已移除，與 05 Integrated Reading 的
-   「當下主題」功能重疊）。函式保留在後台，供未來其他模組使用；獨立於 05 的 usage 預算之外，
-   同號時只解一次 sameYearly；不同號時分別保留 annualYearly／birthdayYearly，再接正式的雙軌
-   整合 bridge（GENERIC_INTEGRATION_DIFFERENT），不判斷哪一層比較重要。 */
-function buildYourPositionText(annualYearCard, birthdayYearCard){
-  if(annualYearCard === birthdayYearCard){
-    return sameYearlyText(annualYearCard);
-  }
-  // 只做雙軌整合，不重貼 annualYearly／birthdayYearly 全文（那兩段已經各自在
-  // 「外在主題」「內在階段」顯示過了）。
-  return GENERIC_INTEGRATION_DIFFERENT;
-}
 
 /* 生日流年的實際日期區間：從這次生日（birthdayYearRef 年）到下一次生日的前一天。
    用 Date 物件做加減，正確處理跨月／跨年與 2/29 邊界，不手動假設每月天數。 */
@@ -1541,24 +1540,6 @@ function renderJourney(data){
       <div class="mini">${journeySummary[String(n)] || ''}</div>
     </div>`;
   }).join('');
-}
-
-/* ===== 交互作用：只顯示 soul-recipe-rules.json interactionRules.confirmedSpecificCombination
-   裡逐字寫明的已確認牌組線索，不自行推測、不生成任意組合的解讀文字 ===== */
-const CONFIRMED_COMBINATIONS = [
-  { cards: [1,14,15], text: '節制＋惡魔＋魔術師可能呈現更高明、技巧性更強的謊言。' },
-  { cards: [14,15], text: '節制＋惡魔可能呈現較容易說謊的傾向。' }
-];
-const CONFIRMED_COMBINATION_GUARDRAIL = '以上只是高辨識度線索，不是最終結論，需回到整體盤、成熟／失衡狀態、流年與現實情境驗證。';
-
-/* ===== 這組「已確認牌組線索」是內部參考資料，不對外顯示：直接把某個組合講成
-   「較容易說謊」這類定性判斷，不符合本站解讀一律避免人格判決的語氣原則。
-   保留 CONFIRMED_COMBINATIONS／CONFIRMED_COMBINATION_GUARDRAIL 供未來內部參考，
-   但頁面上不再渲染任何內容。===== */
-function renderSpecificComboNote(data){
-  const el = document.getElementById('specificComboNote');
-  if(!el) return;
-  el.innerHTML = '';
 }
 
 function formatTodayDisplay(){
