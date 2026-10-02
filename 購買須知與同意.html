@@ -126,7 +126,7 @@ h1{
 
     <div class="terms-section">
       <h2><span class="lang-zh">如何取得與使用</span><span class="lang-en" hidden>How to Get &amp; Use It</span></h2>
-      <p><span class="lang-zh">付款核對完成後，我們會於 48 小時內（不含假日）透過 LINE 提供專屬使用連結與操作說明，不寄送實體商品。使用時需自備 ChatGPT 帳號，可用功能與額度依該平台規定。</span><span class="lang-en" hidden>Once your payment is verified, we'll send your personal access link and instructions through LINE within 48 hours (excluding weekends and holidays) — no physical product is shipped. You'll need your own ChatGPT account to use it; available features and usage limits follow that platform's own terms.</span></p>
+      <p><span class="lang-zh">透過 PAYUNi 完成付款後，請將訂單編號或付款成功截圖傳至官方 LINE。核對完成後，我們會於 48 小時內（不含假日）提供專屬使用連結與操作說明，不寄送實體商品。使用時需自備 ChatGPT 帳號，可用功能與額度依該平台規定。</span><span class="lang-en" hidden>After completing payment through PAYUNi, please send your order number or a screenshot of the successful payment to our official LINE. Once verified, we'll provide your personal access link and instructions within 48 hours (excluding weekends and holidays) — no physical product is shipped. You'll need your own ChatGPT account to use it; available features and usage limits follow that platform's own terms.</span></p>
     </div>
 
     <div class="terms-section">
@@ -140,8 +140,8 @@ h1{
         <input type="checkbox" id="consentCheck">
         <span><span class="lang-zh">我已閱讀商品、交付與退費說明，同意付款確認後開始提供數位內容，並了解開始提供後，於符合法定例外條件時不適用七日解除權。</span><span class="lang-en" hidden>I've read the product, delivery and refund terms above. I agree that digital content delivery will begin once payment is confirmed, and I understand that once delivery begins, the 7-day withdrawal right no longer applies wherever the legal exceptions for this apply.</span></span>
       </label>
-      <button class="consent-btn locked" id="consentBtn" type="button" disabled><span class="lang-zh">同意並前往 LINE</span><span class="lang-en" hidden>Agree &amp; Go to LINE</span></button>
-      <div class="hint-line"><span class="lang-zh">點擊後會開啟官方 LINE，聯繫並不代表已付款或已解鎖。</span><span class="lang-en" hidden>This opens our official LINE — messaging us doesn't mean payment or unlocking is complete.</span></div>
+      <button class="consent-btn locked" id="consentBtn" type="button" disabled><span class="lang-zh">同意並前往付款</span><span class="lang-en" hidden>Agree &amp; Proceed to Payment</span></button>
+      <div class="hint-line"><span class="lang-zh">點擊後會開啟 PAYUNi 付款頁，付款完成後仍需透過官方 LINE 核對，才會收到專屬連結；取得繳費資訊或返回網站都不代表已付款或已解鎖。</span><span class="lang-en" hidden>This opens the PAYUNi payment page. After paying, you'll still need to message our official LINE for verification before receiving your personal link — getting payment details or returning to this site doesn't mean payment or unlocking is complete.</span></div>
     </div>
   </main>
 
@@ -156,8 +156,8 @@ h1{
 <script>
 /* ===== 條款版本：文案有實質變動時（不含純排版/翻譯修正）就更新這個字串，
    讓後續若有同意紀錄留存，可以對應到當時看到的是哪一版條款。===== */
-const TERMS_VERSION = '2026-09-26-v2';
-const OFFICIAL_LINE_URL = 'https://line.me/R/ti/p/%40103rvgsu';
+const TERMS_VERSION = '2026-10-02-v3';
+const PAYUNI_PAYMENT_URL = 'https://api.payuni.com.tw/api/uop/receive_info/2/1/HTCU1150901000454/1r2FLVxdbgphTgQ8cMzRY';
 
 (function(){
   const params = new URLSearchParams(window.location.search);
@@ -173,7 +173,7 @@ const OFFICIAL_LINE_URL = 'https://line.me/R/ti/p/%40103rvgsu';
   }
 })();
 
-/* ===== 同意紀錄：盡力而為地寫入後端（見部署說明），不會阻擋或延遲開啟 LINE，
+/* ===== 同意紀錄：盡力而為地寫入後端（見部署說明），不會阻擋或延遲前往付款頁，
    失敗時只在 console 留紀錄，畫面上不會顯示任何「已儲存」或「已完成」文字——
    單純的前端勾選或瀏覽器儲存，不能代表已經留存可對應購買者的同意紀錄。===== */
 function logConsentBestEffort(){
@@ -217,7 +217,7 @@ function logConsentBestEffort(){
   btn.addEventListener('click', function(){
     if(!checkbox.checked) return;
     logConsentBestEffort();
-    window.open(OFFICIAL_LINE_URL, '_blank', 'noopener,noreferrer');
+    window.open(PAYUNI_PAYMENT_URL, '_blank', 'noopener,noreferrer');
   });
 })();
 
